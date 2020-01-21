@@ -1,0 +1,197 @@
+<odoo>
+
+    <record model="ir.actions.act_window" id="autor_list_action">
+        <field name="name">autor</field>
+        <field name="res_model">views.autor</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de autores">
+                <field name="name"/>
+                <field name="fnac"/>
+                <field name="premioPuesto"/>
+                <field name="autor_id"/>
+                <field name="libro_id"/>
+                <field name="premio_id"/>
+                <field name="festival_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="libro_list_action">
+        <field name="name">libro</field>
+        <field name="res_model">views.libro</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de libros">
+                <field name="title"/>
+                <field name="tapaDura"/> 
+               <fields name="tiempo"/>
+                <fields name="tamaño"/> 
+                <fields name="paginasLibro"/>
+                <field name="libro_id"/>
+                <field name="autor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="premio_list_action">
+        <field name="name">premio</field>
+        <field name="res_model">views.premio</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de premios">
+                <field name="year"/>
+                <field name="premio_id"/>
+                <field name="autor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="festival_list_action">
+        <field name="name">festival</field>
+        <field name="res_model">views.festival</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de festivales">
+                <field name="date"/>
+                <field name="festival_id"/>
+                <field name="autor_id"/>
+            </tree>
+        </field>
+    </record>
+    
+    <menuitem name="views" id="views_menu_root"/>
+
+    <menuitem name="autor" id="views_menu_autor" parent="views_menu_root"/>
+    <menuitem name="libro" id="views_menu_libro" parent="views_menu_root"/>
+    <menuitem name="premio" id="views_menu_premio" parent="views_menu_root"/>
+    <menuitem name="festival" id="views_menu_festival" parent="views_menu_root"/>
+
+    
+   
+    <record model='ir.ui.view' id='autor_tree_view'>
+        <field name="name">autor.tree</field>
+        <field name="model">views.autor</field>
+        <field name="arch" type="xml">
+            <tree string="Autor Tree">
+                 <field name="name"/>
+                <field name="fnac"/>
+                <field name="premioPuesto"/>
+                
+               <!-- <field name="libro_id"/>-->
+                <field name="premio_id"/>
+                <field name="festival_id"/>
+            </tree>
+        </field>
+    </record> 
+
+    <record model='ir.ui.view' id='libro_tree_view'>
+        <field name="name">libro.tree</field>
+        <field name="model">views.libro</field>
+        <field name="arch" type="xml">
+            <tree string="Libro Tree">
+                <field name="title"/>
+                <field name="tapaDura"/>
+                <fields name="tiempo"/>
+                <fields name="tamaño"/>
+                <fields name="paginasibro"/>
+                <!--<field name="libro_id"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="autor_form_view">
+        <field name="name">autor.form</field>
+        <field name="model">views.autor</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de autores">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="fnac"/> 
+                        <field name="premioPuesto"/> 
+                       <!-- <field name="autor_id"/>-->
+                        <field name="libro_id"/>
+                        <field name="premio_id"/>
+                        <field name="festival_id"/>
+                     
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="libro_form_view">
+        <field name="name">libro.form</field>
+        <field name="model">views.libro</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de libros">
+                <sheet>
+                    <group>
+                        <field name="title"/>
+                        <field name="tapaDura"/>
+                       <fields name="tiempo"/>
+                        <fields name="tamaño"/> 
+                        <fields name="paginaslibro"/>
+                      <!-- <field name="libro_id"/> -->
+                        <field name="autor_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="premio_form_view">
+        <field name="name">premio.form</field>
+        <field name="model">views.premio</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de premios">
+                <sheet>
+                    <group>
+                        <field name="year"/>
+                      <!--  <field name="premio_id"/>-->
+                        <field name="autor_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="premio_calendar_view">
+        <field name="name">premio.calendar</field>
+        <field name="model">views.premio</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de premios">
+                <field name="year"/>
+             <!--   <field name="premio_id"/>-->
+                <field name="autor_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="festival_form_view">
+        <field name="name">festival.form</field>
+        <field name="model">views.festival</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de festivales">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                       <!--<field name="festival_id"/>--> 
+                        <field name="autor_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem name="listado de autor" id="views_list_autor" parent="views_menu_autor" action="autor_list_action"/>
+    <menuitem name="listado de libro" id="views_list_libro" parent="views_menu_libro" action="libro_list_action"/>
+    <menuitem name="listado de premio" id="views_list_premio" parent="views_menu_premio" action="premio_list_action"/>
+    <menuitem name="listado de festival" id="views_list_festival" parent="views_menu_festival" action="festival_list_action"/>
+
+</odoo>
