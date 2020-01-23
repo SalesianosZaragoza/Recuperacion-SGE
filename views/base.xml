@@ -67,10 +67,10 @@
 
     <!-- Menu items -->
 
-    <menuitem id="base_menu" name="Libros Autores"/>
-    <menuitem id="base_module" name="Modulo Base" parent="base_menu"/>
-    <menuitem id="book_menu" name="Libros" parent="base_menu" action="book_list_action"/>
-    <menuitem id="author_menu" name="Autores" parent="base_menu" action="author_list_action"/>
+    <menuitem id="base_menu" name="Recuperacion"/>
+    <menuitem id="base_module" name="Autores Libros" parent="base_menu"/>
+    <menuitem id="book_menu" name="Libros" parent="base_module" action="book_list_action"/>
+    <menuitem id="author_menu" name="Autores" parent="base_module" action="author_list_action"/>
 
 
 </odoo>
