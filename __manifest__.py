@@ -13,7 +13,7 @@
     'website': "https://zaragoza.salesianos.edu/",
     'category': 'Recuperación',
     'version': '1.0',
-    'depends': ['base','baseModule'],
+    'depends': ['base'],
     'data': [
         'views/base.xml',
     ],
