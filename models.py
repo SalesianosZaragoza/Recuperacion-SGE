@@ -8,9 +8,9 @@ class Book(models.Model):
     description = fields.Text(string="Descripción")
     release_date = fields.Date(string="Fecha de publicación", store=True)
     genres = fields.Selection([('gen1', 'Fantasia'), ('gen2', 'Ciencia ficción'), ('gen3','Romance'), ('gen4','Aventura'), ('gen5','Misterio'), ('gen6', 'Distópica')], 'Género', default='gen1')
-    start_date = fields.Date(default=fields.Date.today)
-    duration = fields.Float(digits=(6, 2), help="Duration in days") 
-    end_date = fields.Date(string="End Date", store=True, compute='_get_end_date', inverse='_set_end_date')
+    start_date = fields.Date(string="Fecha de inicio", default=fields.Date.today)
+    duration = fields.Float(string="Duración", digits=(6, 2), help="Duration in days") 
+    end_date = fields.Date(string="Fecha de finalización", store=True, compute='_get_end_date', inverse='_set_end_date')
 
     @api.depends('start_date', 'duration')
     def _get_end_date(self):
