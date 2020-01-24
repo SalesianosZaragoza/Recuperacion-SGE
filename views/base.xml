@@ -78,6 +78,7 @@
                 <field name="name"/>
                 <field name="surname"/>
                 <field name="birth_date"/>
+                <field name="age"/>
             </tree>
         </field>
     </record>    
