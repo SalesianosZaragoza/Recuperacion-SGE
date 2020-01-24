@@ -31,12 +31,29 @@
         <field name="name">book.calendar</field>
         <field name="model">book.model</field>
         <field name="arch" type="xml">
-            <calendar string="Book Calendar" event_open_popup="true" date_start="start_date" date_stop="end_date" quick_add="False">
+            <calendar string="Book Calendar" event_open_popup="true" date_start="start_date" >
                 <field name="name"/>
                 <field name="description"/>
                 <field name="release_date"/>
                 <field name="genres"/>
             </calendar>
+        </field>
+    </record>
+
+    <!--Book search view -->
+
+    <record model="ir.ui.view" id="book_search_view">
+        <field name="name">book.search</field>
+        <field name="model">book.model</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="name" string="Nombre empieza por 'A'" domain="[('name', '=ilike', 'a%')]"/>
+                <filter name="name" string="Nombre empieza por 'B'" domain="[('name', '=ilike', 'b%')]"/>
+                <group string="Group By">
+                    <filter name="genres" string="Género" context="{'group_by': 'genres'}"/>
+                </group> 
+            </search>
         </field>
     </record>
 
