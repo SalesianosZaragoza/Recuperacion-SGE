@@ -21,6 +21,7 @@
                 <field name="description"/>
                 <field name="release_date"/>
                 <field name="genres"/>
+                <field name="prizes_id"/>
             </tree>
         </field>
     </record>
@@ -78,7 +79,32 @@
                 <field name="name"/>
                 <field name="surname"/>
                 <field name="birth_date"/>
-                <field name="age"/>
+                <field name="age" string="Edad"/>
+                <field name="prize_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Prize action list -->
+
+    <record model="ir.actions.act_window" id="prize_list_action">        
+        <field name="name">Premios</field>
+        <field name="res_model">prize.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">No hay datos, prueba a crear un nuevo premio</p>
+        </field>
+    </record>   
+
+    <!-- Prize tree view -->
+
+    <record model='ir.ui.view' id='prize_tree_view'>
+        <field name="name">prize.tree</field>
+        <field name="model">prize.model</field>
+        <field name="arch" type="xml">
+            <tree string="Premios">
+                <field name="typePrize"/>
+                <field name="author_id"/>
             </tree>
         </field>
     </record>    
@@ -89,6 +115,7 @@
     <menuitem id="base_module" name="Autores Libros" parent="base_menu"/>
     <menuitem id="book_menu" name="Libros" parent="base_module" action="book_list_action"/>
     <menuitem id="author_menu" name="Autores" parent="base_module" action="author_list_action"/>
+    <menuitem id="prize_menu" name="Premios" parent="base_module" action="prize_list_action"/>
 
 
 </odoo>
