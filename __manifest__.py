@@ -16,5 +16,7 @@
     'depends': ['base'],
     'data': [
         'views/base.xml',
+        'reports/report.xml',
+        'reports/book.xml',
     ],
 }
