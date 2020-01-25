@@ -1,0 +1,9 @@
+<odoo>
+    <report
+    id="report_book_model"
+    string="Book report"
+    model="book.model"
+    report_type="qweb-pdf"
+    name="RecuperacionOdoo.report_book"
+    file="RecuperacionOdoo.report_book"/>
+</odoo>
