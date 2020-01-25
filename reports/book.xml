@@ -1,0 +1,20 @@
+<odoo>
+    <template id="report_book">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <h2>Libro</h2>
+                Nombre: <t t-esc="doc.name"/>
+                <br/>
+                Descripción: <t t-esc="doc.description"/>
+                <br/>
+                Fecha de salida: <t t-esc="doc.release_date"/>
+                <br/>
+                Género: <t t-esc="doc.genres"/>
+                <br/>
+                Fecha de inicio: <t t-esc="doc.start_date"/>
+                <br/>
+                Premio: <t t-esc="doc.prizes_id"/>
+            </t>
+        </t>
+    </template>
+</odoo>
