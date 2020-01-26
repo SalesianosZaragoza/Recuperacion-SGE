@@ -4,7 +4,7 @@
     <record model="ir.actions.act_window" id="book_list_action">        
         <field name="name">Libros</field>
         <field name="res_model">book.model</field>
-        <field name="view_mode">tree,form,calendar</field>
+        <field name="view_mode">tree,form,calendar,kanban</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">No hay datos, prueba a crear un nuevo libro</p>
         </field>
@@ -56,6 +56,36 @@
                 </group> 
             </search>
         </field>
+    </record>
+
+    <!--Book kanban view -->
+
+    <record model="ir.ui.view" id="book_kanban_view">
+        <field name="name">book.kanban</field>
+        <field name="model">book.model</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="release_date"/>
+                <field name="genres"/>
+                <field name="start_date"/>
+                <field name="prizes_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="field_details">
+                            <strong class="field_title"><field name="display_name"/></strong>                        
+                        <ul>
+                            <li>Descripción: <field name="description"/> </li>
+                            <li>Fecha de publicación: <field name="release_date"/> </li>
+                            <li>Género: <field name="genres"/> </li>
+                            <li>Fecha de recordatorio: <field name="start_date"/> </li>
+                        </ul>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>    
     </record>
 
     <!-- Author action list -->
