@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Recuperación",
+    'name': "Libros y Autores",
 
     'summary': """
         Recuperación""",
 
     'description': """
-        Recuperación de Odoo
+        Recuperación de Odoo en la que se usan ejemplos de libros y autores
     """,
 
     'author': "Jefferson Chanchicocha",
     'website': "https://zaragoza.salesianos.edu/",
-    'category': 'Recuperación',
+    'category': 'Odoo',
     'version': '1.0',
     'depends': ['base'],
     'data': [
