@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record model="ir.actions.act_window" id="autor_list_action">
+            <field name="name">Autor</field>
+            <field name="res_model">autor.modelo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="libro_list_action">
+            <field name="name">Libro</field>
+            <field name="res_model">libro.modelo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,kanban</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="premioautor_list_action">
+            <field name="name">PremioAutor</field>
+            <field name="res_model">premioautor.modelo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="premiolibro_list_action">
+            <field name="name">PremioLibro</field>
+            <field name="res_model">premiolibro.modelo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="autor_tree_view">
+            <field name="name">Autor vista tree</field>
+            <field name="model">autor.modelo</field>
+            <field name="arch" type="xml">
+                <tree string="Autor Tree">
+                    <field name="name"/>
+                    <field name="fnac"/>
+                    <field name="anosprofesion"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="libro_tree_view">
+            <field name="name">libro vista tree</field>
+            <field name="model">libro.modelo</field>
+            <field name="arch" type="xml">
+                <tree string="Libro Tree">
+                    <field name="name"/>
+                    <field name="ano"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="premioautor_tree_view">
+            <field name="name">premio vista tree</field>
+            <field name="model">premioautor.modelo</field>
+            <field name="arch" type="xml">
+                <tree string="premioAutor Tree">
+                    <field name="name"/>
+                    <field name="ano"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="premiolibro_tree_view">
+            <field name="name">premio vista tree</field>
+            <field name="model">premiolibro.modelo</field>
+            <field name="arch" type="xml">
+                <tree string="premioLibro Tree">
+                    <field name="name"/>
+                    <field name="ano"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="libro_calendar_view">
+            <field name="name">libro.calendar</field>
+            <field name="model">libro.modelo</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendario de libros" date_start="start_date">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_openacad_session_kanban">
+            <field name="name">libro.kanban</field>
+            <field name="model">libro.modelo</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="autor_id">
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div
+                                    t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                                  oe_kanban_global_click_edit oe_semantic_html_override
+                                                  oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                                <div class="oe_dropdown_kanban">
+                                    <div class="oe_dropdown_toggle">
+                                        <i class="fa fa-bars fa-lg" title="Manage" aria-label="Manage"/>
+                                        <ul class="oe_dropdown_menu">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                            <li>
+                                                <ul class="oe_kanban_colorpicker"
+                                                    data-field="color"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                                <div t-attf-class="oe_kanban_content">
+                                    Titulo del libro:
+                                    <field name="name"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <menuitem id="main_recu_menu" name="Autor Libros"/>
+        <menuitem id="recu_menu" name="Menu" parent="main_recu_menu"/>
+        <menuitem id="autor_menu" name="Autores" parent="recu_menu" action="autor_list_action"/>
+        <menuitem id="libro_menu" name="Libros" parent="recu_menu" action="libro_list_action"/>
+        <menuitem id="premioautor_menu" name="PremiosA" parent="recu_menu" action="premioautor_list_action"/>
+        <menuitem id="premiolibro_menu" name="PremiosL" parent="recu_menu" action="premiolibro_list_action"/>        
+</odoo> 

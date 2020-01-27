@@ -1,0 +1,28 @@
+<odoo>
+
+    <report
+        id="report_libro"
+        model="libro.modelo"
+        string="PDF Libro"
+        name="libro.libro_session_view"
+        file="libro.libro_session"
+        report_type="qweb-pdf" />
+
+    <template id="libro_session_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="doc.name"/>
+                        <h3>Attendees:</h3>
+                        <ul>
+                            <t t-foreach="doc.ano"></t>
+                            <t t-foreach="doc.name"></t>
+                        </ul>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
