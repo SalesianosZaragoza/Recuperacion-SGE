@@ -9,6 +9,7 @@ class Libro(models.Model):
     fecha_lanzamiento = fields.Date(string="Dia de publicación", store=True)
     genero = fields.Selection([('gr1', 'Fantasia'), ('gr2', 'Ciencia ficción'), ('gr3','Romance'), ('gr4','Aventura'), ('gr5','Misterio'), ('gr6', 'Distópica')], 'Género', default='gr1')
     id_premio = fields.Many2many('id_premio', string="Premios")
+    
 
 class Author(models.Model):
     _name = 'autor.model'

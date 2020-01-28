@@ -1,14 +1,11 @@
 <odoo>
-    <!-- Book action list -->
 
     <record model="ir.actions.act_window" id="libros_action">        
         <field name="name">Libros</field>
         <field name="res_model">libro.model</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <!-- Book tree view -->
-
+    
     <record model='ir.ui.view' id='libro_tree_view'>
         <field name="name">libro.tree</field>
         <field name="model">libro.model</field>
@@ -23,15 +20,25 @@
         </field>
     </record>
 
+     <record model="ir.ui.view" id="libro_calendar_view">
+        <field name="name">libro.calendar</field>
+        <field name="model">libro.model</field>
+        <field name="arch" type="xml">
+            <calendar string="Book Calendar" event_open_popup="true" date_start="start_date" >
+               <field name="nombre"/>
+                <field name="descripcion"/>
+                <field name="fecha_lanzamiento"/>
+                <field name="genero"/>
+            </calendar>
+        </field>
+    </record>
 
     <record model="ir.actions.act_window" id="autores_action">        
         <field name="name">Autor</field>
         <field name="res_model">autor.model</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <!-- Book tree view -->
-
+    
     <record model='ir.ui.view' id='autor_tree_view'>
         <field name="name">autor.tree</field>
         <field name="model">autor.model</field>
@@ -46,14 +53,11 @@
         </field>
     </record>
 
-
     <record model="ir.actions.act_window" id="premios_action">        
         <field name="name">Premio</field>
         <field name="res_model">premio.model</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <!-- Book tree view -->
 
     <record model='ir.ui.view' id='premio_tree_view'>
         <field name="name">premio.tree</field>
