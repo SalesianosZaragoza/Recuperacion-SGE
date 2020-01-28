@@ -52,6 +52,21 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="libro_search_view">
+            <field name="name">libro.search</field>
+            <field name="model">libro.modelo</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="ano"/>
+                    <group string="Group By">
+                        <filter name="by_autor" string="autor"
+                                context="{'group_by': 'autor_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
         <record model="ir.ui.view" id="premioautor_tree_view">
             <field name="name">premio vista tree</field>
             <field name="model">premioautor.modelo</field>

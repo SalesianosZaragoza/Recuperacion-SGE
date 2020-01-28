@@ -9,10 +9,29 @@ class autor(models.Model):
 
     name = fields.Char(string="Nombre Autor", required=True)
     fnac = fields.Date(string="Fecha de nacimiento", store=True)
-    libro_ids = fields.One2many('libro.modelo','autor_id', string="Libros del autor:")
+    libro_ids = fields.One2many('libro.modelo','autor_id', ondelete='cascade', string="Libros del autor:")
     premioautor_ids = fields.One2many('premioautor.modelo','autor_id', string="Premios del autor:")
     anosprofesion = fields.Integer(string="Numero de anos siendo escritor")
+    nivel = fields.Char(string="Experiencia escribiendo", required=True)
 
+    @api.onchange('anosprofesion', 'nivel')
+    def _verify_valid_nivel(self):
+        if self.anosprofesion < 0:
+            return {
+                'warning': {
+                    'title': "Incorrect 'anosprofesion' value",
+                    'message': "La cantidad de anosprofesion no puede ser negativa",
+                },
+            }
+        if self.anosprofesion < 5:
+            for record in self:
+                self.nivel = 'Novato'
+        if self.anosprofesion > 5 and self.anosprofesion <10:
+            for record in self:
+                self.nivel = 'Experimentado'
+        if self.anosprofesion > 10:
+            for record in self:
+                self.nivel = 'Dios de la escritura'
 
     @api.multi
     def copy(self, default=None):
@@ -34,8 +53,6 @@ class autor(models.Model):
          'UNIQUE(name)',
          "Ya existe un autor con este nombre!"),
     ]
-
-    
 
     @api.constrains('anosprofesion')
     def _check_something(self):
