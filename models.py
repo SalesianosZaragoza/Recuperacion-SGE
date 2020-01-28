@@ -60,14 +60,14 @@ class Jedis(models.Model):
     _sql_constraints = [
         ('name_unique',
          'UNIQUE(name)',
-         "Este jedi ya existe."),
+         "This jedi already exists."),
     ]
 
     @api.constrains('midiclorians')
     def _check_something(self):
         for record in self:
             if record.midiclorians > 100:
-                   raise ValidationError("Tiene un muy alto nivel de midiclorianos: %s" % record.midiclorians)
+                   raise ValidationError("A very high level of midiclorians has been detected: %s" % record.midiclorians)
 
 
 
@@ -94,6 +94,3 @@ class Specie(models.Model):
     _description = 'Species list'
     name = fields.Text(string="Specie")
     planet_id = fields.Many2one('war.planet',ondelete='cascade', string="Planet", required=True)
-
-
-
