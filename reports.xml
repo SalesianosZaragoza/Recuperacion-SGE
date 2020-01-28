@@ -1,0 +1,26 @@
+<odoo>
+    <report
+        id="report_Siths"
+        model="war.sith"
+        string="Siths Report"
+        name="Siths.report_session_view"
+        file="Siths.report_session"
+        report_type="qweb-pdf"/>
+
+    <template id="report_session_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="doc.name"/>
+                        <h3>Siths: </h3>
+                        <ul>
+                            <t t-foreach="doc.race" t-as="Race"> </t>
+                            <t t-foreach="doc.rage" t-as="Rage"> </t>
+                        </ul>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

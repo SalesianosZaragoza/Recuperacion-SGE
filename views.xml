@@ -1,0 +1,92 @@
+<odoo>
+
+    <record model="ir.actions.act_window" id="jedi_list_action">
+        <field name="name"> Jedis </field>
+        <field name="res_model"> war.jedis </field>
+        <field name="view_type"> form </field>
+        <field name="view_mode"> tree,form </field>
+    </record>
+
+    <record model="ir.ui.view" id="jedis_list">
+        <field name="name"> Jedis </field>
+        <field name="model"> war.jedis </field>
+        <field name="arch" type="xml">
+            <tree string="Jedis list">
+                <field name="name"/>
+                <field name="saber_color"/>
+                <field name="last_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="sith_list_action">
+        <field name="name"> Sith </field>
+        <field name="res_model"> war.sith </field>
+        <field name="view_type"> form </field>
+        <field name="view_mode"> tree,form </field>
+    </record>
+
+    <record model="ir.ui.view" id="sith_list">
+        <field name="name"> Sith </field>
+        <field name="model"> war.sith </field>
+        <field name="arch" type="xml">
+            <tree string="Sith list">
+                <field name="name"/>
+                <field name="race"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="planet_list_action">
+        <field name="name"> Planets </field>
+        <field name="res_model"> war.planet </field>
+        <field name="view_type"> form </field>
+        <field name="view_mode"> tree,form,calendar </field>
+    </record>
+
+    <record model="ir.ui.view" id="planet_list">
+        <field name="name"> Planet </field>
+        <field name="model"> war.planet </field>
+        <field name="arch" type="xml">
+            <tree string="Planet list">
+                <field name="name"/>
+                <field name="destroyed"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="planet_calendar_view">
+        <field name="name"> planet.calendar </field>
+        <field name="model"> war.planet </field>
+        <field name="arch" type="xml">
+            <calendar string="Session Calendar" event_open_popup="true" date_start="date_des" date_stop="date_des" quick_add="False">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="specie_list_action">
+        <field name="name"> Species </field>
+        <field name="res_model"> war.specie </field>
+        <field name="view_type"> form </field>
+        <field name="view_mode"> tree,form </field>
+    </record>
+
+    <record model="ir.ui.view" id="specie_list">
+        <field name="name"> Species </field>
+        <field name="model"> war.specie </field>
+        <field name="arch" type="xml">
+            <tree string="Species list">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>  
+
+    <menuitem id="main_war_menu" name="War"/>
+    <menuitem id="war_menu" name="Galaxy" parent="main_war_menu"/>
+    <menuitem id="jedi_menu" name="Jedis" parent="war_menu" action="jedi_list_action"/>
+    <menuitem id="sith_menu" name="Sith" parent="war_menu" action="sith_list_action"/>
+    <menuitem id="planet_menu" name="Planet" parent="war_menu" action="planet_list_action"/>
+    <menuitem id="specie_menu" name="Specie" parent="war_menu" action="specie_list_action"/>
+    
+</odoo>
