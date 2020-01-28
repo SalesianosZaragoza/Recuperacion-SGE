@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="customer_multi_search_view" model="ir.ui.view">
+            <field name="name">Search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="filter" position="after">
+                    <field name="book" string="Book" filter_domain="['|',('book_id','ilike', self)]"/>                 	
+                 </field>
+             </field>
+        </record>
+
+        <record model="ir.ui.view" id="course_form_view">
+            <field name="name">course.form</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="Course Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                            <page string="Sessions">
+                                <field name="session_ids">
+                                    <tree string="Registered sessions">
+                                        <field name="name"/>
+                                        <field name="instructor_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="About">
+                                This is an example of notebooks
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="library_search_view">
+            <field name="name">library.search</field>
+            <field name="model">library.course</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <filter name="my_books" string="My books"
+                            domain="[('bookseller_id', '=', uid)]"/>
+                    <group string="Group By">
+                        <filter name="by_bookseller" string="Bookseller"
+                                context="{'group_by': 'bookseller_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="book_tree_view">
+            <field name="name">library.tree</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="library_list_action">
+            <field name="name">Library</field>
+            <field name="res_model">library.book</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context" eval="{'search_default_my_books' : 1}"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first book</p>
+            </field>
+        </record>
+
+        <menuitem id="main_library_menu" name="Library"/>
+        <menuitem id="library_menu" name="Library"
+                  parent="main_library_menu"/>
+        <menuitem id="library_menu" name="Books" parent="library_menu"
+                  action="library_list_action"/>
+
+        <record model="ir.ui.view" id="session_form_view">
+            <field name="name">session.form</field>
+            <field name="model">library.session</field>
+            <field name="arch" type="xml">
+                <form string="Session Form">
+                    <header>
+                        <button name="take" type="workflow"
+                                string="Reset to take"
+                                states="taken,done"/>
+                        <button name="return" type="workflow"
+                                string="Return" states="return"
+                                class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="book_id"/>
+                                <field name="name"/>
+                                <field name="bookseller_id"/>
+                                <field name="in_stock"/>
+                            </group>
+                            <group string="Books available">
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                                <field name="books"/>
+                                <field name="taken_books" widget="progressbar"/>
+                            </group>
+                        </group>
+                        <label for="client_ids"/>
+                        <field name="client_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="session_tree_view">
+            <field name="name">session.tree</field>
+            <field name="model">library.session</field>
+            <field name="arch" type="xml">
+                <tree string="Session Tree" colors="#0000ff:duration&lt;5;red:duration&gt;15">
+                    <field name="name"/>
+                    <field name="book_id"/>
+                    <field name="duration" invisible="1"/>
+                    <field name="taken_books" widget="progressbar"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="session_calendar_view">
+            <field name="name">session.calendar</field>
+            <field name="model">library.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Session Calendar" date_start="start_date"
+                          date_stop="end_date"
+                          color="bookseller_id">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_openacademy_session_kanban">
+            <field name="name">library.session.kanban</field>
+            <field name="model">library.session</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="book_id">
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div
+                                    t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                                  oe_kanban_global_click_edit oe_semantic_html_override
+                                                  oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                                <div class="oe_dropdown_kanban">
+                                    <div class="oe_dropdown_toggle">
+                                        <i class="fa fa-bars fa-lg"/>
+                                        <ul class="oe_dropdown_menu">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                            <li>
+                                                <ul class="oe_kanban_colorpicker"
+                                                    data-field="color"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                                <div t-attf-class="oe_kanban_content">
+                                    Session name:
+                                    <field name="name"/>
+                                    <br/>
+                                    Start date:
+                                    <field name="start_date"/>
+                                    <br/>
+                                    duration:
+                                    <field name="duration"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="session_list_action">
+            <field name="name">Sessions</field>
+            <field name="res_model">library.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,gantt,graph,kanban</field>
+        </record>
+
+        <menuitem id="session_menu" name="Sessions"
+                  parent="openacademy_menu"
+                  action="session_list_action"
+        />
+
+    </data>
+</openerp>
