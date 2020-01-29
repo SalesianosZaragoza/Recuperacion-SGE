@@ -22,6 +22,7 @@
     # always loaded
     'data': [
         'libraryWriter.xml',
-        'security/ir.model.access.csv'
-    ],
+        'security/ir.model.access.csv',
+        'reporting.xml'
+    ],  
 }

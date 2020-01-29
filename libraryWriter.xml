@@ -82,7 +82,7 @@
             <field name="name">book.kanban</field>
             <field name="model">book.model</field>
             <field name="arch" type="xml">
-                <kanban default_group_by="autor_id">
+                <kanban default_group_by="author_id">
                     <field name="color"/>
                     <templates>
                         <t t-name="kanban-box">
@@ -115,18 +115,12 @@
                 </kanban>
             </field>
         </record>
-
-
-
-
-
-
-
        
                       
         <menuitem id="base_menu" name="Modulo Base"/>      
         <menuitem id="modulo_base" name="Modulo Base" parent = "base_menu"/>
-        <menuitem id="persona_menu" name="Persona" parent = "modulo_base" action = "entidad_list_action"/>
-        <menuitem id="empresa_menu" name="Empresa" parent = "modulo_base" action = "empresa_list_action"/<name />
+        <menuitem id="author_menu" name="Authors" parent = "modulo_base" action = "Author_list_action"/>
+        <menuitem id="book_menu" name="Books" parent = "modulo_base" action = "Book_list_action">
+        <menuitem id="awards_menu" name="Awards" parent = "modulo_base" action = "Award_list_action" <name />
     
 </odoo>
