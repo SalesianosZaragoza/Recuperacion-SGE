@@ -1,64 +1,91 @@
 <odoo>   
 
-        <record model="ir.actions.act_window" id="entidad_list_action">
-            <field name = "name">Entidad</field>
-            <field name = "res_model">base.entidad</field>
+        <record model="ir.actions.act_window" id="Author_list_action">
+            <field name = "name">Author</field>
+            <field name = "res_model">author.model</field>
             <field name = "view_type">form</field>
             <field name = "view_mode">tree,form</field>
-            <field name = "help" type= "html">
+            <!-- <field name = "help" type= "html">
                 <p class="oe_view_nocontent_create">Entidad usada como base para el examen</p>
-            </field>
+            </field> -->
+        </record>
+
+        <record model="ir.actions.act_window" id="Book_list_action">
+            <field name = "name">Books</field>
+            <field name = "res_model">author.model</field>
+            <field name = "view_type">form</field>
+            <field name = "view_mode">tree,formc,calendar,kanban</field>
+            <!-- <field name = "help" type= "html">
+                <p class="oe_view_nocontent_create">Entidad usada como base para el examen</p>
+            </field> -->
+        </record>
+
+        <record model="ir.actions.act_window" id="Award_list_action">
+            <field name = "name">Awards</field>
+            <field name = "res_model">awards.model</field>
+            <field name = "view_type">form</field>
+            <field name = "view_mode">tree,form,calendar,kaban</field>
+            <!-- <field name = "help" type= "html">
+                <p class="oe_view_nocontent_create">Entidad usada como base para el examen</p>
+            </field> -->
         </record>
         
-        <record model="ir.ui.view" id="entidad_form_view">
-            <field name="name">entidad.form</field>
-            <field name="model">base.entidad</field>    
+        <record model="ir.ui.view" id="author_tree_view">
+            <field name="name">Author.tree</field>
+            <field name="model">author.model</field>    
             <field name="arch" type="xml">
-                <form string = 'Entidad Form'>
-                    <field name="nombreEntidad"/>
+                <form string = 'Author Tree'>
+                    <field name="name"/>
+                    <field name="birthdate"/>
                 </form>
-            </field>
-        </record>
-        
-        <record model='ir.ui.view' id='entidad_tree_view'>
-            <field name="name">entidad.tree</field>
-            <field name="model">base.entidad</field>
-            <field name="arch" type="xml">
-                <tree string="Entidad Tree">
-                    <field name="nombreEntidad"/>
-                </tree>
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="empresa_list_action">
-            <field name = "name">Empresa</field>
-            <field name = "res_model">base.empresa</field>
-            <field name = "view_type">form</field>
-            <field name = "view_mode">tree,form</field>
-            <field name = "help" type= "html">
-                <p class="oe_view_nocontent_create">Entidad usada como base para el examen</p>
-            </field>
-        </record>
-        
-        <record model="ir.ui.view" id="empresa_form_view">
-            <field name="name">empresa.form</field>
-            <field name="model">base.empresa</field>    
+        <record model="ir.ui.view" id="book_tree_view">
+            <field name="name">Book.tree</field>
+            <field name="model">book.model</field>    
             <field name="arch" type="xml">
-                <form string = 'Empresa Form'>
-                    <field name="nombreEmpresa"/>
+                <form string = 'Author Tree'>
+                    <field name="name"/>
+                    <field name="author"/>
+                    <field name="publication_date"/>
+                    <field name="topic"/>
                 </form>
             </field>
         </record>
-        
-        <record model='ir.ui.view' id='empresa_tree_view'>
-            <field name="name">empresa.tree</field>
-            <field name="model">base.empresa</field>
+         
+          <!-- FILTER SEARCH -->
+        <record model="ir.ui.view" id="book_search_view">
+            <field name="name">book.search</field>
+            <field name="model">book.model</field>
             <field name="arch" type="xml">
-                <tree string="Empresa Tree">
-                    <field name="nombreEmpresa"/>
-                </tree>
+                <search>
+                    <group string="Group By">
+                        <filter name="by_author" string="autor"
+                            context="{'group_by': 'author_id'}"/>  AÑADIR AUTHOR ID Y REALIZAR RELACION EN BOOK.MODEL
+                    </group>
+                </search>
             </field>
         </record>
+
+        <!-- CREATE CALENDAR VIEW -->
+        <record model="ir.ui.view" id="book_calendar_view">
+            <field name="name">book.calendar</field>
+            <field name="model">book.model</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendario" date_start="start_date"> AÑADIR START DATE EN BOOK.MODEL
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+
+
+
+
+
+
+       
                       
         <menuitem id="base_menu" name="Modulo Base"/>      
         <menuitem id="modulo_base" name="Modulo Base" parent = "base_menu"/>
