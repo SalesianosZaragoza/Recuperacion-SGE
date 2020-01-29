@@ -15,6 +15,8 @@
     'version': '1.0',
     'depends': ['base'],
     'data': [
-        'views/base.xml'
+        'views/base.xml',
+        'reports/reports.xml',
+        'reports/libro.xml',
     ],
 } 
