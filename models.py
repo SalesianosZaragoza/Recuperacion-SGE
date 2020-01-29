@@ -9,8 +9,18 @@ class Libro(models.Model):
     fecha_lanzamiento = fields.Date(string="Dia de publicación", store=True)
     genero = fields.Selection([('gr1', 'Fantasia'), ('gr2', 'Ciencia ficción'), ('gr3','Romance'), ('gr4','Aventura'), ('gr5','Misterio'), ('gr6', 'Distópica')], 'Género', default='gr1')
     id_premio = fields.Many2many('id_premio', string="Premios")
-    
 
+     @api.constrains('name')
+    def _check(self):
+        if self.name < 3:
+            raise exceptions.ValidationError("El título tiene que tener más de tres carácteres")
+
+    _sql_constraints = [
+        ('name_surname_check',
+        'CHECK(fecha_lanzamiento => 2020)',
+        "La fecha de lanzamiento no puede ser más tarde de 2020")
+    ]
+    
 class Author(models.Model):
     _name = 'autor.model'
 
