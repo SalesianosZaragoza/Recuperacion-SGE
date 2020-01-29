@@ -19,6 +19,8 @@ class Book(models.Model):
 	author_id = fields.Many2many('author.model', string="escrito por:")
 	start_date = fields.Date(string="Fecha de publicacion" , default = fields.Date.today)
 	premios_id = fields.Many2many('awards.model', string="premiso ganados por el libro:")
+	color = fields.Integer()
+	
 
 
 class Awards(models.Model):
