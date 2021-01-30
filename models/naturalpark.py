@@ -7,5 +7,6 @@ class NaturalPark(models.Model):
     starting_date = fields.Date()
     extension = fields.Integer(string="Extension (in km2)", required=True)
     
+    community_ids = fields.Many2many('appnaturalparks.community', string="Communities Of Spain", required=True)
 
     
