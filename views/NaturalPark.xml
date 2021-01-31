@@ -1,0 +1,19 @@
+<odoo>
+     
+       <record model="ir.ui.view" id="NaturalPark_form_view">
+          <field name="name">NaturalPark.form</field>
+          <field name="model">NaturalParks.NaturalPark</field>
+          <field name="arch" type="xml">
+              <form string="NaturalPark Form">
+                  <sheet>
+                     <group>
+                        <field name="Name"/>
+                        <field name="Statement_Date"/>
+                        <field name="Extension"/>
+                     </group>
+                  </sheet>
+              </form>
+          </field>
+       </record>
+
+</odoo>

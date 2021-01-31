@@ -1,0 +1,18 @@
+<odoo>
+     
+       <record model="ir.ui.view" id="Area_form_view">
+          <field name="name">Area.form</field>
+          <field name="model">NaturalParks.Area</field>
+          <field name="arch" type="xml">
+              <form string="Area Form">
+                  <sheet>
+                     <group>
+                        <field name="Name"/>
+                        <field name="Extension"/>
+                     </group>
+                  </sheet>
+              </form>
+          </field>
+       </record>
+
+</odoo>

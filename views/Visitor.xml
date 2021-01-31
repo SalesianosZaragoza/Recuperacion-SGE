@@ -1,0 +1,20 @@
+<odoo>
+     
+       <record model="ir.ui.view" id="Visitor_form_view">
+          <field name="name">Visitor.form</field>
+          <field name="model">NaturalParks.Visitor</field>
+          <field name="arch" type="xml">
+              <form string="Visitor Form">
+                  <sheet>
+                     <group>
+                        <field name="Name"/>
+                        <field name="Dni"/>
+                        <field name="Address"/>
+                        <field name="job"/>
+                     </group>
+                  </sheet>
+              </form>
+          </field>
+       </record>
+
+</odoo>

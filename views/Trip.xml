@@ -1,0 +1,20 @@
+<odoo>
+     
+       <record model="ir.ui.view" id="Community_form_view">
+          <field name="name">Community.form</field>
+          <field name="model">NaturalParks.Community</field>
+          <field name="arch" type="xml">
+              <form string="Community Form">
+                  <sheet>
+                     <group>
+                        <field name="Name"/>
+                        <field name="Trip_Type"/>
+                        <field name="Starting_Date"/>
+                        <field name="Ending_Date"/>
+                     </group>
+                  </sheet>
+              </form>
+          </field>
+       </record>
+
+</odoo>

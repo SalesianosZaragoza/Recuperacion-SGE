@@ -1,0 +1,19 @@
+<odoo>
+     
+       <record model="ir.ui.view" id="Lodging_form_view">
+          <field name="name">Lodging.form</field>
+          <field name="model">NaturalParks.Lodging</field>
+          <field name="arch" type="xml">
+              <form string="Lodging Form">
+                  <sheet>
+                     <group>
+                        <field name="Name"/>
+                        <field name="Capacity"/>
+                        <field name="Category"/>
+                     </group>
+                  </sheet>
+              </form>
+          </field>
+       </record>
+
+</odoo>
