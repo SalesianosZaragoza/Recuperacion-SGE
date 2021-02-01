@@ -11,6 +11,8 @@ class Staff(models.Model):
     landline = fields.Char(string="Teléfono fijo", required=True)
     salary = fields.Integer(string="Salario", required=True)
 
+    NaturalPark_id = fields.Many2one('npi.NaturalPark', string="Natural Park", required=True)
+
 
 class Managment(models.Model):
     _name = 'npi.Managment'
@@ -21,6 +23,8 @@ class Managment(models.Model):
 class Vigilancy(models.Model):
     _name = 'npi.Vigilancy'
     _inherit = 'npi.Staff'
+
+    Area_id = fields.Many2one('npi.Area', string="Area", required=True)
 
 
 class Investigator(models.Model):
@@ -34,3 +38,5 @@ class Conservation(models.Model):
     _inherit = 'npi.Staff'
 
     specialization = fields.Selection([(('canine', 'Canine'), ('cleanning', 'Cleanning'), ('other', 'Other'))])
+
+    Area_id = fields.Many2one('npi.Area', string="Area", required=True)

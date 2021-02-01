@@ -7,6 +7,8 @@ class Species(models.Model):
     name = fields.Char(string="Vulgar name", required=True)
     numberSpecies = fields.Integer(string="Número de especies")
 
+    Area_ids = fields.Many2many('npi.Area', string="Area", required=True)
+
 
 class Plant(models.Model):
     _name = 'npi.Plant'
@@ -14,6 +16,8 @@ class Plant(models.Model):
 
     floration = fields.Boolean(string="Does it have flowering?")
     florationPeriod = fields.Selection([(('winter', 'Winter'), ('spring', 'Spring'), ('summer', 'Summer'), ('autumn', 'Autumn'))])
+
+    Animal_ids = fields.Many2many('npi.Animal', string="Animals that eat this plant", required=True)
 
 
 class Animal(models.Model):
