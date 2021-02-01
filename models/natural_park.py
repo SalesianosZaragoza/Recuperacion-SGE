@@ -1,8 +1,9 @@
 from odoo import models, fields, api, exceptions
 
-class Natural_Park_Comunity(models.Model):
-    _name = 'ges.natural_Park_Comunity'
-
-
 class Natural_Park(models.Model):
     _name = 'ges.Natural_Park'
+
+    name = fields.Char(string="Name", required=True)
+    starting_date = fields.Date(required=True)
+    autonomous_community_natural_park_ids = fields.One2many(
+        'ges.autonomous_community_natural_park', 'autonomous_community_id', string="Parques naturales")
