@@ -1,10 +1,13 @@
-from odoo import models, fields, api, exceptions
+from odoo import models, fields, 
 
 class Lodging(models.Model):
     _name='NaturalParks.Lodging'
 
 
 
-    Name = fields.Char(string="Name", required=True)
-    Capacity = 
-    Category = 
+    Name = fields.Char()
+    Capacity = fields.Intereger()
+    
+
+
+    NaturalParkID = fields.Many2one('NaturalParks.NaturalPark')

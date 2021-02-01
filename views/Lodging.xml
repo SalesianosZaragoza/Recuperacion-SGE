@@ -9,7 +9,6 @@
                      <group>
                         <field name="Name"/>
                         <field name="Capacity"/>
-                        <field name="Category"/>
                      </group>
                   </sheet>
               </form>

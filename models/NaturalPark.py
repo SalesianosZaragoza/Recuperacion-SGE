@@ -1,10 +1,12 @@
-from odoo import models, fields, api, exceptions
+from odoo import models, fields, 
 
 class NaturalPark(models.Model):
     _name='NaturalParks.NaturalPark'
 
 
 
-    Name = fields.Char(string="Name", required=True)
+    Name = fields.Char()
     Statement_Date = fields.Date()
-    Extension =
+    Extension = fields.Integer()
+
+    CommunityID = fields.Many2many('NaturalParks.Community')

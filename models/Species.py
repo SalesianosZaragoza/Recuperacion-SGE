@@ -1,11 +1,10 @@
-from odoo import models, fields, api, exceptions
+from odoo import models, fields, 
 
 class Species(models.Model):
     _name='NaturalParks.Species'
 
 
 
-    Name = fields.Char(string="Scientific Name", required=True)
-    Species_Type =
-    Vulgar_Name = fields.Char(required=True)
-    Species_ID =
+    Name = fields.Char()
+    Vulgar_Name = fields.Char()
+    AreaID = fields.Many2many('NaturalParks.Area')

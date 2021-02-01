@@ -1,10 +1,10 @@
-from odoo import models, fields, api, exceptions
+from odoo import models, fields, 
 
 class Community(models.Model):
     _name='NaturalParks.Community'
     _order='name'
 
 
-    Name = fields.Char(string="Name", required=True)
-    Responsible_Org = fields.Char(required=True)
-    Extension =
+    Name = fields.Char()
+    Responsible_Org = fields.Char()
+    Extension = fields.Integer()
