@@ -5,9 +5,9 @@ class Species(models.Model):
 
     name = fields.Char(string="Cientific name", required=True)
     common_name = fields.Char(string="Common name", required=True)
-    area_ids = fields.Many2many('ges.area', string="Area", required=True)
+    areas_ids = fields.Many2many('ges.areas', string="Area", required=True)
     areas_species_ids = fields.One2many(
-        'ges.areas_species', 'specie_id', string="Especies")
+        'ges.areass_species', 'specie_id', string="Especies")
 
 class Vegetable(models.Model):
     _name = 'ges.vegetable'

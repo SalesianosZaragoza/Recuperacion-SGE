@@ -1,0 +1,61 @@
+<odoo>
+
+        <record model="ir.ui.view" id="autonomous_community_natural_parks_form_view">
+            <field name="name">autonomous_community.form</field>
+            <field name="model">ges.autonomous_community</field>
+            <field name="arch" type="xml">
+                <form string="autonomous_community Form">
+                    <sheet>
+                        <group>
+                            <field name="autonomous_community_id"/>
+                            <field name="natural_park_id"/>
+                            <field name="extension"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="autonomous_community_natural_parks_tree_view">
+            <field name="name">autonomous_community.tree</field>
+            <field name="model">ges.autonomous_community</field>
+            <field name="arch" type="xml">
+                <tree string="autonomous_community Tree">
+                    <field name="autonomous_community_id"/>
+                    <field name="natural_park_id"/>
+                    <field name="extension"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="autonomous_community_natural_parks_graph_view">
+            <field name="name">autonomous_community.graph</field>
+            <field name="model">ges.autonomous_community</field>
+            <field name="arch" type="xml">
+                <graph string="Communities by Extension">
+                    <field name="autonomous_community_id"/>
+                    <field name="extension" type="measure"/>
+                </graph>
+                <graph string="Natural parks by Extension">
+                    <field name="natural_park_id"/>
+                    <field name="extension" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="autonomous_community_natural_parks_list_action">
+            <field name="name">autonomous_community</field>
+            <field name="res_model">ges.autonomous_community</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                </p>
+            </field>
+        </record>
+
+        
+        <menuitem id="autonomous_community_natural_parks_menu" name="Autonomous community"
+            parent="natural_parks_menu"
+            action="autonomous_community_natural_parks_list_action"/>
+
+</odoo>

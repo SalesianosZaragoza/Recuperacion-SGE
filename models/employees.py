@@ -74,5 +74,5 @@ class Conservation(models.Model):
     _name = 'ges.conservation'
     _inherit = 'ges.employees'
 
-    area_id = fields.Many2one('ges.area', string="Area", required=True)
+    areas_id = fields.Many2one('ges.areas', string="Area", required=True)
     specialty = fields.Selection([('cleaning', 'Cleaning'), ('canine', 'Canine'), ('prune', 'Prune')]) 

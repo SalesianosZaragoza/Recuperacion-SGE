@@ -1,7 +1,7 @@
 from odoo import models, fields, api, exceptions
 
 class Natural_Park(models.Model):
-    _name = 'ges.Natural_Park'
+    _name = 'ges.natural_park'
 
     name = fields.Char(string="Name", required=True)
     starting_date = fields.Date(required=True)
