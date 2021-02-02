@@ -36,7 +36,6 @@
             </field>
         </record>
 
-        
         <menuitem id="autonomous_community_menu" name="Autonomous community"
             parent="natural_parks_menu"
             action="autonomous_community_list_action"/>

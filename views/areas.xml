@@ -1,7 +1,7 @@
 <odoo>
 
         <record model="ir.ui.view" id="areas_form_view">
-            <field name="name">area.form</field>
+            <field name="name">areas.form</field>
             <field name="model">ges.areas</field>
             <field name="arch" type="xml">
                 <form string="Area Form">
@@ -17,7 +17,7 @@
         </record>
 
         <record model="ir.ui.view" id="areas_tree_view">
-            <field name="name">area.tree</field>
+            <field name="name">areas.tree</field>
             <field name="model">ges.areas</field>
             <field name="arch" type="xml">
                 <tree string="Area Tree">
@@ -29,7 +29,7 @@
         </record>
 
         <record  model="ir.ui.view" id="areas_pivot_view">
-            <field name="name">area.pivot</field>
+            <field name="name">areas.pivot</field>
             <field name="model">ges.areas</field>
             <field name="arch" type="xml">
                 <pivot string="Area">
@@ -40,7 +40,7 @@
         </record>
 
         <record model="ir.ui.view" id="areas_graph_view">
-            <field name="name">area.graph</field>
+            <field name="name">areas.graph</field>
             <field name="model">ges.areas</field>
             <field name="arch" type="xml">
                 <graph string="Areas by Extension">

@@ -33,7 +33,7 @@ class Excursions(models.Model):
     _name = 'ges.Excursions'
 
     name = fields.Char(string="Escursion", required=True)
-    trip_type = fields.Selection([('car', 'Car'), ('walking', 'Walking')]) 
+    excursion_type = fields.Selection([('car', 'Car'), ('walking', 'Walking')]) 
     starting_date = fields.Datetime(required=True)
     ending_date = fields.Datetime(required=True)
 

@@ -1,0 +1,95 @@
+<odoo>
+
+        <record model="ir.ui.view" id="excursion_form_view">
+            <field name="name">excursion.form</field>
+            <field name="model">ges.excursion</field>
+            <field name="arch" type="xml">
+                <form string="excursion Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="excursion_type"/>
+                            <field name="starting_date"/>
+                            <field name="ending_date"/>
+                            <field name="acommodation_id"/>
+                            <field name="visitor_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="excursion_tree_view">
+            <field name="name">excursion.tree</field>
+            <field name="model">ges.excursion</field>
+            <field name="arch" type="xml">
+                <tree string="excursion Tree">
+                  <field name="name"/>
+                  <field name="excursion_type"/>
+                  <field name="starting_date"/>
+                  <field name="ending_date"/>
+                  <field name="acommodation_id"/>
+                  <field name="visitor_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record  model="ir.ui.view" id="excursion_pivot_view">
+            <field name="name">excursion.pivot</field>
+            <field name="model">ges.excursion</field>
+            <field name="arch" type="xml">
+                <pivot string="excursion">
+                    <field name="visitor_ids" type="row"/>
+                    <field name="starting_date"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="excursion_calendar_view">
+            <field name="name">excursion.calendar</field>
+            <field name="model">ges.excursion</field>
+            <field name="arch" type="xml">
+                <calendar string="excursion Calendar" date_start="starting_date" date_stop="ending_date" quick_add="False">
+                    <field name="name"/>
+                    <field name="excursion_type"/>
+                    <field name="acommodation_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="excursion_list_action">
+            <field name="name">excursion</field>
+            <field name="res_model">ges.excursion</field>
+            <field name="view_mode">tree,form,calendarpivot</field>
+            <field name="help" type="html">
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="excursion_search_view">
+            <field name="name">excursion.search</field>
+            <field name="model">ges.excursion</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <filter name="car_excursions" string="Car excursions"
+                            domain="[('excursion_type', '=', 'car')]"/>
+                    <filter name="walking_excursions" string="Walking excursions"
+                            domain="[('excursion_type', '=', 'walking')]"/>
+                    <group string="Group By">
+                        <filter name="by_natural_park" string="Natural Park"
+                                context="{'group_by': 'natural_park_id'}"/>
+                    </group>
+                    <group string="Group By">
+                        <filter name="by_acommodation" string="Acommodation Organizer"
+                                context="{'group_by': 'acommodation_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        
+        <menuitem id="excursion_menu" name="excursion"
+            parent="natural_parks_menu"
+            action="excursion_list_action"/>
+
+</odoo>

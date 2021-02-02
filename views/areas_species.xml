@@ -1,0 +1,77 @@
+<odoo>
+
+        <record model="ir.ui.view" id="areas_species_form_view">
+            <field name="name">areas_species_species.form</field>
+            <field name="model">ges.areas_species</field>
+            <field name="arch" type="xml">
+                <form string="Area Form">
+                    <sheet>
+                        <group>
+                            <field name="areas_id"/>
+                            <field name="species_id"/>
+                            <field name="individual_in_area"/>                  
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="areas_species_tree_view">
+            <field name="name">areas_species_species.tree</field>
+            <field name="model">ges.areas_species</field>
+            <field name="arch" type="xml">
+                <tree string="Area Tree">
+                    <field name="areas_id"/>
+                    <field name="species_id"/>
+                    <field name="individual_in_area"/>     
+                </tree>
+            </field>
+        </record>
+
+        <record  model="ir.ui.view" id="areas_species_pivot_view">
+            <field name="name">areas_species_species.pivot</field>
+            <field name="model">ges.areas_species</field>
+            <field name="arch" type="xml">
+                <pivot string="Area">
+                    <field name="areas_id"/>
+                    <field name="species_id"/>
+                    <field name="individual_in_area"/> 
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="areas_species_graph_view">
+            <field name="name">areas_species_species.graph</field>
+            <field name="model">ges.areas_species</field>
+            <field name="arch" type="xml">
+                <graph string="Individuals by area">
+                    <field name="areas_id"/>
+                    <field name="individual_in_area" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="areas_species_graph_view">
+            <field name="name">areas_species_species.graph</field>
+            <field name="model">ges.areas_species</field>
+            <field name="arch" type="xml">
+                <graph string="Individuals by specie">
+                    <field name="species_id"/>
+                    <field name="individual_in_area" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="areas_species_list_action">
+            <field name="name">Area</field>
+            <field name="res_model">ges.areas_species</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+            <field name="help" type="html">
+            </field>
+        </record>
+        
+        <menuitem id="areas_species_menu" name="Area"
+            parent="natural_parks_menu"
+            action="areas_species_list_action"/>
+
+</odoo>

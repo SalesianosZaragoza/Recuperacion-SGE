@@ -1,0 +1,55 @@
+<odoo>
+        <record model="ir.ui.view" id="acommodation_form_view">
+            <field name="name">acommodation.form</field>
+            <field name="model">ges.acommodation</field>
+            <field name="arch" type="xml">
+                <form string="Acommodation Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="capacity" options='{"type": "number", "step": 1}'/>
+                            <field name="category"/>
+                            <field name="visitor_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="acommodation_tree_view">
+            <field name="name">acommodation.tree</field>
+            <field name="model">ges.acommodation</field>
+            <field name="arch" type="xml">
+                <tree string="Acommodation Tree">
+                    <field name="name"/>
+                    <field name="capacity"/>
+                    <field name="category"/>
+                    <field name="visitor_ids"/>               
+                </tree>
+            </field>
+        </record>
+
+        <record  model="ir.ui.view" id="acommodation_pivot_view">
+            <field name="name">acommodation.pivot</field>
+            <field name="model">ges.acommodation</field>
+            <field name="arch" type="xml">
+                <pivot string="Acommodation">
+                    <field name="visitor_ids" type="row"/>
+                    <field name="name"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="acommodation_list_action">
+            <field name="name">Acommodation</field>
+            <field name="res_model">ges.acommodation</field>
+            <field name="view_mode">tree,form,kanban,pivot</field>
+            <field name="help" type="html">
+            </field>
+        </record>
+
+        <menuitem id="acommodation_menu" name="Acommodation"
+            parent="natural_parks_menu"
+            action="acommodation_list_action"/>
+
+</odoo>
