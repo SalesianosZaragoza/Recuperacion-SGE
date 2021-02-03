@@ -1,0 +1,85 @@
+<odoo>
+    <record model="ir.ui.view" id="plant_form_view">
+        <field name="name">plant.form</field>
+        <field name="model">npi.Plant</field>
+        <field name="arch" type="xml">
+            <form string="Plant Form">
+                <sheet>
+                    <group>
+                        <field name="floration"/>
+                        <field name="florationPeriod"/>
+                        <field name="Animal_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="plant_tree_view">
+        <field name="name">plant.tree</field>
+        <field name="model">npi.Plant</field>
+        <field name="arch" type="xml">
+            <tree string="Plant Tree">
+                <field name="name"/>
+                    <field name="floration"/>
+                    <field name="florationPeriod"/>
+                    <field name="Animal_ids"/>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="animal_form_view">
+        <field name="name">animal.form</field>
+        <field name="model">npi.Animal</field>
+        <field name="arch" type="xml">
+            <form string="Animal Form">
+                <sheet>
+                    <group>
+                        <field name="alimentation"/>
+                        <field name="reproductionPeriod"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="animal_tree_view">
+        <field name="name">animal.tree</field>
+        <field name="model">npi.Animal/field>
+        <field name="arch" type="xml">
+            <tree string="Animal Tree">
+                <field name="alimentation"/>
+                <field name="reproductionPeriod"/>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="mineral_form_view">
+        <field name="name">mineral.form</field>
+        <field name="model">npi.Mineral</field>
+        <field name="arch" type="xml">
+            <form string="Mineral Form">
+                <sheet>
+                    <group>
+                        <field name="mineralType"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mineral_tree_view">
+        <field name="name">mineral.tree</field>
+        <field name="model">npi.Mineral</field>
+        <field name="arch" type="xml">
+            <tree string="Mineral Tree">
+                <field name="name"/>
+                    <field name="mineralType"/>
+            </form>
+        </field>
+    </record>
+</odoo>

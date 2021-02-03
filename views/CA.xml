@@ -1,0 +1,25 @@
+<odoo>
+    <record model="ir.ui.view" id="CA_form_view">
+        <field name="name">CA.form</field>
+        <field name="model">npi.CA</field>
+        <field name="arch" type="xml">
+            <form string="CA Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="CA_tree_view">
+        <field name="name">CA.tree</field>
+        <field name="model">npi.CA</field>
+        <field name="arch" type="xml">
+            <tree string="CA Tree">
+                <field name="name"/>
+            </form>
+        </field>
+    </record>
+</odoo>

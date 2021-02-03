@@ -1,0 +1,171 @@
+<odoo>
+    <record model="ir.ui.view" id="managment_form_view">
+        <field name="name">managment.form</field>
+        <field name="model">npi.Managment</field>
+        <field name="arch" type="xml">
+            <form string="Managment Form">
+                <sheet>
+                    <group>
+                        <field name="dni"/>
+                        <field name="ss"/>
+                        <field name="name"/>
+                        <field name="adress"/>
+                        <field name="mobile_phone"/>
+                        <field name="landline"/>
+                        <field name="salary"/>
+                        <field name="NaturalPark_id"/>
+                        <field name="entry"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="managment_tree_view">
+        <field name="name">managment.tree</field>
+        <field name="model">npi.Managment</field>
+        <field name="arch" type="xml">
+            <tree string="Managment Tree">
+                <field name="dni"/>
+                <field name="ss"/>
+                <field name="name"/>
+                <field name="adress"/>
+                <field name="mobile_phone"/>
+                <field name="landline"/>
+                <field name="salary"/>
+                <field name="NaturalPark_id"/>
+                <field name="entry"/>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="vigilancy_form_view">
+        <field name="name">vigilancy.form</field>
+        <field name="model">npi.Vigilancy</field>
+        <field name="arch" type="xml">
+            <form string="Vigilancy Form">
+                <sheet>
+                    <group>
+                        <field name="dni"/>
+                        <field name="ss"/>
+                        <field name="name"/>
+                        <field name="adress"/>
+                        <field name="mobile_phone"/>
+                        <field name="landline"/>
+                        <field name="salary"/>
+                        <field name="NaturalPark_id"/>
+                        <field name="Area_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vigilancy_tree_view">
+        <field name="name">vigilancy.tree</field>
+        <field name="model">npi.Vigilancy</field>
+        <field name="arch" type="xml">
+            <tree string="Vigilancy Tree">
+                <field name="dni"/>
+                <field name="ss"/>
+                <field name="name"/>
+                <field name="adress"/>
+                <field name="mobile_phone"/>
+                <field name="landline"/>
+                <field name="salary"/>
+                <field name="NaturalPark_id"/>
+                <field name="Area_id"/>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="investigator_form_view">
+        <field name="name">investigator.form</field>
+        <field name="model">npi.Investigator</field>
+        <field name="arch" type="xml">
+            <form string="Investigator Form">
+                <sheet>
+                    <group>
+                        <field name="dni"/>
+                        <field name="ss"/>
+                        <field name="name"/>
+                        <field name="adress"/>
+                        <field name="mobile_phone"/>
+                        <field name="landline"/>
+                        <field name="salary"/>
+                        <field name="NaturalPark_id"/>
+                        <field name="tittle"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="investigator_tree_view">
+        <field name="name">investigator.tree</field>
+        <field name="model">npi.Investigator</field>
+        <field name="arch" type="xml">
+            <tree string="Investigator Tree">
+                <field name="dni"/>
+                <field name="ss"/>
+                <field name="name"/>
+                <field name="adress"/>
+                <field name="mobile_phone"/>
+                <field name="landline"/>
+                <field name="salary"/>
+                <field name="NaturalPark_id"/>
+                <field name="tittle"/>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <record model="ir.ui.view" id="conservation_form_view">
+        <field name="name">conservation.form</field>
+        <field name="model">npi.Conservation</field>
+        <field name="arch" type="xml">
+            <form string="Conversation Form">
+                <sheet>
+                    <group>
+                        <field name="dni"/>
+                        <field name="ss"/>
+                        <field name="name"/>
+                        <field name="adress"/>
+                        <field name="mobile_phone"/>
+                        <field name="landline"/>
+                        <field name="salary"/>
+                        <field name="NaturalPark_id"/>
+                        <field name="specialization"/>
+                        <field name="Area_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="conservation_tree_view">
+        <field name="name">conversation.tree</field>
+        <field name="model">npi.Conversation</field>
+        <field name="arch" type="xml">
+            <tree string="Conversation Tree">
+                <field name="dni"/>
+                <field name="ss"/>
+                <field name="name"/>
+                <field name="adress"/>
+                <field name="mobile_phone"/>
+                <field name="landline"/>
+                <field name="salary"/>
+                <field name="NaturalPark_id"/>
+                <field name="specialization"/>
+                <field name="Area_id"/>
+            </form>
+        </field>
+    </record>
+
+</odoo>

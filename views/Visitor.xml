@@ -1,0 +1,37 @@
+<odoo>
+    <record model="ir.ui.view" id="visitor_form_view">
+        <field name="name">visitor.form</field>
+        <field name="model">npi.Visitor</field>
+        <field name="arch" type="xml">
+            <form string="Visitor Form">
+                <sheet>
+                    <group>
+                        <field name="dni"/>
+                        <field name="name"/>
+                        <field name="adress"/>
+                        <field name="job"/>
+                        <field name="NaturalPark_id"/>
+                        <field name="Managment_id"/>
+                        <field name="Hostel_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="visitor_tree_view">
+        <field name="name">visitor.tree</field>
+        <field name="model">npi.Visitor</field>
+        <field name="arch" type="xml">
+            <tree string="Visitor Tree">
+                <field name="dni"/>
+                <field name="name"/>
+                <field name="adress"/>
+                <field name="job"/>
+                <field name="NaturalPark_id"/>
+                <field name="Managment_id"/>
+                <field name="Hostel_id"/>
+            </form>
+        </field>
+    </record>
+</odoo>

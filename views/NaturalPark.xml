@@ -1,0 +1,29 @@
+<odoo>
+    <record model="ir.ui.view" id="naturalPark_form_view">
+        <field name="name">naturalPark.form</field>
+        <field name="model">npi.NaturalPark</field>
+        <field name="arch" type="xml">
+            <form string="Natural Park Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="starting_date"/>
+                        <field name="extension"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="naturalPark_tree_view">
+        <field name="name">naturalPark.tree</field>
+        <field name="model">npi.NaturalPark</field>
+        <field name="arch" type="xml">
+            <tree string="Natural Park Tree">
+                <field name="name"/>
+                <field name="starting_date"/>
+                <field name="extension"/>
+            </form>
+        </field>
+    </record>
+</odoo>

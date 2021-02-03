@@ -1,0 +1,38 @@
+<odoo>
+    <record model="ir.ui.view" id="route_form_view">
+        <field name="name">route.form</field>
+        <field name="model">npi.Route</field>
+        <field name="arch" type="xml">
+            <form string="Route Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="way"/>
+                        <field name="numberOfPeople"/>
+                        <field name="date"/>
+                        <field name="NaturalPark_id"/>
+                        <field name="Hostel_id"/>
+                        <field name="Visitor_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="route_tree_view">
+        <field name="name">route.tree</field>
+        <field name="model">npi.Route</field>
+        <field name="arch" type="xml">
+            <tree string="Route Tree">
+                <field name="name"/>
+                    <field name="name"/>
+                    <field name="way"/>
+                    <field name="numberOfPeople"/>
+                    <field name="date"/>
+                    <field name="NaturalPark_id"/>
+                    <field name="Hostel_id"/>
+                    <field name="Visitor_id"/>
+            </form>
+        </field>
+    </record>
+</odoo>

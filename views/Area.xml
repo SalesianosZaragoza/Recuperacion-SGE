@@ -1,3 +1,33 @@
 <odoo>
+    <record model="ir.ui.view" id="area_form_view">
+        <field name="name">area.form</field>
+        <field name="model">npi.Area</field>
+        <field name="arch" type="xml">
+            <form string="Area Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="extension"/>
+                        <field name="asientos"/>
+                        <field name="NaturalPark_id"/>
+                        <field name="CA_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
+    <record model="ir.ui.view" id="area_tree_view">
+        <field name="name">area.tree</field>
+        <field name="model">npi.Area</field>
+        <field name="arch" type="xml">
+            <tree string="Area Tree">
+                <field name="name"/>
+                <field name="extension"/>
+                <field name="asientos"/>
+                <field name="NaturalPark_id"/>
+                <field name="CA_id"/>
+            </form>
+        </field>
+    </record>
 </odoo>

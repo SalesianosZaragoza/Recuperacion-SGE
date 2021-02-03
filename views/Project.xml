@@ -1,0 +1,33 @@
+<odoo>
+    <record model="ir.ui.view" id="project_form_view">
+        <field name="name">project.form</field>
+        <field name="model">npi.Project</field>
+        <field name="arch" type="xml">
+            <form string="Project Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="budget"/>
+                        <field name="realizationPeriod"/>
+                        <field name="Species_id"/>
+                        <field name="Investigator_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_tree_view">
+        <field name="name">project.tree</field>
+        <field name="model">npi.Project</field>
+        <field name="arch" type="xml">
+            <tree string="Project Tree">
+                <field name="name"/>
+                    <field name="budget"/>
+                    <field name="realizationPeriod"/>
+                    <field name="Species_id"/>
+                    <field name="Investigator_id"/>
+            </form>
+        </field>
+    </record>
+</odoo>
