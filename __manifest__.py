@@ -14,6 +14,8 @@
     'version': '0.1',
     'depends': ['base'],
     'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/accommodation/accommodation.xml',
         'views/accommodation/visitor.xml',
         'views/accommodation/excursions.xml',
