@@ -1,0 +1,200 @@
+<odoo>
+    <record model="ir.ui.view" id="vegetable_form_view">
+        <field name="name">vegetable.form</field>
+        <field name="model">appnaturalparks.vegetable</field>
+        <field name="arch" type="xml">
+            <form string="Vegetable Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="common_name"/>
+                        <field name="area_ids"/>
+                        <field name="number_of_species" options='{"type": "number", "step": 1}'/>
+                        <field name="blooming"/>
+                        <field name="blooming_period"/>
+                        <field name="is_eaten"/>
+                        <field name="animal_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vegetable_tree_view">
+        <field name="name">vegetable.tree</field>
+        <field name="model">appnaturalparks.vegetable</field>
+        <field name="arch" type="xml">
+            <tree string="Vegetable Tree">
+                <field name="name"/>
+                <field name="common_name"/>
+                <field name="area_ids"/>
+                <field name="number_of_species"/>
+                <field name="blooming"/>
+                <field name="blooming_period"/>
+                <field name="is_eaten"/>
+                <field name="animal_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vegetable_list_action">
+        <field name="name">Vegetable</field>
+        <field name="res_model">appnaturalparks.vegetable</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new vegetable
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vegetable_search_view">
+        <field name="name">vegetable.search</field>
+        <field name="model">appnaturalparks.vegetable</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="common_name"/>
+                <filter name="blooming" string="Blooming"
+                    domain="[('blooming', '=', True)]"/>
+                <filter name="not_blooming" string="Not Blooming"
+                    domain="[('blooming', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="vegetable_menu" name="Vegetable"
+        parent="naturalparks_menu"
+        action="vegetable_list_action"/>
+
+
+
+    <record model="ir.ui.view" id="animal_form_view">
+        <field name="name">animal.form</field>
+        <field name="model">appnaturalparks.animal</field>
+        <field name="arch" type="xml">
+            <form string="Animal Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="common_name"/>
+                        <field name="area_ids"/>
+                        <field name="number_of_species" options='{"type": "number", "step": 1}'/>
+                        <field name="alimentation"/>
+                        <field name="mating_season"/>
+                        <field name="is_eaten"/>
+                        <field name="animal_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="animal_tree_view">
+        <field name="name">animal.tree</field>
+        <field name="model">appnaturalparks.animal</field>
+        <field name="arch" type="xml">
+            <tree string="Animal Tree">
+                <field name="name"/>
+                <field name="common_name"/>
+                <field name="area_ids"/>
+                <field name="number_of_species"/>
+                <field name="alimentation"/>
+                <field name="mating_season"/>
+                <field name="is_eaten"/>
+                <field name="animal_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="animal_list_action">
+        <field name="name">Animal</field>
+        <field name="res_model">appnaturalparks.animal</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new animal
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="animal_search_view">
+        <field name="name">animal.search</field>
+        <field name="model">appnaturalparks.animal</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="common_name"/>
+                <filter name="carnivore" string="Carnivore"
+                    domain="[('alimentation', '=', 'carnivore')]"/>
+                <filter name="herbivore" string="Herbivore"
+                    domain="[('alimentation', '=', 'herbivore')]"/>
+                <filter name="omnivore" string="Omnivore"
+                    domain="[('alimentation', '=', 'omnivore')]"/>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="animal_menu" name="Animal"
+        parent="naturalparks_menu"
+        action="animal_list_action"/>
+    
+
+
+    <record model="ir.ui.view" id="mineral_form_view">
+        <field name="name">mineral.form</field>
+        <field name="model">appnaturalparks.mineral</field>
+        <field name="arch" type="xml">
+            <form string="Mineral Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="common_name"/>
+                        <field name="area_ids"/>
+                        <field name="mineral_type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mineral_tree_view">
+        <field name="name">mineral.tree</field>
+        <field name="model">appnaturalparks.mineral</field>
+        <field name="arch" type="xml">
+            <tree string="Mineral Tree">
+                <field name="name"/>
+                <field name="common_name"/>
+                <field name="area_ids"/>
+                <field name="mineral_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mineral_list_action">
+        <field name="name">Mineral</field>
+        <field name="res_model">appnaturalparks.mineral</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new mineral
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mineral_search_view">
+        <field name="name">mineral.search</field>
+        <field name="model">appnaturalparks.mineral</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="common_name"/>
+                <filter name="stone" string="Stone"
+                    domain="[('mineral_type', '=', 'stone')]"/>
+                <filter name="crystal" string="Crystal"
+                    domain="[('mineral_type', '=', 'crystal')]"/>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="mineral_menu" name="Mineral"
+        parent="naturalparks_menu"
+        action="mineral_list_action"/>       
+</odoo>

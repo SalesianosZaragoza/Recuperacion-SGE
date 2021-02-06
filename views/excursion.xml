@@ -1,0 +1,66 @@
+<odoo>
+
+    <record model="ir.ui.view" id="excursion_form_view">
+        <field name="name">excursion.form</field>
+        <field name="model">appnaturalparks.excursion</field>
+        <field name="arch" type="xml">
+            <form string="Excursion Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="excursion_type"/>
+                        <field name="starting_date"/>
+                        <field name="ending_date"/>
+                        <field name="natural_park_id"/>
+                        <field name="hotel_id"/>
+                        <field name="visitor_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="excursion_tree_view">
+        <field name="name">excursion.tree</field>
+        <field name="model">appnaturalparks.excursion</field>
+        <field name="arch" type="xml">
+            <tree string="Excursion Tree">
+                <field name="name"/>
+                <field name="excursion_type"/>
+                <field name="starting_date"/>
+                <field name="ending_date"/>
+                <field name="natural_park_id"/>
+                <field name="hotel_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="excursion_list_action">
+        <field name="name">Excursion</field>
+        <field name="res_model">appnaturalparks.excursion</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new excursion of the park
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="excursion_search_view">
+        <field name="name">excursion.search</field>
+        <field name="model">appnaturalparks.excursion</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="car_trips" string="Car Trips"
+                    domain="[('trip_type', '=', 'car')]"/>
+                <filter name="walking_trips" string="Walking Trips"
+                    domain="[('trip_type', '=', 'walking')]"/>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="excursion_menu" name="Excursion"
+        parent="naturalparks_menu"
+        action="excursion_list_action"/>
+
+</odoo>

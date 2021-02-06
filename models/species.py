@@ -17,7 +17,7 @@ class Species(models.Model):
     blooming_period = fields.Selection([('spring', 'Spring'), ('summer', 'Summer'), ('autumn', 'Autumn'), ('winter', 'Winter')])
     is_eaten = fields.Boolean(string="Is this plant eaten?")
     
-    animal_ids = fields.Many2many('appnaturalparks.animal', string="Herbivores which eat this plant", 
+    animal_ids = fields.Many2many('appnaturalparks.animal', string="Herbivores which eat this vegetable", 
         domain=[('alimentation', '!=', 'carnivore')])
 
     @api.constrains('blooming', 'vegetable_blooming')

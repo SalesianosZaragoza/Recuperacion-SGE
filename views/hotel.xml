@@ -1,0 +1,66 @@
+<odoo>
+    <record model="ir.ui.view" id="hotel_form_view">
+        <field name="name">hotel.form</field>
+        <field name="model">appnaturalparks.hotel</field>
+        <field name="arch" type="xml">
+            <form string="Hotel Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="capacity" options='{"type": "number", "step": 1}'/>
+                        <field name="category"/>
+                        <field name="natural_park_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hotel_tree_view">
+        <field name="name">hotel.tree</field>
+        <field name="model">appnaturalparks.hotel</field>
+        <field name="arch" type="xml">
+            <tree string="Hotel Tree">
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="category"/>
+                <field name="natural_park_id"/>                
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hotel_list_action">
+        <field name="name">Hotel</field>
+        <field name="res_model">appnaturalparks.hotel</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a hotel
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hotel_search_view">
+        <field name="name">hotel.search</field>
+        <field name="model">appnaturalparks.hotel</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="amazing_quality" string="Amazing Quality"
+                        domain="[('category', 'in', ['five'])]"/>
+                <filter name="medium_quality" string="Medium Quality"
+                        domain="[('category', 'in', ['three', 'four'])]"/>
+                <filter name="low_quality" string="Low Quality"
+                        domain="[('category', 'in', ['one', 'two'])]"/>
+            </search>
+        </field>
+    </record>
+    
+    <menuitem id="main_naturalparks_menu" name="NaturalParks"/>
+
+    <menuitem id="naturalparks_menu" name="NaturalParks"
+        parent="main_naturalparks_menu"/>
+
+    <menuitem id="hotel_menu" name="Hotel"
+        parent="naturalparks_menu"
+        action="hotel_list_action"/>
+</odoo>
