@@ -5,7 +5,6 @@ class Species(models.Model):
 
     name = fields.Char(string="Cientific name", required=True)
     common_name = fields.Char(string="Common name", required=True)
-    areas_ids = fields.Many2many('ges.areas', string="Area", required=True)
     areas_species_ids = fields.One2many(
         'ges.areas_species', 'specie_id', string="Species")
 
@@ -16,21 +15,21 @@ class Vegetable(models.Model):
     blooming = fields.Boolean(string="Florece?")
     blooming_period = fields.Selection([('spring', 'Spring'), ('summer', 'Summer'), ('autumn', 'Autumn'), ('winter', 'Winter')])
 
-    is_eaten = fields.Boolean(string="Is this plant eaten?")
-    animal_ids = fields.Many2many('ges.animal', string="Animals that eat this plant", 
+    is_eaten = fields.Boolean(string="Is this vegetable eaten?")
+    animal_ids = fields.Many2many('ges.animal', string="Animals that eat this vegetable", 
         domain=[('alimentation', '!=', 'carnivore')])
 
     @api.constrains('blooming', 'blooming_period')
-    def _check_plant_has_blooming(self):
+    def _check_vegetable_has_blooming(self):
         for r in self:
             if not r.blooming and r.blooming_period:
-                raise exceptions.ValidationError("Select that the plant blooms, if you select when")
+                raise exceptions.ValidationError("Select that the vegetable blooms, if you select when")
 
     @api.constrains('is_eaten', 'animal_ids')
     def _check_animals_are_herbivores_or_omnivores(self):
         for r in self:
             if not r.is_eaten and r.animal_ids:
-                raise exceptions.ValidationError("Select that the plant is eaten, if you select the animal")
+                raise exceptions.ValidationError("Select that the vegetable is eaten, if you select the animal")
 
 class Animal(models.Model):
     _name = 'ges.animal'
@@ -47,7 +46,7 @@ class Animal(models.Model):
     def _check_animals_are_carnivores_or_omnivores(self):
         for r in self:
             if not r.is_eaten and r.animal_ids:
-                raise exceptions.ValidationError("Select that the plant is eaten, if you select the animal")
+                raise exceptions.ValidationError("Select that the vegetable is eaten, if you select the animal")
 
 class Mineral(models.Model):
     _name = 'ges.mineral'
