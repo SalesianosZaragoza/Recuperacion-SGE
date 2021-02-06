@@ -13,7 +13,7 @@ class Areas(models.Model):
     def _check_park_has_extension(self):
         for r in self:
             if r.extension <= 0:
-                raise exceptions.ValidationError("La extensión no puede ser 0")
+                raise exceptions.ValidationError("The extension cant be 0 or negative")
   
 
 class Areas_Species(models.Model):
@@ -23,4 +23,4 @@ class Areas_Species(models.Model):
         ondelete='set null', string="Area")
     species_id = fields.Many2one('ges.species',
         ondelete='set null', string="Especie")
-    individual_in_area = fields.Integer(string="Individuos de las especie en el area", required=True)
+    individual_in_area = fields.Integer(string="Indiviuals in an area", required=True)

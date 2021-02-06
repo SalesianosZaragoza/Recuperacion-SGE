@@ -7,7 +7,7 @@ class Accommodation(models.Model):
     category = fields.Selection([('one', '*'), ('two','**'), ('three', '***'), ('four', '****'), ('five', '*****')])
     natural_park_id = fields.Many2one('ges.natural_park', string="Natural Park", ondelete='cascade', required=True)
     visitor_ids = fields.One2many(
-        'ges.visitor', 'accomodation_id', string="Alojamiento")
+        'ges.visitor', 'accomodation_id', string="Accommodation")
     total_visitors = fields.Integer(compute='_calculate_visitors')
 
     @api.depends('visitor_ids')
@@ -19,7 +19,7 @@ class Accommodation(models.Model):
     def _overbooking(self):
         for r in self:
             if r.total_visitors > r.capacity:
-                raise exceptions.ValidationError("El numero de alojados supera la capacidad maxima")   
+                raise exceptions.ValidationError("The number of guest is above max")   
 
 class Visitor(models.Model):
     _name = 'ges.Visitor'

@@ -1,0 +1,61 @@
+<odoo>
+    <record model="ir.ui.view" id="vehicles_form_view">
+        <field name="name">vehicles.form</field>
+        <field name="model">ges.vehicles</field>
+        <field name="arch" type="xml">
+            <form string="vehicles Employee Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <separator string="Employees" colspan="2"/>
+                            <field name="name"/>
+                            <field name="dni"/>
+                            <field name="social_security_number"/>
+                            <field name="address"/>
+                            <field name="mobile_phone"/>
+                            <field name="landline_phone"/>
+                            <field name="salary" options='{"type": "number", "step": 1000}'/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <separator string="vehicles" colspan="2"/>
+                            <field name="entrance_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vehicles_tree_view">
+        <field name="name">vehicles.tree</field>
+        <field name="model">ges.vehicles</field>
+        <field name="arch" type="xml">
+            <tree string="vehicles Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="social_security_number"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="landline_phone"/>
+                <field name="natural_park_id"/>
+                <field name="salary"/>
+                <field name="entrance_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vehicles_list_action">
+        <field name="name">vehicles</field>
+        <field name="res_model">ges.vehicles</field>
+        <field name="view_mode">tree,form</field>
+        
+    </record>
+
+    <menuitem id="vehicles_menu" name="vehicles"
+                  parent="main_naturalparks_menu"/>
+
+    <menuitem id="vehicles_menu" name="Vehicles"
+        parent="vehicles_menu"
+        action="vehicles_list_action"/>
+
+</odoo>

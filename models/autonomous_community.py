@@ -3,11 +3,11 @@ from odoo import models, fields, api, exceptions
 class Autonomous_Community(models.Model):
     _name = 'ges.autonomous_community'
 
-    name = fields.Char(string="Comunidad", required=True)
-    responsible_entity = fields.Char(string="Nombre de entidad responsable", required=True)
+    name = fields.Char(string="Comunity", required=True)
+    responsible_entity = fields.Char(string="Name of responsible entity", required=True)
     
     autonomous_community_natural_park_ids = fields.One2many(
-        'ges.autonomous_community_natural_park', 'autonomous_community_id', string="Parques naturales")
+        'ges.autonomous_community_natural_park', 'autonomous_community_id', string="Natural park")
 
 class Autonomous_Community_Natural_Park(models.Model):
     _name = 'ges.autonomous_community_natural_park'
@@ -15,13 +15,13 @@ class Autonomous_Community_Natural_Park(models.Model):
     autonomous_community_id = fields.Many2one('ges.autonomous_community',
         ondelete='set null', string="Comunidad Autonoma")
     natural_park_id = fields.Many2one('ges.natural_park',
-        ondelete='set null', string="Parque natural")
+        ondelete='set null', string="Natural park")
 
-    extension = fields.Integer(string="Extension (en km2)", required=True)
+    extension = fields.Integer(string="Extension (in km2)", required=True)
 
     @api.constrains('extension')
     def _check_park_has_extension(self):
         for r in self:
             if r.extension <= 0:
-                raise exceptions.ValidationError("La extensión no puede ser 0")
+                raise exceptions.ValidationError("The extension cant be 0")
   

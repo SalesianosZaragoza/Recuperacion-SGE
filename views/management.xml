@@ -1,0 +1,65 @@
+<odoo>
+        <record model="ir.ui.view" id="management_form_view">
+        <field name="name">management.form</field>
+        <field name="model">ges.management</field>
+        <field name="arch" type="xml">
+            <form string="management Employee Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <separator string="Employees" colspan="2"/>
+                            <field name="name"/>
+                            <field name="dni"/>
+                            <field name="social_security_number"/>
+                            <field name="address"/>
+                            <field name="mobile_phone"/>
+                            <field name="landline_phone"/>
+                            <field name="salary" options='{"type": "number", "step": 1000}'/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <separator string="management" colspan="2"/>
+                            <field name="name"/>
+                            <field name="plate_number"/>
+                            <field name="car_model"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="management_tree_view">
+        <field name="name">management.tree</field>
+        <field name="model">ges.management</field>
+        <field name="arch" type="xml">
+            <tree string="management Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="social_security_number"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="landline_phone"/>
+                <field name="natural_park_id"/>
+                <field name="salary"/>
+                <field name="name"/>
+                <field name="plate_number"/>
+                <field name="car_model"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="management_list_action">
+        <field name="name">management</field>
+        <field name="res_model">ges.management</field>
+        <field name="view_mode">tree,form</field>
+        
+    </record>
+
+    <menuitem id="management_menu" name="management"
+                  parent="main_naturalparks_menu"/>
+
+    <menuitem id="management_menu" name="management"
+        parent="management_menu"
+        action="management_list_action"/>
+
+</odoo>

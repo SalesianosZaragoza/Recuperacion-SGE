@@ -1,0 +1,82 @@
+<odoo>
+         <record model="ir.ui.view" id="surveillance_form_view">
+        <field name="name">surveillance.form</field>
+        <field name="model">ges.surveillance</field>
+        <field name="arch" type="xml">
+            <form string="surveillance Employee Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <separator string="Employees" colspan="2"/>
+                            <field name="name"/>
+                            <field name="dni"/>
+                            <field name="social_security_number"/>
+                            <field name="address"/>
+                            <field name="mobile_phone"/>
+                            <field name="landline_phone"/>
+                            <field name="salary" options='{"type": "number", "step": 1000}'/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <separator string="Surveillance" colspan="2"/>
+                            <field name="natural_park_id"/>
+                            <field name="car_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="surveillance_tree_view">
+        <field name="name">surveillance.tree</field>
+        <field name="model">ges.surveillance</field>
+        <field name="arch" type="xml">
+            <tree string="surveillance Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="social_security_number"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="landline_phone"/>
+                <field name="natural_park_id"/>
+                <field name="salary"/>
+                <field name="car_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="surveillance_list_action">
+        <field name="name">surveillance</field>
+        <field name="res_model">ges.surveillance</field>
+        <field name="view_mode">tree,form</field>
+        
+    </record>
+
+    <record model="ir.ui.view" id="surveillance_search_view">
+        <field name="name">surveillance.search</field>
+        <field name="model">ges.surveillance</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="social_security_number"/>
+                <filter name="high_salary" string="High Salary"
+                        domain="[('salary', '&gt;', 18000)]"/>
+                <filter name="low_salary" string="Low Salary"
+                        domain="[('salary', '&lt;', 18000)]"/>
+                <group string="Group By">
+                    <filter name="by_natural_park" string="Natural Park"
+                            context="{'group_by': 'natural_park_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="surveillance_menu" name="surveillance"
+                  parent="main_naturalparks_menu"/>
+
+    <menuitem id="surveillance_menu" name="surveillance"
+        parent="surveillance_menu"
+        action="surveillance_list_action"/>
+
+</odoo>

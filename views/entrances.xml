@@ -1,0 +1,50 @@
+<odoo>
+
+        <record model="ir.ui.view" id="entrances_form_view">
+            <field name="name">entrances.form</field>
+            <field name="model">ges.entrances</field>
+            <field name="arch" type="xml">
+                <form string="Area Form">
+                    <sheet>
+                        <group>
+                            <field name="entrance_number" options='{"type": "number", "step": 1}'/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="entrances_tree_view">
+            <field name="name">entrances.tree</field>
+            <field name="model">ges.entrances</field>
+            <field name="arch" type="xml">
+                <tree string="Area Tree">
+                    <field name="entrance_number" options='{"type": "number", "step": 1}'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="entrances_graph_view">
+            <field name="name">entrances.graph</field>
+            <field name="model">ges.entrances</field>
+            <field name="arch" type="xml">
+                <graph string="entrances by Extension">
+                    <field name="name"/>
+                    <field name="extension" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="entrances_list_action">
+            <field name="name">Area</field>
+            <field name="res_model">ges.entrances</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+            </field>
+        </record>
+        
+        <menuitem id="entrances_menu" name="Area"
+            parent="natural_parks_menu"
+            action="entrances_list_action"/>
+
+</odoo>

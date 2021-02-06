@@ -7,7 +7,7 @@ class Species(models.Model):
     common_name = fields.Char(string="Common name", required=True)
     areas_ids = fields.Many2many('ges.areas', string="Area", required=True)
     areas_species_ids = fields.One2many(
-        'ges.areas_species', 'specie_id', string="Especies")
+        'ges.areas_species', 'specie_id', string="Species")
 
 class Vegetable(models.Model):
     _name = 'ges.vegetable'
@@ -16,21 +16,21 @@ class Vegetable(models.Model):
     blooming = fields.Boolean(string="Florece?")
     blooming_period = fields.Selection([('spring', 'Spring'), ('summer', 'Summer'), ('autumn', 'Autumn'), ('winter', 'Winter')])
 
-    is_eaten = fields.Boolean(string="La planta es comida?")
-    animal_ids = fields.Many2many('ges.animal', string="Animales que comen esta planta", 
+    is_eaten = fields.Boolean(string="Is this plant eaten?")
+    animal_ids = fields.Many2many('ges.animal', string="Animals that eat this plant", 
         domain=[('alimentation', '!=', 'carnivore')])
 
     @api.constrains('blooming', 'blooming_period')
     def _check_plant_has_blooming(self):
         for r in self:
             if not r.blooming and r.blooming_period:
-                raise exceptions.ValidationError("Selecciona que la planta florece, si añades la estacion")
+                raise exceptions.ValidationError("Select that the plant blooms, if you select when")
 
     @api.constrains('is_eaten', 'animal_ids')
     def _check_animals_are_herbivores_or_omnivores(self):
         for r in self:
             if not r.is_eaten and r.animal_ids:
-                raise exceptions.ValidationError("Selecciona si la planta es comida, si añades animales carnivoros")
+                raise exceptions.ValidationError("Select that the plant is eaten, if you select the animal")
 
 class Animal(models.Model):
     _name = 'ges.animal'
@@ -39,7 +39,7 @@ class Animal(models.Model):
     alimentation = fields.Selection([('carnivore','Carnivore'), ('herbivore','Herbivore'), ('omnivore','Omnivore')], required=True)
     mating_season = fields.Selection([('spring', 'Spring'), ('summer', 'Summer'), ('autumn', 'Autumn'), ('winter', 'Winter')])
 
-    is_eaten = fields.Boolean(string="Es este animal comido?")
+    is_eaten = fields.Boolean(string="Is this animal eaten?")
     animal_ids = fields.Many2many(comodel_name='ges.animal', relation='animals_eaten', column1='prey', column2='carnivores', string="Animales que se comen a este animal",
         domain=[('alimentation', '!=', 'herbivore')])
 
@@ -47,7 +47,7 @@ class Animal(models.Model):
     def _check_animals_are_carnivores_or_omnivores(self):
         for r in self:
             if not r.is_eaten and r.animal_ids:
-                raise exceptions.ValidationError("selecciona sin son comidos antes de señalar el animal")
+                raise exceptions.ValidationError("Select that the plant is eaten, if you select the animal")
 
 class Mineral(models.Model):
     _name = 'ges.mineral'

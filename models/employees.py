@@ -8,8 +8,8 @@ class Employees(models.Model):
     social_security_number = fields.Char(required=True)
     address = fields.Char(required=True)
     mobile_phone = fields.Char(required=True)
-    landline_phone = fields.Char(required=True)
-    salary = fields.Integer(required=True, string="Salario anual en euros")
+    landline_phone_phone = fields.Char(required=True)
+    salary = fields.Integer(required=True, string="Anual salary in euros")
 
 class Management(models.Model):
     _name = 'ges.gestion'
@@ -39,24 +39,13 @@ class Investigation(models.Model):
     _name = 'ges.investigation'
     _inherit = 'ges.employees'
 
-    academic_qualification = fields.Char(string="Titulacion", required=True)
-    project_investigation_ids = fields.One2many(
-        'ges.project_investigation', 'investigation_id', string="Investigador")
-
-class Project_Investigation(models.Model):
-    _name = 'ges.project_investigation'
-    _inherit = 'ges.employees'
-
-    investigation_id = fields.Many2one('ges.investigation',
-        ondelete='set null', string="Investigador")
-    project_id = fields.Many2one('ges.project',
-        ondelete='set null', string="Proyecto")
-
+    academic_qualification = fields.Char(string="Titulation", required=True)
+    
 class Project(models.Model):
     _name = 'ges.project'
 
-    project_investigation_ids = fields.One2many(
-        'ges.project_investigation', 'project_id', string="Proyecto")
+    name = fields.Char(string="Project Name", required=True)
+    research_ids = fields.Many2many('ges.research', string="Researchers", required=True)
     species_id = fields.Many2one('ges.species', string="Especies", required=True)
     budget = fields.Float(string="Budget (in €)", digits=(8, 2))
     starting_date = fields.Date(required=True)
@@ -66,7 +55,7 @@ class Project(models.Model):
     def _check_ending_date_is_after_starting_date(self):
         for r in self:
             if r.starting_date > r.ending_date:
-                raise exceptions.ValidationError("La fecha de final tiene que ser posterior a la de inicio")
+                raise exceptions.ValidationError("The initial date has to be prior to the ending date")
 
     #Aqui se podria añadir el panel kanban
 
