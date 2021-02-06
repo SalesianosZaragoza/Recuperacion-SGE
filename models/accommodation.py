@@ -7,7 +7,7 @@ class Accommodation(models.Model):
     category = fields.Selection([('one', '*'), ('two','**'), ('three', '***'), ('four', '****'), ('five', '*****')])
     natural_park_id = fields.Many2one('ges.natural_park', string="Natural Park", ondelete='cascade', required=True)
     visitor_ids = fields.One2many(
-        'ges.visitor', 'accomodation_id', string="Accommodation")
+        'ges.visitor', 'accommodation_id', string="Accommodation")
     total_visitors = fields.Integer(compute='_calculate_visitors')
 
     @api.depends('visitor_ids')
@@ -37,10 +37,9 @@ class Excursions(models.Model):
     starting_date = fields.Datetime(required=True)
     ending_date = fields.Datetime(required=True)
 
-    acommodation_id = fields.Many2one('ges.acommodation', string="Acommodation Organizer", required=True)
+    accommodation_id = fields.Many2one('ges.accommodation', string="accommodation Organizer", required=True)
     visitor_ids = fields.Many2many('ges.visitor', string="Visitors")
-    #Con domain se puede controlar para que solo salgan los valores que se quieran
-    #habria que sacar solo los visitantes que estan en un alojamiento del parque natural
+
 
     
 

@@ -1,9 +1,9 @@
 <odoo>
-        <record model="ir.ui.view" id="acommodation_form_view">
-            <field name="name">acommodation.form</field>
-            <field name="model">ges.acommodation</field>
+        <record model="ir.ui.view" id="accommodation_form_view">
+            <field name="name">accommodation.form</field>
+            <field name="model">ges.accommodation</field>
             <field name="arch" type="xml">
-                <form string="Acommodation Form">
+                <form string="accommodation Form">
                     <sheet>
                         <group>
                             <field name="name"/>
@@ -16,11 +16,11 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="acommodation_tree_view">
-            <field name="name">acommodation.tree</field>
-            <field name="model">ges.acommodation</field>
+        <record model="ir.ui.view" id="accommodation_tree_view">
+            <field name="name">accommodation.tree</field>
+            <field name="model">ges.accommodation</field>
             <field name="arch" type="xml">
-                <tree string="Acommodation Tree">
+                <tree string="accommodation Tree">
                     <field name="name"/>
                     <field name="capacity"/>
                     <field name="category"/>
@@ -29,27 +29,27 @@
             </field>
         </record>
 
-        <record  model="ir.ui.view" id="acommodation_pivot_view">
-            <field name="name">acommodation.pivot</field>
-            <field name="model">ges.acommodation</field>
+        <record  model="ir.ui.view" id="accommodation_pivot_view">
+            <field name="name">accommodation.pivot</field>
+            <field name="model">ges.accommodation</field>
             <field name="arch" type="xml">
-                <pivot string="Acommodation">
+                <pivot string="accommodation">
                     <field name="visitor_ids" type="row"/>
                     <field name="name"/>
                 </pivot>
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="acommodation_list_action">
-            <field name="name">Acommodation</field>
-            <field name="res_model">ges.acommodation</field>
+        <record model="ir.actions.act_window" id="accommodation_list_action">
+            <field name="name">accommodation</field>
+            <field name="res_model">ges.accommodation</field>
             <field name="view_mode">tree,form,kanban,pivot</field>
             <field name="help" type="html">
             </field>
         </record>
 
-        <menuitem id="acommodation_menu" name="Acommodation"
+        <menuitem id="accommodation_menu" name="accommodation"
             parent="natural_parks_menu"
-            action="acommodation_list_action"/>
+            action="accommodation_list_action"/>
 
 </odoo>

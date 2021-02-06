@@ -47,8 +47,8 @@
                     <field name="dni"/>
                     <field name="name"/>
                     <group string="Group By">
-                        <filter name="by_acommodation" string="Acommodation"
-                                context="{'group_by': 'acommodation_id'}"/>
+                        <filter name="by_accommodation" string="accommodation"
+                                context="{'group_by': 'accommodation_id'}"/>
                     </group>
                 </search>
             </field>

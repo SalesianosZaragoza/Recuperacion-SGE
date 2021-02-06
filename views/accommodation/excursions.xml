@@ -11,7 +11,7 @@
                             <field name="excursion_type"/>
                             <field name="starting_date"/>
                             <field name="ending_date"/>
-                            <field name="acommodation_id"/>
+                            <field name="accommodation_id"/>
                             <field name="visitor_ids"/>
                         </group>
                     </sheet>
@@ -28,7 +28,7 @@
                   <field name="excursion_type"/>
                   <field name="starting_date"/>
                   <field name="ending_date"/>
-                  <field name="acommodation_id"/>
+                  <field name="accommodation_id"/>
                   <field name="visitor_ids"/>
                 </tree>
             </field>
@@ -52,7 +52,7 @@
                 <calendar string="excursion Calendar" date_start="starting_date" date_stop="ending_date" quick_add="False">
                     <field name="name"/>
                     <field name="excursion_type"/>
-                    <field name="acommodation_id"/>
+                    <field name="accommodation_id"/>
                 </calendar>
             </field>
         </record>
@@ -80,8 +80,8 @@
                                 context="{'group_by': 'natural_park_id'}"/>
                     </group>
                     <group string="Group By">
-                        <filter name="by_acommodation" string="Acommodation Organizer"
-                                context="{'group_by': 'acommodation_id'}"/>
+                        <filter name="by_accommodation" string="accommodation Organizer"
+                                context="{'group_by': 'accommodation_id'}"/>
                     </group>
                 </search>
             </field>
