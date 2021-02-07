@@ -1,0 +1,236 @@
+<odoo>
+<!--Management-->
+    <record model="ir.ui.view" id="management_form_view">
+        <field name="name">management.form</field>
+        <field name="model">appnaturalparks.management</field>
+        <field name="arch" type="xml">
+            <form string="Management Employee Form">
+                <sheet>              
+                    <field name="name"/>
+                    <field name="dni"/>
+                    <field name="social_security"/>
+                    <field name="address"/>
+                    <field name="mobile_phone"/>
+                    <field name="home_phone"/>                        
+                    <field name="natural_park_id"/>
+                    <field name="salary" options='{"type": "number", "step": 1000}'/>
+                    <field name="number_entrance" options='{"type": "number", "step": 1}'/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="management_tree_view">
+        <field name="name">management.tree</field>
+        <field name="model">appnaturalparks.management</field>
+        <field name="arch" type="xml">
+            <tree string="Management Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="social_security"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="home_phone"/>
+                <field name="natural_park_id"/>
+                <field name="salary"/>
+                <field name="number_entrance"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="management_list_action">
+        <field name="name">Management</field>
+        <field name="res_model">appnaturalparks.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new Management Employee of the park
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="staff_menu" name="Staff"
+        parent="main_naturalparks_menu"/>
+
+    <menuitem id="management_menu" name="Management Employee"
+        parent="staff_menu"
+        action="management_list_action"/>
+    
+<!--Vigilance-->
+    <record model="ir.ui.view" id="vigilance_form_view">
+        <field name="name">vigilance.form</field>
+        <field name="model">appnaturalparks.vigilance</field>
+        <field name="arch" type="xml">
+            <form string="Vigilance Employee Form">
+                <sheet>
+                    <field name="name"/>
+                    <field name="dni"/>
+                    <field name="social_security"/>
+                    <field name="address"/>
+                    <field name="mobile_phone"/>
+                    <field name="home_phone"/>
+                    <field name="natural_park_id"/>
+                    <field name="area_id"/>
+                    <field name="salary" options='{"type": "number", "step": 1000}'/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vigilance_tree_view">
+        <field name="name">vigilance.tree</field>
+        <field name="model">appnaturalparks.vigilance</field>
+        <field name="arch" type="xml">
+            <tree string="Vigilance Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="social_security"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="home_phone"/>
+                <field name="natural_park_id"/>
+                <field name="area_id"/>
+                <field name="salary"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vigilance_list_action">
+        <field name="name">Vigilance</field>
+        <field name="res_model">appnaturalparks.vigilance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new Vigilance Employee of the park
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="vigilance_menu" name="Vigilance Employee"
+        parent="staff_menu"
+        action="vigilance_list_action"/>
+    
+<!--Research-->
+    <record model="ir.ui.view" id="research_form_view">
+        <field name="name">research.form</field>
+        <field name="model">appnaturalparks.research</field>
+        <field name="arch" type="xml">
+            <form string="Research Employee Form">
+                <sheet>
+                    <field name="name"/>
+                    <field name="dni"/>
+                    <field name="social_security"/>
+                    <field name="address"/>
+                    <field name="mobile_phone"/>
+                    <field name="home_phone"/>
+                    <field name="natural_park_id"/>
+                    <field name="salary" options='{"type": "number", "step": 1000}'/>
+                    <field name="title"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="research_tree_view">
+        <field name="name">research.tree</field>
+        <field name="model">appnaturalparks.research</field>
+        <field name="arch" type="xml">
+            <tree string="Research Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="social_security"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="landline"/>
+                <field name="natural_park_id"/>
+                <field name="salary"/>
+                <field name="title"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="research_list_action">
+        <field name="name">Research</field>
+        <field name="res_model">appnaturalparks.research</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new Research Employee of the park
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="research_menu" name="Research Employee"
+        parent="staff_menu"
+        action="research_list_action"/>
+    
+<!--Conservation-->
+    <record model="ir.ui.view" id="conservation_form_view">
+        <field name="name">conservation.form</field>
+        <field name="model">appnaturalparks.conservation</field>
+        <field name="arch" type="xml">
+            <form string="Conservation Employee Form">
+                <sheet>
+                    <field name="name"/>
+                    <field name="dni"/>
+                    <field name="social_security"/>
+                    <field name="address"/>
+                    <field name="mobile_phone"/>
+                    <field name="home_phone"/>
+                    <field name="natural_park_id"/>
+                    <field name="area_id"/>
+                    <field name="salary" options='{"type": "number", "step": 1000}'/>
+                    <field name="specialty"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="conservation_tree_view">
+        <field name="name">conservation.tree</field>
+        <field name="model">appnaturalparks.conservation</field>
+        <field name="arch" type="xml">
+            <tree string="Conservation Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="social_security"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="home_phone"/>
+                <field name="natural_park_id"/>
+                <field name="area_id"/>
+                <field name="salary"/>
+                <field name="specialty"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="conservation_list_action">
+        <field name="name">Conservation</field>
+        <field name="res_model">appnaturalparks.conservation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new Conservation Employee of the park
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="conservation_search_view">
+        <field name="name">conservation.search</field>
+        <field name="model">appnaturalparks.conservation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dni"/>
+                <filter name="cleaning" string="Cleaning"
+                    domain="[('specialty', '=', 'cleaning')]"/>
+                <filter name="roads" string="Roads"
+                    domain="[('specialty', '=', 'roads')]"/>
+                <filter name="others" string="Others"
+                    domain="[('specialty', '=', 'others')]"/>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="conservation_menu" name="Conservation Employee"
+        parent="staff_menu"
+        action="conservation_list_action"/>  
+    
+</odoo>

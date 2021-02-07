@@ -1,4 +1,4 @@
-from odoo import models
+from odoo import models, fields, api, exceptions
 
 class Staff(models.Model):
     _name = 'appnaturalparks.staff'
@@ -10,6 +10,14 @@ class Staff(models.Model):
     mobile_phone = fields.Char()
     home_phone = fields.Char()
     salary = fields.Integer(string="Salary (in €, annual)")
+
+    natural_park_id = fields.Many2one('appnaturalparks.natural_park', ondelete='cascade', string="Natural Park", required=True)
+
+    @api.constrains('salary')
+    def _check_park_has_extension(self):
+        for s in self:
+            if s.salary <= 0:
+                raise exceptions.ValidationError("The salary must be higher than zero")
 
     class Management(models.Model):
     _name = 'appnaturalparks.management'

@@ -1,7 +1,7 @@
 from odoo import models
 
-class Visitors(models.Model):
-    _name = 'appnaturalparks.visitors'
+class Visitor(models.Model):
+    _name = 'appnaturalparks.visitor'
 
     name = fields.Char(required=True)    
     dni = fields.Char(required=True)

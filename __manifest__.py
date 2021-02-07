@@ -9,7 +9,7 @@
         Una aplicación sobre los parques naturales de España
                 - visitantes 
                 - staff de los parques 
-                - acomodacion
+                - hotel de alojamiento
     """,
 
     'author': "Jorge Gimeno",
@@ -27,7 +27,13 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-       
-        
+        'views/area.xml',
+        'views/community.xml',
+        'views/excursion.xml',
+        'views/hotel.xml',
+        'views/naturalpark.xml',
+        'views/species.xml',        
+        'views/staff.xml',
+        'views/visitor.xml',
     ],
 } 
