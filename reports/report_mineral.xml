@@ -1,0 +1,34 @@
+<odoo>
+    <report
+        id="report_vegetable"
+        model="ges.vegetable"
+        string="vegetable Employee Report"
+        report_type="qweb-pdf"
+        name="RecuperacionOdoo.report_vegetable_view"
+        file="RecuperacionOdoo.report_vegetable"
+    />
+
+    <template id="minimal_layout_inherit" inherit_id="web.minimal_layout">
+      <xpath expr="//head" position="inside">
+             <link rel='stylesheet' href="/RecuperacionOdoo/static/src/css/style.css"/>
+      </xpath>
+    </template>
+
+    <template id="report_vegetable_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="header">
+                    <img src='/RecuperacionOdoo/static/src/img/logo.png'/>
+                    <h1>Natural Parks App</h1>
+                </div> 
+                <hr></hr>
+                <div class="page">
+                    <h1>vegetable Report</h1>
+                    <p style="font-size: 22px;"><b>Name:</b> <span t-field="doc.name"/> </p>
+                    <p style="font-size: 22px;"><b>Common name:</b> <span t-field="doc.common_name"/> </p>
+                    <p style="font-size: 22px;"><b>Mineral type:</b> <span t-field="doc.mineral_type"/> </p>
+                </div> 
+            </t>
+        </t>
+    </template>
+</odoo>
