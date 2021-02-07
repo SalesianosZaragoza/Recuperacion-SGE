@@ -12,7 +12,7 @@
     'website': "http://www.yourcompany.com",
     'category': 'Test',
     'version': '0.1',
-    'depends': ['base'],
+    'depends': ['base', 'board'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
