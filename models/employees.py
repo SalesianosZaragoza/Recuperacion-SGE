@@ -11,6 +11,12 @@ class Employees(models.Model):
     landline_phone_phone = fields.Char(required=True)
     salary = fields.Integer(required=True, string="Anual salary in euros")
 
+    @api.constrains('salary')
+    def is_positive(self):
+        for r in self:
+            if r.salary <= 0:
+                raise exceptions.ValidationError("The salary must be positive")
+
 class Management(models.Model):
     _name = 'ges.gestion'
     _inherit = 'ges.employees'
@@ -57,7 +63,17 @@ class Project(models.Model):
             if r.starting_date > r.ending_date:
                 raise exceptions.ValidationError("The initial date has to be prior to the ending date")
 
-    #Aqui se podria añadir el panel kanban
+    def action_confirm(self):
+        for r in self:
+            r.state = '2.confirm'
+            
+    def action_done(self):
+        for r in self:
+            r.state = '3.done'
+
+    def action_draft(self):
+        for r in self:
+            r.state = '1.draft'
 
 class Conservation(models.Model):
     _name = 'ges.conservation'

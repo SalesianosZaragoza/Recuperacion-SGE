@@ -24,3 +24,9 @@ class Areas_Species(models.Model):
     species_id = fields.Many2one('ges.species',
         ondelete='set null', string="Especie")
     individual_in_area = fields.Integer(string="Indiviuals in an area", required=True)
+
+    @api.constrains('individual_in_area')
+    def is_positive(self):
+        for r in self:
+            if r.individual_in_area <= 0:
+                raise exceptions.ValidationError("The number must be positive")
