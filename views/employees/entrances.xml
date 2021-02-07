@@ -44,7 +44,7 @@
         </record>
         
         <menuitem id="entrances_menu" name="Area"
-            parent="natural_parks_menu"
+            parent="employees_menu"
             action="entrances_list_action"/>
 
 </odoo>

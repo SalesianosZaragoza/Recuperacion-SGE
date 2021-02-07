@@ -73,10 +73,7 @@
     </record>
 
     <menuitem id="surveillance_menu" name="surveillance"
-                  parent="main_natural_parks_menu"/>
-
-    <menuitem id="surveillance_menu" name="surveillance"
-        parent="surveillance_menu"
+        parent="employees_menu"
         action="surveillance_list_action"/>
 
 </odoo>

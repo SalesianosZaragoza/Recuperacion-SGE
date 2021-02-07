@@ -53,6 +53,6 @@
     </record>
 
     <menuitem id="conservation_menu" name="Conservation Employee"
-        parent="staff_menu"
+        parent="employees_menu"
         action="conservation_list_action"/>        
 </odoo>

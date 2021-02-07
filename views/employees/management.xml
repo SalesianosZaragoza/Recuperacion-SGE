@@ -55,11 +55,11 @@
         
     </record>
 
-    <menuitem id="management_menu" name="management"
+    <menuitem id="employees_menu" name="management"
                   parent="main_natural_parks_menu"/>
 
-    <menuitem id="management_menu" name="management"
-        parent="management_menu"
+    <menuitem id="employees_menu" name="management"
+        parent="employees_menu"
         action="management_list_action"/>
 
 </odoo>
