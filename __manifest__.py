@@ -34,6 +34,10 @@
         'views/species/vegetable.xml',
         'views/species/animal.xml',
         'views/species/mineral.xml',
+        'reports/report_animal.xml',
+        'reports/report_mineral.xml',
+        'reports/report_vegetable.xml',
+        'reports/report_natural_park.xml'
     ],
 
 }
