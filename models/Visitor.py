@@ -5,10 +5,10 @@ class Visitor(models.Model):
 
 
 
-    Name = fields.Char()
-    DNI = fields.Char()
-    Address = fields.Char()
-    Job = fields.Char()
+    Name = fields.Char(string="name of the visitor")
+    DNI = fields.Char(string="DNI of the visitor")
+    Address = fields.Char(string="address of the visitor")
+    Job = fields.Char(string="job of the visitor")
 
 
     LodgingID = fields.Many2one('NaturalParks.Lodging')

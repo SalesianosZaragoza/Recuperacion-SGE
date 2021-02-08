@@ -5,10 +5,10 @@ class Trip(models.Model):
     
 
 
-    Name = fields.Char()
-    Trip_Type = fields.Selection 
-    Starting_Date = fields.Datetime
-    Ending_Date = fields.Datetime
+    Name = fields.Char(string="name of the trip")
+    Trip_Type = fields.Selection([('car trip'), ('walk trip')]) 
+    Starting_Date = fields.Datetime()
+    Ending_Date = fields.Datetime()
 
 
 

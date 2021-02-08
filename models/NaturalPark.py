@@ -5,8 +5,8 @@ class NaturalPark(models.Model):
 
 
 
-    Name = fields.Char()
+    Name = fields.Char(string="name of the natural park")
     Statement_Date = fields.Date()
-    Extension = fields.Integer()
+    
 
     CommunityID = fields.Many2many('NaturalParks.Community')

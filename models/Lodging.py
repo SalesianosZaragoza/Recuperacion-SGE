@@ -5,8 +5,9 @@ class Lodging(models.Model):
 
 
 
-    Name = fields.Char()
-    Capacity = fields.Intereger()
+    Name = fields.Char(string="name of the lodging")
+    Capacity = fields.Intereger(string="capacity of the lodging")
+    Category = fields.Selection([('first class'),('second class'), ('third class')])
     
 
 

@@ -5,6 +5,6 @@ class Community(models.Model):
     _order='name'
 
 
-    Name = fields.Char()
-    Responsible_Org = fields.Char()
-    Extension = fields.Integer()
+    Name = fields.Char(string="name of the community")
+    Responsible_Org = fields.Char(string="name of the responsible org")
+    

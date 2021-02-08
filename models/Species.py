@@ -5,6 +5,6 @@ class Species(models.Model):
 
 
 
-    Name = fields.Char()
-    Vulgar_Name = fields.Char()
+    Name = fields.Char(string="name of the species")
+    Vulgar_Name = fields.Char(string="vulgar name of the species")
     AreaID = fields.Many2many('NaturalParks.Area')
