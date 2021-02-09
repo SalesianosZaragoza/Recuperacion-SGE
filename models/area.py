@@ -2,7 +2,7 @@ from odoo import models, fields
 
 class area(models.Model):
     _name = 'np.area'
-    _order = 'parquenatural.id'
+
 
     name = fields.Char(string="nombre", required=True)
     extension = fields.Integer(string="extension", required=True)

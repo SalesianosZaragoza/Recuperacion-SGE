@@ -1,0 +1,264 @@
+<odoo>
+    <!--personal-->
+    <record model="ir.ui.view" id="personal_form_view">
+        <field name="name">personal.form</field>
+        <field name="model">np.personal</field>
+        <field name="arch" type="xml">
+            <form string="personal Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <field name="nombre"/>
+                            <field name="dni"/>
+                            <field name="nSeguridadSocial"/>
+                            <field name="direccion"/>
+                            <field name="tlfn"/>
+                            <field name="tlfnDomicilio"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <field name="parquenatural.id"/>
+                            <field name="salario"/>
+                            <field name="nEntrada"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="personal_tree_view">
+        <field name="name">personal.tree</field>
+        <field name="model">np.personal</field>
+        <field name="arch" type="xml">
+            <tree string="personal Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="nSeguridadSocial"/>
+                <field name="direccion"/>
+                <field name="tlfn"/>
+                <field name="tlfnDomicilio"/>
+                <field name="parquenatural.id"/>
+                <field name="salario"/>
+                <field name="nEntrada"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="personal_list_action">
+        <field name="name">personal</field>
+        <field name="res_model">np.personal</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        </field>
+    </record>
+
+    <!--vigilancia-->
+    <record model="ir.ui.view" id="vigilancia_form_view">
+        <field name="name">vigilancia.form</field>
+        <field name="model">np.vigilancia</field>
+        <field name="arch" type="xml">
+            <form string="vigilancia Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <field name="nombre"/>
+                            <field name="dni"/>
+                            <field name="nSeguridadSocial"/>
+                            <field name="direccion"/>
+                            <field name="tlfn"/>
+                            <field name="tlfnDomicilio"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <field name="parquenatural.id"/>
+                            <field name="area.id"/>
+                            <field name="salario"/>
+                            <field name="coche.id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vigilancia_tree_view">
+        <field name="name">vigilancia.tree</field>
+        <field name="model">np.vigilancia</field>
+        <field name="arch" type="xml">
+            <tree string="vigilancia Tree">
+                <field name="nombre"/>
+                <field name="dni"/>
+                <field name="nSeguridadSocial"/>
+                <field name="direccion"/>
+                <field name="tlfn"/>
+                <field name="tlfnDomicilio"/>
+                <field name="parquenatural.id"/>
+                <field name="area.id"/>
+                <field name="salario"/>
+                <field name="coche.id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vigilancia_list_action">
+        <field name="name">vigilancia</field>
+        <field name="res_model">np.vigilancia</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        </field>
+    </record>
+
+    <menuitem id="vigilancia_menu" name="vigilancia"
+        parent="staff_menu"
+        action="vigilancia_list_action"/>
+
+        <record model="ir.ui.view" id="coche_form_view">
+        <field name="name">coche.form</field>
+        <field name="model">np.coche</field>
+        <field name="arch" type="xml">
+            <form string="coche Form">
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="matricula"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="coche_tree_view">
+        <field name="name">coche.tree</field>
+        <field name="model">np.coche</field>
+        <field name="arch" type="xml">
+            <tree string="coche Tree">
+                <field name="nombre"/>
+                <field name="matricula"/>
+            </tree>
+        </field>
+    </record>
+     
+    <record model="ir.actions.act_window" id="coche_list_action">
+        <field name="name">coche</field>
+        <field name="res_model">np.coche</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="coche_search_view">
+        <field name="name">coche.search</field>
+        <field name="model">np.coche</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre"/>
+                <field name="matricula"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="investigador_form_view">
+        <field name="name">investigador.form</field>
+        <field name="model">np.investigador</field>
+        <field name="arch" type="xml">
+            <form string="investigador Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <field name="nombre"/>
+                            <field name="dni"/>
+                            <field name="nSeguridadSocial"/>
+                            <field name="direccion"/>
+                            <field name="tlfn"/>
+                            <field name="tlfnDomicilio"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <field name="parquenatural.id"/>
+                            <field name="salario"/>
+                            <field name="titulo"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="investigador_tree_view">
+        <field name="name">investigador.tree</field>
+        <field name="model">np.investigador</field>
+        <field name="arch" type="xml">
+            <tree string="investigador Tree">
+                <field name="nombre"/>
+                <field name="dni"/>
+                <field name="nSeguridadSocial"/>
+                <field name="direccion"/>
+                <field name="tlfn"/>
+                <field name="tlfnDomicilio"/>
+                <field name="parquenatural.id"/>
+                <field name="salario"/>
+                <field name="titulo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="investigador_list_action">
+        <field name="name">investigador</field>
+        <field name="res_model">np.investigador</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="conservacion_form_view">
+        <field name="name">conservacion.form</field>
+        <field name="model">np.conservacion</field>
+        <field name="arch" type="xml">
+            <form string="conservacion Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <field name="nombre"/>
+                            <field name="dni"/>
+                            <field name="nSeguridadSocial"/>
+                            <field name="direccion"/>
+                            <field name="tlfn"/>
+                            <field name="tlfnDomicilio"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <field name="parquenatural.id"/>
+                            <field name="area.id"/>
+                            <field name="salario"/>
+                            <field name="especialidad"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="conservacion_tree_view">
+        <field name="name">conservacion.tree</field>
+        <field name="model">np.conservacion</field>
+        <field name="arch" type="xml">
+            <tree string="conservacion Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="nSeguridadSocial"/>
+                <field name="direccion"/>
+                <field name="tlfn"/>
+                <field name="tlfnDomicilio"/>
+                <field name="parquenatural.id"/>
+                <field name="area.id"/>
+                <field name="salario"/>
+                <field name="especialidad"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="conservacion_list_action">
+        <field name="name">conservacion</field>
+        <field name="res_model">np.conservacion</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        </field>
+    </record>    
+</odoo>

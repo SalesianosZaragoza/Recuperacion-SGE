@@ -1,5 +1,4 @@
 <odoo>
-
         <record model="ir.ui.view" id="comunidad_form_view">
             <field name="name">comunidad.form</field>
             <field name="model">np.comunidad</field>
@@ -28,28 +27,11 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="comunidad_graph_view">
-            <field name="name">comunidad.graph</field>
-            <field name="model">np.comunidad</field>
-            <field name="arch" type="xml">
-                <graph string="Comunidades segun su extension">
-                    <field name="nombre"/>
-                    <field name="extension" type="measure"/>
-                </graph>
-            </field>
-        </record>
-
         <record model="ir.actions.act_window" id="comunidad_list_action">
             <field name="name">comunidad</field>
             <field name="res_model">np.comunidad</field>
-            <field name="view_mode">tree,form,graph</field>
+            <field name="view_mode">tree,form</field>
             <field name="help" type="html">
             </field>
         </record>
-
-        
-        <menuitem id="comunidad_menu" name=" comunidad autonoma "
-            parent="np_menu"
-            action="comunidad_list_action"/>
-
 </odoo>

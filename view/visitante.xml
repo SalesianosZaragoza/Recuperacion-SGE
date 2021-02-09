@@ -1,0 +1,52 @@
+<odoo>
+
+        <record model="ir.ui.view" id="visitante_form_view">
+            <field name="name">visitante.form</field>
+            <field name="model">np.visitante</field>
+            <field name="arch" type="xml">
+                <form string="visitante Form">
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" states="1.draft" class="oe_highlight"/>
+                        <button name="action_done" type="object" string="Done" states="2.confirm" class="oe_highlight"/>
+                        <button name="action_draft" type="object"  string="Reset to draft" states="2.confirm,3.done" />
+                        <field name="state" widget="statusbar" statusbar_visible="1.draft,2.confirm,3.done" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="nombre"/>
+                            <field name="dni"/>
+                            <field name="domicilio"/>
+                            <field name="profesion"/>
+                            <field name="parquenatural.id"/>
+                            <field name="alojamiento.id"/>
+                            <field name="administracion.id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="visitante_tree_view">
+            <field name="name">visitante.tree</field>
+            <field name="model">np.visitante</field>
+            <field name="arch" type="xml">
+                    <field name="nombre"/>                    
+                    <field name="dni"/>
+                    <field name="domicilio"/>
+                    <field name="profesion"/>
+                    <field name="parquenatural.id"/>
+                    <field name="alojamiento.id"/>
+                    <field name="administracion.id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="visitante_list_action">
+            <field name="name">visitante</field>
+            <field name="res_model">np.visitante</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+            </field>
+        </record>
+</odoo>

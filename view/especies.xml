@@ -67,7 +67,7 @@
                         <group>
                             <field name="name"/>
                             <field name="area.id"/>
-                            <field name="nEspecies" options='{"type": "number", "step": 1}'/>
+                            <field name="nEspecies" />
                             <field name="alimentacion"/>
                             <field name="tApareamiento"/>
                             <field name="comestible"/>
@@ -108,7 +108,7 @@
         <record model="ir.actions.act_window" id="animal_list_action">
             <field name="name">animal</field>
             <field name="res_model">np.animal</field>
-            <field name="view_mode">tree,form,graph,pivot</field>
+            <field name="view_mode">tree,form,graph</field>
             <field name="help" type="html">
             </field>
         </record>
@@ -148,7 +148,7 @@
         <record model="ir.actions.act_window" id="mineral_list_action">
             <field name="name">Mineral</field>
             <field name="res_model">np.mineral</field>
-            <field name="view_mode">tree,form,pivot</field>
+            <field name="view_mode">tree,form</field>
             <field name="help" type="html">
             </field>
         </record>
