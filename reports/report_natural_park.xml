@@ -1,20 +1,11 @@
 <odoo>
     <report
-<<<<<<< HEAD
-        id="report_conservation"
-        model="ges.conservation"
-        string="Conservation Employee Report"
-        report_type="qweb-pdf"
-        name="RecuperacionOdoo.report_conservation_view"
-        file="RecuperacionOdoo.report_conservation"
-=======
         id="report_natural_park"
         model="ges.natural_park"
         string="natural_park Employee Report"
         report_type="qweb-pdf"
         name="RecuperacionOdoo.report_natural_park_view"
         file="RecuperacionOdoo.report_natural_park"
->>>>>>> 3c6e6abe627b3e5925cbd00b5219b10317d6b327
     />
 
     <template id="minimal_layout_inherit" inherit_id="web.minimal_layout">
@@ -23,42 +14,19 @@
       </xpath>
     </template>
 
-<<<<<<< HEAD
-    <template id="report_conservation_view">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
-                
-=======
     <template id="report_natural_park_view">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
->>>>>>> 3c6e6abe627b3e5925cbd00b5219b10317d6b327
                 <div class="header">
                     <img src='/RecuperacionOdoo/static/src/img/logo.png'/>
                     <h1>Natural Parks App</h1>
                 </div> 
                 <hr></hr>
                 <div class="page">
-<<<<<<< HEAD
-                    <h1>Conservation Employee Report</h1>
-                    <p style="font-size: 22px;"><b>Name:</b> <span t-field="doc.name"/> </p>
-                    <p style="font-size: 22px;"><b>Dni:</b> <span t-field="doc.dni"/> </p>
-                    <p style="font-size: 22px;"><b>Social Security:</b> <span t-field="doc.social_security"/></p>
-                    <p style="font-size: 22px;"><b>Mobile:</b> <span t-field="doc.mobile_phone"/></p>
-                    <p style="font-size: 22px;"><b>Landline:</b> <span t-field="doc.landline"/></p>
-                    <hr></hr>
-                    <p style="font-size: 22px;"><b>Workplace:</b> <span t-field="doc.natural_park_id"/></p>
-                    <p style="font-size: 22px;"><b>Area:</b> <span t-field="doc.area_id"/></p>
-                    <p style="font-size: 22px;"><b>Specialty:</b> <span t-field="doc.specialty"/></p>
-                    <p style="font-size: 22px;"><b>Salary:</b> <span t-field="doc.salary"/> €</p>
-                </div>
-                
-=======
                     <h1>natural_park Report</h1>
                     <p style="font-size: 22px;"><b>Name:</b> <span t-field="doc.name"/> </p>
                     <p style="font-size: 22px;"><b>Starting data:</b> <span t-field="doc.starting_date"/> </p>
                 </div> 
->>>>>>> 3c6e6abe627b3e5925cbd00b5219b10317d6b327
             </t>
         </t>
     </template>
