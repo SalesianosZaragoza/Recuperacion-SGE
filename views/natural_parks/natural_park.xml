@@ -37,7 +37,11 @@
                 </p>
         </field>
     </record>
+    <menuitem id="main_natural_parks_menu" name="NaturalParks"/>
 
-    <menuitem id="naturalpark_menu" name="Natural Park" parent="natural_parks_menu" action="naturalpark_list_action" />
+    <menuitem id="natural_parks_menu" name="NaturalParks"
+              parent="main_natural_parks_menu"/>
+
+    <menuitem id="natural_park_menu" name="Natural Park" parent="natural_parks_menu" action="naturalpark_list_action" />
 
 </odoo>

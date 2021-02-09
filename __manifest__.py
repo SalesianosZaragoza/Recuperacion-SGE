@@ -12,10 +12,11 @@
     'website': "http://www.yourcompany.com",
     'category': 'Test',
     'version': '0.1',
-    'depends': ['base'],
+    'depends': ['base', 'board'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'views/natural_park/natural_park.xml',
         'views/accommodation/accommodation.xml',
         'views/accommodation/visitor.xml',
         'views/accommodation/excursions.xml',
@@ -30,10 +31,13 @@
         'views/employees/project.xml',
         'views/employees/surveillance.xml',
         'views/employees/vehicles.xml',
-        'views/natural_park/natural_park.xml',
         'views/species/vegetable.xml',
         'views/species/animal.xml',
         'views/species/mineral.xml',
+        'reports/report_animal.xml',
+        'reports/report_mineral.xml',
+        'reports/report_vegetable.xml',
+        'reports/report_natural_park.xml'
     ],
 
 }

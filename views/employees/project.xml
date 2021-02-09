@@ -6,12 +6,12 @@
             <form string="Project Form">
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="research_ids"/>
-                        <field name="species_id"/>
-                        <field name="budget" options='{"type": "number", "step": 1000}'/>
-                        <field name="starting_date"/>
-                        <field name="ending_date"/>
+                        <field name="name" />
+                        <field name="research_ids" />
+                        <field name="species_id" />
+                        <field name="budget" options='{"type": "number", "step": 1000}' />
+                        <field name="starting_date" />
+                        <field name="ending_date" />
                     </group>
                 </sheet>
             </form>
@@ -23,12 +23,12 @@
         <field name="model">ges.project</field>
         <field name="arch" type="xml">
             <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="Project Tree">
-                <field name="name"/>
-                <field name="research_ids"/>
-                <field name="species_id"/>
-                <field name="budget"/>
-                <field name="starting_date"/>
-                <field name="ending_date"/>
+                <field name="name" />
+                <field name="research_ids" />
+                <field name="species_id" />
+                <field name="budget" />
+                <field name="starting_date" />
+                <field name="ending_date" />
             </tree>
         </field>
     </record>
@@ -38,9 +38,59 @@
         <field name="model">ges.project</field>
         <field name="arch" type="xml">
             <calendar string="Project Calendar" date_start="starting_date" date_stop="ending_date" quick_add="False">
-                <field name="name"/>
-                <field name="species_id"/>
+                <field name="name" />
+                <field name="species_id" />
             </calendar>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="project_kanban_view">
+        <field name="name">ges.project.kanban</field>
+        <field name="model">ges.project</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="color" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                            oe_kanban_global_click_edit oe_semantic_html_override
+                                            oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <div class="oe_dropdown_kanban">
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg" title="Manage" aria-label="Manage" />
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                        <li>
+                                            <ul class="oe_kanban_colorpicker" data-field="color" />
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                Project Name:
+                                <field name="name" />
+                                <br />
+                                Species:
+                                <field name="species_id" />
+                                <br />
+                                Starting Date:
+                                <field name="starting_date" />
+                                <br />
+                                Ending Date:
+                                <field name="ending_date" />
+                                <br />
+                                State:
+                                <field name="state" />
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 
@@ -49,8 +99,8 @@
         <field name="model">ges.project</field>
         <field name="arch" type="xml">
             <graph string="Projects">
-                <field name="name"/>
-                <field name="budget" type="measure"/>
+                <field name="name" />
+                <field name="budget" type="measure" />
             </graph>
         </field>
     </record>
@@ -58,7 +108,7 @@
     <record model="ir.actions.act_window" id="project_list_action">
         <field name="name">Project</field>
         <field name="res_model">ges.project</field>
-        <field name="view_mode">tree,form,calendar,graph</field>
+        <field name="view_mode">tree,form,calendar,graph,kanban</field>
     </record>
 
     <record model="ir.ui.view" id="project_search_view">
@@ -66,20 +116,15 @@
         <field name="model">ges.project</field>
         <field name="arch" type="xml">
             <search>
-                <field name="name"/>
-                <filter name="high_budget" string="High Budget"
-                        domain="[('budget', '&gt;', 30000)]"/>
-                <filter name="low_budget" string="Low Budget"
-                        domain="[('budget', '&lt;', 30000)]"/>
+                <field name="name" />
+                <filter name="high_budget" string="High Budget" domain="[('budget', '&gt;', 30000)]" />
+                <filter name="low_budget" string="Low Budget" domain="[('budget', '&lt;', 30000)]" />
                 <group string="Group By">
-                    <filter name="by_species" string="Species"
-                            context="{'group_by': 'species_id'}"/>
+                    <filter name="by_species" string="Species" context="{'group_by': 'species_id'}" />
                 </group>
             </search>
         </field>
     </record>
 
-    <menuitem id="project_menu" name="Research Project"
-        parent="employees_menu"
-        action="project_list_action"/>
+    <menuitem id="project_menu" name="Research Project" parent="employees_menu" action="project_list_action" />
 </odoo>

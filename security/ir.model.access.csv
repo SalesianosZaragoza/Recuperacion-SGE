@@ -1,1 +1,5 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_ges_autonomous_community,ges.autonomous_community,model_ges_autonomous_community,group_manager,1,1,1,1
+autonomous_community_read_all,autonomous_community all,model_ges_autonomous_community,,1,1,1,1
+access_ges_natural_park,ges.natural_park,model_ges_natural_park,group_manager,1,1,1,1
+natural_park_read_all,natural_park all,model_ges_natural_park,,1,1,1,1 

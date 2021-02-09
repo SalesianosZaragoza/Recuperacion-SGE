@@ -51,11 +51,8 @@
         
     </record>
 
-    <menuitem id="vehicles_menu" name="vehicles"
-                  parent="main_natural_parks_menu"/>
-
     <menuitem id="vehicles_menu" name="Vehicles"
-        parent="vehicles_menu"
+        parent="employees_menu"
         action="vehicles_list_action"/>
 
 </odoo>

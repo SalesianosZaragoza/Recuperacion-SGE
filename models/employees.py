@@ -11,6 +11,12 @@ class Employees(models.Model):
     landline_phone_phone = fields.Char(required=True)
     salary = fields.Integer(required=True, string="Anual salary in euros")
 
+    @api.constrains('salary')
+    def is_positive(self):
+        for r in self:
+            if r.salary <= 0:
+                raise exceptions.ValidationError("The salary must be positive")
+
 class Management(models.Model):
     _name = 'ges.gestion'
     _inherit = 'ges.employees'
@@ -66,6 +72,7 @@ class Project(models.Model):
     def action_confirm(self):
         for r in self:
             r.state = '2.confirm'
+<<<<<<< HEAD
             return {
                 'effect': {
                     'fadeout': 'slow',
@@ -74,6 +81,9 @@ class Project(models.Model):
                 }
             }
 
+=======
+            
+>>>>>>> 3c6e6abe627b3e5925cbd00b5219b10317d6b327
     def action_done(self):
         for r in self:
             r.state = '3.done'
