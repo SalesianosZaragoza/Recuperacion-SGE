@@ -72,18 +72,7 @@ class Project(models.Model):
     def action_confirm(self):
         for r in self:
             r.state = '2.confirm'
-<<<<<<< HEAD
-            return {
-                'effect': {
-                    'fadeout': 'slow',
-                    'message': 'Visitor Confirmed',
-                    'type': 'rainbow_man',
-                }
-            }
-
-=======
             
->>>>>>> 3c6e6abe627b3e5925cbd00b5219b10317d6b327
     def action_done(self):
         for r in self:
             r.state = '3.done'
