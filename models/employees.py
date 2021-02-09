@@ -50,6 +50,12 @@ class Project(models.Model):
     budget = fields.Float(string="Budget (in €)", digits=(8, 2))
     starting_date = fields.Date(required=True)
     ending_date = fields.Date(required=True)
+    color = fields.Integer()
+    state = fields.Selection([
+            ('1.draft', 'Draft'),
+            ('2.confirm', 'Confirm'),
+            ('3.done', 'Done'),
+        ], string='Status', default='1.draft')
 
     @api.constrains('starting_date', 'ending_date')
     def _check_ending_date_is_after_starting_date(self):
@@ -57,7 +63,24 @@ class Project(models.Model):
             if r.starting_date > r.ending_date:
                 raise exceptions.ValidationError("The initial date has to be prior to the ending date")
 
-    #Aqui se podria añadir el panel kanban
+    def action_confirm(self):
+        for r in self:
+            r.state = '2.confirm'
+            return {
+                'effect': {
+                    'fadeout': 'slow',
+                    'message': 'Visitor Confirmed',
+                    'type': 'rainbow_man',
+                }
+            }
+
+    def action_done(self):
+        for r in self:
+            r.state = '3.done'
+
+    def action_draft(self):
+        for r in self:
+            r.state = '1.draft'
 
 class Conservation(models.Model):
     _name = 'ges.conservation'
