@@ -29,7 +29,7 @@
                     <p style="font-size: 22px;"><b>Blooming:</b> <span t-field="doc.blooming"/> </p>
                     <p style="font-size: 22px;"><b>Blooming period:</b> <span t-field="doc.blooming_period"/> </p>
                     <p style="font-size: 22px;"><b>Is eaten?:</b> <span t-field="doc.is_eaten"/> </p>
-                    <p style="font-size: 22px;"><b>Animals that eat this plant:</b> <span t-field="doc.animal_ids"/> </p>
+                    <p style="font-size: 22px;"><b>vegetables that eat this plant:</b> <span t-field="doc.vegetable_ids"/> </p>
                 </div> 
             </t>
         </t>
