@@ -1,5 +1,5 @@
 <odoo>
-<!--Management-->
+
     <record model="ir.ui.view" id="management_form_view">
         <field name="name">management.form</field>
         <field name="model">appnaturalparks.management</field>

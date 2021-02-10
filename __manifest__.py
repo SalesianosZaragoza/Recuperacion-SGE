@@ -35,5 +35,7 @@
         'views/species.xml',        
         'views/staff.xml',
         'views/visitor.xml',
+        'reports/report_excursion.xml',
+        'reports/report_visitor.xml',
     ],
 } 
