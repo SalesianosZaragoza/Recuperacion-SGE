@@ -1,0 +1,12 @@
+.header h1 {
+    position: relative;
+    top: 45px;
+    left: 270px;
+    font-size: 52px;
+}
+.page{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.page h2{
+  font-size: 32px;
+}

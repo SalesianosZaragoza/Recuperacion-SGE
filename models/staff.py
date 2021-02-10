@@ -21,7 +21,7 @@ class Staff(models.Model):
 
     class Management(models.Model):
     _name = 'appnaturalparks.management'
-    _inherit = 'apnaturalparks.staff'
+    _inherit = 'appnaturalparks.staff'
 
     number_entrance = fields.Integer()
 
@@ -30,6 +30,13 @@ class Staff(models.Model):
     _inherit = 'appnaturalparks.staff'
 
     area_id = fields.Many2one('appnaturalparks.area', string="Area", required=True)
+    car_id = fields.Many2one('appnaturalparks.car', string="Car", required=True)
+
+    class Car(models.Model):
+    _name = 'appnaturalparks.car'
+
+    name = fields.Char(string="Car Type", required=True)
+    number_plate = fields.Char(string="Plate Number")
 
     class Research(models.Model):
     _name = 'appnaturalparks.research'

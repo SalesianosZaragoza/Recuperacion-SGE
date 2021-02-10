@@ -1,0 +1,39 @@
+<odoo>
+    <report
+        id="report_visitor"
+        model="appnaturalparks.visitor"
+        string="Visitor Report"
+        report_type="qweb-pdf"
+        name="RecuperacionOdoo.report_visitor_view"
+        file="RecuperacionOdoo.report_visitor"
+    />
+
+    <template id="minimal_layout_inherit" inherit_id="web.minimal_layout">
+      <xpath expr="//head" position="inside">
+            <link rel='stylesheet' href="/RecuperacionOdoo/static/src/css/style.css"/>
+      </xpath>
+    </template>
+    <template id="report_visitor_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="header">
+                    <h1>Natural Parks App</h1>
+                </div> 
+                <hr></hr>
+                <div class="page">
+                    <h1>Visitor Report</h1>
+                    <p style="font-size: 22px;"><b>Name:</b> <span t-field="doc.name"/> </p>
+                    <p style="font-size: 22px;"><b>Dni:</b> <span t-field="doc.dni"/> </p>
+                    <p style="font-size: 22px;"><b>Address:</b> <span t-field="doc.address"/></p>
+                    <p style="font-size: 22px;"><b>Job:</b> <span t-field="doc.job"/></p>
+
+                    <p style="font-size: 22px;">
+                        <span t-field="doc.name"/> is in the <span t-field="doc.hotel_id"/>
+                        , visiting the <span t-field="doc.hotel_id.natural_park_id"/> park.
+                    </p>
+                </div>
+
+            </t>
+        </t>
+    </template>
+</odoo>

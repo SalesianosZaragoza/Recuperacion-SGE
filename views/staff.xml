@@ -55,7 +55,7 @@
         parent="staff_menu"
         action="management_list_action"/>
     
-<!--Vigilance-->
+
     <record model="ir.ui.view" id="vigilance_form_view">
         <field name="name">vigilance.form</field>
         <field name="model">appnaturalparks.vigilance</field>
@@ -107,8 +107,60 @@
     <menuitem id="vigilance_menu" name="Vigilance Employee"
         parent="staff_menu"
         action="vigilance_list_action"/>
+
+    <record model="ir.ui.view" id="car_form_view">
+        <field name="name">car.form</field>
+        <field name="model">appnaturalparks.car</field>
+        <field name="arch" type="xml">
+            <form string="Car Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="number_plate"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="car_tree_view">
+        <field name="name">car.tree</field>
+        <field name="model">appnaturalparks.car</field>
+        <field name="arch" type="xml">
+            <tree string="Car Tree">
+                <field name="name"/>
+                <field name="number_plate"/>
+            </tree>
+        </field>
+    </record>
+
+     <record model="ir.actions.act_window" id="car_list_action">
+        <field name="name">Car</field>
+        <field name="res_model">appnaturalparks.car</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new Car of the vigilance employee
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="car_search_view">
+        <field name="name">car.search</field>
+        <field name="model">appnaturalparks.car</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="number_plate"/>
+            </search>
+        </field>
+    </record>
+
+
+    <menuitem id="car_menu" name="Car"
+        parent="staff_menu"
+        action="car_list_action"/>
+
     
-<!--Research-->
     <record model="ir.ui.view" id="research_form_view">
         <field name="name">research.form</field>
         <field name="model">appnaturalparks.research</field>
@@ -161,7 +213,7 @@
         parent="staff_menu"
         action="research_list_action"/>
     
-<!--Conservation-->
+    
     <record model="ir.ui.view" id="conservation_form_view">
         <field name="name">conservation.form</field>
         <field name="model">appnaturalparks.conservation</field>
