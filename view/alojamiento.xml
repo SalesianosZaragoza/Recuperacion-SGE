@@ -36,4 +36,29 @@
             <field name="help" type="html">
             </field>
         </record>
+            <record model="ir.ui.view" id="alojamiento_search_view">
+            <field name="name">alojamiento.search</field>
+            <field name="model">np.alojamiento</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nombre"/>
+                    <filter name="Estrellas" string="Estrellas"
+                            domain="[('Estrellas', 'in', ['una', 'dos', 'tres', 'cuatro', 'cinco'])]"/>
+                    <filter name="Capacidad" string="Hotel completamente ocupado"
+                            domain="[('Capacidad', '&gt;', 50)]"/>
+                    <group string="Group By">
+                        <filter name="parquenatural" string="Parque nantural"
+                                context="{'group_by': 'parquenatural.id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <menuitem id="main_parquenatural_menu" name="parquenatural"/>
+
+        <menuitem id="parquenatural_menu" name="parquenatural"
+                  parent="main_parquenatural_menu"/>
+
+        <menuitem id="alojamiento_menu" name="alojamiento"
+            parent="parquenatural_menu"
+            action="alojamiento_list_action"/>
 </odoo>

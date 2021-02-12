@@ -55,13 +55,12 @@
                 <search>
                     <field name="nombre"/>
                     <group string="Agrupacion">
-                        <filter name="np" string="np"
+                        <filter name="area" string="areas"
                                 context="{'group_by': 'parquenatural.id'}"/>
                     </group>
                 </search>
             </field>
         </record>
-
         
         <menuitem id="area_menu" name="Area"
             parent="np_menu"
