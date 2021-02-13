@@ -1,0 +1,45 @@
+<odoo>
+
+    <menuitem id="main_naturalP_menu" name="naturalP" />
+    <menuitem id="naturalP_menu" name="naturalP" parent="main_naturalP_menu" />
+    <menuitem id="acommodation_menu" name="Acommodation" parent="naturalP_menu" action="acommodation_list_action" />
+
+    <record model="ir.ui.view" id="acommodationForm">
+        <field name="name">acommodation.form</field>
+        <field name="model">naturalP.acommodation</field>
+        <field name="arch" type="xml">
+            <form string="ACOMODATION FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="capacity" options='{"type": "number", "step": 1}' />
+                        <field name="category" />
+                        <field name="natural_park_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="acommodationTree">
+        <field name="name">acommodation.tree</field>
+        <field name="model">naturalP.acommodation</field>
+        <field name="arch" type="xml">
+            <tree string="ACOMMODATION TREE VIEW">
+                <field name="name" />
+                <field name="capacity" />
+                <field name="category" />
+                <field name="natural_park_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="acommodationList">
+        <field name="name">Acommodation</field>
+        <field name="res_model">naturalP.acommodation</field>
+        <field name="view_mode">tree,form,kanban,pivot</field>
+        <field name="help" type="html">
+        </field>
+    </record>
+
+</odoo>

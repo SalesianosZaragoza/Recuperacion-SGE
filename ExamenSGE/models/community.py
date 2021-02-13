@@ -1,7 +1,7 @@
 from odoo import models, fields
 
 class Community(models.Model):
-    _name = 'naturalparks.community'
+    _name = 'naturalP.community'
     _order = 'name'
 
     name = fields.Char(string="Name", required=True)

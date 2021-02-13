@@ -1,0 +1,68 @@
+<odoo>
+
+    <menuitem id="area_menu" name="AREA MENU" parent="naturalP_menu" action="area_list_action" />
+
+    <record model="ir.ui.view" id="areaForm">
+        <field name="name">area.form</field>
+        <field name="model">naturalP.area</field>
+        <field name="arch" type="xml">
+            <form string="AREA FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="length" options='{"number": "type", "step": 1}' />
+                        <field name="natural_park_id" />
+                        <field name="community_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="areaTree">
+        <field name="name">area.tree</field>
+        <field name="model">naturalP.area</field>
+        <field name="arch" type="xml">
+            <tree string="AREA TREE VIEW">
+                <field name="name" />
+                <field name="length" />
+                <field name="natural_park_id" />
+                <field name="community_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="areaGraph">
+        <field name="name">area.graph</field>
+        <field name="model">naturalP.area</field>
+        <field name="arch" type="xml">
+            <graph string="AREAS LENGTH">
+                <field name="name" />
+                <field name="length" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="areaList">
+        <field name="name">area.list</field>
+        <field name="res_model">naturalP.area</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="help" type="html">
+            <p>Select an area</p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="areaSearch">
+        <field name="name">area.search</field>
+        <field name="model">naturalP.area</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nameSearch" />
+                <group>
+                    <filter name="naturalPark" string="Natural Park" context="{'group_by': 'natural_park_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>
