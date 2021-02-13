@@ -1,10 +1,13 @@
-from odoo import models, fields, 
+from odoo import models, fields, api
 
 class Community(models.Model):
     _name='NaturalParks.Community'
-    _order='name'
+    _order='Name'
 
 
     Name = fields.Char(string="name of the community")
-    Responsible_Org = fields.Char(string="name of the responsible org")
+    ResponsibleOrg = fields.Char(string="name of the responsible org")
+    Extension = fields.Integer(string="kilometres")
+
+    @api.constrains('Extension')
     

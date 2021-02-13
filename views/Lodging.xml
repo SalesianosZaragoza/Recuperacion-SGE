@@ -8,11 +8,62 @@
                   <sheet>
                      <group>
                         <field name="Name"/>
-                        <field name="Capacity"/>
+                        <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>
                      </group>
                   </sheet>
               </form>
           </field>
        </record>
+
+       <record model="ir.ui.view" id="Lodging_graph_view">
+          <field name="name">Lodging.graph</field>
+          <field name="model">NaturalParks.Lodging</field>
+          <field name="arch" type="xml">
+              <graph string="Lodging graph">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+              </graph>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Lodging_tree_view">
+          <field name="name">Lodging.tree</field>
+          <field name="model">NaturalParks.Lodging</field>
+          <field name="arch" type="xml">
+              <tree string="Lodging Tree">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>                
+              </tree>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Lodging_list_action">
+          <field name="name">Lodging</field>
+          <field name="res_model">NaturalParks.Lodging</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Lodging_search_view">
+          <field name="name">Lodging.search</field>
+          <field name="model">NaturalParks.Lodging</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       
+
+
+       <menuitem id="Lodging_menu" name="Lodging"
+         parent="NaturalParks_menu"
+         action="Lodging_list_action"/>
 
 </odoo>

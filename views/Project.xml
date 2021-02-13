@@ -4,14 +4,67 @@
           <field name="name">Project.form</field>
           <field name="model">NaturalParks.Project</field>
           <field name="arch" type="xml">
-              <form string="NaturalPark Form">
+              <form string="Project Form">
                   <sheet>
                      <group>
-                        
+                        <field name="Name"/>
+                        <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>
                      </group>
                   </sheet>
               </form>
           </field>
        </record>
 
+       <record model="ir.ui.view" id="Project_graph_view">
+          <field name="name">Project.graph</field>
+          <field name="model">NaturalParks.Project</field>
+          <field name="arch" type="xml">
+              <graph string="Project graph">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+              </graph>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Project_tree_view">
+          <field name="name">Project.tree</field>
+          <field name="model">NaturalParks.Project</field>
+          <field name="arch" type="xml">
+              <tree string="Project Tree">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>                
+              </tree>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Project_list_action">
+          <field name="name">Project</field>
+          <field name="res_model">NaturalParks.Project</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Project_search_view">
+          <field name="name">Project.search</field>
+          <field name="model">NaturalParks.Project</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       
+
+
+       <menuitem id="Project_menu" name="Project"
+         parent="ParkPersonal_menu"
+         action="Project_list_action"/>
+
 </odoo>
+

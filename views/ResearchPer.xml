@@ -1,0 +1,62 @@
+<odoo>
+
+   <record model="ir.ui.view" id="ResearchPer_form_view">
+            <field name="name">ResearchPer.form</field>
+            <field name="model">naturalparks.ResearchPer</field>
+            <field name="arch" type="xml">
+                <form string="ResearchPer Form">
+                    <sheet>
+                        <group>
+                            <field name="Name"/>
+                            <field name="DNI"/>
+                            <field name="SSNumber"/>
+                            <field name="Address"/>
+                            <field name="MobilePhone"/>
+                            <field name="HomePhone"/>
+                            <field name="Salary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ResearchPer_tree_view">
+            <field name="name">ResearchPer.tree</field>
+            <field name="model">naturalparks.ResearchPer</field>
+            <field name="arch" type="xml">
+                <form string="ResearchPer Tree">
+                        <group>
+                            <field name="Name"/>
+                            <field name="DNI"/>
+                            <field name="SSNumber"/>
+                            <field name="Address"/>
+                            <field name="MobilePhone"/>
+                            <field name="HomePhone"/>
+                            <field name="Salary"/>
+                        </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ResearchPer_list_action">
+          <field name="name">ResearchPer</field>
+          <field name="res_model">NaturalParks.ResearchPer</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="ResearchPer_search_view">
+          <field name="name">ResearchPer.search</field>
+          <field name="model">NaturalParks.ResearchPer</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       <menuitem id="ResearchPer_menu" name="ResearchPer"
+         parent="ParkPersonal_menu"
+         action="ResearchPer_list_action"/>
+</odoo>

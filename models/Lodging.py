@@ -1,7 +1,8 @@
-from odoo import models, fields, 
+from odoo import models, fields, api
 
 class Lodging(models.Model):
     _name='NaturalParks.Lodging'
+    _order='Name'
 
 
 
@@ -12,3 +13,5 @@ class Lodging(models.Model):
 
 
     NaturalParkID = fields.Many2one('NaturalParks.NaturalPark')
+
+    @api.constrains('Capacity')

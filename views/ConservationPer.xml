@@ -1,0 +1,62 @@
+<odoo>
+
+   <record model="ir.ui.view" id="ConservationPer_form_view">
+            <field name="name">ConservationPer.form</field>
+            <field name="model">naturalparks.ConservationPer</field>
+            <field name="arch" type="xml">
+                <form string="ConservationPer Form">
+                    <sheet>
+                        <group>
+                            <field name="Name"/>
+                            <field name="DNI"/>
+                            <field name="SSNumber"/>
+                            <field name="Address"/>
+                            <field name="MobilePhone"/>
+                            <field name="HomePhone"/>
+                            <field name="Salary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ConservationPer_tree_view">
+            <field name="name">ConservationPer.tree</field>
+            <field name="model">naturalparks.ConservationPer</field>
+            <field name="arch" type="xml">
+                <form string="ConservationPer Tree">
+                        <group>
+                            <field name="Name"/>
+                            <field name="DNI"/>
+                            <field name="SSNumber"/>
+                            <field name="Address"/>
+                            <field name="MobilePhone"/>
+                            <field name="HomePhone"/>
+                            <field name="Salary"/>
+                        </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ConservationPer_list_action">
+          <field name="name">ConservationPer</field>
+          <field name="res_model">NaturalParks.ConservationPer</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="ConservationPer_search_view">
+          <field name="name">ConservationPer.search</field>
+          <field name="model">NaturalParks.ConservationPer</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       <menuitem id="ConservationPer_menu" name="ConservationPer"
+         parent="ParkPersonal_menu"
+         action="ConservationPer_list_action"/>
+</odoo>

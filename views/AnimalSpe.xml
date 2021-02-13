@@ -1,0 +1,69 @@
+<odoo>
+
+   <record model="ir.ui.view" id="AnimalSpe_form_view">
+            <field name="name">AnimalSpe.form</field>
+            <field name="model">naturalparks.AnimalSpe</field>
+            <field name="arch" type="xml">
+                <form string="AnimalSpe Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="Vulgarname"/>
+                            <field name="NumberOfSpecimens"/>
+                            <field name="Alimentation"/>
+                            <field name="HeatSeason"/>
+                            <field name="Depredated"/>
+                            <field name="AnimalID"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="AnimalSpe_tree_view">
+            <field name="name">AnimalSpe.tree</field>
+            <field name="model">naturalparks.AnimalSpe</field>
+            <field name="arch" type="xml">
+                <form string="AnimalSpe Tree">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="Vulgarname"/>
+                            <field name="NumberOfSpecimens"/>
+                            <field name="Alimentation"/>
+                            <field name="HeatSeason"/>
+                            <field name="Depredated"/>
+                            <field name="AnimalID"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="AnimalSpe_list_action">
+          <field name="name">AnimalSpe</field>
+          <field name="res_model">NaturalParks.AnimalSpe</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="AnimalSpe_search_view">
+          <field name="name">AnimalSpe.search</field>
+          <field name="model">NaturalParks.AnimalSpe</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       <menuitem id="AnimalSpe_menu" name="AnimalSpe"
+            parent="NaturalParks_menu"
+            action="AnimalSpe_list_action"/>
+
+      
+
+
+
+</odoo>

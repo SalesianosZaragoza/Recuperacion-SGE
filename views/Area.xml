@@ -9,10 +9,61 @@
                      <group>
                         <field name="Name"/>
                         <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>
                      </group>
                   </sheet>
               </form>
           </field>
        </record>
+
+       <record model="ir.ui.view" id="Area_graph_view">
+          <field name="name">Area.graph</field>
+          <field name="model">NaturalParks.Area</field>
+          <field name="arch" type="xml">
+              <graph string="Area graph">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+              </graph>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Area_tree_view">
+          <field name="name">Area.tree</field>
+          <field name="model">NaturalParks.Area</field>
+          <field name="arch" type="xml">
+              <tree string="Area Tree">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>                
+              </tree>
+          </field>
+       </record>
+
+       
+
+       <record model="ir.ui.view" id="Area_search_view">
+          <field name="name">Area.search</field>
+          <field name="model">NaturalParks.Area</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Area_list_action">
+          <field name="name">Area</field>
+          <field name="res_model">NaturalParks.Area</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+
+       <menuitem id="Area_menu" name="Area"
+         parent="NaturalParks_menu"
+         action="Area_list_action"/>
 
 </odoo>

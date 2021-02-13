@@ -1,0 +1,62 @@
+<odoo>
+
+   <record model="ir.ui.view" id="ManagementPer_form_view">
+            <field name="name">ManagementPer.form</field>
+            <field name="model">naturalparks.ManagementPer</field>
+            <field name="arch" type="xml">
+                <form string="ManagementPer Form">
+                    <sheet>
+                        <group>
+                            <field name="Name"/>
+                            <field name="DNI"/>
+                            <field name="SSNumber"/>
+                            <field name="Address"/>
+                            <field name="MobilePhone"/>
+                            <field name="HomePhone"/>
+                            <field name="Salary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ManagementPer_tree_view">
+            <field name="name">ManagementPer.tree</field>
+            <field name="model">naturalparks.ManagementPer</field>
+            <field name="arch" type="xml">
+                <form string="ManagementPer Tree">
+                        <group>
+                            <field name="Name"/>
+                            <field name="DNI"/>
+                            <field name="SSNumber"/>
+                            <field name="Address"/>
+                            <field name="MobilePhone"/>
+                            <field name="HomePhone"/>
+                            <field name="Salary"/>
+                        </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ManagementPer_list_action">
+          <field name="name">ManagementPer</field>
+          <field name="res_model">NaturalParks.ManagementPer</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="ManagementPer_search_view">
+          <field name="name">ManagementPer.search</field>
+          <field name="model">NaturalParks.ManagementPer</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       <menuitem id="ManagementPer_menu" name="ManagementPer"
+         parent="ParkPersonal_menu"
+         action="ManagementPer_list_action"/>
+</odoo>

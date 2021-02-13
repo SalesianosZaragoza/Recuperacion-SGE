@@ -13,3 +13,4 @@ from . import MineralSpe
 from . import ResearchPer
 from . import SurveillancePer
 from . import VegetableSpe
+from . import Project

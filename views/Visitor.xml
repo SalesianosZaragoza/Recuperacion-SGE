@@ -8,13 +8,62 @@
                   <sheet>
                      <group>
                         <field name="Name"/>
-                        <field name="Dni"/>
-                        <field name="Address"/>
-                        <field name="job"/>
+                        <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>
                      </group>
                   </sheet>
               </form>
           </field>
        </record>
+
+       <record model="ir.ui.view" id="Visitor_graph_view">
+          <field name="name">Visitor.graph</field>
+          <field name="model">NaturalParks.Visitor</field>
+          <field name="arch" type="xml">
+              <graph string="Visitor graph">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+              </graph>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Visitor_tree_view">
+          <field name="name">Visitor.tree</field>
+          <field name="model">NaturalParks.Visitor</field>
+          <field name="arch" type="xml">
+              <tree string="Visitor Tree">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>                
+              </tree>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Visitor_list_action">
+          <field name="name">Visitor</field>
+          <field name="res_model">NaturalParks.Visitor</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Visitor_search_view">
+          <field name="name">Visitor.search</field>
+          <field name="model">NaturalParks.Visitor</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       
+
+
+       <menuitem id="Visitor_menu" name="Visitor"
+         parent="NaturalParks_menu"
+         action="Visitor_list_action"/>
 
 </odoo>

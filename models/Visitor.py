@@ -2,6 +2,7 @@ from odoo import models, fields,
 
 class Visitor(models.Model):
     _name='NaturalParks.Visitor'
+    _order='Name'
 
 
 

@@ -1,0 +1,64 @@
+<odoo>
+
+   <record model="ir.ui.view" id="AnimalSpe_form_view">
+            <field name="name">AnimalSpe.form</field>
+            <field name="model">naturalparks.AnimalSpe</field>
+            <field name="arch" type="xml">
+                <form string="AnimalSpe Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="Vulgarname"/>
+                            <field name="NumberOfSpecimens"/>
+                            <field name="Alimentation"/>
+                            <field name="HeatSeason"/>
+                            <field name="Depredated"/>
+                            <field name="AnimalID"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="AnimalSpe_tree_view">
+            <field name="name">AnimalSpe.tree</field>
+            <field name="model">naturalparks.AnimalSpe</field>
+            <field name="arch" type="xml">
+                <form string="AnimalSpe Tree">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="Vulgarname"/>
+                            <field name="NumberOfSpecimens"/>
+                            <field name="Alimentation"/>
+                            <field name="HeatSeason"/>
+                            <field name="Depredated"/>
+                            <field name="AnimalID"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="MineralSpe_list_action">
+          <field name="name">MineralSpe</field>
+          <field name="res_model">NaturalParks.MineralSpe</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="MineralSpe_search_view">
+          <field name="name">MineralSpe.search</field>
+          <field name="model">NaturalParks.MineralSpe</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       <menuitem id="MineralSpe_menu" name="MineralSpe"
+         parent="NaturalParks_menu"
+         action="MineralSpe_list_action"/>
+</odoo>

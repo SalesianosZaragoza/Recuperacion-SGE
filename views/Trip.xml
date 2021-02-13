@@ -1,20 +1,69 @@
 <odoo>
      
-       <record model="ir.ui.view" id="Community_form_view">
-          <field name="name">Community.form</field>
-          <field name="model">NaturalParks.Community</field>
+       <record model="ir.ui.view" id="Trip_form_view">
+          <field name="name">Trip.form</field>
+          <field name="model">NaturalParks.Trip</field>
           <field name="arch" type="xml">
-              <form string="Community Form">
+              <form string="Trip Form">
                   <sheet>
                      <group>
                         <field name="Name"/>
-                        <field name="Trip_Type"/>
-                        <field name="Starting_Date"/>
-                        <field name="Ending_Date"/>
+                        <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>
                      </group>
                   </sheet>
               </form>
           </field>
        </record>
+
+       <record model="ir.ui.view" id="Trip_graph_view">
+          <field name="name">Trip.graph</field>
+          <field name="model">NaturalParks.Trip</field>
+          <field name="arch" type="xml">
+              <graph string="Trip graph">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+              </graph>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Trip_tree_view">
+          <field name="name">Trip.tree</field>
+          <field name="model">NaturalParks.Trip</field>
+          <field name="arch" type="xml">
+              <tree string="Trip Tree">
+                        <field name="Name"/>
+                        <field name="Extension"/>
+                        <field name="NaturalparkID"/>
+                        <field name="CommunityID"/>                
+              </tree>
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Trip_list_action">
+          <field name="name">Trip</field>
+          <field name="res_model">NaturalParks.Trip</field>
+          <field name="view_mode">form,tree,search</field>
+          <field name="help" type="html">
+          </field>
+       </record>
+
+       <record model="ir.ui.view" id="Trip_search_view">
+          <field name="name">Trip.search</field>
+          <field name="model">NaturalParks.Trip</field>
+          <field name="arch" type="xml">
+              <search>
+                        <field name="Name"/> 
+              </search>
+          </field>
+       </record>
+
+       
+
+
+       <menuitem id="Trip_menu" name="Trip"
+         parent="NaturalParks_menu"
+         action="Trip_list_action"/>
 
 </odoo>
