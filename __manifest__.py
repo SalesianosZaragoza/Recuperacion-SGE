@@ -16,7 +16,7 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'views/natural_park/natural_park.xml',
+        'views/natural_parks/natural_park.xml',
         'views/accommodation/accommodation.xml',
         'views/accommodation/visitor.xml',
         'views/accommodation/excursions.xml',

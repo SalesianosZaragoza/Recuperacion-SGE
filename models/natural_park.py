@@ -1,6 +1,6 @@
 from odoo import models, fields, api, exceptions
 
-class Natural_Park(models.Model):
+class natural_Park(models.Model):
     _name = 'ges.natural_park'
 
     name = fields.Char(string="Name", required=True)

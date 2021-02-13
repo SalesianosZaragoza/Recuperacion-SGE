@@ -7,7 +7,7 @@
                 <sheet>
                     <group>
                         <field name="name" />
-                        <field name="research_ids" />
+                        <field name="investigation_ids" />
                         <field name="species_id" />
                         <field name="budget" options='{"type": "number", "step": 1000}' />
                         <field name="starting_date" />
@@ -24,7 +24,7 @@
         <field name="arch" type="xml">
             <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="Project Tree">
                 <field name="name" />
-                <field name="research_ids" />
+                <field name="investigation_ids" />
                 <field name="species_id" />
                 <field name="budget" />
                 <field name="starting_date" />

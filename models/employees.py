@@ -1,6 +1,6 @@
 from odoo import models, fields, api, exceptions
 
-class Employees(models.Model):
+class employees(models.Model):
     _name = 'ges.employees'
     
     name = fields.Char(string="Name", required=True) 
@@ -17,41 +17,41 @@ class Employees(models.Model):
             if r.salary <= 0:
                 raise exceptions.ValidationError("The salary must be positive")
 
-class Management(models.Model):
-    _name = 'ges.gestion'
+class management(models.Model):
+    _name = 'ges.management'
     _inherit = 'ges.employees'
 
     entrance_id = fields.Many2one('ges.entrances', string="Entrance", required=True)
     
-class Entrances(models.Model):
+class entrances(models.Model):
     _name = 'ges.entrances'
 
     entrance_number = fields.Integer(required=True)
 
-class Surveillance(models.Model):
+class surveillance(models.Model):
     _name = 'ges.surveillance'
     _inherit = 'ges.employees'
 
     car_id = fields.Many2one('ges.vehicles', string="Car", required=True)
 
-class Vehicles(models.Model):
+class vehicles(models.Model):
     _name = 'ges.vehicles'
 
     name = fields.Char(string="Car Type", required=True)
     plate_number = fields.Char(string="Plate number")
     car_model = fields.Char(string="Car model")
 
-class Investigation(models.Model):
+class investigation(models.Model):
     _name = 'ges.investigation'
     _inherit = 'ges.employees'
 
     academic_qualification = fields.Char(string="Titulation", required=True)
     
-class Project(models.Model):
+class project(models.Model):
     _name = 'ges.project'
 
     name = fields.Char(string="Project Name", required=True)
-    research_ids = fields.Many2many('ges.research', string="Researchers", required=True)
+    investigation_ids = fields.Many2many('ges.investigation', string="Investigators", required=True)
     species_id = fields.Many2one('ges.species', string="Especies", required=True)
     budget = fields.Float(string="Budget (in €)", digits=(8, 2))
     starting_date = fields.Date(required=True)

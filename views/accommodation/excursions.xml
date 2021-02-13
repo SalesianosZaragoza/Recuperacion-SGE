@@ -60,33 +60,10 @@
         <record model="ir.actions.act_window" id="excursion_list_action">
             <field name="name">excursion</field>
             <field name="res_model">ges.excursion</field>
-            <field name="view_mode">tree,form,calendarpivot</field>
+            <field name="view_mode">tree,form,calendar,pivot</field>
             <field name="help" type="html">
             </field>
         </record>
-
-        <record model="ir.ui.view" id="excursion_search_view">
-            <field name="name">excursion.search</field>
-            <field name="model">ges.excursion</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <filter name="car_excursions" string="Car excursions"
-                            domain="[('excursion_type', '=', 'car')]"/>
-                    <filter name="walking_excursions" string="Walking excursions"
-                            domain="[('excursion_type', '=', 'walking')]"/>
-                    <group string="Group By">
-                        <filter name="by_natural_park" string="Natural Park"
-                                context="{'group_by': 'natural_park_id'}"/>
-                    </group>
-                    <group string="Group By">
-                        <filter name="by_accommodation" string="accommodation Organizer"
-                                context="{'group_by': 'accommodation_id'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
-
         
         <menuitem id="excursion_menu" name="excursion"
             parent="natural_parks_menu"

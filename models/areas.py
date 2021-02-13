@@ -1,6 +1,6 @@
 from odoo import models, fields, api, exceptions
 
-class Areas(models.Model):
+class areas(models.Model):
     _name = 'ges.areas'
 
     name = fields.Char(string="Nombre", required=True)
@@ -16,7 +16,7 @@ class Areas(models.Model):
                 raise exceptions.ValidationError("The extension cant be 0 or negative")
   
 
-class Areas_Species(models.Model):
+class areas_Species(models.Model):
     _name = 'ges.areas_species'
 
     areas_id = fields.Many2one('ges.areas',

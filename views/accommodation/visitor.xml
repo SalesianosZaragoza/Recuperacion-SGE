@@ -38,21 +38,6 @@
                 </p>
             </field>
         </record>
-
-        <record model="ir.ui.view" id="visitor_search_view">
-            <field name="name">visitor.search</field>
-            <field name="model">ges.visitor</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="dni"/>
-                    <field name="name"/>
-                    <group string="Group By">
-                        <filter name="by_accommodation" string="accommodation"
-                                context="{'group_by': 'accommodation_id'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
         
         <menuitem id="visitor_menu" name="Visitor"
             parent="natural_parks_menu"

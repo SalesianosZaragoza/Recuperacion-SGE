@@ -1,6 +1,6 @@
 from odoo import models, fields, api, exceptions
 
-class Autonomous_Community(models.Model):
+class autonomous_Community(models.Model):
     _name = 'ges.autonomous_community'
 
     name = fields.Char(string="Comunity", required=True)
@@ -9,7 +9,7 @@ class Autonomous_Community(models.Model):
     autonomous_community_natural_park_ids = fields.One2many(
         'ges.autonomous_community_natural_park', 'autonomous_community_id', string="Natural park")
 
-class Autonomous_Community_Natural_Park(models.Model):
+class autonomous_Community_Natural_Park(models.Model):
     _name = 'ges.autonomous_community_natural_park'
 
     autonomous_community_id = fields.Many2one('ges.autonomous_community',

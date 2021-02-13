@@ -1,14 +1,14 @@
 from odoo import models, fields, api, exceptions
 
-class Species(models.Model):
+class species(models.Model):
     _name = 'ges.species'
 
     name = fields.Char(string="Cientific name", required=True)
     common_name = fields.Char(string="Common name", required=True)
     areas_species_ids = fields.One2many(
-        'ges.areas_species', 'specie_id', string="Species")
+        'ges.areas_species', 'species_id', string="Species")
 
-class Vegetable(models.Model):
+class vegetable(models.Model):
     _name = 'ges.vegetable'
     _inherit = 'ges.species'
 
@@ -31,7 +31,7 @@ class Vegetable(models.Model):
             if not r.is_eaten and r.animal_ids:
                 raise exceptions.ValidationError("Select that the vegetable is eaten, if you select the animal")
 
-class Animal(models.Model):
+class animal(models.Model):
     _name = 'ges.animal'
     _inherit = 'ges.species'
 
@@ -48,7 +48,7 @@ class Animal(models.Model):
             if not r.is_eaten and r.animal_ids:
                 raise exceptions.ValidationError("Select that the vegetable is eaten, if you select the animal")
 
-class Mineral(models.Model):
+class mineral(models.Model):
     _name = 'ges.mineral'
     _inherit = 'ges.species'
 
