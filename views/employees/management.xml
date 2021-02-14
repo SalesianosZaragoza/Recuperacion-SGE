@@ -19,8 +19,7 @@
                         <group colspan="2" col="2">
                             <separator string="management" colspan="2"/>
                             <field name="name"/>
-                            <field name="plate_number"/>
-                            <field name="car_model"/>
+                            <field name="entrance_id"/>
                         </group>
                     </group>
                 </sheet>
@@ -39,11 +38,9 @@
                 <field name="address"/>
                 <field name="mobile_phone"/>
                 <field name="landline_phone"/>
-                <field name="natural_park_id"/>
                 <field name="salary"/>
                 <field name="name"/>
-                <field name="plate_number"/>
-                <field name="car_model"/>
+                <field name="entrance_id"/>
             </tree>
         </field>
     </record>
@@ -55,10 +52,10 @@
         
     </record>
 
-    <menuitem id="employees_menu" name="management"
+    <menuitem id="employees_menu" name="employees"
                   parent="main_natural_parks_menu"/>
 
-    <menuitem id="employees_menu" name="management"
+    <menuitem id="management_menu" name="management"
         parent="employees_menu"
         action="management_list_action"/>
 

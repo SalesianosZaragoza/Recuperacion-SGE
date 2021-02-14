@@ -1,17 +1,16 @@
 <odoo>
-    <record model="ir.ui.view" id="animal_form_view">
-        <field name="name">animal.form</field>
-        <field name="model">ges.animal</field>
+    <record model="ir.ui.view" id="vegetable_form_view">
+        <field name="name">vegetable.form</field>
+        <field name="model">ges.vegetable</field>
         <field name="arch" type="xml">
-            <form string="Animal Form">
+            <form string="vegetable Form">
                 <sheet>
                     <group>
                         <field name="name" />
                         <field name="common_name" />
                         <field name="areas_species_ids" />
-                        <field name="number_of_specimens" options='{"type": "number", "step": 1}' />
-                        <field name="alimentation" />
-                        <field name="mating_season" />
+                        <field name="blooming" />
+                        <field name="blooming_period" />
                         <field name="is_eaten" />
                         <field name="animal_ids" />
                     </group>
@@ -20,72 +19,27 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="animal_tree_view">
-        <field name="name">animal.tree</field>
-        <field name="model">ges.animal</field>
+    <record model="ir.ui.view" id="vegetable_tree_view">
+        <field name="name">vegetable.tree</field>
+        <field name="model">ges.vegetable</field>
         <field name="arch" type="xml">
-            <tree string="Animal Tree">
+            <tree string="vegetable Tree">
                 <field name="name" />
                 <field name="common_name" />
                 <field name="areas_species_ids" />
-                <field name="number_of_specimens" />
-                <field name="alimentation" />
-                <field name="mating_season" />
+                <field name="blooming" />
+                <field name="blooming_period" />
                 <field name="is_eaten" />
                 <field name="animal_ids" />
             </tree>
         </field>
     </record>
 
-    <record model="ir.ui.view" id="animal_pivot_view">
-        <field name="name">animal.pivot</field>
-        <field name="model">ges.animal</field>
-        <field name="arch" type="xml">
-            <pivot string="Animal">
-                <field name="alimentation" type="row" />
-                <field name="name" />
-            </pivot>
-        </field>
+    <record model="ir.actions.act_window" id="vegetable_list_action">
+        <field name="name">vegetable</field>
+        <field name="res_model">ges.vegetable</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.ui.view" id="animal_graph_view">
-        <field name="name">animal.graph</field>
-        <field name="model">ges.animal</field>
-        <field name="arch" type="xml">
-            <graph string="Animals">
-                <field name="name" />
-                <field name="number_of_specimens" type="measure" />
-            </graph>
-        </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="animal_list_action">
-        <field name="name">Animal</field>
-        <field name="res_model">ges.animal</field>
-        <field name="view_mode">tree,form,graph,pivot</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Create a new animal
-                </p>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="animal_search_view">
-        <field name="name">animal.search</field>
-        <field name="model">ges.animal</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="name" />
-                <field name="common_name" />
-                <filter name="endangered_species" string="Endangered Species" domain="[('number_of_specimens', '&lt;', 200)]" />
-                <filter name="carnivore" string="Carnivore" domain="[('alimentation', '=', 'carnivore')]" />
-                <filter name="herbivore" string="Herbivore" domain="[('alimentation', '=', 'herbivore')]" />
-                <filter name="omnivore" string="Omnivore" domain="[('alimentation', '=', 'omnivore')]" />
-                <group string="Group By">
-                    <filter name="by_mating_season" string="Mating Season" context="{'group_by': 'mating_season'}" />
-                </group>
-            </search>
-        </field>
-    </record>
-
-    <menuitem id="animal_menu" name="Animal" parent="natural_parks_menu" action="animal_list_action" />
+    <menuitem id="vegetable_menu" name="Vegetable" parent="natural_parks_menu" action="vegetable_list_action" />
 </odoo>

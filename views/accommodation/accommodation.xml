@@ -33,7 +33,6 @@
         <field name="name">accommodation</field>
         <field name="res_model">ges.accommodation</field>
         <field name="view_mode">tree,form</field>
-        <field name="help" type="html"></field>
     </record>
 
     <menuitem id="accommodation_menu" name="accommodation" parent="natural_parks_menu" action="accommodation_list_action" />

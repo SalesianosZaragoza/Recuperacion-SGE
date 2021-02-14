@@ -5,21 +5,9 @@
         <field name="arch" type="xml">
             <form string="vehicles Employee Form">
                 <sheet>
-                    <group colspan="4">
-                        <group colspan="2" col="2">
-                            <separator string="Employees" colspan="2"/>
-                            <field name="name"/>
-                            <field name="dni"/>
-                            <field name="social_security_number"/>
-                            <field name="address"/>
-                            <field name="mobile_phone"/>
-                            <field name="landline_phone"/>
-                            <field name="salary" options='{"type": "number", "step": 1000}'/>
-                        </group>
-                        <group colspan="2" col="2">
-                            <separator string="vehicles" colspan="2"/>
-                            <field name="entrance_id"/>
-                        </group>
+                    <group>
+                        <field name="plate_number" />
+                        <field name="car_model" />
                     </group>
                 </sheet>
             </form>
@@ -31,15 +19,8 @@
         <field name="model">ges.vehicles</field>
         <field name="arch" type="xml">
             <tree string="vehicles Employee Tree">
-                <field name="name"/>
-                <field name="dni"/>
-                <field name="social_security_number"/>
-                <field name="address"/>
-                <field name="mobile_phone"/>
-                <field name="landline_phone"/>
-                <field name="natural_park_id"/>
-                <field name="salary"/>
-                <field name="entrance_id"/>
+                <field name="plate_number" />
+                <field name="car_model" />
             </tree>
         </field>
     </record>
@@ -48,11 +29,9 @@
         <field name="name">vehicles</field>
         <field name="res_model">ges.vehicles</field>
         <field name="view_mode">tree,form</field>
-        
+
     </record>
 
-    <menuitem id="vehicles_menu" name="Vehicles"
-        parent="employees_menu"
-        action="vehicles_list_action"/>
+    <menuitem id="vehicles_menu" name="Vehicles" parent="employees_menu" action="vehicles_list_action" />
 
 </odoo>

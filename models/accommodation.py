@@ -17,8 +17,8 @@ class visitor(models.Model):
     address = fields.Char(required=True)
     job = fields.Char(required=True)
 
-class excursions(models.Model):
-    _name = 'ges.excursions'
+class excursion(models.Model):
+    _name = 'ges.excursion'
 
     name = fields.Char(string="Excursion", required=True)
     excursion_type = fields.Selection([('car', 'Car'), ('walking', 'Walking')]) 

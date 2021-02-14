@@ -18,7 +18,6 @@
                         </group>
                         <group colspan="2" col="2">
                             <separator string="Surveillance" colspan="2"/>
-                            <field name="natural_park_id"/>
                             <field name="car_id"/>
                         </group>
                     </group>
@@ -38,7 +37,6 @@
                 <field name="address"/>
                 <field name="mobile_phone"/>
                 <field name="landline_phone"/>
-                <field name="natural_park_id"/>
                 <field name="salary"/>
                 <field name="car_id"/>
             </tree>

@@ -54,8 +54,7 @@
             <field name="name">Area</field>
             <field name="res_model">ges.areas</field>
             <field name="view_mode">tree,form,graph,pivot</field>
-            <field name="help" type="html">
-            </field>
+            
         </record>
         
         <menuitem id="areas_menu" name="Area"

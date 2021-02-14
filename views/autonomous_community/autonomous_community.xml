@@ -32,8 +32,7 @@
             <field name="name">autonomous_community</field>
             <field name="res_model">ges.autonomous_community</field>
             <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-            </field>
+            
         </record>
 
         <menuitem id="autonomous_community_menu" name="Autonomous community"

@@ -1,5 +1,5 @@
-</odoo>     
-        <record model="ir.ui.view" id="conservation_form_view">
+<odoo>
+    <record model="ir.ui.view" id="conservation_form_view">
         <field name="name">conservation.form</field>
         <field name="model">ges.conservation</field>
         <field name="arch" type="xml">
@@ -7,19 +7,19 @@
                 <sheet>
                     <group colspan="4">
                         <group colspan="2" col="2">
-                            <separator string="Employees" colspan="2"/>
-                            <field name="name"/>
-                            <field name="dni"/>
-                            <field name="social_security_number"/>
-                            <field name="address"/>
-                            <field name="mobile_phone"/>
-                            <field name="landline_phone"/>
-                            <field name="salary" options='{"type": "number", "step": 1000}'/>
+                            <separator string="Employees" colspan="2" />
+                            <field name="name" />
+                            <field name="dni" />
+                            <field name="social_security_number" />
+                            <field name="address" />
+                            <field name="mobile_phone" />
+                            <field name="landline_phone" />
+                            <field name="salary" options='{"type": "number", "step": 1000}' />
                         </group>
                         <group colspan="2" col="2">
-                            <separator string="Conservation" colspan="2"/>
-                            <field name="areas_id"/>
-                            <field name="specialty"/>
+                            <separator string="Conservation" colspan="2" />
+                            <field name="areas_id" />
+                            <field name="specialty" />
                         </group>
                     </group>
                 </sheet>
@@ -32,16 +32,15 @@
         <field name="model">ges.conservation</field>
         <field name="arch" type="xml">
             <tree string="conservation Employee Tree">
-                <field name="name"/>
-                <field name="dni"/>
-                <field name="social_security_number"/>
-                <field name="address"/>
-                <field name="mobile_phone"/>
-                <field name="landline_phone"/>
-                <field name="natural_park_id"/>
-                <field name="salary"/>
-                <field name="areas_id"/>
-                <field name="specialty"/>
+                <field name="name" />
+                <field name="dni" />
+                <field name="social_security_number" />
+                <field name="address" />
+                <field name="mobile_phone" />
+                <field name="landline_phone" />
+                <field name="salary" />
+                <field name="areas_id" />
+                <field name="specialty" />
             </tree>
         </field>
     </record>
@@ -51,8 +50,5 @@
         <field name="res_model">ges.conservation</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem id="conservation_menu" name="Conservation Employee"
-        parent="employees_menu"
-        action="conservation_list_action"/>        
+    <menuitem id="conservation_menu" name="Conservation Employee" parent="employees_menu" action="conservation_list_action" />
 </odoo>

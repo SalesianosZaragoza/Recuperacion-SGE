@@ -9,7 +9,6 @@
                         <field name="name" />
                         <field name="common_name" />
                         <field name="areas_species_ids" />
-                        <field name="number_of_specimens" options='{"type": "number", "step": 1}' />
                         <field name="alimentation" />
                         <field name="mating_season" />
                         <field name="is_eaten" />
@@ -28,7 +27,6 @@
                 <field name="name" />
                 <field name="common_name" />
                 <field name="areas_species_ids" />
-                <field name="number_of_specimens" />
                 <field name="alimentation" />
                 <field name="mating_season" />
                 <field name="is_eaten" />
@@ -62,7 +60,7 @@
             <search>
                 <field name="name" />
                 <field name="common_name" />
-                <filter name="endangered_species" string="Endangered Species" domain="[('number_of_specimens', '&lt;', 200)]" />
+
                 <filter name="carnivore" string="Carnivore" domain="[('alimentation', '=', 'carnivore')]" />
                 <filter name="herbivore" string="Herbivore" domain="[('alimentation', '=', 'herbivore')]" />
                 <filter name="omnivore" string="Omnivore" domain="[('alimentation', '=', 'omnivore')]" />

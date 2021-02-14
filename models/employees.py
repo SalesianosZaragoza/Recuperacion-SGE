@@ -8,7 +8,7 @@ class employees(models.Model):
     social_security_number = fields.Char(required=True)
     address = fields.Char(required=True)
     mobile_phone = fields.Char(required=True)
-    landline_phone_phone = fields.Char(required=True)
+    landline_phone = fields.Char(required=True)
     salary = fields.Integer(required=True, string="Anual salary in euros")
 
     @api.constrains('salary')
@@ -81,7 +81,7 @@ class project(models.Model):
         for r in self:
             r.state = '1.draft'
 
-class Conservation(models.Model):
+class conservation(models.Model):
     _name = 'ges.conservation'
     _inherit = 'ges.employees'
 
