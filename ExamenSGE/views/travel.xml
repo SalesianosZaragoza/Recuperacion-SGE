@@ -45,13 +45,24 @@
         </field>
     </record>
 
+    <record model="ir.ui.view" id="travel_calendar_view">
+        <field name="name">travel.calendar</field>
+        <field name="model">naturalparks.travel</field>
+        <field name="arch" type="xml">
+            <calendar string="TRAVEL CALENDAR VIEW" date_start="starting_date" date_stop="end_date" quick_add="False">
+                <field name="name" />
+                <field name="travel_type" />
+                <field name="natural_park_id" />
+            </calendar>
+        </field>
+    </record>
+
     <record model="ir.actions.act_window" id="travel_list_action">
         <field name="name">travel</field>
         <field name="res_model">naturalP.travel</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form, calendar</field>
         <field name="help" type="html">
-            <p>NEW TRAVEL
-            </p>
+            <p>NEW TRAVEL</p>
         </field>
     </record>
 

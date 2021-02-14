@@ -57,7 +57,7 @@
         <field name="model">naturalP.area</field>
         <field name="arch" type="xml">
             <search>
-                <field name="nameSearch" />
+                <field name="name" />
                 <group>
                     <filter name="naturalPark" string="Natural Park" context="{'group_by': 'natural_park_id'}" />
                 </group>

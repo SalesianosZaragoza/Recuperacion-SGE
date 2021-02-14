@@ -29,6 +29,8 @@
         'views/staff.xml',
         'views/travel.xml',
         'views/travellers.xml',
+        'views/pdf_projects.xml',
+
     ],
    
 }

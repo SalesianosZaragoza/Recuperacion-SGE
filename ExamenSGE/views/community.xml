@@ -46,8 +46,7 @@
         <field name="res_model">naturalparks.community</field>
         <field name="view_mode">tree,form,graph</field>
         <field name="help" type="html">
-            <p>NEW COMMUNITY
-            </p>
+            <p>NEW COMMUNITY</p>
         </field>
     </record>
 

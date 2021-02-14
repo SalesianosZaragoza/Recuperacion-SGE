@@ -36,7 +36,6 @@ class Car(models.Model):
 
     name = fields.Char(string="Car Type", required=True)
     car_registration = fields.Char(string="Registration")
-    color = fields.Integer()
 
 class Staff(models.Model):
     _name = 'naturalP.staff'

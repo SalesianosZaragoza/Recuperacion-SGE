@@ -1,0 +1,34 @@
+<odoo>
+    <report id="pdf_projects" model="naturalP.project" string="Project Report" report_type="qweb-pdf" name="ExamenSGE.pdf_projects_view" file="ExamenSGE.pdf_projects" />
+
+    <template id="pdf_projects_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+
+                <div class="header">
+                    <h1>NATURAL PARKS</h1>
+                </div>
+                <hr></hr>
+                <div class="page">
+                    <h1 t-field="doc.name" />
+                    <p style="font-size: 15px;">
+                        <b>Species:</b>
+                        <span t-field="doc.species_id" />
+                    </p>
+                    <p style="font-size: 15px;">
+                        <b>START</b>
+                        <span t-field="doc.start_date" />
+                        <b>END</b>
+                        <span t-field="doc.end_date" />
+                    </p>
+                    <p style="font-size: 15px;">
+                        <b>Budget:</b>
+                        <span t-field="doc.budget" />
+                        €
+                    </p>
+                </div>
+
+            </t>
+        </t>
+    </template>
+</odoo>

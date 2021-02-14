@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api, exceptions
 
 class Community(models.Model):
     _name = 'naturalP.community'
@@ -7,3 +7,9 @@ class Community(models.Model):
     name = fields.Char(string="Name", required=True)
     length = fields.Integer(string="length", required=True)
     administrative_authority = fields.Char(required=True)
+
+    @api.constrains('length')
+    def _length(self):
+        for r in self:
+            if r.length <= 0:
+                raise exceptions.ValidationError("YOU NEED LENGTH")
