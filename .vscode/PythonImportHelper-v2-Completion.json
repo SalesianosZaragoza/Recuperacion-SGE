@@ -1,0 +1,27 @@
+[
+    {
+        "label": "models",
+        "importPath": "odoo",
+        "description": "odoo",
+        "isExtraImport": true,
+        "detail": "odoo",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "odoo",
+        "description": "odoo",
+        "isExtraImport": true,
+        "detail": "odoo",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "kind": 6,
+        "importPath": "models",
+        "description": "models",
+        "peekOfCode": "class Todo(models.Model):\n    _name = \"wb.todo\"\n    name = fields.Char(\"Nombre\")\n    status = fields.Selection(selection=[(\"borrador\",\"Borrador\"),(\"hecho\",\"Hecho\")])",
+        "detail": "models",
+        "documentation": {}
+    }
+]

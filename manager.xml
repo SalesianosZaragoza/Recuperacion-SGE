@@ -1,0 +1,727 @@
+<odoo>
+
+
+    <record model="ir.actions.act_window" id="community_list_action">
+        <field name="name">community</field>
+        <field name="res_model">manager.community</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type = "xml">
+            <tree string="List of communities">
+                <field name = "name" />
+                <field name = "community_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="community_park_list_action">
+        <field name="name">community_park</field>
+        <field name="res_model">manager.community_park</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type = "xml">
+            <tree string="List community parks">
+                <field name = "name" />
+                <field name = "community_id"/>
+		        <field name = "park_id"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="park_list_action">
+        <field name="name">park</field>
+        <field name="res_model">manager.park</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+        <tree string="List of parks">
+            <field name = "name" />
+            <field name = "park_id"/>
+            <field name = "species_id"/>
+            <field name = "area_id" />
+            <field name = "category "/>
+            <field name = "accomodation_id" />
+            <field name = "visitor_id" />
+            </tree>
+        </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="visitor_list_action">
+        <field name="name">visitor</field>
+        <field name="res_model">manager.visitor</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List od visitors">
+                <field name = "name" />
+                <field name = "visitor_id" />
+                <field name = "name" />
+                <field name = "DNI" />
+		        <field name = "adress" />
+		        <field name = "profession" />
+                <field name = "accomodation_id" />
+		        <field name = "entry_date"/>
+		        
+            </tree>
+        </field>
+    </record>
+    
+ <record model="ir.actions.act_window" id="park_visitor_list_action">
+        <field name="name">park visitors</field>
+        <field name="res_model">manager.park_visitor</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type = "xml">
+            <tree string="List park visitors">
+                <field name = "name" />
+                <field name = "park_id"/>
+		        <field name = "visitor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="species_list_action">
+        <field name="name">species</field>
+        <field name="res_model">manager.species</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of species">
+	       	        <field name="scientific_name" />
+	                <field name="vulgar_name" />
+                    <field name="park_id"/>
+		            <field name ="category" />
+      		        <field name="type" />
+            </tree>
+        </field>
+    </record>
+     
+    <record model="ir.actions.act_window" id="park_area_list_action">
+        <field name="name">park area</field>
+        <field name="res_model">manager.park_area</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type = "xml">
+            <tree string="List park area">
+                <field name = "name" />
+                <field name = "park_id"/>
+		        <field name = "area_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="area_list_action">
+        <field name="name">area</field>
+        <field name="res_model">manager.area</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type = "xml">
+            <tree string="List of areas">
+                <field name = "name" />
+                <field name = "area_id"/>
+		        
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="area_species_list_action">
+        <field name="name">area species</field>
+        <field name="res_model">manager.park_species</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type = "xml">
+            <tree string="List park area">
+                <field name = "name" />
+                <field name = "park_id"/>
+		        <field name = "area_id"/>
+            </tree>
+        </field>
+    </record>
+
+     <record model="ir.actions.act_window" id="plant_species_list_action">
+        <field name="name">plant_species</field>
+        <field name="res_model">manager.plant_species</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of plant_species">
+	                <field name = "species_id" />
+                    <field name="scientific_name" />
+		            <field name="vulgar_name" />
+                    <field name="park_id"/>
+		            <field name="area_id"/>
+                    <field name="flowering" />
+                   <field name="flowering_period" />
+                   <field name="inventory" />
+            </tree>
+        </field>
+    </record>
+    
+      <record model="ir.actions.act_window" id="animal_species_list_action">
+        <field name="name">animal_species</field>
+        <field name="res_model">manager.animal_species</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of animal_species">
+	             <field name = "species_id" />
+                <field name="scientific_name" />
+		        <field name="vulgar_name" />
+                <field name="park_id"/>
+		        <field name="area_id"/>
+                <field name="feeding_type" />
+                <field name="heat_period" />
+                <field name="inventory" />
+            </tree>
+        </field>
+    </record>
+    
+     <record model="ir.actions.act_window" id="mineral_species_list_action">
+        <field name="name">mineral_species</field>
+        <field name="res_model">manager.mineral_species</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of mineral_species">
+	    	        <field name = "species_id" />
+                    <field name="scientific_name" />
+		            <field name="vulgar_name" />
+                    <field name="park_id"/>
+		            <field name="area_id"/>
+                    <field name="type" />
+                    <field name="inventory" />
+            </tree>
+        </field>
+    </record>
+    
+    
+      <record model="ir.actions.act_window" id="staff_list_action">
+        <field name="name">staff</field>
+        <field name="res_model">manager.staff</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of staff">
+                <field name="name" />
+		        <field name="staff_id"/>
+                <field name="park_id" />
+                <field name="DNI"/>
+		        <field name="social_security"/>
+		        <field name="adress"/>
+		        <field name="mobile"/>
+		        <field name="salary"/>
+		        <field name="type"/>
+            </tree>
+        </field>
+    </record>
+    
+    
+     <record model="ir.actions.act_window" id="managment_staff_list_action">
+        <field name="name">management_staff</field>
+        <field name="res_model">manager.management_staff</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of management_staff">
+                <field name="name" />
+		 	    <field name = "entrada" />
+            </tree>
+        </field>
+    </record>
+    
+     <record model="ir.actions.act_window" id="survellance_staff_list_action">
+        <field name="name">survellance_staff</field>
+        <field name="res_model">manager.survellance_staff</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of survellance_staff">
+                <field name="name" />
+		        <field name="car_type"/>
+		        <field name="enrollment"/>
+                <field name="area"/>
+            </tree>
+        </field>
+    </record>
+    
+     <record model="ir.actions.act_window" id="research_staff_list_action">
+        <field name="name">research_staff</field>
+        <field name="res_model">manager.research_staff</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of research_staff">
+                <field name="name" />
+                <field name="title"/>
+                <field name="area"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="project_list_action">
+        <field name="name">project</field>
+        <field name="res_model">manager.project</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of project">
+                <field name="name" />
+                <field name="project_about"/>
+                <field name="budget"/>
+                <field name="period"/>
+            </tree>
+        </field>
+    </record>
+    
+     <record model="ir.actions.act_window" id="conservation_staff_list_action">
+        <field name="name">conservation_staff</field>
+        <field name="res_model">manager.conservation_staff</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of conservation_staff">
+             		 <field name="name" />
+			         <field name ="staff_id" />
+               	     <field name="park_id" />
+              	     <field name="specialization"/>
+		             <field name="area"/>
+            </tree>
+        </field>
+    </record>>
+    
+     <record model="ir.actions.act_window" id="accommodation_list_action">
+        <field name="name">accommodation</field>
+        <field name="res_model">manager.accommodation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="List of accommodation">
+                    <field name="name" />
+                    <field name ="park_id" />
+                    <field name = "visitor_id"/>
+                    <duration name ="duration" />
+                    <fied name="excursion"/>
+                    <field name ="excursion_form" />
+            </tree>
+        </field>
+    </record>
+    
+    
+
+    <menuitem name="Park manager" id="manager_menu_root"/>
+    
+    <menuitem name="Community" id="manager_menu_community" parent="manager_menu_root"/>
+    <menuitem name="Community_park" id="manager_menu_community_park" parent="manager_menu_root"/>
+    <menuitem name="Parks" id="manager_menu_parks" parent="manager_menu_root"/>
+    <menuitem name="Visitor" id="manager_menu_visitor" parent="manager_menu_root"/>
+    <menuitem name="Park visitors" id="manager_menu_park_visitor" parent="manager_menu_root"/>
+    <menuitem name="Species" id="manager_menu_species" parent="manager_menu_root"/>
+    <menuitem name="Park_area" id="manager_menu_park_area" parent="manager_menu_root"/>
+    <menuitem name="Area" id="manager_menu_area" parent="manager_menu_root"/>
+    <menuitem name="Species area" id="manager_menu_area_species" parent="manager_menu_root"/>
+    <menuitem name="Plants_species" id="manager_menu_plant_species" parent="manager_menu_root"/>
+    <menuitem name="Animals_species" id="manager_menu_animals_species" parent="manager_menu_root"/>
+    <menuitem name="Minerals_species" id="manager_menu_mineral_species" parent="manager_menu_root"/>
+    <menuitem name="Staff" id="manager_menu_staff" parent="manager_menu_root"/>
+    <menuitem name="Management_staff" id="manager_menu_management_staff" parent="manager_menu_root"/>
+    <menuitem name="Survellance_staff" id="manager_menu_suvellance_staff" parent="manager_menu_root"/>
+    <menuitem name="Research_staff" id="manager_menu_research_staff" parent="manager_menu_root"/>
+    <menuitem name="Project" id="manager_menu_project" parent="manager_menu_root"/>
+    <menuitem name="Conservation_staff" id="manager_menu_conservation_staff" parent="manager_menu_root"/>
+    <menuitem name="Accommodations" id="manager_menu_accommodation" parent="manager_menu_root"/>
+    
+    
+    <menuitem name="list of communities" id="manager_list_communities" parent="manager_menu_communities"
+              action="community_list_action"/>
+   <menuitem name="list List community parks" id="manager_list_communities" parent="manager_menu_communities"
+              action="community_list_action"/>
+    <menuitem name="list of parks" id="manager_list_parks" parent="manager_menu_parks"
+              action="parks_list_action"/>
+    <menuitem name="list of visitor" id="soci_list_visitor" parent="manager_menu_visitor"
+              action="visitor_list_action"/>
+    <menuitem name="list park visitors" id="soci_list_park_visitor" parent="manager_menu_park_visitor"
+              action="park_visitor_list_action"/>
+    <menuitem name="list of species" id="manager_list_species" parent="manager_menu_species"
+              action="species_list_action"/>
+    <menuitem name="list of park_area" id="manager_list_park_areas" parent="manager_menu_park_areas"
+              action="park_area_list_action"/>
+   <menuitem name="list of area" id="manager_list_area" parent="manager_menu_area"
+              action="areas_list_action"/>
+   <menuitem name="list of area_species" id="manager_list_area_species" parent="manager_menu_area_species"
+              action="area_species_list_action"/>
+    <menuitem name="list of plant_species" id="manager_list_plant_species" parent="manager_menu_species"
+              action="species_list_action"/>
+    <menuitem name="list of animal_species" id="manager_list_animal_species" parent="manager_menu_species"
+              action="species_list_action"/>
+    <menuitem name="list of mineral_species" id="manager_list_mineral_species" parent="manager_menu_species"
+              action="species_list_action"/>
+    <menuitem name="list  of staff" id="manager_list_staff" parent="manager_menu_staff"
+              action="staff_list_action"/>
+    <menuitem name="list  of manager_staff" id="manager_list_manager_staff" parent="manager_menu_staff"
+              action="manager_staff_list_action"/>
+    <menuitem name="list  of survellance_staff" id="manager_list_survellance_staff" parent="manager_menu_staff"
+              action="staff_list_action"/>
+    <menuitem name="list  of research_staff" id="manager_list_research_staff" parent="manager_menu_staff"
+              action="staff_list_action"/>
+   <menuitem name="list  of project" id="manager_list_project" parent="manager_menu_staff"
+              action="staff_list_action"/>
+    <menuitem name="list  of conservation_staff" id="manager_list_conservation_staff" parent="manager_menu_staff"
+              action="staff_list_action"/>
+    <menuitem name="list of accommodations" id="manager_list_accommodations" parent="manager_menu_accommodations"
+              action="accommodations_list_action"/>
+    
+        
+        
+        
+        <record model="ir.ui.view" id="community_form_view">
+            <field name="name">community.form</field>
+            <field name="model">manager.community</field>
+            <field name="arch" type="xml">
+                <form string="Communities form">
+                    <sheet>
+                        <group>
+                            <field name = "name" />
+                            <field name = "community_id" />
+			     <field name="park_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="community_park_form_view">
+            <field name="name">community_park.form</field>
+            <field name="model">manager.community_park</field>
+            <field name="arch" type="xml">
+                <form string="Community parks form">
+                    <sheet>
+                        <group>
+                            <field name = "name" />
+                            <field name = "community_id"/>
+                            <field name = "park_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="park_form_view">
+            <field name="name">park.form</field>
+            <field name="model">manager.park</field>
+            <field name="arch" type="xml">
+                <form string="Parks form">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                	        <field name= "park_id"/>
+			                <field name= "species_id"/>
+	 	                    <field name= "area" />
+			                <field name="category "/>
+		                    <field name = "accomodation_id" />
+                            <field name = "visitor_id" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+              
+        <record model="ir.ui.view" id="visitor_form_view">
+            <field name="name">visitor.form</field>
+            <field name="model">manager.visitor</field>
+            <field name="arch" type="xml">
+                <form string="Visitors form">
+                    <sheet>
+                        <group>
+                            <field name = "name" />
+                            <field name = "visitor_id" />
+                            <field name = "name" />
+                            <field name = "DNI" />
+                            <field name = "adress" />
+                            <field name = "profession" />
+                            <field name = "accomodation_id" />
+                            <field name = "entry_date"/>
+                            
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> 
+    
+    <record model="ir.ui.view" id="park_visitor_form_view">
+        <field name="name">park_visitor.form</field>
+        <field name="model">manager.park_visitor</field>
+        <field name="arch" type="xml">
+            <form string="Park visitors form">
+                <sheet>
+                    <group>
+                         <field name="name" />
+                            <field name="park_visitors_id"/>
+                            <field name="park_id"/>
+                            <field name="visitor_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+	    <record model="ir.ui.view" id="species_form_view">
+	    <field name="name">species.form</field>
+   	    <field name="model">manager.species</field>
+ 	    <field name="arch" type="xml">
+                <form string="Species form">
+                    <sheet>
+                        <group>
+                            <field name="scientific_name" />
+	       		            <field name="vulgar_name" />
+             		        <field name="species_id" />
+	      		            <field name="park_id"/>
+			                <field name ="category" />
+      			            <field name="type" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>       
+        
+	    <record model="ir.ui.view" id="park_area_form_view">
+	    <field name="name">park_area.form</field>
+   	    <field name="model">manager.park_area</field>
+ 	    <field name="arch" type="xml">
+                <form string="Park areas form">
+                    <sheet>
+                        <group>
+                            <field name="name" />		           
+                            <field name="park_area_id"/>
+                            <field name="park_id"/>
+                            <field name="area_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>    
+        
+        
+	    <record model="ir.ui.view" id="area_form_view">
+            <field name="name">area.form</field>
+               <field name="model">manager.area</field>
+             <field name="arch" type="xml">
+                    <form string="Areas form">
+                        <sheet>
+                            <group>
+                                <field name="name" />		           
+                                <field name="extension"/>
+                                <field name="park_id" />
+                                
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+            </record>      
+
+            <record model="ir.ui.view" id="area_species_form_view">
+                <field name="name">area_species.form</field>
+                   <field name="model">manager.area_species</field>
+                 <field name="arch" type="xml">
+                        <form string="Areas species form">
+                            <sheet>
+                                <group>
+                                    <field name="name" />		           
+                                    <field name="area_id"/>
+                                    <field name="species_id" />
+                                    
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </record>   
+	<record model="ir.ui.view" id="plant_species_form_view">
+            <field name="name">plant_species.form</field>
+            <field name="model">manager.plant_species</field>
+            <field name="arch" type="xml">
+                <form string="Plants species form">
+                    <sheet>
+                        <group>
+                            <field name="flowering" />
+             		        <field name="flowering_period" />
+              		        <field name="inventory" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>         
+	<record model="ir.ui.view" id="animal_species_form_view">
+            <field name="name">animal_species.form</field>
+            <field name="model">manager.animal_species</field>
+            <field name="arch" type="xml">
+                <form string="Animals species form">
+                    <sheet>
+                        <group>
+                            <field name="feeding_type" />
+               		        <field name="heat_period" />
+               		        <field name="inventory" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>   
+	<record model="ir.ui.view" id="mineral_species_form_view">
+            <field name="name">mineral_species.form</field>
+            <field name="model">manager.mineral_species</field>
+            <field name="arch" type="xml">
+                <form string="Minerals species form">
+                    <sheet>
+                        <group>
+                            <field name ="category" />
+      			            <field name="inventory" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>             
+        <record model="ir.ui.view" id="staff_form_view">
+            <field name="name">staff.form</field>
+            <field name="model">manager.staff</field>
+            <field name="arch" type="xml">
+                <form string="Staff form">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+			                <field name="staff_id"/>
+                	        <field name="park_id" />
+               		        <field name="DNI"/>
+			                <field name="social_security"/>
+		 	                <field name="adress"/>
+			                <field name="mobile"/>
+			                <field name="salary"/>
+			                <field name="type"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+	<record model="ir.ui.view" id="managment_staff_form_view">
+            <field name="name">management_staff.form</field>
+            <field name="model">manager.staff</field>
+            <field name="arch" type="xml">
+                <form string="Management staff form">
+                    <sheet>
+                        <group>
+                           <field name="name" />
+		 	               <field name = "entrada" />
+               		      
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+	<record model="ir.ui.view" id="survellance_staff_form_view">
+            <field name="name">survellance_staff.form</field>
+            <field name="model">manager.staff</field>
+            <field name="arch" type="xml">
+                <form string="Survellance staff form">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+		                    <field name="car_type"/>
+		                    <field name="enrollment"/>
+                            <field name="area"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+	<record model="ir.ui.view" id="research_staff_form_view">
+            <field name="name">research_staff.form</field>
+            <field name="model">manager.research_staff</field>
+            <field name="arch" type="xml">
+                <form string="Research staff form">
+                    <sheet>
+                        <group>
+                           <field name="name" />
+			               <field name="title"/>
+			               <field name="project_id"/>
+                	       <field name="area"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="project_form_view">
+            <field name="name">project.form</field>
+            <field name="model">manager.project</field>
+            <field name="arch" type="xml">
+                <form string="Project form">
+                    <sheet>
+                        <group>
+                           <field name="name" />
+			               <field name="project_about"/>
+			               <field name="budget"/>
+                	       <field name="period"/>
+                        </group>
+                           
+                    </sheet>
+                </form>
+            </field>
+        </record>
+                           
+	<record model="ir.ui.view" id="conservation_staff_form_view">
+            <field name="name">conservation_staff.form</field>
+            <field name="model">manager.staff</field>
+            <field name="arch" type="xml">
+                <form string="Conservation staff form">
+                    <sheet>
+                        <group>
+				            <field name="name" />
+				            <field name ="staff_id" />
+               	        	<field name="park_id" />
+              	        	<field name="specialization"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>     
+        
+  	<record model="ir.ui.view" id="accommodation_form_view">
+	       <field name="name">accomodation.form</field>
+	       <field name="model">manager.accommodation</field>
+	       <field name="arch" type="xml">
+	       <form string="Minerals species form">
+	           <sheet>
+		       <group>
+		             <field name="name" />
+			         <field name ="park_id" />
+                     <field name = "visitor_id"/>
+	       	         <fied name="excursion"/>
+		             <field name ="excursion_form" />
+               </group>
+            </sheet>
+        </form>
+    </field>
+</record>     
+   
+        <record model="ir.actions.act_window" id="accommodation_visitor_list_action">
+            <field name="name">accommodation visitors</field>
+            <field name="res_model">manager.park_species</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type = "xml">
+                <tree string="List accommodation visitors">
+                    <field name = "name" />
+                    <field name = "accommodation_id"/>
+                    <field name = "visitor_id"/>
+                    <duration name ="duration" />
+                </tree>
+            </field>
+        </record>
+        
+        <informe 
+        id = "account_invoices" 
+        model = "account.invoice" 
+        string = "Invoices" 
+        report_type = "Qweb-pdf" 
+        name = "account.report_invoice" 
+        file = "account.report_invoice" 
+        attachment_use = "True" 
+        attached = "(objet .state en ('open', 'paid')) y 
+            ('INV' + (object.number o '') .replace ('/', '') + '. pdf') " 
+    />        
+                  
+</odoo>
