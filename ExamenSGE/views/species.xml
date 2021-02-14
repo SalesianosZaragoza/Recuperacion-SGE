@@ -1,0 +1,151 @@
+<odoo>
+
+    <!--Plant-->
+
+    <menuitem id="plant_menu" name="Plant" parent="naturalparks_menu" action="plant_list_action" />
+
+    <record model="ir.ui.view" id="plant_form_view">
+        <field name="name">plant.form</field>
+        <field name="model">naturalparks.plant</field>
+        <field name="arch" type="xml">
+            <form string="Plant Form">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="alias" />
+                        <field name="area_ids" />
+                        <field name="speciements" options='{"type": "number", "step": 1}' />
+                        <field name="growth" />
+                        <field name="growth_period" />
+                        <field name="eaten" />
+                        <field name="animal_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="plant_tree_view">
+        <field name="name">plant.tree</field>
+        <field name="model">naturalparks.plant</field>
+        <field name="arch" type="xml">
+            <tree string="Plant Tree">
+                <field name="name" />
+                <field name="alias" />
+                <field name="area_ids" />
+                <field name="speciements" />
+                <field name="growth" />
+                <field name="growth_period" />
+                <field name="eaten" />
+                <field name="animal_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="plant_list_action">
+        <field name="name">Plant</field>
+        <field name="res_model">naturalparks.plant</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>NEW PLANT
+            </p>
+        </field>
+    </record>
+
+    <!--Animal-->
+
+    <menuitem id="animal_menu" name="Animal" parent="naturalparks_menu" action="animal_list_action" />
+
+    <record model="ir.ui.view" id="animal_form_view">
+        <field name="name">animal.form</field>
+        <field name="model">naturalparks.animal</field>
+        <field name="arch" type="xml">
+            <form string="ANIMAL FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="alias" />
+                        <field name="area_ids" />
+                        <field name="speciements" options='{"type": "number", "step": 1}' />
+                        <field name="alimentation" />
+                        <field name="mating_season" />
+                        <field name="eaten" />
+                        <field name="animal_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="animal_tree_view">
+        <field name="name">animal.tree</field>
+        <field name="model">naturalparks.animal</field>
+        <field name="arch" type="xml">
+            <tree string="ANIMAL TREE VIEW">
+                <field name="name" />
+                <field name="alias" />
+                <field name="area_ids" />
+                <field name="speciements" />
+                <field name="alimentation" />
+                <field name="mating_season" />
+                <field name="eaten" />
+                <field name="animal_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="animal_graph_view">
+        <field name="name">animal.graph</field>
+        <field name="model">naturalparks.animal</field>
+        <field name="arch" type="xml">
+            <graph string="ANIMA GRAPH VIEW">
+                <field name="name" />
+                <field name="speciements" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="animal_list_action">
+        <field name="name">Animal</field>
+        <field name="res_model">naturalparks.animal</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="help" type="html">
+            <p>NEW ANIMAL</p>
+        </field>
+    </record>
+
+    <!--Mineral-->
+
+    <menuitem id="mineral_menu" name="Mineral" parent="naturalparks_menu" action="mineral_list_action" />
+
+    <record model="ir.ui.view" id="mineral_form_view">
+        <field name="name">mineral.form</field>
+        <field name="model">naturalparks.mineral</field>
+        <field name="arch" type="xml">
+            <form string="MINERAL FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="alias" />
+                        <field name="area_ids" />
+                        <field name="mineral_type" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mineral_tree_view">
+        <field name="name">mineral.tree</field>
+        <field name="model">naturalparks.mineral</field>
+        <field name="arch" type="xml">
+            <tree string="MINERAL TREE VIEW">
+                <field name="name" />
+                <field name="alias" />
+                <field name="area_ids" />
+                <field name="mineral_type" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>

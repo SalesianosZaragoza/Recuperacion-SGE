@@ -1,6 +1,4 @@
-from odoo import models, fields, api, exceptions
-from odoo.exceptions import ValidationError
-
+from odoo import models, fields
 class Travel(models.Model):
     _name = 'naturalP.travel'
     _order = 'start_date'

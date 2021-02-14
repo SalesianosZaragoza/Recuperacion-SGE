@@ -1,0 +1,75 @@
+<odoo>
+    <record model="ir.ui.view" id="project_form_view">
+        <field name="name">project.form</field>
+        <field name="model">naturalP.project</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" states="1.draft" class="oe_highlight" />
+                    <button name="action_done" type="object" string="Done" states="2.confirm" class="oe_highlight" />
+                    <button name="action_draft" type="object" string="Reset" states="2.confirm,3.done" />
+                    <field name="state" widget="statusbar" statusbar_visible="1.draft,2.confirm,3.done" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="species_id" />
+                        <field name="research_ids" />
+                        <field name="budget" options='{"type": "number", "step": 500}' />
+                        <field name="start_date" />
+                        <field name="end_date" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_tree_view">
+        <field name="name">project.tree</field>
+        <field name="model">naturalP.project</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="Project Tree">
+                <field name="name" />
+                <field name="species_id" />
+                <field name="research_ids" />
+                <field name="budget" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_graph_view">
+        <field name="name">project.graph</field>
+        <field name="model">naturalP.project</field>
+        <field name="arch" type="xml">
+            <graph string="Projects">
+                <field name="name" />
+                <field name="budget" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="project_list_action">
+        <field name="name">Project</field>
+        <field name="res_model">naturalP.project</field>
+        <field name="view_mode">tree,form,calendar,kanban,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new Project
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_calendar_view">
+        <field name="name">project.calendar</field>
+        <field name="model">naturalP.project</field>
+        <field name="arch" type="xml">
+            <calendar string="Project Calendar" date_start="start_date" date_stop="end_date" quick_add="False">
+                <field name="name" />
+                <field name="species_id" />
+            </calendar>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,288 @@
+<odoo>
+    <!--Management-->
+
+    <menuitem id="management_menu" name="Management Employee" parent="staff_menu" action="management_list_action" />
+
+    <record model="ir.ui.view" id="management_form_view">
+        <field name="name">management.form</field>
+        <field name="model">naturalP.management</field>
+        <field name="arch" type="xml">
+            <form string="MANAGEMENT FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="dni" />
+                        <field name="security" />
+                        <field name="address" />
+                        <field name="mobile" />
+                        <field name="telephone" />
+                        <field name="natural_park_id" />
+                        <field name="salary" options='{"type": "number", "step": 1000}' />
+                        <field name="tickets" options='{"type": "number", "step": 1}' />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="management_tree_view">
+        <field name="name">management.tree</field>
+        <field name="model">naturalP.management</field>
+        <field name="arch" type="xml">
+            <tree string="MANAGEMENTTREE VIEW">
+                <field name="name" />
+                <field name="dni" />
+                <field name="security" />
+                <field name="address" />
+                <field name="mobile" />
+                <field name="telephone" />
+                <field name="natural_park_id" />
+                <field name="salary" />
+                <field name="tickets" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="management_list_action">
+        <field name="name">Management</field>
+        <field name="res_model">naturalP.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>NEW MANAGEMENT</p>
+        </field>
+    </record>
+
+    <!--Surveillance-->
+
+    <menuitem id="surveillance_menu" name="surveillance Employee" parent="staff_menu" action="surveillance_list_action" />
+
+    <record model="ir.ui.view" id="surveillance_form_view">
+        <field name="name">surveillance.form</field>
+        <field name="model">naturalP.surveillance</field>
+        <field name="arch" type="xml">
+            <form string="SURVEILLANCE FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="dni" />
+                        <field name="security" />
+                        <field name="address" />
+                        <field name="mobile" />
+                        <field name="telephone" />
+                        <field name="natural_park_id" />
+                        <field name="area_id" />
+                        <field name="salary" options='{"type": "number", "step": 1000}' />
+                        <field name="car_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="surveillance_tree_view">
+        <field name="name">surveillance.tree</field>
+        <field name="model">naturalP.surveillance</field>
+        <field name="arch" type="xml">
+            <tree string="SURVEILLANCE TREE VIEW">
+                <field name="name" />
+                <field name="dni" />
+                <field name="security" />
+                <field name="address" />
+                <field name="mobile" />
+                <field name="telephone" />
+                <field name="natural_park_id" />
+                <field name="area_id" />
+                <field name="salary" />
+                <field name="car_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="surveillance_list_action">
+        <field name="name">surveillance</field>
+        <field name="res_model">naturalP.surveillance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>NEW SURVEILLANCE</p>
+        </field>
+    </record>
+
+    <!--Car-->
+
+    <menuitem id="car_menu" name="Car" parent="staff_menu" action="car_list_action" />
+
+
+    <record model="ir.ui.view" id="car_form_view">
+        <field name="name">car.form</field>
+        <field name="model">naturalP.car</field>
+        <field name="arch" type="xml">
+            <form string="CAR FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="car_registration" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="car_tree_view">
+        <field name="name">car.tree</field>
+        <field name="model">naturalP.car</field>
+        <field name="arch" type="xml">
+            <tree string="CAR TREE VIEW">
+                <field name="name" />
+                <field name="car_registration" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="car_list_action">
+        <field name="name">Car</field>
+        <field name="res_model">naturalP.car</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>NEW CAR
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="car_search_view">
+        <field name="name">car.search</field>
+        <field name="model">naturalP.car</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="car_registration" />
+            </search>
+        </field>
+    </record>
+
+    <!--Research-->
+
+    <menuitem id="research_menu" name="Research Employee" parent="staff_menu" action="research_list_action" />
+
+    <record model="ir.ui.view" id="research_form_view">
+        <field name="name">research.form</field>
+        <field name="model">naturalP.research</field>
+        <field name="arch" type="xml">
+            <form string="RESEARCH FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="dni" />
+                        <field name="security" />
+                        <field name="address" />
+                        <field name="mobile" />
+                        <field name="telephone" />
+                        <field name="natural_park_id" />
+                        <field name="salary" options='{"type": "number", "step": 1000}' />
+                        <field name="title" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="research_tree_view">
+        <field name="name">research.tree</field>
+        <field name="model">naturalP.research</field>
+        <field name="arch" type="xml">
+            <tree string="RESEARCH TREE VIEW">
+                <field name="name" />
+                <field name="dni" />
+                <field name="security" />
+                <field name="address" />
+                <field name="mobile" />
+                <field name="telephone" />
+                <field name="natural_park_id" />
+                <field name="salary" />
+                <field name="title" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="research_list_action">
+        <field name="name">Research</field>
+        <field name="res_model">naturalP.research</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>NEW RESEARCH
+            </p>
+        </field>
+    </record>
+
+    <!--Conservation-->
+    
+    <menuitem id="conservation_menu" name="Conservation Employee" parent="staff_menu" action="conservation_list_action" />
+
+    <record model="ir.ui.view" id="conservation_form_view">
+        <field name="name">conservation.form</field>
+        <field name="model">naturalP.conservation</field>
+        <field name="arch" type="xml">
+            <form string="CONSERVATION FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="dni" />
+                        <field name="security" />
+                        <field name="address" />
+                        <field name="mobile" />
+                        <field name="telephone" />
+                        <field name="natural_park_id" />
+                        <field name="area_id" />
+                        <field name="salary" options='{"type": "number", "step": 1000}' />
+                        <field name="special_field" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="conservation_tree_view">
+        <field name="name">conservation.tree</field>
+        <field name="model">naturalP.conservation</field>
+        <field name="arch" type="xml">
+            <tree string="CONSERVATION TREE VIEW">
+                <field name="name" />
+                <field name="dni" />
+                <field name="security" />
+                <field name="address" />
+                <field name="mobile" />
+                <field name="telephone" />
+                <field name="natural_park_id" />
+                <field name="area_id" />
+                <field name="salary" />
+                <field name="special_field" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="conservation_list_action">
+        <field name="name">Conservation</field>
+        <field name="res_model">naturalP.conservation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>NEW CONSERVATION</p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="conservation_search_view">
+        <field name="name">conservation.search</field>
+        <field name="model">naturalP.conservation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="dni" />
+                <field name="security" />
+                <filter name="cleaning" string="Cleaning" domain="[('special_field', '=', 'cleaning')]" />
+                <filter name="roads" string="Roads" domain="[('special_field', '=', 'roads')]" />
+                <group string="Group By">
+                    <filter name="by_natural_park" string="Natural Park" context="{'group_by': 'natural_park_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

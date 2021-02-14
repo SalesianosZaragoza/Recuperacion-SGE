@@ -2,7 +2,7 @@
 
     <menuitem id="area_menu" name="AREA MENU" parent="naturalP_menu" action="area_list_action" />
 
-    <record model="ir.ui.view" id="areaForm">
+    <record model="ir.ui.view" id="area_form_view">
         <field name="name">area.form</field>
         <field name="model">naturalP.area</field>
         <field name="arch" type="xml">
@@ -19,7 +19,7 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="areaTree">
+    <record model="ir.ui.view" id="area_tree_view">
         <field name="name">area.tree</field>
         <field name="model">naturalP.area</field>
         <field name="arch" type="xml">
@@ -32,7 +32,7 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="areaGraph">
+    <record model="ir.ui.view" id="area_graph_view">
         <field name="name">area.graph</field>
         <field name="model">naturalP.area</field>
         <field name="arch" type="xml">
@@ -43,7 +43,7 @@
         </field>
     </record>
 
-    <record model="ir.actions.act_window" id="areaList">
+    <record model="ir.actions.act_window" id="area_list_view">
         <field name="name">area.list</field>
         <field name="res_model">naturalP.area</field>
         <field name="view_mode">tree,form,graph</field>
@@ -52,7 +52,7 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="areaSearch">
+    <record model="ir.ui.view" id="area_search_view">
         <field name="name">area.search</field>
         <field name="model">naturalP.area</field>
         <field name="arch" type="xml">

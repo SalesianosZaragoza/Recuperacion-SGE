@@ -4,9 +4,9 @@ class Species(models.Model):
     _name = 'naturalP.species'
 
     name = fields.Char(string="Binomial nomenclature", required=True)
-    common_name = fields.Char(required=True)
+    alias = fields.Char(required=True)
     area_ids = fields.Many2many('naturalP.area', string="Area", required=True)
-    number_of_specimens = fields.Integer()
+    speciements = fields.Integer()
 
 class Plant(models.Model):
     _name = 'naturalP.plant'

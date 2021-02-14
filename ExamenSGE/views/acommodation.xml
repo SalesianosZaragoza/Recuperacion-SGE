@@ -4,7 +4,7 @@
     <menuitem id="naturalP_menu" name="naturalP" parent="main_naturalP_menu" />
     <menuitem id="acommodation_menu" name="Acommodation" parent="naturalP_menu" action="acommodation_list_action" />
 
-    <record model="ir.ui.view" id="acommodationForm">
+    <record model="ir.ui.view" id="acommodation_form_view">
         <field name="name">acommodation.form</field>
         <field name="model">naturalP.acommodation</field>
         <field name="arch" type="xml">
@@ -21,7 +21,7 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="acommodationTree">
+    <record model="ir.ui.view" id="acommodation_tree_view">
         <field name="name">acommodation.tree</field>
         <field name="model">naturalP.acommodation</field>
         <field name="arch" type="xml">
@@ -34,12 +34,11 @@
         </field>
     </record>
 
-    <record model="ir.actions.act_window" id="acommodationList">
-        <field name="name">Acommodation</field>
+    <record model="ir.actions.act_window" id="acommodation_list_view">
+        <field name="name">acommodation.list</field>
         <field name="res_model">naturalP.acommodation</field>
-        <field name="view_mode">tree,form,kanban,pivot</field>
-        <field name="help" type="html">
-        </field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html"></field>
     </record>
 
 </odoo>

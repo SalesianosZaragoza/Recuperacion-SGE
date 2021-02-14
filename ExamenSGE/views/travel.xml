@@ -1,0 +1,76 @@
+<odoo>
+
+    <menuitem id="travel_menu" name="travel" parent="naturalP_menu" action="travel_list_action" />
+
+    <record model="ir.ui.view" id="travel_form_view">
+        <field name="name">travel.form</field>
+        <field name="model">naturalP.travel</field>
+        <field name="arch" type="xml">
+            <form string="TRAVEL FORM VIEW">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" states="1.draft" class="oe_highlight" />
+                    <button name="action_done" type="object" string="Done" states="2.confirm" class="oe_highlight" />
+                    <button name="action_draft" type="object" string="Reset " states="2.confirm,3.done" />
+                    <field name="state" widget="statusbar" statusbar_visible="1.draft,2.confirm,3.done" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="start_date" />
+                        <field name="end_date" />
+                        <field name="travel_type" />
+                        <field name="natural_park_id" />
+                        <field name="acommodation_id" />
+                        <field name="visitor_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="travel_tree_view">
+        <field name="name">travel.tree</field>
+        <field name="model">naturalP.travel</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="TRAVEL TREE VIEW">
+                <field name="name" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="travel_type" />
+                <field name="natural_park_id" />
+                <field name="acommodation_id" />
+                <field name="total_visitors" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="travel_list_action">
+        <field name="name">travel</field>
+        <field name="res_model">naturalP.travel</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>NEW TRAVEL
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="travel_search_view">
+        <field name="name">travel.search</field>
+        <field name="model">naturalP.travel</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <filter name="by_car" string="By Car" domain="[('travel_type', '=', 'car')]" />
+                <filter name="walking " string="Walking" domain="[('travel_type', '=', 'walking')]" />
+                <group string="Group By">
+                    <filter name="by_natural_park" string="Natural Park" context="{'group_by': 'natural_park_id'}" />
+                </group>
+                <group string="Group By">
+                    <filter name="by_acommodation" string="Acommodation Organizer" context="{'group_by': 'acommodation_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,54 @@
+<odoo>
+
+    <menuitem id="community_menu" name="Autonomous Communities" parent="naturalparks_menu" action="community_list_action" />
+
+    <record model="ir.ui.view" id="community_form_view">
+        <field name="name">community.form</field>
+        <field name="model">naturalparks.community</field>
+        <field name="arch" type="xml">
+            <form string="COMMUNITY FORM VIEW">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="length" />
+                        <field name="administrative_authority" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="community_tree_view">
+        <field name="name">community.tree</field>
+        <field name="model">naturalparks.community</field>
+        <field name="arch" type="xml">
+            <tree string="COMMUNITY TREE">
+                <field name="name" />
+                <field name="length" />
+                <field name="administrative_authority" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="community_graph_view">
+        <field name="name">community.graph</field>
+        <field name="model">naturalparks.community</field>
+        <field name="arch" type="xml">
+            <graph string="COMMUNITY GRAPH VIEW">
+                <field name="name" />
+                <field name="length" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="community_list_view">
+        <field name="name">Community</field>
+        <field name="res_model">naturalparks.community</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="help" type="html">
+            <p>NEW COMMUNITY
+            </p>
+        </field>
+    </record>
+
+</odoo>

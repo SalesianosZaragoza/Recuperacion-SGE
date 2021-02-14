@@ -1,0 +1,71 @@
+<odoo>
+
+    <menuitem id="travellers_menu" name="travellers" parent="naturalP _menu" action="travellers_list_action" />
+
+    <record model="ir.ui.view" id="travellers_form_view">
+        <field name="name">travellers.form</field>
+        <field name="model">naturalP .travellers</field>
+        <field name="arch" type="xml">
+            <form string="TRAVELLERS FORM VIEW">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" states="1.draft" class="oe_highlight" />
+                    <button name="action_done" type="object" string="Done" states="2.confirm" class="oe_highlight" />
+                    <button name="action_draft" type="object" string="Reset to draft" states="2.confirm,3.done" />
+                    <field name="state" widget="statusbar" statusbar_visible="1.draft,2.confirm,3.done" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="dni" />
+                        <field name="address" />
+                        <field name="job" />
+                        <field name="natural_park_id" />
+                        <field name="acommodation_id" />
+                        <field name="management_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="travellers_tree_view">
+        <field name="name">travellers.tree</field>
+        <field name="model">naturalP .travellers</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="TRAVELLERS TREE VIEW">
+                <field name="name" />
+                <field name="dni" />
+                <field name="address" />
+                <field name="job" />
+                <field name="natural_park_id" />
+                <field name="acommodation_id" />
+                <field name="management_id" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="travellers_list_action">
+        <field name="name">travellers</field>
+        <field name="res_model">naturalP.travellers</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>NEW TRAVELLERS</p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="travellers_search_view">
+        <field name="name">travellers.search</field>
+        <field name="model">naturalP .travellers</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="dni" />
+                <field name="name" />
+                <group string="Group By">
+                    <filter name="by_acommodation" string="Acommodation" context="{'group_by': 'acommodation_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>
