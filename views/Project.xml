@@ -7,24 +7,14 @@
               <form string="Project Form">
                   <sheet>
                      <group>
-                        <field name="Name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>
+                        <field name="name"/>
+                        <field name="Budget"/>
+                        <field name="ResearchPerIDS"/>
+                        <field name="StartingDate"/>
+                        <field name="EndingDate"/>
                      </group>
                   </sheet>
               </form>
-          </field>
-       </record>
-
-       <record model="ir.ui.view" id="Project_graph_view">
-          <field name="name">Project.graph</field>
-          <field name="model">NaturalParks.Project</field>
-          <field name="arch" type="xml">
-              <graph string="Project graph">
-                        <field name="Name"/>
-                        <field name="Extension"/>
-              </graph>
           </field>
        </record>
 
@@ -33,10 +23,11 @@
           <field name="model">NaturalParks.Project</field>
           <field name="arch" type="xml">
               <tree string="Project Tree">
-                        <field name="Name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>                
+                        <field name="name"/>
+                        <field name="Budget"/>
+                        <field name="ResearchPerIDS"/>
+                        <field name="StartingDate"/>
+                        <field name="EndingDate"/>               
               </tree>
           </field>
        </record>
@@ -44,20 +35,90 @@
        <record model="ir.ui.view" id="Project_list_action">
           <field name="name">Project</field>
           <field name="res_model">NaturalParks.Project</field>
-          <field name="view_mode">form,tree,search</field>
+          <field name="view_mode">form,tree,search,graph,kanban</field>
           <field name="help" type="html">
           </field>
        </record>
 
        <record model="ir.ui.view" id="Project_search_view">
-          <field name="name">Project.search</field>
-          <field name="model">NaturalParks.Project</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="Name"/> 
-              </search>
-          </field>
-       </record>
+        <field name="name">Project.search</field>
+        <field name="model">NaturalParks.Project</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="HighBudget" string="High Budget"
+                        domain="[('Budget', '&gt;', 100000)]"/>
+                <filter name="LowBudget" string="Low Budget"
+                        domain="[('Budget', '&lt;', 100000)]"/>
+                <group string="Group By">
+                    <filter name="by_Species" string="Species"
+                            context="{'group_by': 'SpeciesID'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+       <record model="ir.ui.view" id="Project_graph_view">
+        <field name="name">Project.graph</field>
+        <field name="model">naturalparks.Project</field>
+        <field name="arch" type="xml">
+            <graph string="Projects">
+                <field name="name"/>
+                <field name="Budget" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="Project_kanban_view">
+        <field name="name">NaturalParks.Project.kanban</field>
+        <field name="model">NaturalParks.Project</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="Color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
+                                t-attf-class="oe_kanban_Color_{{kanban_getColor(record.Color.raw_value)}}
+                                            oe_kanban_global_click_edit oe_semantic_html_override
+                                            oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <div class="oe_dropdown_kanban">
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg" title="Manage" aria-label="Manage"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                        <li>
+                                            <ul class="oe_kanban_Colorpicker"
+                                                data-field="Color"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                Project Name:
+                                <field name="name"/>
+                                <br/>
+                                Species:
+                                <field name="SpeciesID"/>
+                                <br/>
+                                Starting Date:
+                                <field name="StartingDate"/>
+                                <br/>
+                                Ending Date:
+                                <field name="EndingDate"/>
+                                <br/>
+                                State:
+                                <field name="State"/>
+                                
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
 
        
 

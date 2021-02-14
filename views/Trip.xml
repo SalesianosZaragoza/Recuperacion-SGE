@@ -7,24 +7,16 @@
               <form string="Trip Form">
                   <sheet>
                      <group>
-                        <field name="Name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>
+                        <field name="name"/>
+                        <field name="TripType"/>
+                        <field name="StartingDate"/>
+                        <field name="EndingDate"/>
+                        <field name="NaturalParkID"/>
+                        <field name="LodgingID"/>
+                        <field name="VisitorIDS"/>
                      </group>
                   </sheet>
               </form>
-          </field>
-       </record>
-
-       <record model="ir.ui.view" id="Trip_graph_view">
-          <field name="name">Trip.graph</field>
-          <field name="model">NaturalParks.Trip</field>
-          <field name="arch" type="xml">
-              <graph string="Trip graph">
-                        <field name="Name"/>
-                        <field name="Extension"/>
-              </graph>
           </field>
        </record>
 
@@ -33,10 +25,13 @@
           <field name="model">NaturalParks.Trip</field>
           <field name="arch" type="xml">
               <tree string="Trip Tree">
-                        <field name="Name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>                
+                        <field name="name"/>
+                        <field name="TripType"/>
+                        <field name="StartingDate"/>
+                        <field name="EndingDate"/>
+                        <field name="NaturalParkID"/>
+                        <field name="LodgingID"/>
+                        <field name="VisitorIDS"/>                
               </tree>
           </field>
        </record>
@@ -50,14 +45,38 @@
        </record>
 
        <record model="ir.ui.view" id="Trip_search_view">
-          <field name="name">Trip.search</field>
-          <field name="model">NaturalParks.Trip</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="Name"/> 
-              </search>
-          </field>
-       </record>
+            <field name="name">Trip.search</field>
+            <field name="model">NaturalParks.Trip</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <filter name="Car_trips" string="Car Trips"
+                            domain="[('TripType', '=', 'car trip')]"/>
+                    <filter name="Walk_trips" string="Walk Trips"
+                            domain="[('TripType', '=', 'walk Trip')]"/>
+                    <group string="Group By">
+                        <filter name="by_NaturalPark" string="Natural Park"
+                                context="{'group_by': 'NaturalParkID'}"/>
+                    </group>
+                    <group string="Group By">
+                        <filter name="by_Lodging" string="Lodging"
+                                context="{'group_by': 'LodgingID'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+       <record model="ir.ui.view" id="Trip_calendar_view">
+            <field name="name">Trip.calendar</field>
+            <field name="model">NaturalParks.Trip</field>
+            <field name="arch" type="xml">
+                <calendar string="Trip Calendar" date_start="StartingDate" date_stop="EndingDate" quick_add="False">
+                    <field name="name"/>
+                    <field name="TripTtype"/>
+                    <field name="NaturalParkID"/>
+                </calendar>
+            </field>
+        </record>
 
        
 

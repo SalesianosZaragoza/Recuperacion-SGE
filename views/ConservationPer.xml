@@ -2,12 +2,12 @@
 
    <record model="ir.ui.view" id="ConservationPer_form_view">
             <field name="name">ConservationPer.form</field>
-            <field name="model">naturalparks.ConservationPer</field>
+            <field name="model">NaturalParks.ConservationPer</field>
             <field name="arch" type="xml">
                 <form string="ConservationPer Form">
                     <sheet>
                         <group>
-                            <field name="Name"/>
+                            <field name="name"/>
                             <field name="DNI"/>
                             <field name="SSNumber"/>
                             <field name="Address"/>
@@ -22,11 +22,11 @@
 
         <record model="ir.ui.view" id="ConservationPer_tree_view">
             <field name="name">ConservationPer.tree</field>
-            <field name="model">naturalparks.ConservationPer</field>
+            <field name="model">NaturalParks.ConservationPer</field>
             <field name="arch" type="xml">
                 <form string="ConservationPer Tree">
                         <group>
-                            <field name="Name"/>
+                            <field name="name"/>
                             <field name="DNI"/>
                             <field name="SSNumber"/>
                             <field name="Address"/>
@@ -47,14 +47,28 @@
        </record>
 
        <record model="ir.ui.view" id="ConservationPer_search_view">
-          <field name="name">ConservationPer.search</field>
-          <field name="model">NaturalParks.ConservationPer</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="Name"/> 
-              </search>
-          </field>
-       </record>
+        <field name="name">ConservationPer.search</field>
+        <field name="model">NaturalParks.ConservationPer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="DNI"/>
+                <field name="SSNumber"/>
+                <filter name="HighSalary" string="High Salary"
+                        domain="[('Salary', '&gt;', 20000)]"/>
+                <filter name="LowSalary" string="Low Salary"
+                        domain="[('Salary', '&lt;', 20000)]"/>
+                <group string="Group By">
+                    <filter name="by_NaturalPark" string="Natural Park"
+                            context="{'group_by': 'NaturalParkID'}"/>
+                </group>
+                <group string="Group By">
+                    <filter name="by_Area" string="Area"
+                            context="{'group_by': 'AreaID'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
        <menuitem id="ConservationPer_menu" name="ConservationPer"
          parent="ParkPersonal_menu"

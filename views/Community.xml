@@ -7,7 +7,7 @@
               <form string="Community Form">
                   <sheet>
                      <group>
-                        <field name="Name"/>
+                        <field name="name"/>
                         <field name="Extension"/>
                         <field name="ResponsibleOrg"/>
                      </group>
@@ -21,7 +21,7 @@
           <field name="model">NaturalParks.Community</field>
           <field name="arch" type="xml">
               <graph string="Community graph">
-                        <field name="Name"/>
+                        <field name="name"/>
                         <field name="Extension"/>
                         <field name="ResponsibleOrg"/>
               </graph>
@@ -33,7 +33,7 @@
           <field name="model">NaturalParks.Community</field>
           <field name="arch" type="xml">
               <tree string="Community Tree">
-                        <field name="Name"/>
+                        <field name="name"/>
                         <field name="Extension"/>
                         <field name="NaturalparkID"/>
                         <field name="CommunityID"/>                
@@ -46,7 +46,7 @@
           <field name="model">NaturalParks.Community</field>
           <field name="arch" type="xml">
               <search>
-                        <field name="Name"/> 
+                        <field name="name"/> 
               </search>
           </field>
        </record>

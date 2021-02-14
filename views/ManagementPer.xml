@@ -2,18 +2,20 @@
 
    <record model="ir.ui.view" id="ManagementPer_form_view">
             <field name="name">ManagementPer.form</field>
-            <field name="model">naturalparks.ManagementPer</field>
+            <field name="model">NaturalParks.ManagementPer</field>
             <field name="arch" type="xml">
                 <form string="ManagementPer Form">
                     <sheet>
                         <group>
-                            <field name="Name"/>
+                            <field name="name"/>
                             <field name="DNI"/>
                             <field name="SSNumber"/>
                             <field name="Address"/>
                             <field name="MobilePhone"/>
                             <field name="HomePhone"/>
                             <field name="Salary"/>
+                            <field name="NaturalParkID"/>
+                            <field name="NumberOfEntry"/>
                         </group>
                     </sheet>
                 </form>
@@ -22,17 +24,19 @@
 
         <record model="ir.ui.view" id="ManagementPer_tree_view">
             <field name="name">ManagementPer.tree</field>
-            <field name="model">naturalparks.ManagementPer</field>
+            <field name="model">NaturalParks.ManagementPer</field>
             <field name="arch" type="xml">
                 <form string="ManagementPer Tree">
                         <group>
-                            <field name="Name"/>
+                            <field name="name"/>
                             <field name="DNI"/>
                             <field name="SSNumber"/>
                             <field name="Address"/>
                             <field name="MobilePhone"/>
                             <field name="HomePhone"/>
                             <field name="Salary"/>
+                            <field name="NaturalParkID"/>
+                            <field name="NumberOfEntry"/>
                         </group>
                 </form>
             </field>
@@ -47,14 +51,28 @@
        </record>
 
        <record model="ir.ui.view" id="ManagementPer_search_view">
-          <field name="name">ManagementPer.search</field>
-          <field name="model">NaturalParks.ManagementPer</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="Name"/> 
-              </search>
-          </field>
-       </record>
+        <field name="name">ManagementPer.search</field>
+        <field name="model">NaturalParks.ManagementPer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="DNI"/>
+                <field name="SSNumber"/>
+                <filter name="HighSalary" string="High Salary"
+                        domain="[('Salary', '&gt;', 20000)]"/>
+                <filter name="LowSalary" string="Low Salary"
+                        domain="[('Salary', '&lt;', 20000)]"/>
+                <group string="Group By">
+                    <filter name="by_NaturalPark" string="Natural Park"
+                            context="{'group_by': 'NaturalParkID'}"/>
+                </group>
+                <group string="Group By">
+                    <filter name="by_NaturalPark" string="NaturalPark"
+                            context="{'group_by': 'NaturalParkID'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
        <menuitem id="ManagementPer_menu" name="ManagementPer"
          parent="ParkPersonal_menu"

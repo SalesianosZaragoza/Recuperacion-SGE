@@ -1,39 +1,33 @@
 <odoo>
 
-   <record model="ir.ui.view" id="AnimalSpe_form_view">
-            <field name="name">AnimalSpe.form</field>
-            <field name="model">naturalparks.AnimalSpe</field>
+   <record model="ir.ui.view" id="MineralSpe_form_view">
+            <field name="name">MineralSpe.form</field>
+            <field name="model">NaturalParks.MineralSpeSpe</field>
             <field name="arch" type="xml">
-                <form string="AnimalSpe Form">
+                <form string="MineralSpeSpe Form">
                     <sheet>
                         <group>
                             <field name="name"/>
                             <field name="Vulgarname"/>
-                            <field name="NumberOfSpecimens"/>
-                            <field name="Alimentation"/>
-                            <field name="HeatSeason"/>
-                            <field name="Depredated"/>
-                            <field name="AnimalID"/>
+                            <field name="AreaIDS"/>
+                            <field name="MineralType"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="AnimalSpe_tree_view">
-            <field name="name">AnimalSpe.tree</field>
-            <field name="model">naturalparks.AnimalSpe</field>
+        <record model="ir.ui.view" id="MineralSpe_tree_view">
+            <field name="name">MineralSpe.tree</field>
+            <field name="model">NaturalParks.MineralSpe</field>
             <field name="arch" type="xml">
-                <form string="AnimalSpe Tree">
+                <form string="MineralSpe Tree">
                     <sheet>
                         <group>
                             <field name="name"/>
                             <field name="Vulgarname"/>
-                            <field name="NumberOfSpecimens"/>
-                            <field name="Alimentation"/>
-                            <field name="HeatSeason"/>
-                            <field name="Depredated"/>
-                            <field name="AnimalID"/>
+                            <field name="AreaIDS"/>
+                            <field name="MineralType"/>
                         </group>
                     </sheet>
                 </form>
@@ -49,14 +43,19 @@
        </record>
 
        <record model="ir.ui.view" id="MineralSpe_search_view">
-          <field name="name">MineralSpe.search</field>
-          <field name="model">NaturalParks.MineralSpe</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="Name"/> 
-              </search>
-          </field>
-       </record>
+            <field name="name">MineralSpe.search</field>
+            <field name="model">NaturalParks.MineralSpe</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="VulgarNameame"/>
+                    <filter name="stone" string="Stone"
+                            domain="[('MineralType', '=', 'stone')]"/>
+                    <filter name="crystal" string="Crystal"
+                            domain="[('MineralType', '=', 'crystal')]"/>
+                </search>
+            </field>
+        </record>
 
        <menuitem id="MineralSpe_menu" name="MineralSpe"
          parent="NaturalParks_menu"

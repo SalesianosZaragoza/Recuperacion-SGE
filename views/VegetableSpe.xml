@@ -1,39 +1,41 @@
 <odoo>
 
-   <record model="ir.ui.view" id="AnimalSpe_form_view">
-            <field name="name">AnimalSpe.form</field>
-            <field name="model">naturalparks.AnimalSpe</field>
+   <record model="ir.ui.view" id="VegetableSpe_form_view">
+            <field name="name">VegetableSpe.form</field>
+            <field name="model">NaturalParks.VegetableSpe</field>
             <field name="arch" type="xml">
-                <form string="AnimalSpe Form">
+                <form string="VegetableSpeSpe Form">
                     <sheet>
                         <group>
                             <field name="name"/>
                             <field name="Vulgarname"/>
                             <field name="NumberOfSpecimens"/>
-                            <field name="Alimentation"/>
-                            <field name="HeatSeason"/>
+                            <field name="AreaIDS"/>
+                            <field name="Flowering"/>
+                            <field name="FloweringSeason"/>
                             <field name="Depredated"/>
-                            <field name="AnimalID"/>
+                            <field name="AnimalIDS"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="AnimalSpe_tree_view">
-            <field name="name">AnimalSpe.tree</field>
-            <field name="model">naturalparks.AnimalSpe</field>
+        <record model="ir.ui.view" id="VegetableSpe_tree_view">
+            <field name="name">VegetableSpe.tree</field>
+            <field name="model">NaturalParks.VegetableSpe</field>
             <field name="arch" type="xml">
-                <form string="AnimalSpe Tree">
+                <form string="VegetableSpe Tree">
                     <sheet>
                         <group>
                             <field name="name"/>
                             <field name="Vulgarname"/>
                             <field name="NumberOfSpecimens"/>
-                            <field name="Alimentation"/>
-                            <field name="HeatSeason"/>
+                            <field name="AreaIDS"/>
+                            <field name="Flowering"/>
+                            <field name="FloweringSeason"/>
                             <field name="Depredated"/>
-                            <field name="AnimalID"/>
+                            <field name="AnimalIDS"/>
                         </group>
                     </sheet>
                 </form>
@@ -49,14 +51,23 @@
        </record>
 
        <record model="ir.ui.view" id="VegetableSpe_search_view">
-          <field name="name">VegetableSpe.search</field>
-          <field name="model">NaturalParks.VegetableSpe</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="Name"/> 
-              </search>
-          </field>
-       </record>
+            <field name="name">VegetableSpe.search</field>
+            <field name="model">NaturalParks.VegetableSpe</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="VulgarName"/>
+                    <filter name="Flowering" string="Flowering"
+                            domain="[('Flowering', '=', 'True')]"/>
+                    <<filter name="NoFlowering" string="NoFlowering"
+                            domain="[('Flowering', '=', 'False')]"/>
+                    <group string="Group By">
+                        <filter name="by_FloweringSeason" string="Flowering Season"
+                                context="{'group_by': 'FloweringSeason'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
        <menuitem id="VegetableSpe_menu" name="VegetableSpe"
          parent="NaturalParks_menu"

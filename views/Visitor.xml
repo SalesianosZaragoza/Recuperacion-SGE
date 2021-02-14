@@ -7,24 +7,15 @@
               <form string="Visitor Form">
                   <sheet>
                      <group>
-                        <field name="Name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>
+                        <field name="name"/>
+                            <field name="DNI"/>
+                            <field name="Address"/>
+                            <field name="Job"/>
+                            <field name="NaturalParkID"/>
+                            <field name="LodgingID"/>
                      </group>
                   </sheet>
               </form>
-          </field>
-       </record>
-
-       <record model="ir.ui.view" id="Visitor_graph_view">
-          <field name="name">Visitor.graph</field>
-          <field name="model">NaturalParks.Visitor</field>
-          <field name="arch" type="xml">
-              <graph string="Visitor graph">
-                        <field name="Name"/>
-                        <field name="Extension"/>
-              </graph>
           </field>
        </record>
 
@@ -33,10 +24,12 @@
           <field name="model">NaturalParks.Visitor</field>
           <field name="arch" type="xml">
               <tree string="Visitor Tree">
-                        <field name="Name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>                
+                            <field name="name"/>
+                            <field name="DNI"/>
+                            <field name="Address"/>
+                            <field name="Job"/>
+                            <field name="NaturalParkID"/>
+                            <field name="LodgingID"/>                
               </tree>
           </field>
        </record>
@@ -50,14 +43,19 @@
        </record>
 
        <record model="ir.ui.view" id="Visitor_search_view">
-          <field name="name">Visitor.search</field>
-          <field name="model">NaturalParks.Visitor</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="Name"/> 
-              </search>
-          </field>
-       </record>
+            <field name="name">Visitor.search</field>
+            <field name="model">NaturalParks.Visitor</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="DNI"/>
+                    <field name="name"/>
+                    <group string="Group By">
+                        <filter name="by_Lodging" string="Lodging"
+                                context="{'group_by': 'LodgingID'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
        
 

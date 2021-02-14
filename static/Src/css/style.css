@@ -1,0 +1,18 @@
+.header img {
+    float: left;
+    width: 140px;
+    height: 110px;
+}
+  
+.header h1 {
+    position: relative;
+    top: 50px;
+    left: 300px;
+    font-size: 50px;
+}
+.page{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.page h2{
+  font-size: 30px;
+}

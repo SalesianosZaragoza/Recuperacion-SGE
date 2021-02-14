@@ -7,36 +7,27 @@
               <form string="NaturalPark Form">
                   <sheet>
                      <group>
-                        <field name="Name"/>
+                        <field name="name"/>
                         <field name="Extension"/>
                         <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>
+                        <field name="CommunityIDS"/>
                      </group>
                   </sheet>
               </form>
           </field>
        </record>
 
-       <record model="ir.ui.view" id="NaturalPark_graph_view">
-          <field name="name">NaturalPark.graph</field>
-          <field name="model">NaturalParks.NaturalPark</field>
-          <field name="arch" type="xml">
-              <graph string="NaturalPark graph">
-                        <field name="Name"/>
-                        <field name="Extension"/>
-              </graph>
-          </field>
-       </record>
+       
 
        <record model="ir.ui.view" id="NaturalPark_tree_view">
           <field name="name">NaturalPark.tree</field>
           <field name="model">NaturalParks.NaturalPark</field>
           <field name="arch" type="xml">
               <tree string="NaturalPark Tree">
-                        <field name="Name"/>
+                        <field name="name"/>
                         <field name="Extension"/>
                         <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>                
+                        <field name="CommunityIDS"/>                
               </tree>
           </field>
        </record>
@@ -54,7 +45,7 @@
           <field name="model">NaturalParks.NaturalPark</field>
           <field name="arch" type="xml">
               <search>
-                        <field name="Name"/> 
+                        <field name="name"/> 
               </search>
           </field>
        </record>

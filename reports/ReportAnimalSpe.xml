@@ -1,0 +1,39 @@
+<odoo>
+    <report
+        id="ReportAnimalSpe"
+        model="NaturalParks.AnimalSpe"
+        string="AnimalSpe Report"
+        report_type="qweb-pdf"
+        name="RecuperacionOdoo.ReportAnimalSpe_view"
+        file="RecuperacionOdoo.ReportAnimalSpe"
+    />
+
+    <template id="minimal_layout_inherit" inherit_id="web.minimal_layout">
+      <xpath expr="//head" position="inside">
+             <link rel='stylesheet' href="/RecuperacionOdoo/static/Src/css/style.css"/>
+      </xpath>
+    </template>
+
+    <template id="ReportAnimalSpe_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                
+                <div class="header">
+                    <img src='/RecuperacionOdoo/static/Src/img/icono.png'/>
+                    <h1>NaturalParks</h1>
+                </div> 
+                <hr></hr>
+                <div class="page">
+                    <h1>AnimalSpe Report</h1>
+                    <p style="font-size: 22px;"><b>Name:</b> <span t-field="doc.name"/> </p>
+                    <p style="font-size: 22px;"><b>VulgarName:</b> <span t-field="doc.VulgarName"/> </p>
+                    <p style="font-size: 22px;"><b>NumberOfSpecimens:</b> <span t-field="doc.NumberOfSpecimens"/></p>
+                    <p style="font-size: 22px;"><b>Alimentation:</b> <span t-field="doc.Alimentation"/></p>
+                    <p style="font-size: 22px;"><b>HeatSeason:</b> <span t-field="doc.HeatSeason"/></p>
+                    <p style="font-size: 22px;"><b>Depredated:</b> <span t-field="doc.Depredated"/></p>
+                </div>
+                
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -7,7 +7,7 @@
               <form string="Area Form">
                   <sheet>
                      <group>
-                        <field name="Name"/>
+                        <field name="name"/>
                         <field name="Extension"/>
                         <field name="NaturalparkID"/>
                         <field name="CommunityID"/>
@@ -22,8 +22,8 @@
           <field name="model">NaturalParks.Area</field>
           <field name="arch" type="xml">
               <graph string="Area graph">
-                        <field name="Name"/>
-                        <field name="Extension"/>
+                        <field name="name"/>
+                        <field name="Extension" type="measure"/>
               </graph>
           </field>
        </record>
@@ -33,7 +33,7 @@
           <field name="model">NaturalParks.Area</field>
           <field name="arch" type="xml">
               <tree string="Area Tree">
-                        <field name="Name"/>
+                        <field name="name"/>
                         <field name="Extension"/>
                         <field name="NaturalparkID"/>
                         <field name="CommunityID"/>                
@@ -44,14 +44,18 @@
        
 
        <record model="ir.ui.view" id="Area_search_view">
-          <field name="name">Area.search</field>
-          <field name="model">NaturalParks.Area</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="Name"/> 
-              </search>
-          </field>
-       </record>
+            <field name="name">Area.search</field>
+            <field name="model">NaturalParks.Area</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <group string="Group By">
+                        <filter name="by_NaturalPark" string="Natural Park"
+                                context="{'group_by': 'NaturalParkID'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
        <record model="ir.ui.view" id="Area_list_action">
           <field name="name">Area</field>

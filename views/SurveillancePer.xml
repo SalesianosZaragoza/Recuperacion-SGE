@@ -1,39 +1,39 @@
 <odoo>
 
-   <record model="ir.ui.view" id="AnimalSpe_form_view">
-            <field name="name">AnimalSpe.form</field>
-            <field name="model">naturalparks.AnimalSpe</field>
+   <record model="ir.ui.view" id="SurveillancePer_form_view">
+            <field name="name">SurveillancePer.form</field>
+            <field name="model">NaturalParks.SurveillancePer</field>
             <field name="arch" type="xml">
-                <form string="AnimalSpe Form">
+                <form string="SurveillancePer Form">
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="Vulgarname"/>
-                            <field name="NumberOfSpecimens"/>
-                            <field name="Alimentation"/>
-                            <field name="HeatSeason"/>
-                            <field name="Depredated"/>
-                            <field name="AnimalID"/>
+                            <field name="DNI"/>
+                            <field name="SSNumber"/>
+                            <field name="Address"/>
+                            <field name="MobilePhone"/>
+                            <field name="HomePhone"/>
+                            <field name="Salary"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="AnimalSpe_tree_view">
-            <field name="name">AnimalSpe.tree</field>
-            <field name="model">naturalparks.AnimalSpe</field>
+        <record model="ir.ui.view" id="SurveillancePer_tree_view">
+            <field name="name">SurveillancePer.tree</field>
+            <field name="model">NaturalParks.SurveillancePer</field>
             <field name="arch" type="xml">
-                <form string="AnimalSpe Tree">
+                <form string="SurveillancePer Tree">
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="Vulgarname"/>
-                            <field name="NumberOfSpecimens"/>
-                            <field name="Alimentation"/>
-                            <field name="HeatSeason"/>
-                            <field name="Depredated"/>
-                            <field name="AnimalID"/>
+                            <field name="DNI"/>
+                            <field name="SSNumber"/>
+                            <field name="Address"/>
+                            <field name="MobilePhone"/>
+                            <field name="HomePhone"/>
+                            <field name="Salary"/>
                         </group>
                     </sheet>
                 </form>
@@ -49,14 +49,32 @@
        </record>
 
        <record model="ir.ui.view" id="SurveillancePer_search_view">
-          <field name="name">SurveillancePer.search</field>
-          <field name="model">NaturalParks.SurveillancePer</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="Name"/> 
-              </search>
-          </field>
-       </record>
+        <field name="name">SurveillancePer.search</field>
+        <field name="model">NaturalParks.SurveillancePer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="DNI"/>
+                <field name="SSNumber"/>
+                <filter name="HighSalary" string="High Salary"
+                        domain="[('Salary', '&gt;', 20000)]"/>
+                <filter name="LowSalary" string="Low Salary"
+                        domain="[('Salary', '&lt;', 20000)]"/>
+                <group string="Group By">
+                    <filter name="by_NaturalPark" string="Natural Park"
+                            context="{'group_by': 'NaturalParkID'}"/>
+                </group>
+                <group string="Group By">
+                    <filter name="by_Area" string="Area"
+                            context="{'group_by': 'AreaID'}"/>
+                </group>
+                <group string="Group By">
+                    <filter name="by_NaturalPark" string="NaturalPark"
+                            context="{'group_by': 'NaturalParkID'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
        <menuitem id="SurveillancePer_menu" name="SurveillancePer"
          parent="ParkPersonal_menu"
