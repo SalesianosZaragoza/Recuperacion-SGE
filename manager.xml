@@ -295,15 +295,32 @@
         <field name="view_mode">tree,form</field>
         <field name="arch" type="xml">
             <tree string="List of accommodation">
-                    <field name="name" />
-                    <field name ="park_id" />
-                    <field name = "visitor_id"/>
-                    <duration name ="duration" />
-                    <fied name="excursion"/>
-                    <field name ="excursion_form" />
+                <field name="name" />
+                <field name ="park_id" />
+                <field name = "visitor_id"/>
+                <field name = "capacity" />
+                <field name = "category" />
+                <field name = "excursion"/>
+                <field name ="excursion_form" />
             </tree>
         </field>
     </record>
+
+       
+ <record model="ir.actions.act_window" id="accommodation_visitor_list_action">
+    <field name="name">accommodation visitors</field>
+    <field name="res_model">manager.park_visitor</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="arch" type = "xml">
+        <tree string="List accommodation visitors">
+            <field name = "name" />
+            <field name = "accommodation_id"/>
+            <field name = "visitor_id"/>
+            <duration name ="duration" />
+        </tree>
+    </field>
+</record>
     
     
 
@@ -689,6 +706,8 @@
 		             <field name="name" />
 			         <field name ="park_id" />
                      <field name = "visitor_id"/>
+                     <field name= "capacity" />
+                     <field name = "category" />
 	       	         <fied name="excursion"/>
 		             <field name ="excursion_form" />
                </group>
