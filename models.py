@@ -160,20 +160,26 @@ class Staff_research(models.Model):
     name = fields.Char(string="Project", required=True)
     project_about = fields.Char(string="Project about", required=True)
     budget = fields.Float(float="Budget", required=True)
-   period = fields.Float(
-        digits=(6, 2), help="Period in days", compute='_days_duration')
+   start_date = fields.Date(
+        string="Start Date", store=True, default=fields.Date.today)
+    end_date = fields.Date(string="End Date", store=True)
+
+    duration = fields.Float(
+        digits=(6, 2), help="Duration in days", compute='_days_duration')
+
+    @api.one('duration')
 
         @api.one('period')
-        def _days_period(self):
-             if (self.end_date and self.start_date):
-                 start = fields.Datetime.from_string(self.start_date)
-                 end = fields.Datetime.from_string(self.end_date)
-                 self.period = (end - start).days + 1
+    def _days_period(self):
+        if (self.end_date and self.start_date):
+            start = fields.Datetime.from_string(self.start_date)
+            end = fields.Datetime.from_string(self.end_date)
+            self.duration = (end - start).days + 1
 
-         @api.onchange('start_date', 'end_date')
-        def _days_changed(self):
-          for days in self:
-             if(days.start_date or days.end_date):
+    @api.onchange('start_date', 'end_date')
+    def _days_changed(self):
+        for days in self:
+            if(days.start_date or days.end_date):
                 start = fields.Datetime.from_string(self.start_date)
                 end = fields.Datetime.from_string(self.end_date)
                 self.duration = (end - start).days + 1
@@ -182,7 +188,6 @@ class Staff_research(models.Model):
                         'title': "Period",
                         'message': "The period has been updated",
                     }
-
                     
    class Staff_conservation(models.Model):
     _name = 'manager.staff_conservation'
@@ -195,7 +200,6 @@ class Staff_research(models.Model):
     class Acommodation(models.Model):
     _name = 'manager.acommodation'	   
 
-
     name = fields.Char(string="Name", required=True)	 
     capacity = fields.Integer(required=True)	  
     category = fields.Selection([('one', '*'), ('two','**'), ('three', '***')])	   
@@ -207,8 +211,6 @@ class Staff_research(models.Model):
     community_id = fields.Many2one('manager.community', string="Community", required=True)
     @api.constrains('capacity')	   
     def _check_capacity_is_higher_than_zero(self):	    
-
-
 
     class Accommodation_visitor(models.Model):
     _name = 'manager.accommodation_visitor'
@@ -243,5 +245,6 @@ class Staff_research(models.Model):
                     'warning': {
                         'title': "Duration",
                         'message': "The duration has been updated",
-                    }
-                
+                        
+                    },
+                }
