@@ -1,10 +1,9 @@
-from odoo import models, fields
-
+from odoo import models, fields, api, exceptions
+from odoo.exceptions import ValidationError
 class ManagementPer(models.Model):
-    _name='NaturalParks.ManagementPer'
-    _order='name'
+    _name='NaturalParks.ManagementPer''
     _inherit='NaturalParks.ParkPersonal'
 
 
-    name = fields.Char(string="name of the employee")
+    
     NumberOfEntry = fields.Integer()

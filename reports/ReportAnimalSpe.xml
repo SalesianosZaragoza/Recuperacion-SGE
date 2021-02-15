@@ -19,13 +19,13 @@
             <t t-foreach="docs" t-as="doc">
                 
                 <div class="header">
-                    <img src='/RecuperacionOdoo/static/Src/img/icono.png'/>
+                    <img src='/RecuperacionOdoo/static/Src/img/icono.jpg'/>
                     <h1>NaturalParks</h1>
                 </div> 
                 <hr></hr>
                 <div class="page">
                     <h1>AnimalSpe Report</h1>
-                    <p style="font-size: 22px;"><b>Name:</b> <span t-field="doc.name"/> </p>
+                    <p style="font-size: 22px;"><b>name:</b> <span t-field="doc.name"/> </p>
                     <p style="font-size: 22px;"><b>VulgarName:</b> <span t-field="doc.VulgarName"/> </p>
                     <p style="font-size: 22px;"><b>NumberOfSpecimens:</b> <span t-field="doc.NumberOfSpecimens"/></p>
                     <p style="font-size: 22px;"><b>Alimentation:</b> <span t-field="doc.Alimentation"/></p>

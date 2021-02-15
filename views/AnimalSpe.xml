@@ -1,6 +1,6 @@
 <odoo>
 
-   <record model="ir.ui.view" id="AnimalSpe_form_view">
+        <record model="ir.ui.view" id="AnimalSpe_form_view">
             <field name="name">AnimalSpe.form</field>
             <field name="model">NaturalParks.AnimalSpe</field>
             <field name="arch" type="xml">
@@ -8,7 +8,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="Vulgarname"/>
+                            <field name="VulgarName"/>
                             <field name="NumberOfSpecimens"/>
                             <field name="Alimentation"/>
                             <field name="HeatSeason"/>
@@ -29,7 +29,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="Vulgarname"/>
+                            <field name="VulgarName"/>
                             <field name="NumberOfSpecimens"/>
                             <field name="Alimentation"/>
                             <field name="HeatSeason"/>
@@ -46,12 +46,12 @@
         <record model="ir.ui.view" id="AnimalSpe_list_action">
           <field name="name">AnimalSpe</field>
           <field name="res_model">NaturalParks.AnimalSpe</field>
-          <field name="view_mode">form,tree,search</field>
-          <field name="help" type="html">
-          </field>
-       </record>
+          <field name="view_mode">form,tree</field>
+          <field name="help" type="html"></field>
+          
+        </record>
 
-       <record model="ir.ui.view" id="AnimalSpe_search_view">
+        <record model="ir.ui.view" id="AnimalSpe_search_view">
             <field name="name">AnimalSpe.search</field>
             <field name="model">NaturalParks.AnimalSpe</field>
             <field name="arch" type="xml">

@@ -1,6 +1,6 @@
 <odoo>
 
-   <record model="ir.ui.view" id="VegetableSpe_form_view">
+        <record model="ir.ui.view" id="VegetableSpe_form_view">
             <field name="name">VegetableSpe.form</field>
             <field name="model">NaturalParks.VegetableSpe</field>
             <field name="arch" type="xml">
@@ -8,7 +8,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="Vulgarname"/>
+                            <field name="VulgarName"/>
                             <field name="NumberOfSpecimens"/>
                             <field name="AreaIDS"/>
                             <field name="Flowering"/>
@@ -29,7 +29,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="Vulgarname"/>
+                            <field name="VulgarName"/>
                             <field name="NumberOfSpecimens"/>
                             <field name="AreaIDS"/>
                             <field name="Flowering"/>
@@ -45,7 +45,7 @@
         <record model="ir.ui.view" id="VegetableSpe_list_action">
           <field name="name">VegetableSpe</field>
           <field name="res_model">NaturalParks.VegetableSpe</field>
-          <field name="view_mode">form,tree,search</field>
+          <field name="view_mode">form,tree</field>
           <field name="help" type="html">
           </field>
        </record>

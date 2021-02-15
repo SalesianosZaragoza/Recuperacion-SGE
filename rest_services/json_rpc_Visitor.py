@@ -30,9 +30,9 @@ url = "http://%s:%s/jsonrpc" % (HOST, PORT)
 uid = call(url, "common", "login", DB, USER, PASS)
 
 args = {
-    'Name': 'Ash Keptchum',
-    'DNI': '76893320X',
-    'Address': 'pueblo paleta'
+    'Name': 'AshKeptchum',
+    'DNI': '7x',
+    'Address': 'pueblopaleta'
     'Job': 'Trainer'
 }
 VisitorID = call(url, "object", "execute", DB, uid, PASS, 'NaturalParks.Visitor', 'create', args)

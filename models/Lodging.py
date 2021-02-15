@@ -1,14 +1,14 @@
 from odoo import models, fields, api, exceptions
-
+from odoo.exceptions import ValidationError
 class Lodging(models.Model):
     _name='NaturalParks.Lodging'
-    _order='name'
+    
 
 
 
     name = fields.Char(string="name of the lodging")
     Capacity = fields.Integer(string="capacity of the lodging")
-    Category = fields.Selection([('first class'),('second class'), ('third class')])
+    Category = fields.Selection([('One', '*'), ('Two','**'), ('Three', '***'), ('Four', '****'), ('Five', '*****')])
     
 
 

@@ -29,5 +29,5 @@ def call(url, service, method, *args):
 url = "http://%s:%s/jsonrpc" % (HOST, PORT)
 uid = call(url, "common", "login", DB, USER, PASS)
 
-AnimalID = call(url, "object", "execute", DB, uid, PASS, 'NaturalParks.AnimalSpe', 'read', [1])
+SpeciesID = call(url, "object", "execute", DB, uid, PASS, 'NaturalParks.AnimalSpe', 'read', [1])
 print("first animal", AnimalID)

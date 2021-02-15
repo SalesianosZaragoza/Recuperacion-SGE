@@ -31,7 +31,8 @@
                         <field name="EndingDate"/>
                         <field name="NaturalParkID"/>
                         <field name="LodgingID"/>
-                        <field name="VisitorIDS"/>                
+                        <field name="VisitorIDS"/>
+                        <field name="NumberOfTotalVisitors"/>                
               </tree>
           </field>
        </record>
@@ -39,7 +40,7 @@
        <record model="ir.ui.view" id="Trip_list_action">
           <field name="name">Trip</field>
           <field name="res_model">NaturalParks.Trip</field>
-          <field name="view_mode">form,tree,search</field>
+          <field name="view_mode">form,tree</field>
           <field name="help" type="html">
           </field>
        </record>
@@ -50,10 +51,10 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="name"/>
-                    <filter name="Car_trips" string="Car Trips"
-                            domain="[('TripType', '=', 'car trip')]"/>
-                    <filter name="Walk_trips" string="Walk Trips"
-                            domain="[('TripType', '=', 'walk Trip')]"/>
+                    <filter name="Car Trips" string="Car Trips"
+                            domain="[('TripType', '=', 'Car Trip')]"/>
+                    <filter name="Walk Trips" string="Walk Trips"
+                            domain="[('TripType', '=', 'Walk Trip')]"/>
                     <group string="Group By">
                         <filter name="by_NaturalPark" string="Natural Park"
                                 context="{'group_by': 'NaturalParkID'}"/>

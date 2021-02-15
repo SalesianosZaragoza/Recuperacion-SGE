@@ -1,8 +1,9 @@
 from odoo import models, fields, api, exceptions
+from odoo.exceptions import ValidationError
 
 class Trip(models.Model):
     _name='NaturalParks.Trip'
-    _order='name'
+    
     
 
 
@@ -18,7 +19,7 @@ class Trip(models.Model):
     LodgingID = fields.Many2one('NaturalParks.Lodging')
 
 
-    @api.constrains('NaturalParkID','VisitorID')
+    @api.constrains('NaturalParkID','VisitorIDS')
     def _Are_Visitors_In_The_NaturalPark(self):
         for r in self:
             if r.VisitorID.NaturalParkID != r.NaturalParkID and len(r.VisitorID) > 0:

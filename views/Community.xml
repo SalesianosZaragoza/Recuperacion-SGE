@@ -16,17 +16,7 @@
           </field>
        </record>
 
-       <record model="ir.ui.view" id="Community_graph_view">
-          <field name="name">Community.graph</field>
-          <field name="model">NaturalParks.Community</field>
-          <field name="arch" type="xml">
-              <graph string="Community graph">
-                        <field name="name"/>
-                        <field name="Extension"/>
-                        <field name="ResponsibleOrg"/>
-              </graph>
-          </field>
-       </record>
+       
 
        <record model="ir.ui.view" id="Community_tree_view">
           <field name="name">Community.tree</field>
@@ -35,26 +25,15 @@
               <tree string="Community Tree">
                         <field name="name"/>
                         <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>                
+                        <field name="ResponsibleOrg"/>               
               </tree>
-          </field>
-       
-
-       <record model="ir.ui.view" id="Community_search_view">
-          <field name="name">Community.search</field>
-          <field name="model">NaturalParks.Community</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="name"/> 
-              </search>
           </field>
        </record>
 
        <record model="ir.ui.view" id="Community_list_action">
           <field name="name">Community</field>
           <field name="res_model">NaturalParks.Community</field>
-          <field name="view_mode">form,tree,search</field>
+          <field name="view_mode">form,tree</field>
           <field name="help" type="html">
           </field>
        </record>

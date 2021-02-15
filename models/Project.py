@@ -1,13 +1,13 @@
 from odoo import models, fields, api, exceptions
-
+from odoo.exceptions import ValidationError
 
 class Project(models.Model):
     _name = 'NaturalParks.Project'
-    _order = 'name'
+    
 
     name = fields.Char(string="Project Name")
     ResearchPerIDS = fields.Many2many('NaturalParks.ResearchPer')
-    Budget = fields.Float(string="Budget in dollars", digits=(9, 1))
+    Budget = fields.Float(string="Budget in dollars", digits=(8, 2))
     StartingDate = fields.Date()
     EndingDate = fields.Date()
     Color = fields.Integer()

@@ -1,8 +1,8 @@
 from odoo import models, fields, api, exceptions
-
+from odoo.exceptions import ValidationError
 class ParkPersonal(models.Model):
     _name='NaturalParks.ParkPersonal'
-    _order='name'
+    
 
 
     name = fields.Char(string="name of the employee")

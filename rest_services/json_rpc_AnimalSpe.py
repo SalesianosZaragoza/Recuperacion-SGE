@@ -30,9 +30,9 @@ url = "http://%s:%s/jsonrpc" % (HOST, PORT)
 uid = call(url, "common", "login", DB, USER, PASS)
 
 args = {
-    'Name': 'Fox',
-    'Alimentation': 'carnivore',
-    'Depredated': 'No'
+    'name': 'Fox',
+    'Alimentation': 'Carnivore',
+    'Depredated': 'False'
 }
-AnimalID = call(url, "object", "execute", DB, uid, PASS, 'NaturalParks.AnimalSpe', 'create', args)
+SpeciesID = call(url, "object", "execute", DB, uid, PASS, 'NaturalParks.AnimalSpe', 'create', args)
 print("New Animal")

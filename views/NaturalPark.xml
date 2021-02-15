@@ -9,7 +9,7 @@
                      <group>
                         <field name="name"/>
                         <field name="Extension"/>
-                        <field name="NaturalparkID"/>
+                        <field name="StatementDate"/>
                         <field name="CommunityIDS"/>
                      </group>
                   </sheet>
@@ -20,38 +20,25 @@
        
 
        <record model="ir.ui.view" id="NaturalPark_tree_view">
-          <field name="name">NaturalPark.tree</field>
-          <field name="model">NaturalParks.NaturalPark</field>
-          <field name="arch" type="xml">
-              <tree string="NaturalPark Tree">
-                        <field name="name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityIDS"/>                
-              </tree>
-          </field>
+             <field name="name">NaturalPark.tree</field>
+             <field name="model">NaturalParks.NaturalPark</field>
+             <field name="arch" type="xml">
+                 <tree string="NaturalPark Tree">
+                           <field name="name"/>
+                           <field name="Extension"/>
+                           <field name="StatementDate"/>
+                           <field name="CommunityIDS"/>                
+                 </tree>
+             </field>
        </record>
 
        <record model="ir.ui.view" id="NaturalPark_list_action">
           <field name="name">NaturalPark</field>
           <field name="res_model">NaturalParks.NaturalPark</field>
-          <field name="view_mode">form,tree,search</field>
+          <field name="view_mode">form,tree</field>
           <field name="help" type="html">
           </field>
        </record>
-
-       <record model="ir.ui.view" id="NaturalPark_search_view">
-          <field name="name">NaturalPark.search</field>
-          <field name="model">NaturalParks.NaturalPark</field>
-          <field name="arch" type="xml">
-              <search>
-                        <field name="name"/> 
-              </search>
-          </field>
-       </record>
-
-       
-
 
        <menuitem id="NaturalPark_menu" name="NaturalPark"
          parent="NaturalParks_menu"

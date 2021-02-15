@@ -1,6 +1,6 @@
 <odoo>
 
-   <record model="ir.ui.view" id="ResearchPer_form_view">
+        <record model="ir.ui.view" id="ResearchPer_form_view">
             <field name="name">ResearchPer.form</field>
             <field name="model">NaturalParks.ResearchPer</field>
             <field name="arch" type="xml">
@@ -14,6 +14,8 @@
                             <field name="MobilePhone"/>
                             <field name="HomePhone"/>
                             <field name="Salary"/>
+                            <field name="NaturalParkID"/>
+                            <field name="Title"/>
                         </group>
                     </sheet>
                 </form>
@@ -33,6 +35,8 @@
                             <field name="MobilePhone"/>
                             <field name="HomePhone"/>
                             <field name="Salary"/>
+                            <field name="NaturalParkID"/>
+                            <field name="Title"/>
                         </group>
                 </form>
             </field>
@@ -41,36 +45,36 @@
         <record model="ir.ui.view" id="ResearchPer_list_action">
           <field name="name">ResearchPer</field>
           <field name="res_model">NaturalParks.ResearchPer</field>
-          <field name="view_mode">form,tree,search</field>
+          <field name="view_mode">form,tree</field>
           <field name="help" type="html">
           </field>
-       </record>
+        </record>
 
-       <record model="ir.ui.view" id="ResearchPer_search_view">
-        <field name="name">ResearchPer.search</field>
-        <field name="model">NaturalParks.ResearchPer</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="name"/>
-                <field name="DNI"/>
-                <field name="SSNumber"/>
-                <filter name="HighSalary" string="High Salary"
-                        domain="[('Salary', '&gt;', 20000)]"/>
-                <filter name="LowSalary" string="Low Salary"
-                        domain="[('Salary', '&lt;', 20000)]"/>
-                <group string="Group By">
-                    <filter name="by_NaturalPark" string="Natural Park"
-                            context="{'group_by': 'NaturalParkID'}"/>
-                </group>
-                <group string="Group By">
-                    <filter name="by_NaturalPark" string="NaturalPark"
-                            context="{'group_by': 'NaturalParkID'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
+        <record model="ir.ui.view" id="ResearchPer_search_view">
+         <field name="name">ResearchPer.search</field>
+         <field name="model">NaturalParks.ResearchPer</field>
+         <field name="arch" type="xml">
+             <search>
+                 <field name="name"/>
+                 <field name="DNI"/>
+                 <field name="SSNumber"/>
+                 <filter name="HighSalary" string="High Salary"
+                         domain="[('Salary', '&gt;', 20000)]"/>
+                 <filter name="LowSalary" string="Low Salary"
+                         domain="[('Salary', '&lt;', 20000)]"/>
+                 <group string="Group By">
+                     <filter name="by_NaturalPark" string="Natural Park"
+                             context="{'group_by': 'NaturalParkID'}"/>
+                 </group>
+                 <group string="Group By">
+                     <filter name="by_NaturalPark" string="NaturalPark"
+                             context="{'group_by': 'NaturalParkID'}"/>
+                 </group>
+             </search>
+         </field>
+        </record>
 
-       <menuitem id="ResearchPer_menu" name="ResearchPer"
-         parent="ParkPersonal_menu"
-         action="ResearchPer_list_action"/>
+        <menuitem id="ResearchPer_menu" name="ResearchPer"
+          parent="ParkPersonal_menu"
+          action="ResearchPer_list_action"/>
 </odoo>

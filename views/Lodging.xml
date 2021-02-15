@@ -8,9 +8,9 @@
                   <sheet>
                      <group>
                         <field name="name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>
+                        <field name="Capacity"/>
+                        <field name="Category"/>
+                        <field name="NaturalParkID"/>
                      </group>
                   </sheet>
               </form>
@@ -24,9 +24,9 @@
           <field name="arch" type="xml">
               <tree string="Lodging Tree">
                         <field name="name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalparkID"/>
-                        <field name="CommunityID"/>                
+                        <field name="Capacity"/>
+                        <field name="Category"/>
+                        <field name="NaturalParkID"/>                
               </tree>
           </field>
        </record>
@@ -34,7 +34,7 @@
        <record model="ir.ui.view" id="Lodging_list_action">
           <field name="name">Lodging</field>
           <field name="res_model">NaturalParks.Lodging</field>
-          <field name="view_mode">form,tree,search</field>
+          <field name="view_mode">form,tree</field>
           <field name="help" type="html">
           </field>
        </record>
@@ -56,6 +56,12 @@
                 </search>
             </field>
         </record>
+
+        <menuitem id="main_NaturalParks_menu" name="NaturalParks"/>
+
+
+        <menuitem id="NaturalParks_menu" name="NaturalParks"
+                  parent="main_NaturalParks_menu"/>
 
        
 

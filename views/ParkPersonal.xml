@@ -1,0 +1,6 @@
+<odoo>
+
+       <menuitem id="ParkPersonal_menu" name="ParkPersonal"
+                         parent="main_NaturalParks_menu"/>
+
+</odoo>

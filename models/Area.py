@@ -1,8 +1,8 @@
 from odoo import models, fields, api, exceptions
-
+from odoo.exceptions import ValidationError
 class Area(models.Model):
     _name='NaturalParks.Area'
-    _order='name'
+    
 
 
 

@@ -5,14 +5,21 @@
           <field name="model">NaturalParks.Visitor</field>
           <field name="arch" type="xml">
               <form string="Visitor Form">
+                  <header>
+                        <button name="action_confirm" type="object" string="Confirm" states="1.draft" class="oe_highlight"/>
+                        <button name="action_done" type="object" string="Done" states="2.confirm" class="oe_highlight"/>
+                        <button name="action_draft" type="object"  string="Reset to draft" states="2.confirm,3.done" />
+                        <field name="State" widget="statusbar" statusbar_visible="1.draft,2.confirm,3.done" />
+                    </header>  
                   <sheet>
                      <group>
                         <field name="name"/>
-                            <field name="DNI"/>
-                            <field name="Address"/>
-                            <field name="Job"/>
-                            <field name="NaturalParkID"/>
-                            <field name="LodgingID"/>
+                        <field name="DNI"/>
+                        <field name="Address"/>
+                        <field name="Job"/>
+                        <field name="NaturalParkID"/>
+                        <field name="LodgingID"/>
+                        <field name="ManagementPersID"/>
                      </group>
                   </sheet>
               </form>
@@ -23,13 +30,15 @@
           <field name="name">Visitor.tree</field>
           <field name="model">NaturalParks.Visitor</field>
           <field name="arch" type="xml">
-              <tree string="Visitor Tree">
-                            <field name="name"/>
-                            <field name="DNI"/>
-                            <field name="Address"/>
-                            <field name="Job"/>
-                            <field name="NaturalParkID"/>
-                            <field name="LodgingID"/>                
+              <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="Visitor Tree">
+                 <field name="name"/>
+                 <field name="DNI"/>
+                 <field name="Address"/>
+                 <field name="Job"/>
+                 <field name="NaturalParkID"/>
+                 <field name="LodgingID"/>
+                 <field name="ManagementPersID"/> 
+                 <field name="State"/>               
               </tree>
           </field>
        </record>
@@ -37,7 +46,7 @@
        <record model="ir.ui.view" id="Visitor_list_action">
           <field name="name">Visitor</field>
           <field name="res_model">NaturalParks.Visitor</field>
-          <field name="view_mode">form,tree,search</field>
+          <field name="view_mode">form,tree</field>
           <field name="help" type="html">
           </field>
        </record>

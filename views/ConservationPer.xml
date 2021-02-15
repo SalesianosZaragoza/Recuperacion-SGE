@@ -1,6 +1,6 @@
 <odoo>
 
-   <record model="ir.ui.view" id="ConservationPer_form_view">
+        <record model="ir.ui.view" id="ConservationPer_form_view">
             <field name="name">ConservationPer.form</field>
             <field name="model">NaturalParks.ConservationPer</field>
             <field name="arch" type="xml">
@@ -14,6 +14,9 @@
                             <field name="MobilePhone"/>
                             <field name="HomePhone"/>
                             <field name="Salary"/>
+                            <field name="NaturalParkID"/>
+                            <field name="AreaID"/>
+                            <field name="Specialty"/>
                         </group>
                     </sheet>
                 </form>
@@ -33,6 +36,9 @@
                             <field name="MobilePhone"/>
                             <field name="HomePhone"/>
                             <field name="Salary"/>
+                            <field name="NaturalParkID"/>
+                            <field name="AreaID"/>
+                            <field name="Specialty"/>
                         </group>
                 </form>
             </field>
@@ -41,34 +47,34 @@
         <record model="ir.ui.view" id="ConservationPer_list_action">
           <field name="name">ConservationPer</field>
           <field name="res_model">NaturalParks.ConservationPer</field>
-          <field name="view_mode">form,tree,search</field>
+          <field name="view_mode">form,tree</field>
           <field name="help" type="html">
           </field>
        </record>
 
        <record model="ir.ui.view" id="ConservationPer_search_view">
-        <field name="name">ConservationPer.search</field>
-        <field name="model">NaturalParks.ConservationPer</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="name"/>
-                <field name="DNI"/>
-                <field name="SSNumber"/>
-                <filter name="HighSalary" string="High Salary"
+            <field name="name">ConservationPer.search</field>
+            <field name="model">NaturalParks.ConservationPer</field>
+            <field name="arch" type="xml">
+                <search>
+                  <field name="name"/>
+                  <field name="DNI"/>
+                  <field name="SSNumber"/>
+                  <filter name="HighSalary" string="High Salary"
                         domain="[('Salary', '&gt;', 20000)]"/>
-                <filter name="LowSalary" string="Low Salary"
+                  <filter name="LowSalary" string="Low Salary"
                         domain="[('Salary', '&lt;', 20000)]"/>
-                <group string="Group By">
-                    <filter name="by_NaturalPark" string="Natural Park"
-                            context="{'group_by': 'NaturalParkID'}"/>
-                </group>
-                <group string="Group By">
-                    <filter name="by_Area" string="Area"
-                            context="{'group_by': 'AreaID'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
+                  <group string="Group By">
+                      <filter name="by_NaturalPark" string="Natural Park"
+                              context="{'group_by': 'NaturalParkID'}"/>
+                  </group>
+                  <group string="Group By">
+                      <filter name="by_Area" string="Area"
+                              context="{'group_by': 'AreaID'}"/>
+                  </group>
+                </search>
+            </field>
+       </record>
 
        <menuitem id="ConservationPer_menu" name="ConservationPer"
          parent="ParkPersonal_menu"
