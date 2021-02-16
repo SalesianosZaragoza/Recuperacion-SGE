@@ -1,0 +1,614 @@
+<odoo>
+    <record model="ir.actions.act_window" id="community_list_action">
+        <field name="name">community</field>
+        <field name="res_model">recup.community</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de comunidades autonomicas">
+                <field name="name" />
+                <field name="organism" />
+                <field name="park_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="park_list_action">
+        <field name="name">park</field>
+        <field name="res_model">recup.park</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de parques">
+                <field name="name" />
+                <field name="creationYear" />
+                <field name="community_id" />
+                <field name="area_id"/>
+                <field name="accommodation_id"/>
+                <field name="excursion_id"/>
+                <field name="entries_id"/>
+            </tree>  
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="area_list_action">
+        <field name="name">area</field>
+        <field name="res_model">recup.area</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de areas">
+                <field name="name" />
+                <field name="extension" />
+                <field name="park_id" />
+                <field name="species_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="plant_list_action">
+        <field name="name">plants</field>
+        <field name="res_model">recup.plant</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de plantas">
+                <field name="scientific_name"/>
+                <field name="vulgar_name"/>
+                <field name="area_id"/>
+                <field name="number_individuals" options='{"type": "number", "step": 1}'/>
+                <field name="blooming"/>
+                <field name="blooming_period"/>
+                <field name="is_eaten"/>
+                <field name="animal_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="animal_list_action">
+        <field name="name">animals</field>
+        <field name="res_model">recup.animal</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de animales">
+                    <field name="scientific_name"/>
+                    <field name="vulgar_name"/>
+                    <field name="area_id"/>
+                    <field name="number_individuals" options='{"type": "number", "step": 1}'/>
+                    <field name="alimentation"/>
+                    <field name="mating_season"/>
+                    <field name="color"/>
+                    <field name="is_eaten"/>
+                    <field name="plant_id"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="mineral_list_action">
+        <field name="name">minerales</field>
+        <field name="res_model">recup.mineral</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de minerales">
+                <field name="scientific_name"/>
+                <field name="vulgar_name"/>
+                <field name="area_id"/>
+                <field name="number_individuals" options='{"type": "number", "step": 1}'/>
+                <field name="mineral_type"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="management_list_action">
+        <field name="name">managements</field>
+        <field name="res_model">recup.management</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="management list">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="numberSocialSecurity"/>
+                <field name="address" />
+                <field name="phone"/>
+                <field name="salary"/>
+                <field name="registroVisitante"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vigilance_list_action">
+        <field name="name">vigilances</field>
+        <field name="res_model">recup.vigilance</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="management list">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="numberSocialSecurity"/>
+                <field name="address" />
+                <field name="phone"/>
+                <field name="salary"/>
+                <field name="area_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="investigator_list_action">
+        <field name="name">investigators</field>
+        <field name="res_model">recup.investigator</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="investigator list">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="numberSocialSecurity"/>
+                <field name="address" />
+                <field name="phone"/>
+                <field name="salary"/>
+                <field name="titulation"/>
+                <field name="proyect_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="conservation_list_action">
+        <field name="name">conservations</field>
+        <field name="res_model">recup.conservation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="conservation list">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="numberSocialSecurity"/>
+                <field name="address" />
+                <field name="phone"/>
+                <field name="salary"/>
+                <field name="speciality"/>
+                <field name="area_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="visitor_list_action">
+        <field name="name">visitor</field>
+        <field name="res_model">recup.visitor</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de visitantes">
+                <field name="name" />
+                <field name="address" />
+                <field name="dni"/>
+                <field name="profession"/>
+                <field name="accommodation_id"/>
+                <field name="excursion_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="excursion_list_action">
+        <field name="name">excursion</field>
+        <field name="res_model">recup.excursion</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="accommodation_list_action">
+        <field name="name">accommodation</field>
+        <field name="res_model">recup.accommodation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de alojamientos">
+                <field name="name" />
+                <field name="capacity" />
+                <field name="category"/>
+                <field name="park_id"/>
+                <field name="visitor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="entries_list_action">
+        <field name="name">entries</field>
+        <field name="res_model">recup.entries</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de entradas">
+                <field name="name"/>
+                <field name="park_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="proyect_list_action">
+        <field name="name">proyect</field>
+        <field name="res_model">recup.proyect</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="proyect">
+                <field name="species_id"/>
+                <field name="budget"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="duration"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem name="Recuperacion" id="recup_menu_root" />
+
+    <menuitem name="Community" id="recup_menu_community" parent="recup_menu_root" />
+    <menuitem name="Parks" id="recup_menu_park" parent="recup_menu_root" />
+    <menuitem name="Areas" id="recup_menu_area" parent="recup_menu_root" />
+    <menuitem name="Species" id="recup_menu_species" parent="recup_menu_root"/>
+    <menuitem name="Personal" id="recup_menu_personal" parent="recup_menu_root"/>
+    <menuitem name="Visitors" id="recup_menu_visitor" parent="recup_menu_root"/>
+    <menuitem name="Accommodation" id="recup_menu_accommodation" parent="recup_menu_root"/>
+    <menuitem name="Excursion" id="recup_menu_excursion" parent="recup_menu_root"/>
+    <menuitem name="Entries" id="recup_menu_entries" parent="recup_menu_root"/>
+    <menuitem name="Proyects" id="recup_menu_proyect" parent="recup_menu_root"/>
+
+    <menuitem name="listado de comunidades autonomicas" id="recup_list_community" parent="recup_menu_community" action="community_list_action" />
+    <menuitem name="listado de parques" id="recup_list_park" parent="recup_menu_park" action="park_list_action" />
+    <menuitem name="listado de Areas" id="recup_list_area" parent="recup_menu_area" action="area_list_action" />
+    <menuitem name="listado de plantas" id="recup_list_plant" parent="recup_menu_species" action="plant_list_action" />
+    <menuitem name="listado de animales" id="recup_list_animal" parent="recup_menu_species" action="animal_list_action" />
+    <menuitem name="listado de minerales" id="recup_list_mineral" parent="recup_menu_species" action="mineral_list_action" />
+    <menuitem name="listado de managements" id="recup_list_management" parent="recup_menu_personal" action="management_list_action"/>
+    <menuitem name="listado de vigilances" id="recup_list_vigilance" parent="recup_menu_personal" action="vigilance_list_action"/>
+    <menuitem name="listado de investigators" id="recup_list_investigator" parent="recup_menu_personal" action="investigator_list_action"/>
+    <menuitem name="listado de conservations" id="recup_list_conservation" parent="recup_menu_personal" action="conservation_list_action"/>
+    <menuitem name="listado de visitante" id="recup_list_visitor" parent="recup_menu_visitor" action="visitor_list_action"/>
+    <menuitem name="listado de Alojamientos" id="recup_list_accommodation" parent="recup_menu_accommodation" action="accommodation_list_action"/>
+    <menuitem name="listado de Excursiones" id="recup_list_excursion" parent="recup_menu_excursion" action="excursion_list_action"/>
+    <menuitem name="listado de Entradas" id="recup_list_entries" parent="recup_menu_entries" action="entries_list_action"/>
+    <menuitem name="listado de proyectos" id="recup_list_proyect" parent="recup_menu_proyect" action="proyect_list_action"/>
+
+    <record id="community_form_view" model="ir.ui.view">
+        <field name="name">community.form</field>
+        <field name="model">recup.community</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de comunidades">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="organism" />
+                        <field name="park_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="park_form_view">
+        <field name="name">park.form</field>
+        <field name="model">recup.park</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de parques">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="creationYear" />
+                        <field name="community_id" />
+                        <field name="area_id"/>
+                        <field name="accommodation_id"/>
+                        <field name="excursion_id"/>
+                        <field name="entries_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="area_form_view">
+        <field name="name">area.form</field>
+        <field name="model">recup.area</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de areas">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="extension" />
+                        <field name="park_id" />
+                        <field name="species_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="plant_form_view">
+        <field name="name">plant.form</field>
+        <field name="model">recup.plant</field>
+        <field name="arch" type="xml">
+            <form string="Plant Form">
+                <sheet>
+                    <group>
+                        <field name="scientific_name"/>
+                        <field name="vulgar_name"/>
+                        <field name="area_id"/>
+                        <field name="number_individuals" options='{"type": "number", "step": 1}'/>
+                        <field name="blooming"/>
+                        <field name="blooming_period"/>
+                        <field name="is_eaten"/>
+                        <field name="animal_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="animal_form_view">
+        <field name="name">animal.form</field>
+        <field name="model">recup.animal</field>
+        <field name="arch" type="xml">
+            <form string="animal Form">
+                <sheet>
+                    <group>
+                        <field name="scientific_name"/>
+                        <field name="vulgar_name"/>
+                        <field name="area_id"/>
+                        <field name="number_individuals" options='{"type": "number", "step": 1}'/>
+                        <field name="alimentation"/>
+                        <field name="mating_season"/>
+                        <field name="color"/>
+                        <field name="is_eaten"/>
+                        <field name="plant_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="mineral_form_view">
+        <field name="name">mineral.form</field>
+        <field name="model">recup.mineral</field>
+        <field name="arch" type="xml">
+            <form string="mineral Form">
+                <sheet>
+                    <group>
+                        <field name="scientific_name"/>
+                        <field name="vulgar_name"/>
+                        <field name="area_id"/>
+                        <field name="number_individuals" options='{"type": "number", "step": 1}'/>
+                        <field name="mineral_type"/>
+                        <field name="color"/>
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="management_form_view">
+        <field name="name">management.form</field>
+        <field name="model">recup.management</field>
+        <field name="arch" type="xml">
+            <form string="management Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="dni"/>
+                        <field name="numberSocialSecurity"/>
+                        <field name="address" />
+                        <field name="phone"/>
+                        <field name="salary"/>
+                        <field name="registroVisitante"/>
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vigilance_form_view">
+        <field name="name">vigilance.form</field>
+        <field name="model">recup.vigilance</field>
+        <field name="arch" type="xml">
+            <form string="vigilance Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="dni"/>
+                        <field name="numberSocialSecurity"/>
+                        <field name="address" />
+                        <field name="phone"/>
+                        <field name="salary"/>
+                        <field name="area_id"/>
+                         
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="investigator_form_view">
+        <field name="name">investigator.form</field>
+        <field name="model">recup.investigator</field>
+        <field name="arch" type="xml">
+            <form string="investigator Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="dni"/>
+                        <field name="numberSocialSecurity"/>
+                        <field name="address" />
+                        <field name="phone"/>
+                        <field name="salary"/>
+                        <field name="titulation"/>
+                        <field name="proyect_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="conservation_form_view">
+        <field name="name">conservation.form</field>
+        <field name="model">recup.conservation</field>
+        <field name="arch" type="xml">
+            <form string="conservation Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="dni"/>
+                        <field name="numberSocialSecurity"/>
+                        <field name="address" />
+                        <field name="phone"/>
+                        <field name="salary"/>
+                        <field name="speciality"/>
+                        <field name="area_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="visitor_form_view">
+        <field name="name">visitor.form</field>
+        <field name="model">recup.visitor</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de visitantes">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="address" />
+                        <field name="dni"/>
+                        <field name="profession"/>
+                        <field name="accommodation_id"/>
+                        <field name="excursion_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="accommodation_form_view">
+        <field name="name">accommodation.form</field>
+        <field name="model">recup.accommodation</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de alojamientos">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="capacity" />
+                        <field name="category"/>
+                        <field name="park_id"/>
+                        <field name="visitor_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_recup_excursion_kanban">
+        <field name="name">recup.excursion.kanban</field>
+        <field name="model">recup.excursion</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="park_id">
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
+                                t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                              oe_kanban_global_click_edit oe_semantic_html_override
+                                              oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <div class="oe_dropdown_kanban">
+                                <!-- dropdown menu -->
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg" title="Manage" aria-label="Manage"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                        <li>
+                                            <ul class="oe_kanban_colorpicker"
+                                                data-field="color"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                <!-- title -->
+                                nombre:
+                                <field name="name"/>
+                                <br/>
+                                modo transporte:
+                                <field name="mode_transport"/>
+                                <br/>
+                               
+                                parques:
+                                <field name= "day"/>
+                                <br/>
+                                
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="entries_form_view">
+        <field name="name">entries.form</field>
+        <field name="model">recup.entries</field>
+        <field name="arch" type="xml">
+            <form string="Formulario de entradas">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="park_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- calendar view -->
+    <record model="ir.ui.view" id="proyect_calendar_view">
+        <field name="name">proyect.calendar</field>
+        <field name="model">recup.proyect</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de visitas" date_start="start_date" date_stop="end_date">
+                <field name="species_id"/>
+                <field name="budget"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="duration"/>
+                
+            </calendar>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="proyect_form_view">
+            <field name="name">proyect.form</field>
+            <field name="model">recup.proyect</field>
+            <field name="arch" type="xml">
+                <form string="Formulario de entradas">
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" states="1.draft" class="oe_highlight"/>
+                        <button name="action_done" type="object" string="Done" states="2.confirm" class="oe_highlight"/>
+                        <button name="action_draft" type="object"  string="Reset to draft" states="2.confirm,3.done" />
+                        <field name="state" widget="statusbar" statusbar_visible="1.draft,2.confirm,3.done" />
+                    </header>
+                    <sheet>
+                        <group>
+                            
+                            <field name="species_id"/>
+                            
+                            <field name="budget" options='{"type": "number", "step": 1000}'/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="duration"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>
