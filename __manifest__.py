@@ -16,14 +16,15 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'baseModule'],
+    'depends': ['base', 'board'],
 
     # always loaded
     'data': [
         'manager.xml',
+        'reports.xml',
         'security/ir.model.access.csv'
          ],
 
-
+'installable': True,
    
 }
