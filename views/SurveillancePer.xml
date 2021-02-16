@@ -64,9 +64,9 @@
                  <field name="DNI"/>
                  <field name="SSNumber"/>
                  <filter name="HighSalary" string="High Salary"
-                         domain="[('Salary', '&gt;', 20000)]"/>
+                         domain="[('Salary', '&gt;', 22220)]"/>
                  <filter name="LowSalary" string="Low Salary"
-                         domain="[('Salary', '&lt;', 20000)]"/>
+                         domain="[('Salary', '&lt;', 22220)]"/>
                  <group string="Group By">
                      <filter name="by_NaturalPark" string="Natural Park"
                              context="{'group_by': 'NaturalParkID'}"/>

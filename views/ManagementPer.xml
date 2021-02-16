@@ -59,15 +59,18 @@
                    <field name="DNI"/>
                    <field name="SSNumber"/>
                    <filter name="HighSalary" string="High Salary"
-                           domain="[('Salary', '&gt;', 20000)]"/>
+                           domain="[('Salary', '&gt;', 22220)]"/>
                    <filter name="LowSalary" string="Low Salary"
-                           domain="[('Salary', '&lt;', 20000)]"/>
+                           domain="[('Salary', '&lt;', 22220)]"/>
                    <group string="Group By">
                        <filter name="by_NaturalPark" string="Natural Park"
                                context="{'group_by': 'NaturalParkID'}"/>
                </search>
            </field>
        </record>
+
+       <menuitem id="ParkPersonal_menu" name="ParkPersonal"
+                         parent="main_NaturalParks_menu"/>
 
        <menuitem id="ManagementPer_menu" name="ManagementPer"
          parent="ParkPersonal_menu"

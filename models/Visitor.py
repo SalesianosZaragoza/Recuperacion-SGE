@@ -2,7 +2,7 @@ from odoo import models, fields, api, exceptions
 from odoo.exceptions import ValidationError
 class Visitor(models.Model):
     _name='NaturalParks.Visitor'
-    ss
+    
 
 
 

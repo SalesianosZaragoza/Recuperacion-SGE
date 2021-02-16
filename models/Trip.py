@@ -15,8 +15,8 @@ class Trip(models.Model):
 
 
     NaturalParkID = fields.Many2one('NaturalParks.NaturalPark')
-    VisitorIDS = fields.Many2many('NaturalParks.Visitor')
     LodgingID = fields.Many2one('NaturalParks.Lodging')
+    VisitorIDS = fields.Many2many('NaturalParks.Visitor')
 
 
     @api.constrains('NaturalParkID','VisitorIDS')
