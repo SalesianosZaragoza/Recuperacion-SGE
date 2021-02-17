@@ -283,11 +283,11 @@
     <menuitem name="list  of manager_staff" id="manager_list_manager_staff" parent="manager_menu_staff" 
               action="manager_staff_list_action"/>
     <menuitem name="list  of survellance_staff" id="manager_list_survellance_staff" parent="manager_menu_staff" 
-              action="staff_list_action"/>
+              action="survellance_staff_list_action"/>
     <menuitem name="list  of research_staff" id="manager_list_research_staff" parent="manager_menu_staff" 
-              action="staff_list_action"/>
+              action="research_staff_list_action"/>
     <menuitem name="list  of conservation_staff" id="manager_list_conservation_staff" parent="manager_menu_staff"
-              action="staff_list_action"/>
+              action="conservation_staff_list_action"/>
     <menuitem name="list  of project" id="manager_list_project" parent="manager_menu_project" 
               action="staff_list_action"/>
    
