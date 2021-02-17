@@ -26,14 +26,14 @@ class Park(models.Model):
     name = fields.Char(string="Name Park", required=True)
     starting_date = fields.Date(required=True)
     community_park_id = fields.One2many(
-        'manager.comunity_park', 'community_id', string="Park")
+        'manager.community_park', 'community_id', string="Park")
     area_id = fields.One2many(
         'manager.area', 'park_id', string = "Area")
     species_id = fields.One2many(
         'manager.species', 'park_id', string = "Species")
     staff_id = fields.Many2one('manager.staff', string="Staff")    
 
-class Acommodation(models.Model):
+class Accommodation(models.Model):
     _name = 'manager.accommodation'
 
     name = fields.Char(string="Name accommodation", required=True)
@@ -72,14 +72,15 @@ class Acommodation(models.Model):
                         'title': "Duration",
                         'message': "The duration has been updated " ,
                     }
-                
-@api.constrains('capacity')
-def _check_something(self):
-    for record in self:
-        if record.capacity < 20:
-            raise ValidationError("Your record is too old: %s" % record.capacity)
-    # all records passed the test, don't return anything
                 }
+                
+    @api.constrains('capacity')
+    def _check_something(self):
+        for record in self:
+            if(record.capacity < 20):
+                raise ValidationError("Your record is too old: %s" % record.capacity)
+        
+                
               
    
 class Visitor(models.Model):
@@ -129,7 +130,7 @@ class Plant_species(models.Model):
     flowering = fields.Boolean(string="It is the flowering period?")
     flowering_period = fields.Selection([(('winter', 'Winter'), ('spring', 'Spring'), 
     ('summer', 'Summer'), ('autumn', 'Autumn'))])
-    inventory = fields.float(intdigits=(10,3), required=True)
+    inventory = fields.float(digits=(10,3), required=True)
      
 
 class Animal_species(models.Model):
@@ -203,7 +204,7 @@ class Staff_conservation(models.Model):
 
 
 class Project(models.Model):
-_name = 'manager.project'
+    _name = 'manager.project'
    
 
     name = fields.Char(string="Project", required=True)
@@ -240,5 +241,4 @@ _name = 'manager.project'
                         'message': "The period has been updated",
                      },
                 }
-
-© 2021 Manager Natural Parks, Inc
+ 
