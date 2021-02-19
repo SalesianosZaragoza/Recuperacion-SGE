@@ -21,7 +21,6 @@
     # always loaded
     'data': [
         'manager.xml',
-        'reports.xml',
         'security/ir.model.access.csv'
          ],
 

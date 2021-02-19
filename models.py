@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, exceptions 
+ImportError
 import time
 from datetime import timedelta
-from odoo import models, fields
-from odoo.exceptions import ValidationError
-from openerp.exceptions import ValidationError
 import json
 import random
 import urllib.request
@@ -12,11 +10,12 @@ from string import digits
 from dataclasses import fields
 import string
 from encodings.punycode import digits
+from prompt_toolkit.validation import ValidationError
 
 class Community(models.Model):
     _name = 'manager.community'
 
-    name= fields.Char(string="Name community", required=True)
+    name= fields.Char(string="community", required=True)
     park_id = fields.One2many(
         'manager.park', 'community_id', string = "Park")
     
@@ -24,9 +23,9 @@ class Park(models.Model):
     _name = 'manager.park'
 
     name = fields.Char(string="Name Park", required=True)
-    starting_date = fields.Date(required=True)
-    community_park_id = fields.One2many(
-        'manager.community_park', 'community_id', string="Park")
+    starting_date = fields.Date(string="star date", store=True, default=fields.Date.today)
+    community_id = fields.Many2one(
+         'manager.community', string="Community")
     area_id = fields.One2many(
         'manager.area', 'park_id', string = "Area")
     species_id = fields.One2many(

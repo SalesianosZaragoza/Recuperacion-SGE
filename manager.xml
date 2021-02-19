@@ -23,6 +23,7 @@
         <tree string="List of parks">
             <field name = "name" />
             <field name = "park_id"/>
+            <field name = "start date"/>
             <field name = "area_id"/>
         </tree>
       </field>
