@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, exceptions 
+ImportError
 import time
 from datetime import timedelta
-from odoo import models, fields
-from odoo.exceptions import ValidationError
-from openerp.exceptions import ValidationError
 import json
 import random
 import urllib.request
@@ -12,6 +10,7 @@ from string import digits
 from dataclasses import fields
 import string
 from encodings.punycode import digits
+from prompt_toolkit.validation import ValidationError
 
 class Community(models.Model):
     _name = 'manager.community'
