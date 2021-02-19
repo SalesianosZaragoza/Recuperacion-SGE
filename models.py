@@ -15,7 +15,7 @@ from prompt_toolkit.validation import ValidationError
 class Community(models.Model):
     _name = 'manager.community'
 
-    name= fields.Char(string="Name community", required=True)
+    name= fields.Char(string="name", required=True)
     park_id = fields.One2many(
         'manager.park', 'community_id', string = "Park")
     
