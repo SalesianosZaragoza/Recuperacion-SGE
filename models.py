@@ -11,18 +11,19 @@ from dataclasses import fields
 import string
 from encodings.punycode import digits
 from prompt_toolkit.validation import ValidationError
+#from prompt_toolkit.validation import ValidationError
 
 class Community(models.Model):
     _name = 'manager.community'
 
-    name= fields.Char(string="community", required=True)
+    name = fields.Char(string="Name community", required=True)
     park_id = fields.One2many(
         'manager.park', 'community_id', string = "Park")
     
 class Park(models.Model):
     _name = 'manager.park'
 
-    name = fields.Char(string="Name Park", required=True)
+    name = fields.Char(string="Name park", required=True)
     starting_date = fields.Date(string="star date", store=True, default=fields.Date.today)
     community_id = fields.Many2one(
          'manager.community', string="Community")
@@ -100,7 +101,7 @@ class Visitor(models.Model):
 class Area(models.Model):
     _name = 'manager.area'
 
-    name= fields.Char(string="Area", required=True)
+    name= fields.Char(string="Name area", required=True)
     extension = fields.Float(digits=(20,3), required=True)
 
     park_area_id = fields.One2many(

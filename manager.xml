@@ -9,7 +9,7 @@
         <field name="arch" type = "xml">
             <tree string="List of communities">
                 <field name = "name" />
-                <field name = "community_id" />
+                <field name = "park_id" />
             </tree>
         </field>
     </record>
@@ -22,7 +22,8 @@
         <field name="arch" type="xml">
         <tree string="List of parks">
             <field name = "name" />
-            <field name = "park_id"/>
+            <field name = "community_id"/>
+            <field name = "accommodation_id"/>
             <field name = "start date"/>
             <field name = "area_id"/>
         </tree>
@@ -264,9 +265,9 @@
     <menuitem name="list of communities" id="manager_list_communities" parent="manager_menu_communities" 
               action="community_list_action"/>
     <menuitem name="list of parks" id="manager_list_parks" parent="manager_menu_parks" 
-              action="parks_list_action"/>
+              action="park_list_action"/>
     <menuitem name="list of accommodations" id="manager_list_accommodations" parent="manager_menu_accommodations" 
-              action="accommodations_list_action"/>
+              action="accommodation_list_action"/>
     <menuitem name="list of visitors" id="manager_list_visitors" parent="manager_menu_visitors" 
               action="visitor_list_action"/>
     <menuitem name="list of park_area" id="manager_list_park_areas" parent="manager_menu_park_areas" 
@@ -274,11 +275,11 @@
     <menuitem name="list of species" id="manager_list_species" parent="manager_menu_species" 
               action="species_list_action"/>
     <menuitem name="list of plant_species" id="manager_list_plant_species" parent="manager_menu_species" 
-              action="species_list_action"/>
+              action="plant_species_list_action"/>
     <menuitem name="list of animal_species" id="manager_list_animal_species" parent="manager_menu_species" 
-              action="species_list_action"/>
+              action="animal_species_list_action"/>
     <menuitem name="list of mineral_species" id="manager_list_mineral_species" parent="manager_menu_species" 
-              action="species_list_action"/>
+              action="mineral_species_list_action"/>
     <menuitem name="list  of staff" id="manager_list_staff" parent="manager_menu_staff"
               action="staff_list_action"/>
     <menuitem name="list  of manager_staff" id="manager_list_manager_staff" parent="manager_menu_staff" 
@@ -290,7 +291,7 @@
     <menuitem name="list  of conservation_staff" id="manager_list_conservation_staff" parent="manager_menu_staff"
               action="conservation_staff_list_action"/>
     <menuitem name="list  of project" id="manager_list_project" parent="manager_menu_project" 
-              action="staff_list_action"/>
+              action="project_list_action"/>
    
                
         

@@ -20,7 +20,7 @@
 
     # always loaded
     'data': [
-        'manager.xml',
+        'views/manager.xml',
         'security/ir.model.access.csv'
          ],
 
