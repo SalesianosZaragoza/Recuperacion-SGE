@@ -11,7 +11,7 @@ from dataclasses import fields
 import string
 from encodings.punycode import digits
 from prompt_toolkit.validation import ValidationError
-#from prompt_toolkit.validation import ValidationError
+
 
 class Community(models.Model):
     _name = 'manager.community'
@@ -41,6 +41,7 @@ class Accommodation(models.Model):
     category = fields.Selection([('one', '*'), ('two','**'), ('three', '***')])	 
     staff_management_id = fields.Many2one('manager.staff_management', string="Staff management")
     park_id = fields.Many2one('manager.park', string="Park")
+    
     visitor_id = fields.One2many(
         'manager.visitor', 'accommodation_id', string="Visitor")
 
@@ -104,12 +105,12 @@ class Area(models.Model):
     name= fields.Char(string="Name area", required=True)
     extension = fields.Float(digits=(20,3), required=True)
 
-    park_area_id = fields.One2many(
-        'manager.park_area', 'area_id', string="Area")
+    park_id = fields.One2many(
+        'manager.park_id', 'area_id', string="Park")
     staff_survellance_id = fields.One2many(
-        'manager.staff_survellance', 'area_id', string="Survellance")
+        'manager.survellance_staff', 'area_id', string="Survellance")
     staff_conservation_id = fields.One2many(
-        'manager.staff_conservation', 'area_id', string="Conservation")
+        'manager.conservation_staff', 'area_id', string="Conservation")
 
 
 
