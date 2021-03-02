@@ -1,0 +1,64 @@
+<odoo>
+
+        <record model="ir.ui.view" id="trip_form_view">
+            <field name="name">trip.form</field>
+            <field name="model">recu.trip</field>
+            <field name="arch" type="xml">
+                <form string="Trip Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="trip_type"/>
+                            <field name="trip_starting"/>
+                            <field name="trip_ending"/>
+                            <field name="acommodation_id"/>
+                            <field name="visitor_ids"/>
+                            <field name="natural_park_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="trip_tree_view">
+            <field name="name">trip.tree</field>
+            <field name="model">recu.trip</field>
+            <field name="arch" type="xml">
+                <tree string="Trip Tree">
+                    <field name="name"/>
+                    <field name="trip_type"/>
+                    <field name="trip_starting"/>
+                    <field name="trip_ending"/>
+                    <field name="trip_starting"/>
+                    <field name="trip_ending"/>
+                    <field name="acommodation_id"/>
+                    <field name="visitor_ids"/>
+                    <field name="natural_park_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="trip_calendar_view">
+            <field name="name">trip.calendar</field>
+            <field name="model">recu.trip</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendario" date_start="trip_starting" date_stop="trip_ending">
+                    <field name="name"/>
+                    <field name="trip_type"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="trip_list_action">
+            <field name="name">Trip</field>
+            <field name="res_model">recu.trip</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Insertar una excursion</p>
+            </field>
+        </record>
+
+
+        <menuitem id="trip_menu" name="Trip" parent="recu_menu" action="trip_list_action"/>
+
+</odoo> 
