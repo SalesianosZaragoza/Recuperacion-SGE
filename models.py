@@ -10,7 +10,6 @@ from string import digits
 from dataclasses import fields
 import string
 from encodings.punycode import digits
-from prompt_toolkit.validation import ValidationError
 
 
 class Community(models.Model):
