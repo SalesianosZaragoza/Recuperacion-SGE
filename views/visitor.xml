@@ -1,0 +1,46 @@
+<odoo>
+        <record model="ir.ui.view" id="visitor_form_view">
+            <field name="name">visitor.form</field>
+            <field name="model">app.visitor</field>
+            <field name="arch" type="xml">
+                <form string="Visitor Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="dni"/>
+                            <field name="address"/>
+                            <field name="job"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="visitor_tree_view">
+            <field name="name">visitor.tree</field>
+            <field name="model">app.visitor</field>
+            <field name="arch" type="xml">
+                <tree string="Visitor Tree">
+                    <field name="name"/>                    
+                    <field name="dni"/>
+                    <field name="address"/>
+                    <field name="job"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="visitor_list_action">
+            <field name="name">Visitor</field>
+            <field name="res_model">app.visitor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Crear un nuevo visitante
+                </p>
+            </field>
+        </record>
+        
+        <menuitem id="visitor_menu" name="Visitor"
+            parent="natural_parks_menu"
+            action="visitor_list_action"/>
+
+</odoo>
