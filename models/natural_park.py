@@ -1,6 +1,6 @@
 from odoo import models, fields, api, exceptions
 
-class Natural_Park(models.Model):
+class Natural_park(models.Model):
     _name = 'naturalparks.natural_park'
     _order = 'name'
 
