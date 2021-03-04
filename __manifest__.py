@@ -1,40 +1,35 @@
 {
-    'name' : "NaturalParks",
+    'name': "NaturalParks",
 
-    'summary' : """control of natural parks""",
+    'summary': """Control Of Natural Parks""",
 
-    'description' : """information system of natural parks""",
+    'description': """
+        best module for manage natural parks
+    """,
 
-    'author' : "Alejandro Manuel Romero Bentue",
+    'author': "Alejandro Romero",
+    'website': "http://www.yourcompany.com",
 
-    'category' : 'test',
-
-    'version' : '0.1',
+    'category': 'Test',
+    'version': '0.1',
 
     'depends': ['base', 'board'],
 
     'data': [
-        'security/Security.xml',
+        'security/security.xml',
         'security/ir.model.access.csv',
-        'views/Lodging.xml',
-        'views/Trip.xml',
-        'views/Visitor.xml',
-        'views/AnimalSpe.xml',
-        'views/MineralSpe.xml',
-        'views/VegetableSpe.xml',
-        'views/Community.xml',
-        'views/NaturalPark.xml',
-        'views/Area.xml',        
-        'views/ConservationPer.xml',
-        'views/ManagementPer.xml',
-        'views/ResearchPer.xml',
-        'views/SurveillancePer.xml',
-        'views/Project.xml',
-        'views/ProjectBoard.xml',
-        'reports/ReportAnimalSpe.xml',
-        'reports/ReportMineralSpe.xml',
-        'reports/ReportVegetableSpe.xml',
-        
+        'views/lodging.xml',
+        'views/trip.xml',
+        'views/visitor.xml',
+        'views/species.xml',
+        'views/community.xml',
+        'views/natural_park.xml',
+        'views/area.xml',        
+        'views/parkpersonal.xml',
+        'views/project.xml',
+        'views/project_board.xml',
+        'reports/report_conservationper.xml',
+
     ],
 }
 

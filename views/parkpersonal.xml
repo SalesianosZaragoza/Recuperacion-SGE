@@ -1,0 +1,376 @@
+<odoo>
+    <!--Managementper-->
+    <record model="ir.ui.view" id="managementper_form_view">
+        <field name="name">managementper.form</field>
+        <field name="model">naturalparks.managementper</field>
+        <field name="arch" type="xml">
+            <form string="Managementper Employee Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <separator string="General stuff" colspan="2"/>
+                            <field name="name"/>
+                            <field name="dni"/>
+                            <field name="ss_number"/>
+                            <field name="address"/>
+                            <field name="mobile_phone"/>
+                            <field name="home_phone"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <separator string="Job stuff" colspan="2"/>
+                            <field name="natural_park_id"/>
+                            <field name="salary" options='{"type": "number", "step": 1200}'/>
+                            <field name="number_of_entry" options='{"type": "number", "step": 1}'/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="managementper_tree_view">
+        <field name="name">managementper.tree</field>
+        <field name="model">naturalparks.managementper</field>
+        <field name="arch" type="xml">
+            <tree string="Managementper Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="ss_number"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="home_phone"/>
+                <field name="natural_park_id"/>
+                <field name="salary"/>
+                <field name="number_of_entry"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="managementper_list_action">
+        <field name="name">Managementper</field>
+        <field name="res_model">naturalparks.managementper</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="managementper_search_view">
+        <field name="name">managementper.search</field>
+        <field name="model">naturalparks.managementper</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="ss_number"/>
+                <filter name="high_salary" string="High Salary"
+                        domain="[('salary', '&gt;', 20000)]"/>
+                <filter name="low_salary" string="Low Salary"
+                        domain="[('salary', '&lt;', 20000)]"/>
+                <group string="Group By">
+                    <filter name="by_natural_park" string="Natural Park"
+                            context="{'group_by': 'natural_park_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="parkpersonal_menu" name="Parkpersonal"
+                  parent="main_naturalparks_menu"/>
+
+    <menuitem id="managementper_menu" name="Managementper Employee"
+        parent="parkpersonal_menu"
+        action="managementper_list_action"/>
+
+    <!--Surveillanceper-->
+    <record model="ir.ui.view" id="surveillanceper_form_view">
+        <field name="name">surveillanceper.form</field>
+        <field name="model">naturalparks.surveillanceper</field>
+        <field name="arch" type="xml">
+            <form string="Surveillanceper Employee Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <separator string="General stuff" colspan="2"/>
+                            <field name="name"/>
+                            <field name="dni"/>
+                            <field name="ss_number"/>
+                            <field name="address"/>
+                            <field name="mobile_phone"/>
+                            <field name="home_phone"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <separator string="Job stuff" colspan="2"/>
+                            <field name="natural_park_id"/>
+                            <field name="area_id"/>
+                            <field name="salary" options='{"type": "number", "step": 1200}'/>
+                            <field name="personalcar_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="surveillanceper_tree_view">
+        <field name="name">surveillanceper.tree</field>
+        <field name="model">naturalparks.surveillanceper</field>
+        <field name="arch" type="xml">
+            <tree string="Surveillanceper Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="ss_number"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="home_phone"/>
+                <field name="natural_park_id"/>
+                <field name="area_id"/>
+                <field name="salary"/>
+                <field name="personalcar_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="surveillanceper_list_action">
+        <field name="name">Surveillanceper</field>
+        <field name="res_model">naturalparks.surveillanceper</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="surveillanceper_search_view">
+        <field name="name">surveillanceper.search</field>
+        <field name="model">naturalparks.surveillanceper</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="ss_number"/>
+                <filter name="high_salary" string="High Salary"
+                        domain="[('salary', '&gt;', 20000)]"/>
+                <filter name="low_salary" string="Low Salary"
+                        domain="[('salary', '&lt;', 20000)]"/>
+                <group string="Group By">
+                    <filter name="by_natural_park" string="Natural Park"
+                            context="{'group_by': 'natural_park_id'}"/>
+                </group>
+                <group string="Group By">
+                    <filter name="by_area" string="Area"
+                            context="{'group_by': 'area_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="surveillanceper_menu" name="Surveillanceper Employee"
+        parent="parkpersonal_menu"
+        action="surveillanceper_list_action"/>
+
+    <!--Personalcar-->
+        <record model="ir.ui.view" id="personalcar_form_view">
+        <field name="name">personalcar.form</field>
+        <field name="model">naturalparks.personalcar</field>
+        <field name="arch" type="xml">
+            <form string="Personalcar Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="personalcar_tree_view">
+        <field name="name">personalcar.tree</field>
+        <field name="model">naturalparks.personalcar</field>
+        <field name="arch" type="xml">
+            <tree string="Personalcar Tree">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="personalcar_list_action">
+        <field name="name">Personalcar</field>
+        <field name="res_model">naturalparks.personalcar</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="personalcar_search_view">
+        <field name="name">personalcar.search</field>
+        <field name="model">naturalparks.personalcar</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    
+    <menuitem id="personalcar_menu" name="Personalcar"
+        parent="parkpersonal_menu"
+        action="personalcar_list_action"/>
+    
+    <!--Researchper-->
+    <record model="ir.ui.view" id="researchper_form_view">
+        <field name="name">researchper.form</field>
+        <field name="model">naturalparks.researchper</field>
+        <field name="arch" type="xml">
+            <form string="Researchper Employee Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <separator string="General stuff" colspan="2"/>
+                            <field name="name"/>
+                            <field name="dni"/>
+                            <field name="ss_number"/>
+                            <field name="address"/>
+                            <field name="mobile_phone"/>
+                            <field name="home_phone"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <separator string="Job stuff" colspan="2"/>
+                            <field name="natural_park_id"/>
+                            <field name="salary" options='{"type": "number", "step": 1200}'/>
+                            <field name="title"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="researchper_tree_view">
+        <field name="name">researchper.tree</field>
+        <field name="model">naturalparks.researchper</field>
+        <field name="arch" type="xml">
+            <tree string="Researchper Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="ss_number"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="home_phone"/>
+                <field name="natural_park_id"/>
+                <field name="salary"/>
+                <field name="title"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="researchper_list_action">
+        <field name="name">Researchper</field>
+        <field name="res_model">naturalparks.researchper</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="researchper_search_view">
+        <field name="name">researchper.search</field>
+        <field name="model">naturalparks.researchper</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="ss_number"/>
+                <filter name="high_salary" string="High Salary"
+                        domain="[('salary', '&gt;', 20000)]"/>
+                <filter name="low_salary" string="Low Salary"
+                        domain="[('salary', '&lt;', 20000)]"/>
+                <group string="Group By">
+                    <filter name="by_natural_park" string="Natural Park"
+                            context="{'group_by': 'natural_park_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <menuitem id="researchper_menu" name="Researchper Employee"
+        parent="parkpersonal_menu"
+        action="researchper_list_action"/>
+
+    <!--Conservationper-->
+    <record model="ir.ui.view" id="conservationper_form_view">
+        <field name="name">conservationper.form</field>
+        <field name="model">naturalparks.conservationper</field>
+        <field name="arch" type="xml">
+            <form string="Conservationper Employee Form">
+                <sheet>
+                    <group colspan="4">
+                        <group colspan="2" col="2">
+                            <separator string="General stuff" colspan="2"/>
+                            <field name="name"/>
+                            <field name="dni"/>
+                            <field name="ss_number"/>
+                            <field name="address"/>
+                            <field name="mobile_phone"/>
+                            <field name="home_phone"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <separator string="Work staff" colspan="2"/>
+                            <field name="natural_park_id"/>
+                            <field name="area_id"/>
+                            <field name="salary" options='{"type": "number", "step": 1200}'/>
+                            <field name="specialty"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="conservationper_tree_view">
+        <field name="name">conservationper.tree</field>
+        <field name="model">naturalparks.conservationper</field>
+        <field name="arch" type="xml">
+            <tree string="Conservationper Employee Tree">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="ss_number"/>
+                <field name="address"/>
+                <field name="mobile_phone"/>
+                <field name="home_phone"/>
+                <field name="natural_park_id"/>
+                <field name="area_id"/>
+                <field name="salary"/>
+                <field name="specialty"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="conservationper_list_action">
+        <field name="name">Conservationper</field>
+        <field name="res_model">naturalparks.conservationper</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="conservationper_search_view">
+        <field name="name">conservationper.search</field>
+        <field name="model">naturalparks.conservationper</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="ss_number"/>
+                <filter name="high_salary" string="High Salary"
+                        domain="[('salary', '&gt;', 20000)]"/>
+                <filter name="low_salary" string="Low Salary"
+                        domain="[('salary', '&lt;', 20000)]"/>
+                <filter name="cleaning" string="Cleaning"
+                        domain="[('specialty', '=', 'cleaning')]"/>
+                <filter name="roads" string="Roads"
+                        domain="[('specialty', '=', 'roads')]"/>
+                <filter name="others" string="Others"
+                        domain="[('specialty', '=', 'others')]"/>
+                <group string="Group By">
+                    <filter name="by_natural_park" string="Natural Park"
+                            context="{'group_by': 'natural_park_id'}"/>
+                </group>
+                <group string="Group By">
+                    <filter name="by_area" string="Area"
+                            context="{'group_by': 'area_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="conservationper_menu" name="Conservationper Employee"
+        parent="parkpersonal_menu"
+        action="conservationper_list_action"/>        
+</odoo>

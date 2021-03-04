@@ -1,17 +1,17 @@
 from odoo import models, fields, api, exceptions
-from odoo.exceptions import ValidationError
+
 class Community(models.Model):
-    _name='NaturalParks.Community'
-    
+    _name = 'naturalparks.community'
+    _order = 'name'
 
+    name = fields.Char(string="name of the community", required=True)
+    extension = fields.Integer(string="kilometres of the community", required=True)
+    responsible_org = fields.Char(string="responsible org", required=True)
 
-    name = fields.Char(string="name of the community")
-    ResponsibleOrg = fields.Char(string="name of the responsible org")
-    Extension = fields.Integer(string="kilometres")
-
-    @api.constrains('Extension')
-    def _How_Much_Extension_Is_NaturalPark(self):
+    @api.constrains('extension')
+    def _check_park_has_extension(self):
         for r in self:
-            if r.Extension <= 0:
+            if r.extension <= 0:
                 raise exceptions.ValidationError("error")
+    
     

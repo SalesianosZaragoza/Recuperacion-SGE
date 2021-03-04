@@ -1,64 +1,58 @@
 <odoo>
-     
-        <record model="ir.ui.view" id="Area_form_view">
-          <field name="name">Area.form</field>
-          <field name="model">NaturalParks.Area</field>
-          <field name="arch" type="xml">
-                <form string="Area Form">
-                    <sheet>
-                      <group>
-                        <field name="name"/>
-                        <field name="Extension"/>
-                        <field name="NaturalParkID"/>
-                        <field name="CommunityID"/>
-                      </group>
-                    </sheet>
-                </form>
-          </field>
-        </record>
 
-       
+  <record model="ir.ui.view" id="area_form_view">
+      <field name="name">area.form</field>
+      <field name="model">naturalparks.area</field>
+      <field name="arch" type="xml">
+          <form string="Area Form">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="extension" options='{"type": "number", "step": 1}'/>
+                      <field name="natural_park_id"/>
+                      <field name="community_id"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+  </record>
 
-        <record model="ir.ui.view" id="Area_tree_view">
-            <field name="name">Area.tree</field>
-            <field name="model">NaturalParks.Area</field>
-            <field name="arch" type="xml">
-                <tree string="Area Tree">
-                    <field name="name"/>
-                    <field name="Extension"/>
-                    <field name="NaturalParkID"/>
-                    <field name="CommunityID"/>                
-                </tree>
-            </field>
-        </record>
+  <record model="ir.ui.view" id="area_tree_view">
+      <field name="name">area.tree</field>
+      <field name="model">naturalparks.area</field>
+      <field name="arch" type="xml">
+          <tree string="Area Tree">
+              <field name="name"/>
+              <field name="extension"/>
+              <field name="natural_park_id"/>
+              <field name="community_id"/>
+          </tree>
+      </field>
+  </record>
 
-       
+  <record model="ir.actions.act_window" id="area_list_action">
+      <field name="name">Area</field>
+      <field name="res_model">naturalparks.area</field>
+      <field name="view_mode">tree,form</field>
+  </record>
 
-        <record model="ir.ui.view" id="Area_search_view">
-            <field name="name">Area.search</field>
-            <field name="model">NaturalParks.Area</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <group string="Group By">
-                        <filter name="by_NaturalPark" string="Natural Park"
-                                context="{'group_by': 'NaturalParkID'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
+  <record model="ir.ui.view" id="area_search_view">
+      <field name="name">area.search</field>
+      <field name="model">naturalparks.area</field>
+      <field name="arch" type="xml">
+          <search>
+              <field name="name"/>
+              <group string="Group By">
+                  <filter name="by_natural_park" string="Natural Park"
+                          context="{'group_by': 'natural_park_id'}"/>
+              </group>
+          </search>
+      </field>
+  </record>
 
-        <record model="ir.ui.view" id="Area_list_action">
-          <field name="name">Area</field>
-          <field name="res_model">NaturalParks.Area</field>
-          <field name="view_mode">form,tree,search</field>
-          <field name="help" type="html"></field>
-          
-        </record>
-
-
-       <menuitem id="Area_menu" name="Area"
-         parent="NaturalParks_menu"
-         action="Area_list_action"/>
+  
+  <menuitem id="area_menu" name="Area"
+      parent="naturalparks_menu"
+      action="area_list_action"/>
 
 </odoo>

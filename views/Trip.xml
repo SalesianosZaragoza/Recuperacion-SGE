@@ -1,89 +1,91 @@
 <odoo>
-     
-       <record model="ir.ui.view" id="Trip_form_view">
-          <field name="name">Trip.form</field>
-          <field name="model">NaturalParks.Trip</field>
-          <field name="arch" type="xml">
-              <form string="Trip Form">
-                  <sheet>
-                     <group>
+
+    <record model="ir.ui.view" id="trip_form_view">
+        <field name="name">trip.form</field>
+        <field name="model">naturalparks.trip</field>
+        <field name="arch" type="xml">
+            <form string="Trip Form">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" states="1.draft" class="oe_highlight"/>
+                    <button name="action_done" type="object" string="Done" states="2.confirm" class="oe_highlight"/>
+                    <button name="action_draft" type="object"  string="Reset to draft" states="2.confirm,3.done" />
+                    <field name="state" widget="statusbar" statusbar_visible="1.draft,2.confirm,3.done" />
+                </header>
+                <sheet>
+                    <group>
                         <field name="name"/>
-                        <field name="TripType"/>
-                        <field name="StartingDate"/>
-                        <field name="EndingDate"/>
-                        <field name="NaturalParkID"/>
-                        <field name="LodgingID"/>
-                        <field name="VisitorIDS"/>
-                     </group>
-                  </sheet>
-              </form>
-          </field>
-       </record>
-
-       <record model="ir.ui.view" id="Trip_tree_view">
-          <field name="name">Trip.tree</field>
-          <field name="model">NaturalParks.Trip</field>
-          <field name="arch" type="xml">
-              <tree string="Trip Tree">
-                        <field name="name"/>
-                        <field name="TripType"/>
-                        <field name="StartingDate"/>
-                        <field name="EndingDate"/>
-                        <field name="NaturalParkID"/>
-                        <field name="LodgingID"/>
-                        <field name="VisitorIDS"/>
-                        <field name="NumberOfTotalVisitors"/>                
-              </tree>
-          </field>
-       </record>
-
-       <record model="ir.ui.view" id="Trip_list_action">
-          <field name="name">Trip</field>
-          <field name="res_model">NaturalParks.Trip</field>
-          <field name="view_mode">form,tree</field>
-          <field name="help" type="html">
-          </field>
-       </record>
-
-       <record model="ir.ui.view" id="Trip_search_view">
-            <field name="name">Trip.search</field>
-            <field name="model">NaturalParks.Trip</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <filter name="Car Trips" string="Car Trips"
-                            domain="[('TripType', '=', 'Car Trip')]"/>
-                    <filter name="Walk Trips" string="Walk Trips"
-                            domain="[('TripType', '=', 'Walk Trip')]"/>
-                    <group string="Group By">
-                        <filter name="by_NaturalPark" string="Natural Park"
-                                context="{'group_by': 'NaturalParkID'}"/>
+                        <field name="trip_type"/>
+                        <field name="starting_date"/>
+                        <field name="ending_date"/>
+                        <field name="natural_park_id"/>
+                        <field name="lodging_id"/>
+                        <field name="visitor_ids"/>
                     </group>
-                    <group string="Group By">
-                        <filter name="by_Lodging" string="Lodging"
-                                context="{'group_by': 'LodgingID'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-       <record model="ir.ui.view" id="Trip_calendar_view">
-            <field name="name">Trip.calendar</field>
-            <field name="model">NaturalParks.Trip</field>
-            <field name="arch" type="xml">
-                <calendar string="Trip Calendar" date_start="StartingDate" date_stop="EndingDate" quick_add="False">
-                    <field name="name"/>
-                    <field name="TripTtype"/>
-                    <field name="NaturalParkID"/>
-                </calendar>
-            </field>
-        </record>
+    <record model="ir.ui.view" id="trip_tree_view">
+        <field name="name">trip.tree</field>
+        <field name="model">naturalparks.trip</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="Trip Tree">
+                <field name="name"/>
+                <field name="trip_type"/>
+                <field name="starting_date"/>
+                <field name="ending_date"/>
+                <field name="natural_park_id"/>
+                <field name="lodging_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
 
-       
 
+    <record model="ir.ui.view" id="trip_calendar_view">
+        <field name="name">trip.calendar</field>
+        <field name="model">naturalparks.trip</field>
+        <field name="arch" type="xml">
+            <calendar string="Trip Calendar" date_start="starting_date" date_stop="ending_date" quick_add="False">
+                <field name="name"/>
+                <field name="trip_type"/>
+                <field name="natural_park_id"/>
+            </calendar>
+        </field>
+    </record>
 
-       <menuitem id="Trip_menu" name="Trip"
-         parent="NaturalParks_menu"
-         action="Trip_list_action"/>
+    <record model="ir.actions.act_window" id="trip_list_action">
+        <field name="name">Trip</field>
+        <field name="res_model">naturalparks.trip</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <record model="ir.ui.view" id="trip_search_view">
+        <field name="name">trip.search</field>
+        <field name="model">naturalparks.trip</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="car_trips" string="Car Trips"
+                        domain="[('trip_type', '=', 'car')]"/>
+                <filter name="walking_trips" string="Walking Trips"
+                        domain="[('trip_type', '=', 'walking')]"/>
+                <group string="Group By">
+                    <filter name="by_natural_park" string="Natural Park"
+                            context="{'group_by': 'natural_park_id'}"/>
+                </group>
+                <group string="Group By">
+                    <filter name="by_lodging" string="lodging Organizer"
+                            context="{'group_by': 'lodging_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    
+    <menuitem id="trip_menu" name="Trip"
+        parent="naturalparks_menu"
+        action="trip_list_action"/>
 
 </odoo>

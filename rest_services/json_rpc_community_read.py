@@ -8,7 +8,7 @@ DB = 'odoo'
 USER = 'admin'
 PASS = 'admin'
 
-def json_rpc_Visitor(url, method, params):
+def json_rpc_community_read(url, method, params):
     data = {
         "jsonrpc": "2.0",
         "method": method,
@@ -24,16 +24,10 @@ def json_rpc_Visitor(url, method, params):
     return reply["result"]
 
 def call(url, service, method, *args):
-    return json_rpc_Visitor(url, "call", {"service": service, "method": method, "args": args})
+    return json_rpc_community_read(url, "call", {"service": service, "method": method, "args": args})
 
 url = "http://%s:%s/jsonrpc" % (HOST, PORT)
 uid = call(url, "common", "login", DB, USER, PASS)
 
-args = {
-    'Name': 'AshKeptchum',
-    'DNI': '7x',
-    'Address': 'pueblopaleta'
-    'Job': 'Trainer'
-}
-VisitorID = call(url, "object", "execute", DB, uid, PASS, 'NaturalParks.Visitor', 'create', args)
-print("New visitor")
+community_id = call(url, "object", "execute", DB, uid, PASS, 'naturalparks.community', 'read', [1])
+print("Reading first community", community_id)

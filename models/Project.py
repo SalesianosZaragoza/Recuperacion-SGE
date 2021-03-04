@@ -1,34 +1,48 @@
+from datetime import timedelta
 from odoo import models, fields, api, exceptions
-from odoo.exceptions import ValidationError
 
 class Project(models.Model):
-    _name = 'NaturalParks.Project'
-    
+    _name = 'naturalparks.project'
+    _order = 'starting_date'
 
-    name = fields.Char(string="Project Name")
-    ResearchPerIDS = fields.Many2many('NaturalParks.ResearchPer')
-    Budget = fields.Float(string="Budget in dollars", digits=(8, 2))
-    StartingDate = fields.Date()
-    EndingDate = fields.Date()
-    Color = fields.Integer()
-    State = fields.Selection([
-        ('draft', 'Draft')
-        ,('confirm', 'Confirm')
-        ,('done', 'Done')
-    ], default='draft')
-    
+    name = fields.Char(string="Project name", required=True)
+    species_id = fields.Many2one('naturalparks.species', string="Species", required=True)
+    researchper_ids = fields.Many2many('naturalparks.researchper', string="Researchers", required=True)
+    budget = fields.Float(string="budget in dollars", digits=(8, 2))
+    starting_date = fields.Date(required=True)
+    ending_date = fields.Date(required=True)
+    color = fields.Integer()
+    state = fields.Selection([
+            ('1.draft', 'Draft'),
+            ('2.confirm', 'Confirm'),
+            ('3.done', 'Done'),
+        ], string='Status', default='1.draft')
 
-    SpeciesID = fields.Many2one('NaturalParks.Species', string="Species")
-
-
-    @api.constrains('Budget')
-    def _How_Much_Budget_Has_The_Project(self):
+    @api.constrains('budget')
+    def _check_park_has_extension(self):
         for r in self:
-            if r.Budget <= 0:
+            if r.budget <= 0:
                 raise exceptions.ValidationError("error")
 
-    @api.constrains('StartingDate','EndingDate')
-    def _Is_The_Date_Correct(self):
+    @api.constrains('starting_date', 'ending_date')
+    def _check_ending_date_is_after_starting_date(self):
         for r in self:
-            if r.StartingDate > r.EndingDate:
+            if r.starting_date > r.ending_date:
                 raise exceptions.ValidationError("error")
+
+    def action_confirm(self):
+        for r in self:
+            r.state = '2.confirm'
+            
+    def action_done(self):
+        for r in self:
+            r.state = '3.done'
+
+    def action_draft(self):
+        for r in self:
+            r.state = '1.draft'
+    
+
+    
+
+    

@@ -1,0 +1,200 @@
+<odoo>
+    <!--Vegetablespe-->
+    <record model="ir.ui.view" id="vegetablespe_form_view">
+        <field name="name">vegetablespe.form</field>
+        <field name="model">naturalparks.vegetablespe</field>
+        <field name="arch" type="xml">
+            <form string="Vegetablespe Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="vulgar_name"/>
+                        <field name="area_ids"/>
+                        <field name="number_of_specimens" options='{"type": "number", "step": 1}'/>
+                        <field name="flowering"/>
+                        <field name="flowering_season"/>
+                        <field name="depredated"/>
+                        <field name="animalspe_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vegetablespe_tree_view">
+        <field name="name">vegetablespe.tree</field>
+        <field name="model">naturalparks.vegetablespe</field>
+        <field name="arch" type="xml">
+            <tree string="Vegetable Tree">
+                <field name="name"/>
+                <field name="vulgar_name"/>
+                <field name="area_ids"/>
+                <field name="number_of_specimens"/>
+                <field name="flowering"/>
+                <field name="flowering_season"/>
+                <field name="depredated"/>
+                <field name="animalspe_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vegetablespe_list_action">
+        <field name="name">Vegetablespe</field>
+        <field name="res_model">naturalparks.vegetablespe</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="vegetablespe_search_view">
+        <field name="name">vegetablespe.search</field>
+        <field name="model">naturalparks.vegetablespe</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vulgar_name"/>
+                <filter name="endangered_species" string="Endangered Species"
+                        domain="[('number_of_specimens', '&lt;', 100)]"/>
+                <filter name="flowering" string="Flowering"
+                        domain="[('flowering', '=', True)]"/>
+                <filter name="not_flowering" string="Not Flowering"
+                        domain="[('flowering', '=', False)]"/>
+                <group string="Group By">
+                    <filter name="by_flowering_season" string="Flowering Season"
+                            context="{'group_by': 'flowering_season'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <menuitem id="vegetablespe_menu" name="Vegetablespe"
+        parent="naturalparks_menu"
+        action="vegetablespe_list_action"/>
+
+    <!--Animalspe-->
+    <record model="ir.ui.view" id="animalspe_form_view">
+        <field name="name">animalspe.form</field>
+        <field name="model">naturalparks.animalspe</field>
+        <field name="arch" type="xml">
+            <form string="Animalspe Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="vulgar_name"/>
+                        <field name="area_ids"/>
+                        <field name="number_of_specimens" options='{"type": "number", "step": 1}'/>
+                        <field name="alimentation"/>
+                        <field name="heat_season"/>
+                        <field name="depredated"/>
+                        <field name="animalspe_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="animalspe_tree_view">
+        <field name="name">animalspe.tree</field>
+        <field name="model">naturalparks.animalspe</field>
+        <field name="arch" type="xml">
+            <tree string="Animalspe Tree">
+                <field name="name"/>
+                <field name="vulgar_name"/>
+                <field name="area_ids"/>
+                <field name="number_of_specimens"/>
+                <field name="alimentation"/>
+                <field name="heat_season"/>
+                <field name="depredated"/>
+                <field name="animalspe_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="animalspe_list_action">
+        <field name="name">Animalspe</field>
+        <field name="res_model">naturalparks.animalspe</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="animalspe_search_view">
+        <field name="name">animalspe.search</field>
+        <field name="model">naturalparks.animalspe</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vulgar_name"/>
+                <filter name="endangered_species" string="Endangered Species"
+                        domain="[('number_of_specimens', '&lt;', 100)]"/>
+                <filter name="carnivore" string="Carnivore"
+                        domain="[('alimentation', '=', 'carnivore')]"/>
+                <filter name="herbivore" string="Herbivore"
+                        domain="[('alimentation', '=', 'herbivore')]"/>
+                <filter name="omnivore" string="Omnivore"
+                        domain="[('alimentation', '=', 'omnivore')]"/>
+                <group string="Group By">
+                    <filter name="by_heat_season" string="Heat Season"
+                            context="{'group_by': 'heat_season'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <menuitem id="animalspe_menu" name="Animalspe"
+        parent="naturalparks_menu"
+        action="animalspe_list_action"/>
+
+    <!--Mineralspe-->
+    <record model="ir.ui.view" id="mineralspe_form_view">
+        <field name="name">mineralspe.form</field>
+        <field name="model">naturalparks.mineralspe</field>
+        <field name="arch" type="xml">
+            <form string="Mineralspe Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="vulgar_name"/>
+                        <field name="area_ids"/>
+                        <field name="mineralspe_type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mineralspe_tree_view">
+        <field name="name">mineralspe.tree</field>
+        <field name="model">naturalparks.mineralspe</field>
+        <field name="arch" type="xml">
+            <tree string="Mineralspe Tree">
+                <field name="name"/>
+                <field name="vulgar_name"/>
+                <field name="area_ids"/>
+                <field name="mineralspe_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mineralspe_list_action">
+        <field name="name">Mineralspe</field>
+        <field name="res_model">naturalparks.mineralspe</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="mineralspe_search_view">
+        <field name="name">mineralspe.search</field>
+        <field name="model">naturalparks.mineralspe</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vulgar_name"/>
+                <filter name="stone" string="Stone"
+                        domain="[('mineralspe_type', '=', 'stone')]"/>
+                <filter name="crystal" string="Crystal"
+                        domain="[('mineralspe_type', '=', 'crystal')]"/>
+            </search>
+        </field>
+    </record>
+    
+    <menuitem id="mineralspe_menu" name="Mineralspe"
+        parent="naturalparks_menu"
+        action="mineralspe_list_action"/>
+
+</odoo>

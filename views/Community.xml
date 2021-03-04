@@ -1,47 +1,42 @@
 <odoo>
-     
-       <record model="ir.ui.view" id="Community_form_view">
-          <field name="name">Community.form</field>
-          <field name="model">NaturalParks.Community</field>
-          <field name="arch" type="xml">
-              <form string="Community Form">
-                  <sheet>
-                     <group>
-                        <field name="name"/>
-                        <field name="Extension"/>
-                        <field name="ResponsibleOrg"/>
-                     </group>
-                  </sheet>
-              </form>
-          </field>
-       </record>
 
-       
+   <record model="ir.ui.view" id="community_form_view">
+       <field name="name">community.form</field>
+       <field name="model">naturalparks.community</field>
+       <field name="arch" type="xml">
+           <form string="Community Form">
+               <sheet>
+                   <group>
+                       <field name="name"/>
+                       <field name="extension"/>
+                       <field name="responsible_org"/>
+                   </group>
+               </sheet>
+           </form>
+       </field>
+   </record>
 
-       <record model="ir.ui.view" id="Community_tree_view">
-          <field name="name">Community.tree</field>
-          <field name="model">NaturalParks.Community</field>
-          <field name="arch" type="xml">
-              <tree string="Community Tree">
-                        <field name="name"/>
-                        <field name="Extension"/>
-                        <field name="ResponsibleOrg"/>               
-              </tree>
-          </field>
-       </record>
+   <record model="ir.ui.view" id="community_tree_view">
+       <field name="name">community.tree</field>
+       <field name="model">naturalparks.community</field>
+       <field name="arch" type="xml">
+           <tree string="Community Tree">
+               <field name="name"/>
+               <field name="extension"/>
+               <field name="responsible_org"/>
+           </tree>
+       </field>
+   </record>
 
-       <record model="ir.ui.view" id="Community_list_action">
-          <field name="name">Community</field>
-          <field name="res_model">NaturalParks.Community</field>
-          <field name="view_mode">form,tree</field>
-          <field name="help" type="html">
-          </field>
-       </record>
+   <record model="ir.actions.act_window" id="community_list_action">
+       <field name="name">Community</field>
+       <field name="res_model">naturalparks.community</field>
+       <field name="view_mode">tree,form</field>
+   </record>
 
-
-       <menuitem id="Community_menu" name="Community"
-         parent="NaturalParks_menu"
-         action="Community_list_action"/>
+   
+   <menuitem id="community_menu" name="Community"
+       parent="naturalparks_menu"
+       action="community_list_action"/>
 
 </odoo>
-

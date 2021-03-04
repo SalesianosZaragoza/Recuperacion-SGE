@@ -1,5 +1,3 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access_NaturalParks_AnimalSpe,NaturalParks.AnimalSpe,model_NaturalParks_AnimalSpe,group_manager,1,1,1,1
-AnimalSpe_read_all,AnimalSpe all,model_NaturalParks_AnimalSpe,,1,1,1,1
-access_NaturalParks_Visitor,NaturalParks.Visitor,model_NaturalParks_Visitor,group_manager,1,1,1,1
-Visitor_read_all,Visitor all,model_NaturalParks_Visitor,,1,1,1,1
+access_naturalparks_community,naturalparks.community,model_naturalparks_community,group_manager,,1,1,1,1
+community_read_all,community all,model_naturalparks_community,,1,1,1,1

@@ -1,73 +1,70 @@
 <odoo>
-     
-       <record model="ir.ui.view" id="Lodging_form_view">
-          <field name="name">Lodging.form</field>
-          <field name="model">NaturalParks.Lodging</field>
-          <field name="arch" type="xml">
-              <form string="Lodging Form">
-                  <sheet>
-                     <group>
+    <record model="ir.ui.view" id="lodging_form_view">
+        <field name="name">lodging.form</field>
+        <field name="model">naturalparks.lodging</field>
+        <field name="arch" type="xml">
+            <form string="Lodging Form">
+                <sheet>
+                    <group>
                         <field name="name"/>
-                        <field name="Capacity"/>
-                        <field name="Category"/>
-                        <field name="NaturalParkID"/>
-                     </group>
-                  </sheet>
-              </form>
-          </field>
-       </record>
-
-
-       <record model="ir.ui.view" id="Lodging_tree_view">
-          <field name="name">Lodging.tree</field>
-          <field name="model">NaturalParks.Lodging</field>
-          <field name="arch" type="xml">
-              <tree string="Lodging Tree">
-                        <field name="name"/>
-                        <field name="Capacity"/>
-                        <field name="Category"/>
-                        <field name="NaturalParkID"/>                
-              </tree>
-          </field>
-       </record>
-
-       <record model="ir.ui.view" id="Lodging_list_action">
-          <field name="name">Lodging</field>
-          <field name="res_model">NaturalParks.Lodging</field>
-          <field name="view_mode">form,tree</field>
-          <field name="help" type="html">
-          </field>
-       </record>
-
-       <record model="ir.ui.view" id="Lodging_search_view">
-            <field name="name">Lodging.search</field>
-            <field name="model">NaturalParks.Lodging</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <filter name="HighCapacity" string="High Capacity"
-                            domain="[('Capacity', '&gt;', 100)]"/>
-                    <filter name="LowCapacity" string="Low Capacity"
-                            domain="[('Capacity', '&lt;', 100)]"/>
-                    <group string="Group By">
-                        <filter name="by_NaturalPark" string="Natural Parks"
-                                context="{'group_by': 'NaturalParkID'}"/>
+                        <field name="capacity" options='{"type": "number", "step": 1}'/>
+                        <field name="category"/>
+                        <field name="natural_park_id"/>
                     </group>
-                </search>
-            </field>
-        </record>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <menuitem id="main_NaturalParks_menu" name="NaturalParks"/>
+    <record model="ir.ui.view" id="lodging_tree_view">
+        <field name="name">lodging.tree</field>
+        <field name="model">naturalparks.lodging</field>
+        <field name="arch" type="xml">
+            <tree string="Lodging Tree">
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="category"/>
+                <field name="natural_park_id"/>                
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="lodging_list_action">
+        <field name="name">Lodging</field>
+        <field name="res_model">naturalparks.lodging</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="lodging_search_view">
+        <field name="name">lodging.search</field>
+        <field name="model">naturalparks.lodging</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="high_quality" string="High Quality"
+                        domain="[('category', 'in', ['five', 'four', 'three'])]"/>
+                <filter name="low_quality" string="Low Quality"
+                        domain="[('category', 'in', ['one', 'two'])]"/>
+                <filter name="high_capacity" string="High Capacity"
+                        domain="[('capacity', '&gt;', 40)]"/>
+                <filter name="low capacity" string="Low Capacity"
+                        domain="[('capacity', '&lt;', 40)]"/>
+                <group string="Group By">
+                    <filter name="by_natural_park" string="Natural Parks"
+                            context="{'group_by': 'natural_park_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
 
-        <menuitem id="NaturalParks_menu" name="NaturalParks"
-                  parent="main_NaturalParks_menu"/>
+    <menuitem id="main_naturalparks_menu" name="NaturalParks"/>
 
-       
+    <menuitem id="naturalparks_menu" name="NaturalParks"
+              parent="main_naturalparks_menu"/>
 
-
-       <menuitem id="Lodging_menu" name="Lodging"
-         parent="NaturalParks_menu"
-         action="Lodging_list_action"/>
+    <menuitem id="lodging_menu" name="Lodging"
+        parent="naturalparks_menu"
+        action="lodging_list_action"/>
 
 </odoo>

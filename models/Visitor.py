@@ -1,22 +1,32 @@
-from odoo import models, fields, api, exceptions 
-from odoo.exceptions import ValidationError
+from odoo import models, fields, api, exceptions
+
 class Visitor(models.Model):
-    _name='NaturalParks.Visitor'
-    
+    _name = 'naturalparks.visitor'
+    _order = 'name'
 
-
-
-    name = fields.Char(string="name of the visitor")
-    DNI = fields.Char(string="DNI of the visitor")
-    Address = fields.Char(string="address of the visitor")
-    Job = fields.Char(string="job of the visitor")
-    State = fields.Selection([
+    name = fields.Char(string="visitor name", required=True)    
+    dni = fields.Char(string="dni of the visitor", required=True)
+    address = fields.Char(string="address of the visitor")
+    job = fields.Char(string="job of the visitor")
+    state = fields.Selection([
             ('1.draft', 'Draft'),
             ('2.confirm', 'Confirm'),
             ('3.done', 'Done'),
         ], string='Status', default='1.draft')
 
+    natural_park_id = fields.Many2one('naturalparks.natural_park', string="Natural Park", ondelete='cascade', required=True)
+    lodging_id = fields.Many2one('naturalparks.lodging', string="lodging", required=True)
+    managementper_id = fields.Many2one('naturalparks.managementper', string="management employee responsible")
 
-    LodgingID = fields.Many2one('NaturalParks.Lodging')
-    NaturalParkID = fields.Many2one('NaturalParks.NaturalPark')
-    ManagementPersID = fields.Many2one('NaturalParks.ManagementPers')
+
+    def action_confirm(self):
+        for r in self:
+            r.state = '2.confirm'
+            
+    def action_done(self):
+        for r in self:
+            r.state = '3.done'
+
+    def action_draft(self):
+        for r in self:
+            r.state = '1.draft'

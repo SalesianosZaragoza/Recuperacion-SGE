@@ -1,27 +1,26 @@
 from odoo import models, fields, api, exceptions
-from odoo.exceptions import ValidationError
+
 class Area(models.Model):
-    _name='NaturalParks.Area'
-    
+    _name = 'naturalparks.area'
+    _order = 'name'
 
+    name = fields.Char(string="name of the area", required=True)
+    extension = fields.Integer(string="kilometres of the area", required=True)
 
+    natural_park_id = fields.Many2one('naturalparks.natural_park', string="Natural Park", ondelete='cascade', required=True)
+    community_id = fields.Many2one('naturalparks.community', string="Community", required=True)
 
-    name = fields.Char(string="name of the area")
-    Extension = fields.Integer(string="kilometres")
-    
-    NaturalParkID = fields.Many2one('NaturalParks.NaturalPark')
-    CommunityID = fields.Many2one('NaturalParks.Community')
-
-    @api.constrains('Extension')
-    def _How_Much_Extension_Is_NaturalPark(self):
+    @api.constrains('extension')
+    def _check_park_has_extension(self):
         for r in self:
-            if r.Extension <= 0:
+            if r.extension <= 0:
                 raise exceptions.ValidationError("error")
 
-    @api.constrains('NaturalParkID', 'CommunityID')
-    def _What_community_Is_In_NaturalPark(self):
+    @api.constrains('natural_park_id', 'community_id')
+    def _check_community_is_of_the_park(self):
         for r in self:
-            if r.CommunityID not in r.NaturalParkID.CommunityID:
+            if r.community_id not in r.natural_park_id.community_ids:
                 raise exceptions.ValidationError("error")
+    
 
     

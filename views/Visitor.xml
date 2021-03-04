@@ -1,76 +1,71 @@
 <odoo>
-     
-       <record model="ir.ui.view" id="Visitor_form_view">
-          <field name="name">Visitor.form</field>
-          <field name="model">NaturalParks.Visitor</field>
-          <field name="arch" type="xml">
-              <form string="Visitor Form">
-                  <header>
-                        <button name="action_confirm" type="object" string="Confirm" states="1.draft" class="oe_highlight"/>
-                        <button name="action_done" type="object" string="Done" states="2.confirm" class="oe_highlight"/>
-                        <button name="action_draft" type="object"  string="Reset to draft" states="2.confirm,3.done" />
-                        <field name="State" widget="statusbar" statusbar_visible="1.draft,2.confirm,3.done" />
-                    </header>  
-                  <sheet>
-                     <group>
-                        <field name="name"/>
-                        <field name="DNI"/>
-                        <field name="Address"/>
-                        <field name="Job"/>
-                        <field name="NaturalParkID"/>
-                        <field name="LodgingID"/>
-                        <field name="ManagementPersID"/>
-                     </group>
-                  </sheet>
-              </form>
-          </field>
-       </record>
 
-       <record model="ir.ui.view" id="Visitor_tree_view">
-          <field name="name">Visitor.tree</field>
-          <field name="model">NaturalParks.Visitor</field>
-          <field name="arch" type="xml">
-              <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="Visitor Tree">
-                 <field name="name"/>
-                 <field name="DNI"/>
-                 <field name="Address"/>
-                 <field name="Job"/>
-                 <field name="NaturalParkID"/>
-                 <field name="LodgingID"/>
-                 <field name="ManagementPersID"/> 
-                 <field name="State"/>               
-              </tree>
-          </field>
-       </record>
+   <record model="ir.ui.view" id="visitor_form_view">
+       <field name="name">visitor.form</field>
+       <field name="model">naturalparks.visitor</field>
+       <field name="arch" type="xml">
+           <form string="Visitor Form">
+               <header>
+                   <button name="action_confirm" type="object" string="Confirm" states="1.draft" class="oe_highlight"/>
+                   <button name="action_done" type="object" string="Done" states="2.confirm" class="oe_highlight"/>
+                   <button name="action_draft" type="object"  string="Reset to draft" states="2.confirm,3.done" />
+                   <field name="state" widget="statusbar" statusbar_visible="1.draft,2.confirm,3.done" />
+               </header>
+               <sheet>
+                   <group>
+                       <field name="name"/>
+                       <field name="dni"/>
+                       <field name="address"/>
+                       <field name="job"/>
+                       <field name="natural_park_id"/>
+                       <field name="lodging_id"/>
+                       <field name="managementper_id"/>
+                   </group>
+               </sheet>
+           </form>
+       </field>
+   </record>
 
-       <record model="ir.ui.view" id="Visitor_list_action">
-          <field name="name">Visitor</field>
-          <field name="res_model">NaturalParks.Visitor</field>
-          <field name="view_mode">form,tree</field>
-          <field name="help" type="html">
-          </field>
-       </record>
+   <record model="ir.ui.view" id="visitor_tree_view">
+       <field name="name">visitor.tree</field>
+       <field name="model">naturalparks.visitor</field>
+       <field name="arch" type="xml">
+           <tree decoration-muted="state == '1.draft'" decoration-success="state == '2.confirm'" decoration-danger="state == '3.done'" string="Visitor Tree">
+               <field name="name"/>                    
+               <field name="dni"/>
+               <field name="address"/>
+               <field name="job"/>
+               <field name="natural_park_id"/>
+               <field name="lodging_id"/>
+               <field name="managementper_id"/>
+               <field name="state"/>
+           </tree>
+       </field>
+   </record>
 
-       <record model="ir.ui.view" id="Visitor_search_view">
-            <field name="name">Visitor.search</field>
-            <field name="model">NaturalParks.Visitor</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="DNI"/>
-                    <field name="name"/>
-                    <group string="Group By">
-                        <filter name="by_Lodging" string="Lodging"
-                                context="{'group_by': 'LodgingID'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
+   <record model="ir.actions.act_window" id="visitor_list_action">
+       <field name="name">Visitor</field>
+       <field name="res_model">naturalparks.visitor</field>
+       <field name="view_mode">tree,form</field>
+   </record>
 
-       
-
-
-       <menuitem id="Visitor_menu" name="Visitor"
-         parent="NaturalParks_menu"
-         action="Visitor_list_action"/>
+   <record model="ir.ui.view" id="visitor_search_view">
+       <field name="name">visitor.search</field>
+       <field name="model">naturalparks.visitor</field>
+       <field name="arch" type="xml">
+           <search>
+               <field name="dni"/>
+               <field name="name"/>
+               <group string="Group By">
+                   <filter name="by_lodging" string="Lodging"
+                           context="{'group_by': 'lodging_id'}"/>
+               </group>
+           </search>
+       </field>
+   </record>
+   
+   <menuitem id="visitor_menu" name="Visitor"
+       parent="naturalparks_menu"
+       action="visitor_list_action"/>
 
 </odoo>
