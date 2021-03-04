@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 class Staff(models.Model):
     _name = 'recu.staff'

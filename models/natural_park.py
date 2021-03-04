@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 class Natural_Park(models.Model):
     _name = 'recu.natural_park'
