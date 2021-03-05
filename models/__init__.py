@@ -1,3 +1,4 @@
+from . import area
 from . import ca
 from . import hostel
 from . import naturalPark
