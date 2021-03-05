@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
-class NaturalPark(models.Model):
-    _name = 'npi.NaturalPark'
+class naturalPark(models.Model):
+    _name = 'npi.naturalPark'
 
     name = fields.Char(string="Name", required=True)
     starting_date = fields.Date()

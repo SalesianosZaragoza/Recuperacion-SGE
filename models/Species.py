@@ -1,35 +1,35 @@
 from odoo import models, fields, api
 
-class Species(models.Model):
-    _name = 'npi.Species'
+class species(models.Model):
+    _name = 'npi.species'
 
     name = fields.Char(string="Scientific name", required=True)
     name = fields.Char(string="Vulgar name", required=True)
     numberSpecies = fields.Integer(string="Número de especies")
 
-    Area_ids = fields.Many2many('npi.Area', string="Area", required=True)
+    area_ids = fields.Many2many('npi.area', string="Area", required=True)
 
 
-class Plant(models.Model):
-    _name = 'npi.Plant'
-    _inherit = 'npi.Species'
+class plant(models.Model):
+    _name = 'npi.plant'
+    _inherit = 'npi.species'
 
     floration = fields.Boolean(string="Does it have flowering?")
     florationPeriod = fields.Selection([(('winter', 'Winter'), ('spring', 'Spring'), ('summer', 'Summer'), ('autumn', 'Autumn'))])
 
-    Animal_ids = fields.Many2many('npi.Animal', string="Animals that eat this plant", required=True)
+    animal_ids = fields.Many2many('npi.animal', string="Animals that eat this plant", required=True)
 
 
-class Animal(models.Model):
-    _name = 'npi.Animal'
-    _inherit = 'npi.Species'
+class animal(models.Model):
+    _name = 'npi.animal'
+    _inherit = 'npi.species'
 
     alimentation = fields.Selection([('carnivore', 'Carnivore'), ('herbivore', 'Herbivore'), ('omnivore', 'Omnivore')], required=True)
     reproductionPeriod = fields.Selection([('annual', 'Annual'), ('periodic', 'Periodic'), ('permanente', 'Permanente')], required=True)
 
 
-class Mineral(models.Model):
-    _name = 'npi.Mineral'
-    _inherit = 'npi.Species'
+class mineral(models.Model):
+    _name = 'npi.mineral'
+    _inherit = 'npi.species'
 
     mineralType = fields.Selection([('glass', 'Glass'), ('rock', 'Rock')], required=True)

@@ -1,6 +1,6 @@
 from odoo import models, fields, api
 
-class Staff(models.Model):
+class staff(models.Model):
     _name = 'npi.Staff'
 
     dni = fields.Char(string="D.N.I.", required=True)
@@ -11,32 +11,32 @@ class Staff(models.Model):
     landline = fields.Char(string="Teléfono fijo", required=True)
     salary = fields.Integer(string="Salario", required=True)
 
-    NaturalPark_id = fields.Many2one('npi.NaturalPark', string="Natural Park", required=True)
+    naturalPark_id = fields.Many2one('npi.naturalPark', string="Natural Park", required=True)
 
 
-class Managment(models.Model):
-    _name = 'npi.Managment'
-    _inherit = 'npi.Staff'
+class managment(models.Model):
+    _name = 'npi.managment'
+    _inherit = 'npi.staff'
 
     entry = fields.Selection([(('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'))])
 
-class Vigilancy(models.Model):
-    _name = 'npi.Vigilancy'
-    _inherit = 'npi.Staff'
+class vigilancy(models.Model):
+    _name = 'npi.vigilancy'
+    _inherit = 'npi.staff'
 
-    Area_id = fields.Many2one('npi.Area', string="Area", required=True)
+    area_id = fields.Many2one('npi.area', string="Area", required=True)
 
 
-class Investigator(models.Model):
-    _name = 'npi.Investigator'
-    _inherit = 'npi.Staff'
+class investigator(models.Model):
+    _name = 'npi.investigator'
+    _inherit = 'npi.staff'
 
     title = fields.Char(required = True)
 
-class Conservation(models.Model):
-    _name = 'npi.Conservation'
-    _inherit = 'npi.Staff'
+class conservation(models.Model):
+    _name = 'npi.conservation'
+    _inherit = 'npi.staff'
 
     specialization = fields.Selection([(('canine', 'Canine'), ('cleanning', 'Cleanning'), ('other', 'Other'))])
 
-    Area_id = fields.Many2one('npi.Area', string="Area", required=True)
+    area_id = fields.Many2one('npi.area', string="Area", required=True)

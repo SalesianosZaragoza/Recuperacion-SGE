@@ -1,6 +1,6 @@
 from odoo import models, fields, api
 
-class CA(models.Model):
-    _name = 'npi.CA'
+class ca(models.Model):
+    _name = 'npi.ca'
 
     name = fields.Char(string="Name", required=True)

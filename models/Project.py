@@ -1,11 +1,11 @@
 from odoo import models, fields, api
 
-class Project(models.Model):
-    _name = 'npi.Project'
+class project(models.Model):
+    _name = 'npi.project'
 
     name = fields.Char(string="Name", required=True)
     budget = fields.Integer(string="Budget", required=True)
     realizationPeriod = fields.Selection([('in process', 'In process'), ('Done', 'Done'), ('coming soon', 'Coming soon')] string="Status")
 
-    Species_id = fields.Many2one('npi.Species', string="Specie", required=True)
-    Investigator_ids = fields.Many2many('npi.Investigator', string="Investigator/s", required=True)
+    species_id = fields.Many2one('npi.species', string="Specie", required=True)
+    investigator_ids = fields.Many2many('npi.investigator', string="Investigator/s", required=True)
