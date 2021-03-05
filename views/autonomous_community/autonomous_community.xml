@@ -1,0 +1,42 @@
+<odoo>
+
+        <record model="ir.ui.view" id="autonomous_community_form_view">
+            <field name="name">autonomous_community.form</field>
+            <field name="model">ges.autonomous_community</field>
+            <field name="arch" type="xml">
+                <form string="autonomous_community Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>            
+                            <field name="responsible_entity"/>
+                            <field name="autonomous_community_natural_park_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="autonomous_community_tree_view">
+            <field name="name">autonomous_community.tree</field>
+            <field name="model">ges.autonomous_community</field>
+            <field name="arch" type="xml">
+                <tree string="autonomous_community Tree">
+                    <field name="name"/>
+                    <field name="responsible_entity"/>
+                    <field name="autonomous_community_natural_park_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="autonomous_community_list_action">
+            <field name="name">autonomous_community</field>
+            <field name="res_model">ges.autonomous_community</field>
+            <field name="view_mode">tree,form</field>
+            
+        </record>
+
+        <menuitem id="autonomous_community_menu" name="Autonomous community"
+            parent="natural_parks_menu"
+            action="autonomous_community_list_action"/>
+
+</odoo>
