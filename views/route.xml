@@ -9,7 +9,8 @@
                         <field name="name"/>
                         <field name="way"/>
                         <field name="numberOfPeople"/>
-                        <field name="date"/>
+                        <field name="dateStart"/>
+                        <field name="dateStop"/>
                         <field name="naturalPark_id"/>
                         <field name="hostel_id"/>
                         <field name="visitor_id"/>
@@ -28,7 +29,8 @@
                     <field name="name"/>
                     <field name="way"/>
                     <field name="numberOfPeople"/>
-                    <field name="date"/>
+                    <field name="dateStart"/>
+                    <field name="dateStop"/>
                     <field name="naturalPark_id"/>
                     <field name="hostel_id"/>
                     <field name="visitor_id"/>
@@ -40,9 +42,9 @@
         <field name="name">route.calendar</field>
         <field name="model">npi.route</field>
         <field name="arch" type="xml">
-            <calendar string="Calenda" date_start="trip_starting" date_stop="trip_ending">
+            <calendar string="Calendar" date_start="dateStart" date_stop="dateStop">
                 <field name="name"/>
-                <field name="trip_type"/>
+                <field name="way"/>
             </calendar>
         </field>
     </record>

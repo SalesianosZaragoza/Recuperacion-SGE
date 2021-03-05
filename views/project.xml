@@ -10,7 +10,7 @@
                         <field name="budget" />
                         <field name="realizationPeriod" />
                         <field name="species_id" />
-                        <field name="investigator_id" />
+                        <field name="investigator_ids" />
                     </group>
                 </sheet>
             </form>
@@ -26,7 +26,7 @@
                 <field name="budget" />
                 <field name="realizationPeriod" />
                 <field name="species_id" />
-                <field name="investigator_id" />
+                <field name="investigator_ids" />
             </tree>
         </field>
     </record>
