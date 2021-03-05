@@ -6,3 +6,5 @@ class naturalPark(models.Model):
     name = fields.Char(string="Name", required=True)
     starting_date = fields.Date()
     extension = fields.Integer(string="Extension", required=True)
+
+    ca_ids = fields.Many2many('npi.ca', string="Autonums Community") 

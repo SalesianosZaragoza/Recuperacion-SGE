@@ -4,7 +4,7 @@ class species(models.Model):
     _name = 'npi.species'
 
     name = fields.Char(string="Scientific name", required=True)
-    name = fields.Char(string="Vulgar name", required=True)
+    vulgarName = fields.Char(string="Vulgar name", required=True)
     numberSpecies = fields.Integer(string="Número de especies")
 
     area_ids = fields.Many2many('npi.area', string="Area", required=True)

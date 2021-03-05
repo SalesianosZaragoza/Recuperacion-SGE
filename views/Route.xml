@@ -1,7 +1,7 @@
 <odoo>
     <record model="ir.ui.view" id="route_form_view">
         <field name="name">route.form</field>
-        <field name="model">npi.Route</field>
+        <field name="model">npi.route</field>
         <field name="arch" type="xml">
             <form string="Route Form">
                 <sheet>
@@ -10,9 +10,9 @@
                         <field name="way"/>
                         <field name="numberOfPeople"/>
                         <field name="date"/>
-                        <field name="NaturalPark_id"/>
-                        <field name="Hostel_id"/>
-                        <field name="Visitor_id"/>
+                        <field name="naturalPark_id"/>
+                        <field name="hostel_id"/>
+                        <field name="visitor_id"/>
                     </group>
                 </sheet>
             </form>
@@ -21,7 +21,7 @@
 
     <record model="ir.ui.view" id="route_tree_view">
         <field name="name">route.tree</field>
-        <field name="model">npi.Route</field>
+        <field name="model">npi.route</field>
         <field name="arch" type="xml">
             <tree string="Route Tree">
                 <field name="name"/>
@@ -29,10 +29,33 @@
                     <field name="way"/>
                     <field name="numberOfPeople"/>
                     <field name="date"/>
-                    <field name="NaturalPark_id"/>
-                    <field name="Hostel_id"/>
-                    <field name="Visitor_id"/>
-            </form>
+                    <field name="naturalPark_id"/>
+                    <field name="hostel_id"/>
+                    <field name="visitor_id"/>
+            </tree>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="route_calendar_view">
+        <field name="name">route.calendar</field>
+        <field name="model">npi.route</field>
+        <field name="arch" type="xml">
+            <calendar string="Calenda" date_start="trip_starting" date_stop="trip_ending">
+                <field name="name"/>
+                <field name="trip_type"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="trip_list_action">
+        <field name="name">Route</field>
+        <field name="res_model">npi.route</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insert a route</p>
+        </field>
+    </record>
+
+
+    <menuitem id="route_menu" name="Trip" parent="npi_menu" action="route_list_action"/>
 </odoo>

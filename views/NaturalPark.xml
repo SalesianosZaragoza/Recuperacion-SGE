@@ -1,7 +1,7 @@
 <odoo>
     <record model="ir.ui.view" id="naturalPark_form_view">
         <field name="name">naturalPark.form</field>
-        <field name="model">npi.NaturalPark</field>
+        <field name="model">npi.naturalPark</field>
         <field name="arch" type="xml">
             <form string="Natural Park Form">
                 <sheet>
@@ -9,6 +9,7 @@
                         <field name="name"/>
                         <field name="starting_date"/>
                         <field name="extension"/>
+                        <field name="ca_ids"/>
                     </group>
                 </sheet>
             </form>
@@ -17,13 +18,25 @@
 
     <record model="ir.ui.view" id="naturalPark_tree_view">
         <field name="name">naturalPark.tree</field>
-        <field name="model">npi.NaturalPark</field>
+        <field name="model">npi.naturalPark</field>
         <field name="arch" type="xml">
             <tree string="Natural Park Tree">
                 <field name="name"/>
                 <field name="starting_date"/>
                 <field name="extension"/>
-            </form>
+                <field name="ca_ids"/>
+            </tree>
         </field>
     </record>
+
+    <record model="ir.actions.act_window" id="naturalPark_list_action">
+        <field name="name">Natural Park</field>
+            <field name="res_model">npi.naturalPark</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Insert a natural park</p>
+            </field>
+    </record>
+
+    <menuitem id="naturalPark_menu" name="Natural Park" parent="npi_menu" action="naturalPark_list_action"/>
 </odoo>

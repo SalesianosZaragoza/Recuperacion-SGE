@@ -1,7 +1,7 @@
 <odoo>
     <record model="ir.ui.view" id="managment_form_view">
         <field name="name">managment.form</field>
-        <field name="model">npi.Managment</field>
+        <field name="model">npi.managment</field>
         <field name="arch" type="xml">
             <form string="Managment Form">
                 <sheet>
@@ -13,7 +13,7 @@
                         <field name="mobile_phone"/>
                         <field name="landline"/>
                         <field name="salary"/>
-                        <field name="NaturalPark_id"/>
+                        <field name="naturalPark_id"/>
                         <field name="entry"/>
                     </group>
                 </sheet>
@@ -23,7 +23,7 @@
 
     <record model="ir.ui.view" id="managment_tree_view">
         <field name="name">managment.tree</field>
-        <field name="model">npi.Managment</field>
+        <field name="model">npi.managment</field>
         <field name="arch" type="xml">
             <tree string="Managment Tree">
                 <field name="dni"/>
@@ -33,9 +33,18 @@
                 <field name="mobile_phone"/>
                 <field name="landline"/>
                 <field name="salary"/>
-                <field name="NaturalPark_id"/>
+                <field name="naturalPark_id"/>
                 <field name="entry"/>
-            </form>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="managment_list_action">
+        <field name="name">Managment</field>
+        <field name="res_model">npi.managment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insert a managment</p>              
         </field>
     </record>
 
@@ -43,7 +52,7 @@
 
     <record model="ir.ui.view" id="vigilancy_form_view">
         <field name="name">vigilancy.form</field>
-        <field name="model">npi.Vigilancy</field>
+        <field name="model">npi.vigilancy</field>
         <field name="arch" type="xml">
             <form string="Vigilancy Form">
                 <sheet>
@@ -55,8 +64,9 @@
                         <field name="mobile_phone"/>
                         <field name="landline"/>
                         <field name="salary"/>
-                        <field name="NaturalPark_id"/>
-                        <field name="Area_id"/>
+                        <field name="naturalPark_id"/>
+                        <field name="area_id"/>
+                        <field name="car_id"/>
                     </group>
                 </sheet>
             </form>
@@ -65,7 +75,7 @@
 
     <record model="ir.ui.view" id="vigilancy_tree_view">
         <field name="name">vigilancy.tree</field>
-        <field name="model">npi.Vigilancy</field>
+        <field name="model">npi.vigilancy</field>
         <field name="arch" type="xml">
             <tree string="Vigilancy Tree">
                 <field name="dni"/>
@@ -75,9 +85,19 @@
                 <field name="mobile_phone"/>
                 <field name="landline"/>
                 <field name="salary"/>
-                <field name="NaturalPark_id"/>
-                <field name="Area_id"/>
-            </form>
+                <field name="naturalPark_id"/>
+                <field name="area_id"/>
+                <field name="car_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vigilancy_list_action">
+        <field name="name">Vigilancy</field>
+        <field name="res_model">npi.vigilancy</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insert a vigilant</p>              
         </field>
     </record>
 
@@ -85,7 +105,7 @@
 
     <record model="ir.ui.view" id="investigator_form_view">
         <field name="name">investigator.form</field>
-        <field name="model">npi.Investigator</field>
+        <field name="model">npi.investigator</field>
         <field name="arch" type="xml">
             <form string="Investigator Form">
                 <sheet>
@@ -97,7 +117,7 @@
                         <field name="mobile_phone"/>
                         <field name="landline"/>
                         <field name="salary"/>
-                        <field name="NaturalPark_id"/>
+                        <field name="naturalPark_id"/>
                         <field name="tittle"/>
                     </group>
                 </sheet>
@@ -107,7 +127,7 @@
 
     <record model="ir.ui.view" id="investigator_tree_view">
         <field name="name">investigator.tree</field>
-        <field name="model">npi.Investigator</field>
+        <field name="model">npi.investigator</field>
         <field name="arch" type="xml">
             <tree string="Investigator Tree">
                 <field name="dni"/>
@@ -117,18 +137,26 @@
                 <field name="mobile_phone"/>
                 <field name="landline"/>
                 <field name="salary"/>
-                <field name="NaturalPark_id"/>
+                <field name="naturalPark_id"/>
                 <field name="tittle"/>
-            </form>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="investigator_list_action">
+        <field name="name">Investigator</field>
+        <field name="res_model">npi.investigator</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insert a investigator</p>              
         </field>
     </record>
 
 
 
-
     <record model="ir.ui.view" id="conservation_form_view">
         <field name="name">conservation.form</field>
-        <field name="model">npi.Conservation</field>
+        <field name="model">npi.conservation</field>
         <field name="arch" type="xml">
             <form string="Conversation Form">
                 <sheet>
@@ -140,9 +168,9 @@
                         <field name="mobile_phone"/>
                         <field name="landline"/>
                         <field name="salary"/>
-                        <field name="NaturalPark_id"/>
+                        <field name="naturalPark_id"/>
                         <field name="specialization"/>
-                        <field name="Area_id"/>
+                        <field name="area_id"/>
                     </group>
                 </sheet>
             </form>
@@ -151,7 +179,7 @@
 
     <record model="ir.ui.view" id="conservation_tree_view">
         <field name="name">conversation.tree</field>
-        <field name="model">npi.Conversation</field>
+        <field name="model">npi.conversation</field>
         <field name="arch" type="xml">
             <tree string="Conversation Tree">
                 <field name="dni"/>
@@ -161,11 +189,63 @@
                 <field name="mobile_phone"/>
                 <field name="landline"/>
                 <field name="salary"/>
-                <field name="NaturalPark_id"/>
+                <field name="naturalPark_id"/>
                 <field name="specialization"/>
-                <field name="Area_id"/>
+                <field name="area_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="conversation_list_action">
+        <field name="name">Conversation</field>
+        <field name="res_model">npi.conversation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insert conversation</p>              
+        </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="car_form_view">
+        <field name="name">car.form</field>
+        <field name="model">npi.car</field>
+        <field name="arch" type="xml">
+            <form string="Car Form">
+                <sheet>
+                    <group>
+                        <field name="model"/>
+                        <field name="enrollment"/>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="car_tree_view">
+        <field name="name">car.tree</field>
+        <field name="model">npi.car</field>
+        <field name="arch" type="xml">
+            <tree string="Car Tree">
+                <field name="model"/>
+                <field name="enrollment"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="car_list_action">
+        <field name="name">Car</field>
+        <field name="res_model">npi.Car</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insert a car</p>              
+        </field>
+    </record>
+
+    <menuitem id="managment_menu" name="Managment" parent="npi_managment" action="managment_list_action"/>
+    <menuitem id="car_menu" name="Mineral" parent="npi_car" action="car_list_action"/>
+    <menuitem id="conversation_menu" name="Conversation" parent="npi_menu" action="conversation_list_action"/>
+    <menuitem id="investigator_menu" name="Investigator" parent="npi_menu" action="investigator_list_action"/>
+    <menuitem id="vigilant_menu" name="Vigilant" parent="npi_menu" action="vigilant_list_action"/>
 
 </odoo>

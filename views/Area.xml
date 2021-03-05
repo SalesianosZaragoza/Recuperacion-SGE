@@ -1,16 +1,15 @@
 <odoo>
     <record model="ir.ui.view" id="area_form_view">
         <field name="name">area.form</field>
-        <field name="model">npi.Area</field>
+        <field name="model">npi.area</field>
         <field name="arch" type="xml">
             <form string="Area Form">
                 <sheet>
                     <group>
                         <field name="name"/>
                         <field name="extension"/>
-                        <field name="asientos"/>
-                        <field name="NaturalPark_id"/>
-                        <field name="CA_id"/>
+                        <field name="naturalPark_id"/>
+                        <field name="ca_id"/>
                     </group>
                 </sheet>
             </form>
@@ -19,15 +18,26 @@
 
     <record model="ir.ui.view" id="area_tree_view">
         <field name="name">area.tree</field>
-        <field name="model">npi.Area</field>
+        <field name="model">npi.area</field>
         <field name="arch" type="xml">
             <tree string="Area Tree">
                 <field name="name"/>
                 <field name="extension"/>
-                <field name="asientos"/>
-                <field name="NaturalPark_id"/>
-                <field name="CA_id"/>
-            </form>
+                <field name="naturalPark_id"/>
+                <field name="ca_id"/>
+            </tree>
         </field>
     </record>
+
+    <record model="ir.actions.act_window" id="area_list_action">
+        <field name="name">Area</field>
+            <field name="res_model">npi.area</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Insert an area</p>
+            </field>
+    </record>
+
+    <menuitem id="area_menu" name="Area" parent="npi_menu" action="area_list_action"/>
+
 </odoo>
