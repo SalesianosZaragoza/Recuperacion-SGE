@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
 class staff(models.Model):
-    _name = 'npi.Staff'
+    _name = 'npi.staff'
 
     dni = fields.Char(string="D.N.I.", required=True)
     ss = fields.Char(string="Seguridad social")
