@@ -19,6 +19,13 @@
     'depends': ['base'],
 
     'data': [
-        'templates.xml',
+        'area.xml',
+        'ca.xml',
+        'naturalPark.xml',
+        'project.xml',
+        'route.xml',
+        'species.xml',
+        'staff.xml',
+        'visitor.xml',
     ],
 }
