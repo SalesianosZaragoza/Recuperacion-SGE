@@ -1,0 +1,69 @@
+<odoo>
+
+    <record model="ir.ui.view" id="mineral_form_view">
+        <field name="name">mineral.form</field>
+        <field name="model">odooIracema.mineral</field>
+        <field name="arch" type="xml">
+            <form string="Mineral Form">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="common_name" />
+                        <field name="areas_species_ids" />
+                        <field name="mineral_type" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mineral_tree_view">
+        <field name="name">mineral.tree</field>
+        <field name="model">odooIracema.mineral</field>
+        <field name="arch" type="xml">
+            <tree string="Mineral Tree">
+                <field name="name" />
+                <field name="common_name" />
+                <field name="areas_species_ids" />
+                <field name="mineral_type" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mineral_pivot_view">
+        <field name="name">mineral.pivot</field>
+        <field name="model">odooIracema.mineral</field>
+        <field name="arch" type="xml">
+            <pivot string="Mineral">
+                <field name="mineral_type" type="row" />
+                <field name="name" />
+            </pivot>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mineral_list_action">
+        <field name="name">Mineral</field>
+        <field name="res_model">odooIracema.mineral</field>
+        <field name="view_mode">tree,form,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new mineral
+        </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mineral_search_view">
+        <field name="name">mineral.search</field>
+        <field name="model">odooIracema.mineral</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="common_name" />
+                <filter name="stone" string="Stone" domain="[('mineral_type', '=', 'stone')]" />
+                <filter name="crystal" string="Crystal" domain="[('mineral_type', '=', 'crystal')]" />
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="mineral_menu" name="Mineral" parent="natural_parks_menu" action="mineral_list_action" />
+
+</odoo>

@@ -1,0 +1,64 @@
+<odoo>
+
+        <record model="ir.ui.view" id="areas_form_view">
+            <field name="name">areas.form</field>
+            <field name="model">odooIracema.areas</field>
+            <field name="arch" type="xml">
+                <form string="Area Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="extension" options='{"type": "number", "step": 1}'/>
+                            <field name="areas_species_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="areas_tree_view">
+            <field name="name">areas.tree</field>
+            <field name="model">odooIracema.areas</field>
+            <field name="arch" type="xml">
+                <tree string="Area Tree">
+                    <field name="name"/>
+                    <field name="extension"/>
+                    <field name="areas_species_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record  model="ir.ui.view" id="areas_pivot_view">
+            <field name="name">areas.pivot</field>
+            <field name="model">odooIracema.areas</field>
+            <field name="arch" type="xml">
+                <pivot string="Area">
+                   <field name="areas_species_id"/>
+                    <field name="name"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="areas_graph_view">
+            <field name="name">areas.graph</field>
+            <field name="model">odooIracema.areas</field>
+            <field name="arch" type="xml">
+                <graph string="Areas by Extension">
+                    <field name="name"/>
+                    <field name="extension" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="areas_list_action">
+            <field name="name">Area</field>
+            <field name="res_model">odooIracema.areas</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+            
+        </record>
+        
+        <menuitem id="areas_menu" name="Area"
+            parent="natural_parks_menu"
+            action="areas_list_action"/>
+
+</odoo>

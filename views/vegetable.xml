@@ -1,0 +1,45 @@
+<odoo>
+    <record model="ir.ui.view" id="vegetable_form_view">
+        <field name="name">vegetable.form</field>
+        <field name="model">odooIracema.vegetable</field>
+        <field name="arch" type="xml">
+            <form string="vegetable Form">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="common_name" />
+                        <field name="areas_species_ids" />
+                        <field name="blooming" />
+                        <field name="blooming_period" />
+                        <field name="is_eaten" />
+                        <field name="animal_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vegetable_tree_view">
+        <field name="name">vegetable.tree</field>
+        <field name="model">odooIracema.vegetable</field>
+        <field name="arch" type="xml">
+            <tree string="vegetable Tree">
+                <field name="name" />
+                <field name="common_name" />
+                <field name="areas_species_ids" />
+                <field name="blooming" />
+                <field name="blooming_period" />
+                <field name="is_eaten" />
+                <field name="animal_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vegetable_list_action">
+        <field name="name">vegetable</field>
+        <field name="res_model">odooIracema.vegetable</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="vegetable_menu" name="Vegetable" parent="natural_parks_menu" action="vegetable_list_action" />
+</odoo>

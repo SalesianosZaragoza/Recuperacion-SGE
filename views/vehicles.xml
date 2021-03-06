@@ -1,0 +1,37 @@
+<odoo>
+    <record model="ir.ui.view" id="vehicles_form_view">
+        <field name="name">vehicles.form</field>
+        <field name="model">odooIracema.vehicles</field>
+        <field name="arch" type="xml">
+            <form string="vehicles Employee Form">
+                <sheet>
+                    <group>
+                        <field name="plate_number" />
+                        <field name="car_model" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vehicles_tree_view">
+        <field name="name">vehicles.tree</field>
+        <field name="model">odooIracema.vehicles</field>
+        <field name="arch" type="xml">
+            <tree string="vehicles Employee Tree">
+                <field name="plate_number" />
+                <field name="car_model" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vehicles_list_action">
+        <field name="name">vehicles</field>
+        <field name="res_model">odooIracema.vehicles</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+    <menuitem id="vehicles_menu" name="Vehicles" parent="employees_menu" action="vehicles_list_action" />
+
+</odoo>
