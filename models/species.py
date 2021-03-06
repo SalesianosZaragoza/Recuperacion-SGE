@@ -1,35 +1,35 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
-class species(models.Model):
-    _name = 'npi.species'
+class Species(models.Model):
+    _name = 'recu.species'
 
-    name = fields.Char(string="Scientific name", required=True)
-    vulgarName = fields.Char(string="Vulgar name", required=True)
-    numberSpecies = fields.Integer(string="Número de especies")
+    name = fields.Char(string="Nombre cientifico")
+    common_name = fields.Char(string="Nombre comun")
+    number_of_specimens = fields.Integer(string="Numero de especies")
+    area_ids = fields.Many2many('recu.area', string="Area")
 
-    area_ids = fields.Many2many('npi.area', string="Area", required=True)
+class Plant(models.Model):
+    _name = 'recu.plant'
+    _inherit = 'recu.species'
 
-
-class plant(models.Model):
-    _name = 'npi.plant'
-    _inherit = 'npi.species'
-
-    floration = fields.Boolean(string="Does it have flowering?")
-    florationPeriod = fields.Selection([(('winter', 'Winter'), ('spring', 'Spring'), ('summer', 'Summer'), ('autumn', 'Autumn'))])
-
-    animal_ids = fields.Many2many('npi.animal', string="Animals that eat this plant", required=True)
+    flowering = fields.Boolean(string="¿Florece la planta?")
+    flowering_period = fields.Selection([('spring', 'Primavera'), ('summer', 'Verano'), ('autumn', 'Otoño'), ('winter', 'Invierno')])
+    is_eaten = fields.Boolean(string="¿Es comida?")
+    animal_ids = fields.Many2many('recu.animal', string="Animales que se comen esta planta")
 
 
-class animal(models.Model):
-    _name = 'npi.animal'
-    _inherit = 'npi.species'
+class Animal(models.Model):
+    _name = 'recu.animal'
+    _inherit = 'recu.species'
 
-    alimentation = fields.Selection([('carnivore', 'Carnivore'), ('herbivore', 'Herbivore'), ('omnivore', 'Omnivore')], required=True)
-    reproductionPeriod = fields.Selection([('annual', 'Annual'), ('periodic', 'Periodic'), ('permanente', 'Permanente')], required=True)
+    alimentation = fields.Selection([('carnivore','Carnivoros'), ('herbivore','Herbivoro'), ('omnivore','Omnivoro')])
+    mating_season = fields.Selection([('spring', 'Primavera'), ('summer', 'Verano'), ('autumn', 'Otoño'), ('winter', 'Invierno')])
 
+    is_eaten = fields.Boolean(string="¿Es una presa?")
+    animal_ids = fields.Many2many(comodel_name='recu.animal', relation='animals_eaten', column1='presa', column2='depredador')
 
-class mineral(models.Model):
-    _name = 'npi.mineral'
-    _inherit = 'npi.species'
+class Mineral(models.Model):
+    _name = 'recu.mineral'
+    _inherit = 'recu.species'
 
-    mineralType = fields.Selection([('glass', 'Glass'), ('rock', 'Rock')], required=True)
+    mineral_type = fields.Selection([('crystal', 'Cristal'), ('stone', 'Piedra')]) 

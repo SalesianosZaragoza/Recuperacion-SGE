@@ -1,220 +1,78 @@
 <odoo>
-    <record model="ir.ui.view" id="managment_form_view">
-        <field name="name">managment.form</field>
-        <field name="model">npi.managment</field>
+
+    <record model="ir.ui.view" id="management_form_view">
+        <field name="name">management.form</field>
+        <field name="model">recu.management</field>
         <field name="arch" type="xml">
-            <form string="Managment Form">
+            <form string="Management Employee Form">
                 <sheet>
                     <group>
                         <field name="dni"/>
-                        <field name="ss"/>
+                        <field name="social_security"/>
                         <field name="name"/>
-                        <field name="adress"/>
+                        <field name="address"/>
                         <field name="mobile_phone"/>
                         <field name="landline"/>
                         <field name="salary"/>
-                        <field name="naturalPark_id"/>
-                        <field name="entry"/>
+                        <field name="number_entrance"/>
+                        <field name="natural_park_id"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <record model="ir.ui.view" id="managment_tree_view">
-        <field name="name">managment.tree</field>
-        <field name="model">npi.managment</field>
+    <record model="ir.ui.view" id="management_tree_view">
+        <field name="name">management.tree</field>
+        <field name="model">recu.management</field>
         <field name="arch" type="xml">
-            <tree string="Managment Tree">
+            <tree string="Management Employee Tree">
                 <field name="dni"/>
-                <field name="ss"/>
+                <field name="social_security"/>
                 <field name="name"/>
-                <field name="adress"/>
+                <field name="address"/>
                 <field name="mobile_phone"/>
                 <field name="landline"/>
                 <field name="salary"/>
-                <field name="naturalPark_id"/>
-                <field name="entry"/>
+                <field name="number_entrance"/>
+                <field name="natural_park_id"/>
             </tree>
         </field>
     </record>
 
-    <record model="ir.actions.act_window" id="managment_list_action">
-        <field name="name">Managment</field>
-        <field name="res_model">npi.managment</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Insert a managment</p>              
-        </field>
-    </record>
 
-
-
-    <record model="ir.ui.view" id="vigilancy_form_view">
-        <field name="name">vigilancy.form</field>
-        <field name="model">npi.vigilancy</field>
+    <record model="ir.ui.view" id="vigilance_form_view">
+        <field name="name">vigilance.form</field>
+        <field name="model">recu.vigilance</field>
         <field name="arch" type="xml">
-            <form string="Vigilancy Form">
+            <form string="Vigilance Employee Form">
                 <sheet>
                     <group>
                         <field name="dni"/>
-                        <field name="ss"/>
+                        <field name="social_security"/>
                         <field name="name"/>
-                        <field name="adress"/>
+                        <field name="address"/>
                         <field name="mobile_phone"/>
                         <field name="landline"/>
-                        <field name="salary"/>
-                        <field name="naturalPark_id"/>
-                        <field name="area_id"/>
+                        <field name="salary"/>                                                     
                         <field name="car_id"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="vigilancy_tree_view">
-        <field name="name">vigilancy.tree</field>
-        <field name="model">npi.vigilancy</field>
-        <field name="arch" type="xml">
-            <tree string="Vigilancy Tree">
-                <field name="dni"/>
-                <field name="ss"/>
-                <field name="name"/>
-                <field name="adress"/>
-                <field name="mobile_phone"/>
-                <field name="landline"/>
-                <field name="salary"/>
-                <field name="naturalPark_id"/>
-                <field name="area_id"/>
-                <field name="car_id"/>
-            </tree>
-        </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="vigilancy_list_action">
-        <field name="name">Vigilancy</field>
-        <field name="res_model">npi.vigilancy</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Insert a vigilant</p>              
-        </field>
-    </record>
-
-
-
-    <record model="ir.ui.view" id="investigator_form_view">
-        <field name="name">investigator.form</field>
-        <field name="model">npi.investigator</field>
-        <field name="arch" type="xml">
-            <form string="Investigator Form">
-                <sheet>
-                    <group>
-                        <field name="dni"/>
-                        <field name="ss"/>
-                        <field name="name"/>
-                        <field name="adress"/>
-                        <field name="mobile_phone"/>
-                        <field name="landline"/>
-                        <field name="salary"/>
-                        <field name="naturalPark_id"/>
-                        <field name="tittle"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="investigator_tree_view">
-        <field name="name">investigator.tree</field>
-        <field name="model">npi.investigator</field>
-        <field name="arch" type="xml">
-            <tree string="Investigator Tree">
-                <field name="dni"/>
-                <field name="ss"/>
-                <field name="name"/>
-                <field name="adress"/>
-                <field name="mobile_phone"/>
-                <field name="landline"/>
-                <field name="salary"/>
-                <field name="naturalPark_id"/>
-                <field name="tittle"/>
-            </tree>
-        </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="investigator_list_action">
-        <field name="name">Investigator</field>
-        <field name="res_model">npi.investigator</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Insert a investigator</p>              
-        </field>
-    </record>
-
-
-
-    <record model="ir.ui.view" id="conservation_form_view">
-        <field name="name">conservation.form</field>
-        <field name="model">npi.conservation</field>
-        <field name="arch" type="xml">
-            <form string="Conversation Form">
-                <sheet>
-                    <group>
-                        <field name="dni"/>
-                        <field name="ss"/>
-                        <field name="name"/>
-                        <field name="adress"/>
-                        <field name="mobile_phone"/>
-                        <field name="landline"/>
-                        <field name="salary"/>
-                        <field name="naturalPark_id"/>
-                        <field name="specialization"/>
                         <field name="area_id"/>
+                        <field name="natural_park_id"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
-
-    <record model="ir.ui.view" id="conservation_tree_view">
-        <field name="name">conversation.tree</field>
-        <field name="model">npi.conversation</field>
-        <field name="arch" type="xml">
-            <tree string="Conversation Tree">
-                <field name="dni"/>
-                <field name="ss"/>
-                <field name="name"/>
-                <field name="adress"/>
-                <field name="mobile_phone"/>
-                <field name="landline"/>
-                <field name="salary"/>
-                <field name="naturalPark_id"/>
-                <field name="specialization"/>
-                <field name="area_id"/>
-            </tree>
-        </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="conversation_list_action">
-        <field name="name">Conversation</field>
-        <field name="res_model">npi.conversation</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Insert conversation</p>              
-        </field>
-    </record>
-
 
 
     <record model="ir.ui.view" id="car_form_view">
         <field name="name">car.form</field>
-        <field name="model">npi.car</field>
+        <field name="model">recu.car</field>
         <field name="arch" type="xml">
             <form string="Car Form">
                 <sheet>
                     <group>
-                        <field name="model"/>
+                        <field name="type"/>
                         <field name="enrollment"/>
                     </group>
                 </sheet>
@@ -222,30 +80,131 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="car_tree_view">
-        <field name="name">car.tree</field>
-        <field name="model">npi.car</field>
+
+    <record model="ir.ui.view" id="research_form_view">
+        <field name="name">research.form</field>
+        <field name="model">recu.research</field>
         <field name="arch" type="xml">
-            <tree string="Car Tree">
-                <field name="model"/>
-                <field name="enrollment"/>
-            </tree>
+            <form string="Research Employee Form">
+                <sheet>
+                    <group>
+                        <field name="dni"/>
+                        <field name="social_security"/>
+                        <field name="name"/>                        
+                        <field name="address"/>
+                        <field name="mobile_phone"/>
+                        <field name="landline"/>
+                        <field name="salary"/>
+                        <field name="title"/>
+                        <field name="natural_park_id"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
-    <record model="ir.actions.act_window" id="car_list_action">
-        <field name="name">Car</field>
-        <field name="res_model">npi.Car</field>
+
+    <record model="ir.ui.view" id="project_form_view">
+        <field name="name">project.form</field>
+        <field name="model">recu.project</field>
+        <field name="arch" type="xml">
+            <form string="Project Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="budget"/>
+                        <field name="project_time"/>
+                        <field name="species_id"/>
+                        <field name="research_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="conservation_form_view">
+        <field name="name">conservation.form</field>
+        <field name="model">recu.conservation</field>
+        <field name="arch" type="xml">
+            <form string="Conservation Employee Form">
+                <sheet>
+                    <group>
+                        <field name="dni"/>
+                        <field name="social_security"/>
+                        <field name="name"/>
+                        <field name="address"/>
+                        <field name="mobile_phone"/>
+                        <field name="landline"/>
+                        <field name="salary"/>
+                        <field name="natural_park_id"/>
+                        <field name="area_id"/>
+                        <field name="specialty"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="management_list_action">
+        <field name="name">Management</field>
+        <field name="res_model">recu.management</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Insert a car</p>              
+            <p class="o_view_nocontent_smiling_face">Insertar personal de gestion</p>          
         </field>
     </record>
 
-    <menuitem id="managment_menu" name="Managment" parent="npi_managment" action="managment_list_action"/>
-    <menuitem id="car_menu" name="Mineral" parent="npi_car" action="car_list_action"/>
-    <menuitem id="conversation_menu" name="Conversation" parent="npi_menu" action="conversation_list_action"/>
-    <menuitem id="investigator_menu" name="Investigator" parent="npi_menu" action="investigator_list_action"/>
-    <menuitem id="vigilant_menu" name="Vigilant" parent="npi_menu" action="vigilant_list_action"/>
+    <record model="ir.actions.act_window" id="vigilance_list_action">
+        <field name="name">Vigilance</field>
+        <field name="res_model">recu.vigilance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insertar a vigilante</p>
+        </field>
+    </record>
 
-</odoo>
+            <record model="ir.actions.act_window" id="car_list_action">
+        <field name="name">Car</field>
+        <field name="res_model">recu.car</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insertar coche</p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="research_list_action">
+        <field name="name">Research</field>
+        <field name="res_model">recu.research</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insertar investigador</p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="project_list_action">
+        <field name="name">Project</field>
+        <field name="res_model">recu.project</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insertar proyecto</p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="conservation_list_action">
+        <field name="name">Conservation</field>
+        <field name="res_model">recu.conservation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insertar mantenimiento</p>
+        </field>
+    </record>
+
+    <menuitem id="management_menu" name="Management Employee" parent="recu_menu" action="management_list_action"/>
+    <menuitem id="vigilance_menu" name="Vigilance Employee" parent="recu_menu" action="vigilance_list_action"/>       
+    <menuitem id="car_menu" name="Car" parent="recu_menu" action="car_list_action"/>
+    <menuitem id="research_menu" name="Research Employee" parent="recu_menu" action="research_list_action"/>
+    <menuitem id="project_menu" name="Research Project" parent="recu_menu" action="project_list_action"/>
+    <menuitem id="conservation_menu" name="Conservation Employee" parent="recu_menu" action="conservation_list_action"/>
+
+</odoo> 

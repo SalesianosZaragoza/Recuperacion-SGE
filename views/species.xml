@@ -2,46 +2,22 @@
 
     <record model="ir.ui.view" id="plant_form_view">
         <field name="name">plant.form</field>
-        <field name="model">npi.plant</field>
+        <field name="model">recu.plant</field>
         <field name="arch" type="xml">
             <form string="Plant Form">
                 <sheet>
                     <group>
-                        <field name="name" />
-                        <field name="vulgarName" />
-                        <field name="numberSpecies" />
-                        <field name="area_ids"/>
-                        <field name="floration"/>
-                        <field name="florationPeriod"/>
+                        <field name="name"/>
+                        <field name="common_name"/>
+                        <field name="number_of_specimens"/>
+                        <field name="flowering"/>
+                        <field name="flowering_period"/>
+                        <field name="is_eaten"/>
                         <field name="animal_ids"/>
+                        <field name="area_ids"/>
                     </group>
                 </sheet>
             </form>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="plant_tree_view">
-        <field name="name">plant.tree</field>
-        <field name="model">npi.plant</field>
-        <field name="arch" type="xml">
-            <tree string="Plant Tree">
-                <field name="name" />
-                <field name="vulgarName" />
-                <field name="numberSpecies" />
-                <field name="area_ids"/>
-                <field name="floration"/>
-                <field name="florationPeriod"/>
-                <field name="animal_ids"/>
-            </tree>
-        </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="plant_list_action">
-        <field name="name">Plant</field>
-        <field name="res_model">npi.plant</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Insert a plant</p>              
         </field>
     </record>
 
@@ -49,90 +25,74 @@
 
     <record model="ir.ui.view" id="animal_form_view">
         <field name="name">animal.form</field>
-        <field name="model">npi.animal</field>
+        <field name="model">recu.animal</field>
         <field name="arch" type="xml">
             <form string="Animal Form">
                 <sheet>
                     <group>
-                        <field name="name" />
-                        <field name="vulgarName" />
-                        <field name="numberSpecies" />
-                        <field name="area_ids"/>
+                        <field name="name"/>
+                        <field name="common_name"/>
+                        <field name="number_of_specimens"/>
                         <field name="alimentation"/>
-                        <field name="reproductionPeriod"/>
+                        <field name="mating_season"/>
+                        <field name="is_eaten"/>
+                        <field name="animal_ids"/>
+                        <field name="area_ids"/>
                     </group>
                 </sheet>
             </form>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="animal_tree_view">
-        <field name="name">animal.tree</field>
-        <field name="model">npi.animal</field>
-        <field name="arch" type="xml">
-            <tree string="Animal Tree">
-                <field name="name" />
-                <field name="vulgarName" />
-                <field name="numberSpecies" />
-                <field name="area_ids"/>
-                <field name="alimentation"/>
-                <field name="reproductionPeriod"/>
-            </tree>
-        </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="animal_list_action">
-        <field name="name">Animal</field>
-        <field name="res_model">npi.animal</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Insert an animal</p>              
         </field>
     </record>
 
 
     <record model="ir.ui.view" id="mineral_form_view">
         <field name="name">mineral.form</field>
-        <field name="model">npi.mineral</field>
+        <field name="model">recu.mineral</field>
         <field name="arch" type="xml">
             <form string="Mineral Form">
                 <sheet>
                     <group>
-                        <field name="name" />
-                        <field name="vulgarName" />
-                        <field name="numberSpecies" />
+                        <field name="name"/>
+                        <field name="common_name"/>
+                        <field name="number_of_specimens"/>
+                        <field name="mineral_type"/>
                         <field name="area_ids"/>
-                        <field name="mineralType"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <record model="ir.ui.view" id="mineral_tree_view">
-        <field name="name">mineral.tree</field>
-        <field name="model">npi.mineral</field>
-        <field name="arch" type="xml">
-            <tree string="Mineral Tree">
-                <field name="name" />
-                <field name="vulgarName" />
-                <field name="numberSpecies" />
-                <field name="area_ids"/>
-                <field name="mineralType"/>
-            </tree>
+    <record model="ir.actions.act_window" id="plant_list_action">
+        <field name="name">Plant</field>
+        <field name="res_model">recu.plant</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Inserte una planta</p>              
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="mineral_list_action">
         <field name="name">Mineral</field>
-        <field name="res_model">npi.mineral</field>
+        <field name="res_model">recu.mineral</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Insert a mineral</p>              
+            <p class="o_view_nocontent_smiling_face">Insertar un mineral</p>
         </field>
     </record>
 
-    <menuitem id="plant_menu" name="Plant" parent="npi_menu" action="plant_list_action"/>
-    <menuitem id="animal_menu" name="Animal" parent="npi_menu" action="animal_list_action"/>
-    <menuitem id="mineral_menu" name="Mineral" parent="npi_menu" action="mineral_list_action"/>
-</odoo>
+    <record model="ir.actions.act_window" id="animal_list_action">
+        <field name="name">Animal</field>
+        <field name="res_model">recu.animal</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Insertar un animal</p>
+        </field>
+    </record>
+
+
+    <menuitem id="plant_menu" name="Plant" parent="recu_menu" action="plant_list_action"/>
+    <menuitem id="animal_menu" name="Animal" parent="recu_menu" action="animal_list_action"/>
+    <menuitem id="mineral_menu" name="Mineral" parent="recu_menu" action="mineral_list_action"/>
+
+</odoo> 

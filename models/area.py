@@ -1,16 +1,15 @@
 from odoo import models, fields, api, exceptions
 
-class area(models.Model):
-    _name = 'npi.area'
+class Area(models.Model):
+    _name = 'recu.area'
 
-    name = fields.Char(string="Name", required=True)
-    extension = fields.Integer(string="Extension", required=True)
+    name = fields.Char(string="Nombre")
+    extension = fields.Integer(string="Extension")
+    community_id = fields.Many2one('recu.community', string="Comunidad") 
+    natural_park_id = fields.Many2one('recu.natural_park', string="Parque Natural")
 
-    naturalPark_id = fields.Many2one('npi.naturalPark', string="Natural Park")
-    ca_id = fields.Many2one('npi.ca', string="Autonomous community")
-
-    @api.constrains('naturalPark_id', 'ca_id')
+    @api.constrains('natural_park_id', 'community_id')
     def _park_inside_community(self):
         for n in self:
-            if n.ca_id not in n.naturalPark_id.ca_ids:
+            if n.community_id not in n.natural_park_id.community_ids:
                 raise exceptions.ValidationError("En esta comunidad no esta el parque") 

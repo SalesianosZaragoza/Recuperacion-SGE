@@ -1,49 +1,55 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
-class staff(models.Model):
-    _name = 'npi.staff'
+class Staff(models.Model):
+    _name = 'recu.staff'
 
-    dni = fields.Char(string="D.N.I.", required=True)
-    ss = fields.Char(string="Seguridad social")
-    name = fields.Char(string="Name")
-    adress = fields.Char(string="Dirección")
-    mobile_phone = fields.Char(string="Teléfono móvil")
-    landline = fields.Char(string="Teléfono fijo")
-    salary = fields.Integer(string="Salario")
+    dni = fields.Char(string="Dni")
+    social_security = fields.Char(string="Seguridad Social")  
+    name = fields.Char(string="Nombre")
+    address = fields.Char(string="Direccion")
+    landline = fields.Integer()
+    mobile_phone = fields.Integer()
+    salary = fields.Integer(string="Salario") 
+    natural_park_id = fields.Many2one('recu.natural_park', ondelete='cascade', string="Parque Natural")
 
-    naturalPark_id = fields.Many2one('npi.naturalPark', string="Natural Park", required=True)
+class Management(models.Model):
+    _name = 'recu.management'
+    _inherit = 'recu.staff'
 
+    number_entrance = fields.Integer(string="Numero de entrada")
 
-class managment(models.Model):
-    _name = 'npi.managment'
-    _inherit = 'npi.staff'
+class Vigilance(models.Model):
+    _name = 'recu.vigilance'
+    _inherit = 'recu.staff'
 
-    entry = fields.Selection([(('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'))])
+    car_id = fields.Many2one('recu.car', string="Car")
+    area_id = fields.Many2one('recu.area', string="Area")
 
-class vigilancy(models.Model):
-    _name = 'npi.vigilancy'
-    _inherit = 'npi.staff'
+class Research(models.Model):
+    _name = 'recu.research'
+    _inherit = 'recu.staff'
 
-    area_id = fields.Many2one('npi.area', string="Area")
-    car_id = fields.Many2one('npi.car', string="Car")
+    title = fields.Char()
 
-class investigator(models.Model):
-    _name = 'npi.investigator'
-    _inherit = 'npi.staff'
+class Conservation(models.Model):
+    _name = 'recu.conservation'
+    _inherit = 'recu.staff'
 
-    title = fields.Char(required = True)
+    area_id = fields.Many2one('recu.area', string="Area")
+    specialty = fields.Selection([('cleaning', 'Limpieza'), ('roads', 'Caminos')]) 
 
-class conservation(models.Model):
-    _name = 'npi.conservation'
-    _inherit = 'npi.staff'
+class Car(models.Model):
+    _name = 'recu.car'
 
-    specialization = fields.Selection([(('canine', 'Canine'), ('cleanning', 'Cleanning'), ('other', 'Other'))])
+    type = fields.Char(string="Tipo")
+    enrollment = fields.Char(string="Matricula")
 
-    area_id = fields.Many2one('npi.area', string="Area", required=True)
+class Project(models.Model):
+    _name = 'recu.project'
 
-class car(models.Model):
-    _name = 'npi.car'
-
-    model = fields.Char(string="Type of car", required=True)
-    enrollment = fields.Char(string="Enrollment")
+    name = fields.Char(string="Nombre")
+    budget = fields.Float(string="Fondos")
+    project_time = fields.Integer(string="Tiempo de realizacion")
+    species_id = fields.Many2one('recu.species', string="Especies")
+    research_ids = fields.Many2many('recu.research', string="Investigadores")
 

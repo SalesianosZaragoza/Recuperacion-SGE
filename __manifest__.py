@@ -1,5 +1,5 @@
 {
-    'name': "NPI",
+    'name': "recu",
 
     'summary': """Natural Parks Information""",
 
@@ -19,13 +19,13 @@
     'depends': ['base'],
 
     'data': [
-        'views/area.xml',
-        'views/ca.xml',
-        'views/naturalPark.xml',
-        'views/project.xml',
-        'views/route.xml',
-        'views/species.xml',
-        'views/staff.xml',
+        'views/acommodation.xml',
+        'views/trip.xml',
         'views/visitor.xml',
+        'views/species.xml',
+        'views/community.xml',
+        'views/natural_park.xml',
+        'views/area.xml',
+        'views/staff.xml',
     ],
 }
