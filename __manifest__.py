@@ -37,8 +37,7 @@
         'views/research_staff.xml',
         'views/conservation_staff.xml',
         'views/project.xml',
-        'security/ir.model.access.csv'
-         ],
+    ],
 
 #'installable': True,
    
