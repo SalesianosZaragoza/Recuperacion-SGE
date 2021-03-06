@@ -1,7 +1,7 @@
 <odoo>
     <record model="ir.ui.view" id="animal_form_view">
         <field name="name">animal.form</field>
-        <field name="model">odooIracema.animal</field>
+        <field name="model">iracema.animal</field>
         <field name="arch" type="xml">
             <form string="Animal Form">
                 <sheet>
@@ -21,7 +21,7 @@
 
     <record model="ir.ui.view" id="animal_tree_view">
         <field name="name">animal.tree</field>
-        <field name="model">odooIracema.animal</field>
+        <field name="model">iracema.animal</field>
         <field name="arch" type="xml">
             <tree string="Animal Tree">
                 <field name="name" />
@@ -37,7 +37,7 @@
 
     <record model="ir.ui.view" id="animal_pivot_view">
         <field name="name">animal.pivot</field>
-        <field name="model">odooIracema.animal</field>
+        <field name="model">iracema.animal</field>
         <field name="arch" type="xml">
             <pivot string="Animal">
                 <field name="alimentation" type="row" />
@@ -48,14 +48,14 @@
 
     <record model="ir.actions.act_window" id="animal_list_action">
         <field name="name">Animal</field>
-        <field name="res_model">odooIracema.animal</field>
+        <field name="res_model">iracema.animal</field>
         <field name="view_mode">tree,form,pivot</field>
 
     </record>
 
     <record model="ir.ui.view" id="animal_search_view">
         <field name="name">animal.search</field>
-        <field name="model">odooIracema.animal</field>
+        <field name="model">iracema.animal</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name" />

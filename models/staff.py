@@ -1,7 +1,7 @@
 from odoo import models, fields, api, exceptions
 
-class employees(models.Model):
-    _name = 'odooIracema.employees'
+class staff(models.Model):
+    _name = 'iracema.staff'
     
     name = fields.Char(string="Name", required=True) 
     dni = fields.Char(required=True)
@@ -18,33 +18,33 @@ class employees(models.Model):
                 raise exceptions.ValidationError("The salary must be greater than zero")
 
 class management(models.Model):
-    _name = 'odooIracema.management'
-    _inherit = 'odooIracema.employees'
+    _name = 'iracema.management'
+    _inherit = 'iracema.staff'
 
-    entrance_id = fields.Many2one('odooIracema.entrances', string="Entrance", required=True)
+    entrance_id = fields.Many2one('iracema.entrances', string="Entrance", required=True)
     
 class entrances(models.Model):
-    _name = 'odooIracema.entrances'
+    _name = 'iracema.entrances'
 
     entrance_number = fields.Integer(required=True)
 
 class vehicles(models.Model):
-    _name = 'odooIracema.vehicles'
+    _name = 'iracema.vehicles'
 
     name = fields.Char(string="Car Type", required=True)
     plate_number = fields.Char(string="Plate number")
     car_model = fields.Char(string="Car model")
 
 class investigation(models.Model):
-    _name = 'odooIracema.investigation'
-    _inherit = 'odooIracema.employees'
+    _name = 'iracema.investigation'
+    _inherit = 'iracema.staff'
 
     academic_qualification = fields.Char(string="Titulation", required=True)    
 
     
 class conservation(models.Model):
-    _name = 'odooIracema.conservation'
-    _inherit = 'odooIracema.employees'
+    _name = 'iracema.conservation'
+    _inherit = 'iracema.staff'
 
-    areas_id = fields.Many2one('odooIracema.areas', string="Area", required=True)
+    areas_id = fields.Many2one('iracema.areas', string="Area", required=True)
     specialty = fields.Selection([('cleaning', 'Cleaning'), ('canine', 'Canine'), ('prune', 'Prune')]) 

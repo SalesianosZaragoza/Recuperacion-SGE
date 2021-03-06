@@ -1,7 +1,7 @@
 <odoo>
     <record model="ir.ui.view" id="accommodation_form_view">
         <field name="name">accommodation.form</field>
-        <field name="model">odooIracema.accommodation</field>
+        <field name="model">iracema.accommodation</field>
         <field name="arch" type="xml">
             <form string="accommodation Form">
                 <sheet>
@@ -18,7 +18,7 @@
 
     <record model="ir.ui.view" id="accommodation_tree_view">
         <field name="name">accommodation.tree</field>
-        <field name="model">odooIracema.accommodation</field>
+        <field name="model">iracema.accommodation</field>
         <field name="arch" type="xml">
             <tree string="accommodation Tree">
                 <field name="name" />
@@ -31,7 +31,7 @@
 
     <record model="ir.actions.act_window" id="accommodation_list_action">
         <field name="name">accommodation</field>
-        <field name="res_model">odooIracema.accommodation</field>
+        <field name="res_model">iracema.accommodation</field>
         <field name="view_mode">tree,form</field>
     </record>
 

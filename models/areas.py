@@ -1,13 +1,13 @@
 from odoo import models, fields, api, exceptions
 
 class areas(models.Model):
-    _name = 'odooIracema.areas'
+    _name = 'iracema.areas'
 
     name = fields.Char(string="Nombre", required=True)
-    natural_park_id = fields.Many2one('odooIracema.natural_park', string="Natural Park", ondelete='cascade', required=True)
+    natural_park_id = fields.Many2one('iracema.natural_park', string="Natural Park", ondelete='cascade', required=True)
     extension = fields.Integer(string="Extensión", required=True)
     areas_species_ids = fields.One2many(
-        'odooIracema.areas_species', 'areas_id', string="Areas")
+        'iracema.areas_species', 'areas_id', string="Areas")
 
     @api.constrains('extension')
     def _check_park_has_extension(self):
@@ -17,11 +17,11 @@ class areas(models.Model):
   
 
 class areas_Species(models.Model):
-    _name = 'odooIracema.areas_species'
+    _name = 'iracema.areas_species'
 
-    areas_id = fields.Many2one('odooIracema.areas',
+    areas_id = fields.Many2one('iracema.areas',
         ondelete='set null', string="Area")
-    species_id = fields.Many2one('odooIracema.species',
+    species_id = fields.Many2one('iracema.species',
         ondelete='set null', string="Especie")
     individual_in_area = fields.Integer(string="Indiviuals in an area", required=True)
 

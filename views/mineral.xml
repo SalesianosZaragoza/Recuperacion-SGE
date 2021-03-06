@@ -2,7 +2,7 @@
 
     <record model="ir.ui.view" id="mineral_form_view">
         <field name="name">mineral.form</field>
-        <field name="model">odooIracema.mineral</field>
+        <field name="model">iracema.mineral</field>
         <field name="arch" type="xml">
             <form string="Mineral Form">
                 <sheet>
@@ -19,7 +19,7 @@
 
     <record model="ir.ui.view" id="mineral_tree_view">
         <field name="name">mineral.tree</field>
-        <field name="model">odooIracema.mineral</field>
+        <field name="model">iracema.mineral</field>
         <field name="arch" type="xml">
             <tree string="Mineral Tree">
                 <field name="name" />
@@ -32,7 +32,7 @@
 
     <record model="ir.ui.view" id="mineral_pivot_view">
         <field name="name">mineral.pivot</field>
-        <field name="model">odooIracema.mineral</field>
+        <field name="model">iracema.mineral</field>
         <field name="arch" type="xml">
             <pivot string="Mineral">
                 <field name="mineral_type" type="row" />
@@ -43,7 +43,7 @@
 
     <record model="ir.actions.act_window" id="mineral_list_action">
         <field name="name">Mineral</field>
-        <field name="res_model">odooIracema.mineral</field>
+        <field name="res_model">iracema.mineral</field>
         <field name="view_mode">tree,form,pivot</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create a new mineral
@@ -53,7 +53,7 @@
 
     <record model="ir.ui.view" id="mineral_search_view">
         <field name="name">mineral.search</field>
-        <field name="model">odooIracema.mineral</field>
+        <field name="model">iracema.mineral</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name" />

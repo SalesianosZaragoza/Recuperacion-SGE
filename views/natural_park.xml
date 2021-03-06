@@ -2,7 +2,7 @@
 
     <record model="ir.ui.view" id="naturalpark_form_view">
         <field name="name">natural_park.form</field>
-        <field name="model">odooIracema.natural_park</field>
+        <field name="model">iracema.natural_park</field>
         <field name="arch" type="xml">
             <form string="Natural Park Form">
                 <sheet>
@@ -18,7 +18,7 @@
 
     <record model="ir.ui.view" id="naturalpark_tree_view">
         <field name="name">natural_park.tree</field>
-        <field name="model">odooIracema.natural_park</field>
+        <field name="model">iracema.natural_park</field>
         <field name="arch" type="xml">
             <tree string="Natural Park Tree">
                 <field name="name" />
@@ -30,7 +30,7 @@
 
     <record model="ir.actions.act_window" id="naturalpark_list_action">
         <field name="name">Natural Park</field>
-        <field name="res_model">odooIracema.natural_park</field>
+        <field name="res_model">iracema.natural_park</field>
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem id="main_natural_parks_menu" name="NaturalParks"/>

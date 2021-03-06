@@ -2,7 +2,7 @@
 
         <record model="ir.ui.view" id="areas_species_form_view">
             <field name="name">areas_species_species.form</field>
-            <field name="model">odooIracema.areas_species</field>
+            <field name="model">iracema.areas_species</field>
             <field name="arch" type="xml">
                 <form string="Area Form">
                     <sheet>
@@ -18,7 +18,7 @@
 
         <record model="ir.ui.view" id="areas_species_tree_view">
             <field name="name">areas_species_species.tree</field>
-            <field name="model">odooIracema.areas_species</field>
+            <field name="model">iracema.areas_species</field>
             <field name="arch" type="xml">
                 <tree string="Area Tree">
                     <field name="areas_id"/>
@@ -30,7 +30,7 @@
 
         <record  model="ir.ui.view" id="areas_species_pivot_view">
             <field name="name">areas_species_species.pivot</field>
-            <field name="model">odooIracema.areas_species</field>
+            <field name="model">iracema.areas_species</field>
             <field name="arch" type="xml">
                 <pivot string="Area">
                     <field name="areas_id"/>
@@ -42,7 +42,7 @@
 
         <record model="ir.ui.view" id="areas_species_graph_view">
             <field name="name">areas_species_species.graph</field>
-            <field name="model">odooIracema.areas_species</field>
+            <field name="model">iracema.areas_species</field>
             <field name="arch" type="xml">
                 <graph string="Individuals by area">
                     <field name="areas_id"/>
@@ -53,7 +53,7 @@
 
         <record model="ir.ui.view" id="areas_species_graph_view">
             <field name="name">areas_species_species.graph</field>
-            <field name="model">odooIracema.areas_species</field>
+            <field name="model">iracema.areas_species</field>
             <field name="arch" type="xml">
                 <graph string="Individuals by specie">
                     <field name="species_id"/>
@@ -64,7 +64,7 @@
 
         <record model="ir.actions.act_window" id="areas_species_list_action">
             <field name="name">Area</field>
-            <field name="res_model">odooIracema.areas_species</field>
+            <field name="res_model">iracema.areas_species</field>
             <field name="view_mode">tree,form,graph,pivot</field>
             
         </record>

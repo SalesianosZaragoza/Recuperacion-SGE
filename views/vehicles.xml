@@ -1,7 +1,7 @@
 <odoo>
     <record model="ir.ui.view" id="vehicles_form_view">
         <field name="name">vehicles.form</field>
-        <field name="model">odooIracema.vehicles</field>
+        <field name="model">iracema.vehicles</field>
         <field name="arch" type="xml">
             <form string="vehicles Employee Form">
                 <sheet>
@@ -16,7 +16,7 @@
 
     <record model="ir.ui.view" id="vehicles_tree_view">
         <field name="name">vehicles.tree</field>
-        <field name="model">odooIracema.vehicles</field>
+        <field name="model">iracema.vehicles</field>
         <field name="arch" type="xml">
             <tree string="vehicles Employee Tree">
                 <field name="plate_number" />
@@ -27,11 +27,11 @@
 
     <record model="ir.actions.act_window" id="vehicles_list_action">
         <field name="name">vehicles</field>
-        <field name="res_model">odooIracema.vehicles</field>
+        <field name="res_model">iracema.vehicles</field>
         <field name="view_mode">tree,form</field>
 
     </record>
 
-    <menuitem id="vehicles_menu" name="Vehicles" parent="employees_menu" action="vehicles_list_action" />
+    <menuitem id="vehicles_menu" name="Vehicles" parent="staff_menu" action="vehicles_list_action" />
 
 </odoo>

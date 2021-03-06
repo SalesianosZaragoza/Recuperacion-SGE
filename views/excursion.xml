@@ -2,7 +2,7 @@
 
     <record model="ir.ui.view" id="excursion_form_view">
         <field name="name">excursion.form</field>
-        <field name="model">odooIracema.excursion</field>
+        <field name="model">iracema.excursion</field>
         <field name="arch" type="xml">
             <form string="excursion Form">
                 <sheet>
@@ -21,7 +21,7 @@
 
     <record model="ir.ui.view" id="excursion_tree_view">
         <field name="name">excursion.tree</field>
-        <field name="model">odooIracema.excursion</field>
+        <field name="model">iracema.excursion</field>
         <field name="arch" type="xml">
             <tree string="excursion Tree">
                 <field name="name" />
@@ -36,7 +36,7 @@
 
     <record model="ir.ui.view" id="excursion_pivot_view">
         <field name="name">excursion.pivot</field>
-        <field name="model">odooIracema.excursion</field>
+        <field name="model">iracema.excursion</field>
         <field name="arch" type="xml">
             <pivot string="excursion">
                 <field name="visitor_ids" type="row" />
@@ -47,7 +47,7 @@
 
     <record model="ir.ui.view" id="excursion_calendar_view">
         <field name="name">excursion.calendar</field>
-        <field name="model">odooIracema.excursion</field>
+        <field name="model">iracema.excursion</field>
         <field name="arch" type="xml">
             <calendar string="excursion Calendar" date_start="starting_date" date_stop="ending_date" quick_add="False">
                 <field name="name" />
@@ -59,7 +59,7 @@
 
     <record model="ir.actions.act_window" id="excursion_list_action">
         <field name="name">excursion</field>
-        <field name="res_model">odooIracema.excursion</field>
+        <field name="res_model">iracema.excursion</field>
         <field name="view_mode">tree,form,calendar,pivot</field>
     </record>
 

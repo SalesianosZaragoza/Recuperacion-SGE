@@ -2,7 +2,7 @@
 {
     'name': "recuperacionOdoo",
 
-    'summary': """Manage of natural parks""",
+    'summary': """Gestión de parques naturales""",
 
     'description': """        
     """,

@@ -1,7 +1,7 @@
 from . import natural_park
 from . import areas
 from . import accommodation
-from . import employees
+from . import staff
 from . import autonomous_community
 from . import species
 

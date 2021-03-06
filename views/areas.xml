@@ -2,7 +2,7 @@
 
         <record model="ir.ui.view" id="areas_form_view">
             <field name="name">areas.form</field>
-            <field name="model">odooIracema.areas</field>
+            <field name="model">iracema.areas</field>
             <field name="arch" type="xml">
                 <form string="Area Form">
                     <sheet>
@@ -18,7 +18,7 @@
 
         <record model="ir.ui.view" id="areas_tree_view">
             <field name="name">areas.tree</field>
-            <field name="model">odooIracema.areas</field>
+            <field name="model">iracema.areas</field>
             <field name="arch" type="xml">
                 <tree string="Area Tree">
                     <field name="name"/>
@@ -30,7 +30,7 @@
 
         <record  model="ir.ui.view" id="areas_pivot_view">
             <field name="name">areas.pivot</field>
-            <field name="model">odooIracema.areas</field>
+            <field name="model">iracema.areas</field>
             <field name="arch" type="xml">
                 <pivot string="Area">
                    <field name="areas_species_id"/>
@@ -41,7 +41,7 @@
 
         <record model="ir.ui.view" id="areas_graph_view">
             <field name="name">areas.graph</field>
-            <field name="model">odooIracema.areas</field>
+            <field name="model">iracema.areas</field>
             <field name="arch" type="xml">
                 <graph string="Areas by Extension">
                     <field name="name"/>
@@ -52,7 +52,7 @@
 
         <record model="ir.actions.act_window" id="areas_list_action">
             <field name="name">Area</field>
-            <field name="res_model">odooIracema.areas</field>
+            <field name="res_model">iracema.areas</field>
             <field name="view_mode">tree,form,graph,pivot</field>
             
         </record>

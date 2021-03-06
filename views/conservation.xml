@@ -1,13 +1,13 @@
 <odoo>
     <record model="ir.ui.view" id="conservation_form_view">
         <field name="name">conservation.form</field>
-        <field name="model">odooIracema.conservation</field>
+        <field name="model">iracema.conservation</field>
         <field name="arch" type="xml">
             <form string="conservation Employee Form">
                 <sheet>
                     <group colspan="4">
                         <group colspan="2" col="2">
-                            <separator string="Employees" colspan="2" />
+                            <separator string="staff" colspan="2" />
                             <field name="name" />
                             <field name="dni" />
                             <field name="social_security_number" />
@@ -29,7 +29,7 @@
 
     <record model="ir.ui.view" id="conservation_tree_view">
         <field name="name">conservation.tree</field>
-        <field name="model">odooIracema.conservation</field>
+        <field name="model">iracema.conservation</field>
         <field name="arch" type="xml">
             <tree string="conservation Employee Tree">
                 <field name="name" />
@@ -47,8 +47,8 @@
 
     <record model="ir.actions.act_window" id="conservation_list_action">
         <field name="name">Conservation</field>
-        <field name="res_model">odooIracema.conservation</field>
+        <field name="res_model">iracema.conservation</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem id="conservation_menu" name="Conservation Employee" parent="employees_menu" action="conservation_list_action" />
+    <menuitem id="conservation_menu" name="Conservation Employee" parent="staff_menu" action="conservation_list_action" />
 </odoo>
