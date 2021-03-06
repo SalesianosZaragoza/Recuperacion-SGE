@@ -16,13 +16,13 @@
     'depends': ['base'],
 
     'data': [
-        'views/acommodation.xml',
-        'views/trip.xml',
-        'views/visitor.xml',
-        'views/species.xml',
-        'views/community.xml',
-        'views/natural_park.xml',
-        'views/area.xml',
-        'views/staff.xml',
+        'view/acommodation.xml',
+        'view/trip.xml',
+        'view/visitor.xml',
+        'view/species.xml',
+        'view/community.xml',
+        'view/natural_park.xml',
+        'view/area.xml',
+        'view/staff.xml',
     ]
 }
