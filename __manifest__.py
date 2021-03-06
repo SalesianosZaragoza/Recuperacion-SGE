@@ -1,7 +1,7 @@
 {
-    'name': "RecuperacionOdoo",
+    'name': "RecuperacionOdooCristianMarinperacionOdooCristianMarin",
 
-    'summary': """parque natural""",
+    'summary': """Natural Park""",
 
     'description': """
         
@@ -16,9 +16,13 @@
     'depends': ['base'],
 
     'data': [
+        'views/acommodation.xml',
+        'views/trip.xml',
+        'views/visitor.xml',
+        'views/species.xml',
+        'views/community.xml',
+        'views/natural_park.xml',
         'views/area.xml',
-        'views/comunidad.xml',
-        'views/especies.xml',
-        'views/parquenatural.xml',
+        'views/staff.xml',
     ]
 }

@@ -1,0 +1,109 @@
+<odoo>
+        <record model="ir.ui.view" id="acommodation_form_view">
+            <field name="name">acommodation.form</field>
+            <field name="model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="arch" type="xml">
+                <form string="Acommodation Form">
+                    <header>
+                        <button string="Generar nombre" type="object" name="random_register_name" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="capacity"/>
+                            <field name="category"/>
+                            <field name="natural_park_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="acommodation_tree_view">
+            <field name="name">acommodation.tree</field>
+            <field name="model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="arch" type="xml">
+                <tree string="Acommodation Tree">
+                    <field name="name"/>
+                    <field name="capacity"/>
+                    <field name="category"/>
+                    <field name="natural_park_id"/>                
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="acommodation_list_action">
+            <field name="name">Acommodation</field>
+            <field name="res_model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Insertar alojamientos</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="acommodation_search_view">
+            <field name="name">acommodation.search</field>
+            <field name="model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <filter name="high_puntuation" string="Puntuacion alta"
+                            domain="[('category', 'in', ['cinco', 'cuatro', 'tres'])]"/>
+                    <filter name="low_puntuation" string="Puntuacion baja"
+                            domain="[('category', 'in', ['uno', 'dos'])]"/>
+                </search>
+            </field>
+        </record>
+
+        
+        <record model="ir.ui.view" id="view_openacad_session_kanban">
+            <field name="name">RecuperacionOdooCristianMarin.acommodation.kanban</field>
+            <field name="model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="course_id">
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div
+                                    t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                                oe_kanban_global_click_edit oe_semantic_html_override
+                                                oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                                <div class="oe_dropdown_kanban">
+                                    <div class="oe_dropdown_toggle">
+                                        <i class="fa fa-bars fa-lg" title="Manage" aria-label="Manage"/>
+                                        <ul class="oe_dropdown_menu">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                            <li>
+                                                <ul class="oe_kanban_colorpicker"
+                                                    data-field="color"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                                <div t-attf-class="oe_kanban_content">
+                                    Name:
+                                    <field name="name"/>
+                                    <br/>
+                                    capacity:
+                                    <field name="capacity"/>
+                                    <br/>
+                                    category:
+                                    <field name="category"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <menuitem id="main_RecuperacionOdooCristianMarin_menu" name="RecuperacionOdooCristianMarin"/>
+        <menuitem id="RecuperacionOdooCristianMarin_menu" name="RecuperacionOdooCristianMarin" parent="main_RecuperacionOdooCristianMarin_menu"/>
+        <menuitem id="acommodation_menu" name="Acommodation" parent="RecuperacionOdooCristianMarin_menu" action="acommodation_list_action"/>
+
+</odoo> 

@@ -1,0 +1,43 @@
+<odoo>
+
+        <record model="ir.ui.view" id="community_form_view">
+            <field name="name">community.form</field>
+            <field name="model">RecuperacionOdooCristianMarin.community</field>
+            <field name="arch" type="xml">
+                <form string="Community Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="extension"/>
+                            <field name="responsible_body"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="community_tree_view">
+            <field name="name">community.tree</field>
+            <field name="model">RecuperacionOdooCristianMarin.community</field>
+            <field name="arch" type="xml">
+                <tree string="Community Tree">
+                    <field name="name"/>
+                    <field name="extension"/>
+                    <field name="responsible_body"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="community_list_action">
+            <field name="name">Community</field>
+            <field name="res_model">RecuperacionOdooCristianMarin.community</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">New community</p>
+            </field>
+        </record>
+
+
+        <menuitem id="community_menu" name="Autonomous Community" parent="RecuperacionOdooCristianMarin_menu" action="community_list_action"/>
+
+</odoo> 

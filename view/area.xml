@@ -2,15 +2,15 @@
 
         <record model="ir.ui.view" id="area_form_view">
             <field name="name">area.form</field>
-            <field name="model">np.area</field>
+            <field name="model">RecuperacionOdooCristianMarin.area</field>
             <field name="arch" type="xml">
                 <form string="Area Form">
                     <sheet>
                         <group>
-                            <field name="nombre"/>
+                            <field name="name"/>
                             <field name="extension"/>
-                            <field name="parquenatural.id"/>
-                            <field name="comunidad.id"/>
+                            <field name="natural_park_id"/>
+                            <field name="community_id"/>
                         </group>
                     </sheet>
                 </form>
@@ -19,51 +19,27 @@
 
         <record model="ir.ui.view" id="area_tree_view">
             <field name="name">area.tree</field>
-            <field name="model">np.area</field>
+            <field name="model">RecuperacionOdooCristianMarin.area</field>
             <field name="arch" type="xml">
                 <tree string="Area Tree">
-                    <field name="nombre"/>
+                    <field name="name"/>
                     <field name="extension"/>
-                    <field name="parquenatural.id"/>
-                    <field name="comunidad.id"/>
+                    <field name="natural_park_id"/>
+                    <field name="community_id"/>
                 </tree>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="area_graph_view">
-            <field name="name">area.graph</field>
-            <field name="model">np.area</field>
-            <field name="arch" type="xml">
-                <graph string="Areas">
-                    <field name="nombre"/>
-                    <field name="extension" type="measure"/>
-                </graph>
             </field>
         </record>
 
         <record model="ir.actions.act_window" id="area_list_action">
             <field name="name">Area</field>
-            <field name="res_model">np.area</field>
-            <field name="view_mode">tree,form,graph</field>
-            <field name="help" type="html"></field>
-        </record>
-
-        <record model="ir.ui.view" id="area_search_view">
-            <field name="name">area.search</field>
-            <field name="model">np.area</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="nombre"/>
-                    <group string="Agrupacion">
-                        <filter name="area" string="areas"
-                                context="{'group_by': 'parquenatural.id'}"/>
-                    </group>
-                </search>
+            <field name="res_model">RecuperacionOdooCristianMarin.area</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">New area</p>
             </field>
         </record>
-        
-        <menuitem id="area_menu" name="Area"
-            parent="np_menu"
-            action="area_list_action"/>
 
-</odoo>
+
+        <menuitem id="area_menu" name="Area" parent="RecuperacionOdooCristianMarin_menu" action="area_list_action"/>
+
+</odoo> 
