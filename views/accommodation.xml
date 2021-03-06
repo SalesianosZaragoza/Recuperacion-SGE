@@ -1,0 +1,40 @@
+<odoo>
+    <record model="ir.ui.view" id="accommodation_form_view">
+        <field name="name">accommodation.form</field>
+        <field name="model">app.accommodation</field>
+        <field name="arch" type="xml">
+            <form string="accommodation Form">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="capacity" options='{"type": "number", "step": 1}' />
+                        <field name="category" />
+                        <field name="natural_park_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="accommodation_tree_view">
+        <field name="name">accommodation.tree</field>
+        <field name="model">app.accommodation</field>
+        <field name="arch" type="xml">
+            <tree string="accommodation Tree">
+                <field name="name" />
+                <field name="capacity" />
+                <field name="category" />
+                <field name="natural_park_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="accommodation_list_action">
+        <field name="name">accommodation</field>
+        <field name="res_model">app.accommodation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="accommodation_menu" name="accommodation" parent="natural_parks_menu" action="accommodation_list_action" />
+
+</odoo>

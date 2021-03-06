@@ -1,0 +1,39 @@
+<odoo>
+
+    <record model="ir.ui.view" id="autonomous_community_natural_park_form_view">
+        <field name="name">autonomous_community_natural_park.form</field>
+        <field name="model">app.autonomous_community_natural_park</field>
+        <field name="arch" type="xml">
+            <form string="autonomous community Form">
+                <sheet>
+                    <group>
+                        <field name="autonomous_community_id" />
+                        <field name="natural_park_id" />
+                        <field name="extension" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="autonomous_community_natural_park_tree_view">
+        <field name="name">autonomous_community_natural_park.tree</field>
+        <field name="model">app.autonomous_community_natural_park</field>
+        <field name="arch" type="xml">
+            <tree string="autonomous_community Tree">
+                <field name="autonomous_community_id" />
+                <field name="natural_park_id" />
+                <field name="extension" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="autonomous_community_natural_park_list_action">
+        <field name="name">autonomous_community_natural_park</field>
+        <field name="res_model">app.autonomous_community_natural_park</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+    <menuitem id="autonomous_community_natural_park_menu" name="Autonomous community" parent="natural_parks_menu" action="autonomous_community_natural_park_list_action" />
+
+</odoo>
