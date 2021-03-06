@@ -1,0 +1,37 @@
+<odoo>
+    <record model="ir.ui.view" id="mineral_species_form_view">
+        <field name="name">mineral_species.form</field>
+        <field name="model">manager.mineral_species</field>
+        <field name="arch" type="xml">
+            <form string="Mineral species form">
+                <sheet>
+                    <group colspan="4">
+                        <field name = "name" />
+	                    <field name = "species_id" />
+                        <field name ="category" />
+                        <field name="inventory" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>    
+
+    <record model="ir.ui.view" id="mineral_species_tree_view">
+        <field name="name">mineral_species.tree</field>
+        <field name="model">manager.mineral_species"</field>
+        <field name="arch" type="xml">
+            <tree string="Mineral species">
+                   <field name = "species_id" />
+                   <field name ="category" />
+                   <field name="inventory" />
+            </tree>
+        </field>
+    </record>
+    
+    <menuitem id="manager_menu_mineral_species" name="Mineral_species"  parent="manager_menu_root"/>
+
+    
+    <menuitem name="list of mineral_species" id="manager_list_mineral_species" parent="manager_menu_species" 
+              action="mineral_species_list_action"/>
+
+</odoo>

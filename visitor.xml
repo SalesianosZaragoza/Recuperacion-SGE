@@ -1,0 +1,42 @@
+<odoo>
+
+    <record model="ir.ui.view" id="visitor_form_view">
+        <field name="name">visitor.form</field>
+        <field name="model">manager.visitor</field>
+        <field name="arch" type="xml">
+            <form string="Visitors form">
+                <sheet>
+                    <group colspan="4">
+                        <field name = "name" />
+                        <field name = "visitor_id" />
+                        <field name = "DNI" />
+		                <field name = "adress" />
+		                <field name = "profession" />
+                        <field name = "staff_management_id" />
+                        <field name = "accomodation_id" />
+		                <field name = "entry_date"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="visitor_tree_view">
+    <field name="name">visitor.tree</field>
+    <field name="model">manager.visitor"</field>
+    <field name="arch" type="xml">
+        <tree string="Visitors">
+            <field name="name" />
+            <field name = "accommodation_id" />
+            <field name = "staff_management_id" />
+            <field name="park_id" />
+        </tree>
+    </field>
+</record>
+
+<menuitem id="manager_menu_visitor" name="Visitor"  parent="manager_menu_root"/>
+
+<menuitem name="list of visitor" id="manager_list_visitor" parent="manager_menu_visitor" 
+action="visitor_list_action"/>
+
+</odoo>

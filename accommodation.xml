@@ -1,0 +1,54 @@
+<oddo>
+
+    <record model="ir.ui.view" id="accommodation_form_view">
+        <field name="name">accomodation.form</field>
+        <field name="model">manager.accommodation</field>
+        <field name="arch" type="xml">
+        <form string="Accommodations form">
+            <sheet>
+            <group>
+                <field name="name" />
+                <field name = "accommodation_id" />
+                <field name = "category" />
+                <field name= "capacity" />
+                <field name ="staff_management_id" />
+                <fied name="park_id"/>
+                <field name = "visitor_id"/>
+                <fied name="excursion_area"/>
+                <field name ="excursion_form" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="duration"/>
+                <field name= "account.invoice_id"/>
+            </group>
+          </sheet>
+        </form>
+     </field>
+   </record>     
+   <record model="ir.ui.view" id="accommodation_tree_view">
+    <field name="name">accommodation.tree</field>
+    <field name="model">manager.accommodation"</field>
+    <field name="arch" type="xml">
+        <tree string="Accommodations form">
+                <field name="name" />
+                <field name="community_id" />
+                <field name = "category" />
+                <field name= "capacity" />
+                <field name ="staff_management_id" />
+                <fied name="park_id"/>
+                <field name = "visit_id"/>
+                <fied name="excursion_area"/>
+                <field name ="excursion_form" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="duration"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="manager_menu_accommodation" name="Accommodation"  parent="manager_menu_root"/>
+
+    <menuitem name="list of accommodation" id="manager_list_accommodation" parent="manager_menu_accommodation" 
+              action="accommodation_list_action"/>
+
+</oddo>

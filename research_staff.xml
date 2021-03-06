@@ -1,0 +1,39 @@
+<odoo>
+
+    <record model="ir.ui.view" id="research_staff_form_view">
+        <field name="name">research_staff.form</field>
+        <field name="model">manager.research_staff</field>
+        <field name="arch" type="xml">
+            <form string="Research staff form">
+                <sheet>
+                    <group colspan="4">
+                       <field name="name" />
+                       <field name="staff_id"/>
+                       <field name="title"/>
+                       <field name="project_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="research_staff_tree_view">
+        <field name="name">research_staff.tree</field>
+        <field name="model">manager.research_staff"</field>
+        <field name="arch" type="xml">
+            <tree string="Research staff">
+                <field name="name" />
+                <field name="staff_id" />
+                <field name="title"/>
+                <field name="project_id"/>
+            </tree>
+        </field>
+    </record>
+   
+    <menuitem id="manager_menu_research_staff" name="Research_staff"  parent="manager_menu_root"/>
+
+    <menuitem name="list  of research_staff" id="manager_list_research_staff" parent="manager_menu_staff" 
+              action="research_staff_list_action"/>
+              
+
+</odoo>

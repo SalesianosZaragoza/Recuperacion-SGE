@@ -1,0 +1,43 @@
+<odoo>
+
+    <record model="ir.ui.view" id="park_form_view">
+        <field name="name">park.form</field>
+        <field name="model">manager.park</field>
+        <field name="arch" type="xml">
+            <form string="Parks form">
+                <sheet>
+                    <group colspan="4">
+                        <field name = "name" />
+                        <field name = "park_id" />
+                        <field name = "area_id"/>
+                        <field name = "staff_id"/>
+                        <field name = "species_id"/>
+                        <field name = "accommodation_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="park_tree_view">
+        <field name="name">park.tree</field>
+        <field name="model">manager.park"</field>
+        <field name="arch" type="xml">
+            <tree string="Parks">
+                <field name="name" />
+                <field name="community_id" />
+                <field name = "park_id" />
+                <field name = "area_id"/>
+                <field name = "staff_id"/>
+                <field name = "species_id"/>
+                <field name = "accommodation_id" />
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="manager_menu_park" name="Park"  parent="manager_menu_root"/>
+
+    <menuitem name="list of park" id="manager_list_park" parent="manager_menu_park" 
+              action="park_list_action"/>
+
+</odoo>

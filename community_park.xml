@@ -1,0 +1,43 @@
+<odoo>
+
+    <record model="ir.ui.view" id="community_park_form_view">
+        <field name="name">community_park.form</field>
+        <field name="model">manager.community_park</field>
+        <field name="arch" type="xml">
+            <form string="Community Form">
+                <sheet>
+                    <group>
+                        <field name="community_id" />
+                        <field name="park_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="community_park_tree_view">
+        <field name="name">community_park.tree</field>
+        <field name="model">manager.community_park</field>
+        <field name="arch" type="xml">
+            <tree string="community Tree">
+                <field name="community_id" />
+                <field name="park_id" />
+                <field name="extension" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="community_park_list_action">
+        <field name="name">community_park</field>
+        <field name="res_model">manager.community_park</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+    <menuitem id="community_park_menu" name="Community" parent="parks_menu" 
+    action="community_natural_park_list_action" />
+
+    <menuitem name="list of community_parks" id="manager_list_community_parks" parent="manager_menu_community_parks" 
+    action="community_parks_list_action"/>
+
+   
+</odoo> 

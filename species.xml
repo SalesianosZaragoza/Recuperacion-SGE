@@ -1,0 +1,42 @@
+<odoo>
+
+    <record model="ir.ui.view" id="species_form_view">
+        <field name="name">species.form</field>
+        <field name="model">manager.species</field>
+        <field name="arch" type="xml">
+            <form string="Species form">
+                <sheet>
+                    <group colspan="4">
+                        <field name = "scientific_name" />
+	                    <field name="vulgar_name" />
+                        <field name = "species_id" />
+                        <field name="park_id"/>
+                        <field name="area_id"/>
+		                <field name ="classify" />
+                    </group>
+                </sheet>
+           </form>
+        </field>
+</record>
+    
+<record model="ir.ui.view" id="species_tree_view">
+    <field name="name">species.tree</field>
+    <field name="model">manager.species"</field>
+    <field name="arch" type="xml">
+             <tree string="Species">
+                    <field name = "scientific_name" />
+	                <field name="vulgar_name" />
+                    <field name = "species_id" />
+                    <field name="park_id"/>
+                    <field name="area_id"/>
+		            <field name ="classify" />
+                </tree>
+           </field>
+     </record>
+   
+     <menuitem id="manager_menu_species" name="Species"  parent="manager_menu_root"/>
+
+     <menuitem name="list of species" id="manager_list_species" parent="manager_menu_species" 
+              action="species_list_action"/>
+              
+</odoo>

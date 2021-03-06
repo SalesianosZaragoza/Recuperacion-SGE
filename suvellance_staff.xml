@@ -1,0 +1,41 @@
+<odoo>
+
+
+	<record model="ir.ui.view" id="survellance_staff_form_view">
+        <field name="name">survellance_staff.form</field>
+        <field name="model">manager.survellance_staff</field>
+        <field name="arch" type="xml">
+            <form string="Survellance staff form">
+                <sheet>
+                    <group colspan="4">
+                        <field name="name" />
+                        <field name="staff_id" />
+                        <field name="car_type"/>
+                        <field name="enrollment"/>
+                        <field name="area_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="survellance_staff_tree_view">
+        <field name="name">survellance_staff.tree</field>
+        <field name="model">manager.survellance_staff"</field>
+        <field name="arch" type="xml">
+            <tree string="Survellance staff">
+                <field name="name" />
+                <field name="staff_id" />
+		        <field name="car_type"/>
+		        <field name="enrollment"/>
+                <field name="area"/>
+            </tree>
+        </field>
+    </record>
+    
+    <menuitem id="manager_menu_suvellance_staff" name="Survellance_staff"  parent="manager_menu_root"/>
+
+    <menuitem name="list  of survellance_staff" id="manager_list_survellance_staff" parent="manager_menu_staff" 
+              action="survellance_staff_list_action"/>
+
+</odoo>

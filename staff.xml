@@ -1,0 +1,50 @@
+<odoo>
+    <record model="ir.ui.view" id="staff_form_view">
+        <field name="name">staff.form</field>
+        <field name="model">manager.staff</field>
+        <field name="arch" type="xml">
+            <form string="Staff form">
+                <sheet>
+                    <group colspan="4">
+                        <field name="name" />
+                        <field name="staff_id"/>
+                        <field name="park_id" />
+                        <field name="DNI"/>
+                        <field name="social_security"/>
+                         <field name="adress"/>
+                        <field name="mobile"/>
+                        <field name="salary"/>
+                        <field name="type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+  </record>
+
+
+  <record model="ir.ui.view" id="staff_tree_view">
+    <field name="name">staff.tree</field>
+    <field name="model">manager.staff"</field>
+    <field name="arch" type="xml">
+             <tree string="Staff">
+                <field name="name" />
+		        <field name="staff_id"/>
+                <field name="park_id" />
+                <field name="DNI"/>
+		        <field name="social_security"/>
+		        <field name="adress"/>
+		        <field name="mobile"/>
+		        <field name="salary"/>
+		        <field name="type"/>
+            </tree>
+        </field>
+  </record>
+    
+  <menuitem id="manager_menu_staff" name="Staff"  parent="manager_menu_root"/>
+
+   
+  <menuitem name="list  of staff" id="manager_list_staff" parent="manager_menu_staff"
+            action="staff_list_action"/>
+
+
+</odoo>

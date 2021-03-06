@@ -1,0 +1,39 @@
+<odoo>
+
+    <record model="ir.ui.view" id="plant_species_form_view">
+        <field name="name">plant_species.form</field>
+        <field name="model">manager.plant_species</field>
+        <field name="arch" type="xml">
+            <form string="Plant species form">
+                <sheet>
+                    <group colspan="4">
+                        <field name = "name" />
+	                <field name = "species_id" />
+                    <field name="flowering" />
+                    <field name="flowering_period" />
+                    <field name="inventory" />
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="plant_species_tree_view">
+    <field name="name">plant_species.tree</field>
+    <field name="model">manager.plant_species"</field>
+    <field name="arch" type="xml">
+        <tree string="Plant species">
+                    <field name = "species_id" />
+                    <field name="flowering" />
+                    <field name="flowering_period" />
+                    <field name="inventory" />
+          </tree>
+      </field>
+ </record>
+
+ <menuitem id="manager_menu_plant_species" name="Plant_species"  parent="manager_menu_root"/>
+
+ <menuitem name="list of plant_species" id="manager_list_plant_species" parent="manager_menu_species" 
+              action="plant_species_list_action"/>
+            
+</odoo>
