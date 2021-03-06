@@ -4,12 +4,12 @@ from random import randint
 import string
 
 class Acommodation(models.Model):
-    _name = 'RecuperacionOdooCristianMarin.acommodation'
+    _name = 'odoonp.acommodation'
 
     name = fields.Char(string="Nombre")
     capacity = fields.Integer(string="Capacidad")
     category = fields.Selection([('ONE', '*'), ('TWO','**'), ('THREE', '***'), ('FOUR', '****'), ('FIVE', '*****')],string="category") 
-    natural_park_id = fields.Many2one('RecuperacionOdooCristianMarin.natural_park', string="natural park")
+    natural_park_id = fields.Many2one('odoonp.natural_park', string="natural park")
     color = fields.Integer()
 
     def random_register(self):

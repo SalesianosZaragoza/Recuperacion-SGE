@@ -2,7 +2,7 @@
 
         <record model="ir.ui.view" id="visitor_form_view">
             <field name="name">visitor.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.visitor</field>
+            <field name="model">odoonp.visitor</field>
             <field name="arch" type="xml">
                 <form string="visitor Form">
                     <sheet>
@@ -21,7 +21,7 @@
 
         <record model="ir.actions.act_window" id="visitor_list_action">
             <field name="name">Visitor</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.visitor</field>
+            <field name="res_model">odoonp.visitor</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">New Visitor</p>
@@ -29,6 +29,6 @@
         </record>
 
 
-        <menuitem id="visitor_menu" name="Visitor" parent="RecuperacionOdooCristianMarin_menu" action="visitor_list_action"/>
+        <menuitem id="visitor_menu" name="Visitor" parent="odoonp_menu" action="visitor_list_action"/>
 
 </odoo> 

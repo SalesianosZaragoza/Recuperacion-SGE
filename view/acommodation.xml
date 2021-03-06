@@ -1,7 +1,7 @@
 <odoo>
         <record model="ir.ui.view" id="acommodation_form_view">
             <field name="name">acommodation.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="model">odoonp.acommodation</field>
             <field name="arch" type="xml">
                 <form string="Acommodation Form">
                     <header>
@@ -21,7 +21,7 @@
 
         <record model="ir.ui.view" id="acommodation_tree_view">
             <field name="name">acommodation.tree</field>
-            <field name="model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="model">odoonp.acommodation</field>
             <field name="arch" type="xml">
                 <tree string="Acommodation Tree">
                     <field name="name"/>
@@ -35,7 +35,7 @@
 
         <record model="ir.actions.act_window" id="acommodation_list_action">
             <field name="name">Acommodation</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="res_model">odoonp.acommodation</field>
             <field name="view_mode">tree,form,kanban</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Insertar alojamientos</p>
@@ -44,7 +44,7 @@
 
         <record model="ir.ui.view" id="acommodation_search_view">
             <field name="name">acommodation.search</field>
-            <field name="model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="model">odoonp.acommodation</field>
             <field name="arch" type="xml">
                 <search>
                     <field name="name"/>
@@ -58,8 +58,8 @@
 
         
         <record model="ir.ui.view" id="view_openacad_session_kanban">
-            <field name="name">RecuperacionOdooCristianMarin.acommodation.kanban</field>
-            <field name="model">RecuperacionOdooCristianMarin.acommodation</field>
+            <field name="name">odoonp.acommodation.kanban</field>
+            <field name="model">odoonp.acommodation</field>
             <field name="arch" type="xml">
                 <kanban default_group_by="course_id">
                     <field name="color"/>
@@ -102,8 +102,8 @@
         </record>
 
 
-        <menuitem id="main_RecuperacionOdooCristianMarin_menu" name="RecuperacionOdooCristianMarin"/>
-        <menuitem id="RecuperacionOdooCristianMarin_menu" name="RecuperacionOdooCristianMarin" parent="main_RecuperacionOdooCristianMarin_menu"/>
-        <menuitem id="acommodation_menu" name="Acommodation" parent="RecuperacionOdooCristianMarin_menu" action="acommodation_list_action"/>
+        <menuitem id="main_odoonp_menu" name="odoonp"/>
+        <menuitem id="odoonp_menu" name="odoonp" parent="main_odoonp_menu"/>
+        <menuitem id="acommodation_menu" name="Acommodation" parent="odoonp_menu" action="acommodation_list_action"/>
 
 </odoo> 

@@ -2,7 +2,7 @@
 
         <record model="ir.ui.view" id="naturalpark_form_view">
             <field name="name">natural_park.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.natural_park</field>
+            <field name="model">odoonp.natural_park</field>
             <field name="arch" type="xml">
                 <form string="Natural Park Form">
                     <sheet>
@@ -19,7 +19,7 @@
 
         <record model="ir.ui.view" id="naturalpark_tree_view">
             <field name="name">natural_park.tree</field>
-            <field name="model">RecuperacionOdooCristianMarin.natural_park</field>
+            <field name="model">odoonp.natural_park</field>
             <field name="arch" type="xml">
                 <tree string="Natural Park Tree">
                     <field name="name"/>
@@ -32,7 +32,7 @@
 
         <record model="ir.actions.act_window" id="naturalpark_list_action">
             <field name="name">Natural Park</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.natural_park</field>
+            <field name="res_model">odoonp.natural_park</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">New pn</p>
@@ -40,6 +40,6 @@
         </record>
 
 
-        <menuitem id="naturalpark_menu" name="Natural Park" parent="RecuperacionOdooCristianMarin_menu" action="naturalpark_list_action"/>
+        <menuitem id="naturalpark_menu" name="Natural Park" parent="odoonp_menu" action="naturalpark_list_action"/>
 
 </odoo> 

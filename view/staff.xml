@@ -2,7 +2,7 @@
 
         <record model="ir.ui.view" id="management_form_view">
             <field name="name">management.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.management</field>
+            <field name="model">odoonp.management</field>
             <field name="arch" type="xml">
                 <form string="Management Employee Form">
                     <sheet>
@@ -24,7 +24,7 @@
 
         <record model="ir.ui.view" id="management_tree_view">
             <field name="name">management.tree</field>
-            <field name="model">RecuperacionOdooCristianMarin.management</field>
+            <field name="model">odoonp.management</field>
             <field name="arch" type="xml">
                 <tree string="Management Employee Tree">
                     <field name="dni"/>
@@ -43,7 +43,7 @@
 
         <record model="ir.ui.view" id="vigilance_form_view">
             <field name="name">vigilance.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.vigilance</field>
+            <field name="model">odoonp.vigilance</field>
             <field name="arch" type="xml">
                 <form string="Vigilance Employee Form">
                     <sheet>
@@ -67,7 +67,7 @@
 
         <record model="ir.ui.view" id="car_form_view">
             <field name="name">car.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.car</field>
+            <field name="model">odoonp.car</field>
             <field name="arch" type="xml">
                 <form string="Car Form">
                     <sheet>
@@ -83,7 +83,7 @@
 
         <record model="ir.ui.view" id="research_form_view">
             <field name="name">research.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.research</field>
+            <field name="model">odoonp.research</field>
             <field name="arch" type="xml">
                 <form string="Research Employee Form">
                     <sheet>
@@ -106,7 +106,7 @@
 
         <record model="ir.ui.view" id="project_form_view">
             <field name="name">project.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.project</field>
+            <field name="model">odoonp.project</field>
             <field name="arch" type="xml">
                 <form string="Project Form">
                     <sheet>
@@ -125,7 +125,7 @@
 
         <record model="ir.ui.view" id="conservation_form_view">
             <field name="name">conservation.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.conservation</field>
+            <field name="model">odoonp.conservation</field>
             <field name="arch" type="xml">
                 <form string="Conservation Employee Form">
                     <sheet>
@@ -148,7 +148,7 @@
 
         <record model="ir.actions.act_window" id="management_list_action">
             <field name="name">Management</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.management</field>
+            <field name="res_model">odoonp.management</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Insertar personal de gestion</p>          
@@ -157,7 +157,7 @@
 
         <record model="ir.actions.act_window" id="vigilance_list_action">
             <field name="name">Vigilance</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.vigilance</field>
+            <field name="res_model">odoonp.vigilance</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Insertar a vigilante</p>
@@ -166,7 +166,7 @@
 
                 <record model="ir.actions.act_window" id="car_list_action">
             <field name="name">Car</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.car</field>
+            <field name="res_model">odoonp.car</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Insertar coche</p>
@@ -175,7 +175,7 @@
 
         <record model="ir.actions.act_window" id="research_list_action">
             <field name="name">Research</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.research</field>
+            <field name="res_model">odoonp.research</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Insertar investigador</p>
@@ -184,7 +184,7 @@
 
         <record model="ir.actions.act_window" id="project_list_action">
             <field name="name">Project</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.project</field>
+            <field name="res_model">odoonp.project</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Insertar proyecto</p>
@@ -193,18 +193,18 @@
 
         <record model="ir.actions.act_window" id="conservation_list_action">
             <field name="name">Conservation</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.conservation</field>
+            <field name="res_model">odoonp.conservation</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Insertar mantenimiento</p>
             </field>
         </record>
 
-        <menuitem id="management_menu" name="Management Employee" parent="RecuperacionOdooCristianMarin_menu" action="management_list_action"/>
-        <menuitem id="vigilance_menu" name="Vigilance Employee" parent="RecuperacionOdooCristianMarin_menu" action="vigilance_list_action"/>       
-        <menuitem id="car_menu" name="Car" parent="RecuperacionOdooCristianMarin_menu" action="car_list_action"/>
-        <menuitem id="research_menu" name="Research Employee" parent="RecuperacionOdooCristianMarin_menu" action="research_list_action"/>
-        <menuitem id="project_menu" name="Research Project" parent="RecuperacionOdooCristianMarin_menu" action="project_list_action"/>
-        <menuitem id="conservation_menu" name="Conservation Employee" parent="RecuperacionOdooCristianMarin_menu" action="conservation_list_action"/>
+        <menuitem id="management_menu" name="Management Employee" parent="odoonp_menu" action="management_list_action"/>
+        <menuitem id="vigilance_menu" name="Vigilance Employee" parent="odoonp_menu" action="vigilance_list_action"/>       
+        <menuitem id="car_menu" name="Car" parent="odoonp_menu" action="car_list_action"/>
+        <menuitem id="research_menu" name="Research Employee" parent="odoonp_menu" action="research_list_action"/>
+        <menuitem id="project_menu" name="Research Project" parent="odoonp_menu" action="project_list_action"/>
+        <menuitem id="conservation_menu" name="Conservation Employee" parent="odoonp_menu" action="conservation_list_action"/>
 
 </odoo> 

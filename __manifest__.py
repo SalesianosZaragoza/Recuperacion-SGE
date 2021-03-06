@@ -1,5 +1,5 @@
 {
-    'name': "RecuperacionOdooCristianMarinperacionOdooCristianMarin",
+    'name': "odoonp",
 
     'summary': """Natural Park""",
 

@@ -1,7 +1,7 @@
 from odoo import models, fields
 
 class Community(models.Model):
-    _name = 'RecuperacionOdooCristianMarin.community'
+    _name = 'odoonp.community'
 
     name = fields.Char(string="name")
     extension = fields.Integer(string="extension")

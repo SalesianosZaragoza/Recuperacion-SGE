@@ -2,7 +2,7 @@
 
         <record model="ir.ui.view" id="area_form_view">
             <field name="name">area.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.area</field>
+            <field name="model">odoonp.area</field>
             <field name="arch" type="xml">
                 <form string="Area Form">
                     <sheet>
@@ -19,7 +19,7 @@
 
         <record model="ir.ui.view" id="area_tree_view">
             <field name="name">area.tree</field>
-            <field name="model">RecuperacionOdooCristianMarin.area</field>
+            <field name="model">odoonp.area</field>
             <field name="arch" type="xml">
                 <tree string="Area Tree">
                     <field name="name"/>
@@ -32,7 +32,7 @@
 
         <record model="ir.actions.act_window" id="area_list_action">
             <field name="name">Area</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.area</field>
+            <field name="res_model">odoonp.area</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">New area</p>
@@ -40,6 +40,6 @@
         </record>
 
 
-        <menuitem id="area_menu" name="Area" parent="RecuperacionOdooCristianMarin_menu" action="area_list_action"/>
+        <menuitem id="area_menu" name="Area" parent="odoonp_menu" action="area_list_action"/>
 
 </odoo> 

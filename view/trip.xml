@@ -2,7 +2,7 @@
 
         <record model="ir.ui.view" id="trip_form_view">
             <field name="name">trip.form</field>
-            <field name="model">RecuperacionOdooCristianMarin.trip</field>
+            <field name="model">odoonp.trip</field>
             <field name="arch" type="xml">
                 <form string="Trip Form">
                     <sheet>
@@ -22,7 +22,7 @@
 
         <record model="ir.ui.view" id="trip_tree_view">
             <field name="name">trip.tree</field>
-            <field name="model">RecuperacionOdooCristianMarin.trip</field>
+            <field name="model">odoonp.trip</field>
             <field name="arch" type="xml">
                 <tree string="Trip Tree">
                     <field name="name"/>
@@ -40,7 +40,7 @@
 
         <record model="ir.ui.view" id="trip_calendar_view">
             <field name="name">trip.calendar</field>
-            <field name="model">RecuperacionOdooCristianMarin.trip</field>
+            <field name="model">odoonp.trip</field>
             <field name="arch" type="xml">
                 <calendar string="Calendario" date_start="trip_starting" date_stop="trip_ending">
                     <field name="name"/>
@@ -51,7 +51,7 @@
 
         <record model="ir.actions.act_window" id="trip_list_action">
             <field name="name">Trip</field>
-            <field name="res_model">RecuperacionOdooCristianMarin.trip</field>
+            <field name="res_model">odoonp.trip</field>
             <field name="view_mode">tree,form,calendar</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Insertar una excursion</p>
@@ -59,6 +59,6 @@
         </record>
 
 
-        <menuitem id="trip_menu" name="Trip" parent="RecuperacionOdooCristianMarin_menu" action="trip_list_action"/>
+        <menuitem id="trip_menu" name="Trip" parent="odoonp_menu" action="trip_list_action"/>
 
 </odoo> 
