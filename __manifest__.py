@@ -22,6 +22,7 @@
     'data': [
         'views/manager.xml',
         'views/community.xml',
+        'views/community_park.xml',
         'views/park.xml',
         'views/accommodation.xml',
         'views/visitor.xml',
@@ -39,6 +40,6 @@
         'security/ir.model.access.csv'
          ],
 
-'installable': True,
+#'installable': True,
    
 }

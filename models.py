@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, exceptions
-ImportError
 import time
 from datetime import timedelta
 import json
@@ -10,21 +9,34 @@ from string import digits
 from dataclasses import fields
 import string
 from encodings.punycode import digits
+from prompt_toolkit.validation import ValidationError
 
 
 class Community(models.Model):
     _name = 'manager.community'
-    name = fields.Char(string="Name community", required=True)
+
+    name = fields.Char(string="Name", required=True)
     description = fields.Text("Search and manager parks in community")
-    park_id = fields.One2many(
-        'manager.park', 'community_id', string="Parks")
+community_park_ids = fields.One2many(
+        'manager.community_park', 'community_id', string="Park")
+
+class autonomous_Community_Natural_Park(models.Model):
+        _name = 'manager.community_park'
+
+community_id = fields.Many2one('manager.community',
+        ondelete='set null', string="Community")
+park_id = fields.Many2one('manager.park',
+        ondelete='set null', string="Park")
 
 class Park(models.Model):
     _name = 'manager.park'
-    name = fields.Char(string="Name park", required=True)
-    start_date = fields.Date()
+
+    name = fields.Char(string="Name", required=True)
+    starting_date = fields.Datetime(required=True)
+    community_park_ids = fields.One2many(
+        'manager.community_park', 'community_id', string="Park") 
     community_id = fields.Many2one('manager.community',
-        ondelete='set null', string="Parks community")
+        ondelete='set null', string="Parks in community")
     area_id = fields.One2many(
         'manager.area', 'park_id', string = "Area")
     species_id = fields.One2many(
@@ -34,7 +46,7 @@ class Park(models.Model):
 class Accommodation(models.Model):
     _name = 'manager.accommodation'
 
-    name = fields.Char(string="Name accommodation", required=True)
+    name = fields.Char(string="Name", required=True)
     capacity = fields.Integer(digits=(9), required=True)
     category = fields.Selection([('one', '*'), ('two','**'), ('three', '***')])	 
     staff_management_id = fields.Many2one('manager.staff_management', string="Staff management")
@@ -46,27 +58,27 @@ class Accommodation(models.Model):
     excursion_area = fields.Char(string="Excursion area", required=False)
     excursion_form = fields.Selection([(('on_foot', 'On_foot'), ('by_car', 'SpringBy_car'))])
     name= fields.Char(string="account.invoice")
-    start_date = fields.Date(
+    starting_date = fields.Datetime(
         string="Start Date", store=True, default=fields.Date.today)
-    end_date = fields.Date(string="End Date", store=True)
+    ending_date = fields.Datetime(string="End Date", store=True)
 
     duration = fields.Float(
         digits=(6, 2), help="Duration in days", compute='_days_duration')
 
-    @api.one
+    @api.multi
     def _days_duration(self):
-        if (self.end_date and self.start_date):
-            start = fields.Datetime.from_string(self.start_date)
-            end = fields.Datetime.from_string(self.end_date)
-            self.duration = (end - start).days + 1
+        if (self.ending_date and self.starting_date):
+            starting = fields.Datetime.from_string(self.starting_date)
+            ending = fields.Datetime.from_string(self.ending_date)
+            self.duration = (ending - starting).days + 1
 
-    @api.onchange('start_date', 'end_date')
+    @api.onchange('starting_date', 'ending_date')
     def _days_changed(self):
         for days in self:
-            if(days.start_date or days.end_date):
-                start = fields.Datetime.from_string(self.start_date)
-                end = fields.Datetime.from_string(self.end_date)
-                self.duration = (end - start).days + 1
+            if(days.starting_date or days.ending_date):
+                starting = fields.Datetime.from_string(self.starting_date)
+                ending = fields.Datetime.from_string(self.ending_date)
+                self.duration = (ending - starting).days + 1
                 return {
                     'warning': {
                         'title': "Duration",
@@ -79,12 +91,12 @@ class Accommodation(models.Model):
         for record in self:
             if(record.capacity < 20):
                 raise ValidationError("Your record is too old: %s" % record.capacity)
-        
- 
+
+
 class Visitor(models.Model):
     _name = 'manager.visitor'
     
-    name = fields.Char(string="Name visitor", required=True)    
+    name = fields.Char(string="Name", required=True)    
     dni = fields.Text(string="DNI", required=True)	    
     address = fields.Char(string="Adress", required=True)	    
     profession = fields.Char(string="Profession", required=True)	
@@ -92,14 +104,14 @@ class Visitor(models.Model):
     staff_management_id = fields.Many2one('manager.staff_management', string="Management")
     accommodation_id = fields.Many2one('manager.accommodation', string="Accommodation")    
      
-    entry_date= fields.Date(
+    entry_date= fields.Datetime(
         string="entry_date", store=True, default=fields.Date.today)
     
 
 class Area(models.Model):
     _name = 'manager.area'
 
-    name= fields.Char(string="Name area", required=True)
+    name= fields.Char(string="Name", required=True)
     extension = fields.Float(digits=(20,3), required=True)
 
     park_id = fields.Many2one('manager.park',
@@ -120,11 +132,12 @@ class Species(models.Model):
     park_id = fields.Many2one('manager.park', string="Park")
     _inherit = 'base.entidad'
 
+
 class Plant_species(models.Model):
     name = 'manager.plant_species'
     _inherit = 'manager.species'
 
-    name = fields.Char(string="Plant species", required=True)
+    name = fields.Char(string="Name", required=True)
     flowering = fields.Boolean(string="It is the flowering period?")
     flowering_period = fields.Selection([(('winter', 'Winter'), ('spring', 'Spring'), 
     ('summer', 'Summer'), ('autumn', 'Autumn'))])
@@ -135,7 +148,7 @@ class Animal_species(models.Model):
     _name = 'manager.animal_species'
     _inherit = 'manager.species'
 
-    name = fields.Char(string="Animal species", required=True)
+    name = fields.Char(string="Name", required=True)
     feeding_type = fields.Selection([(('herbivore', 'Herbivore'), 
         ('carnivorous', 'Carnivorous'), 
         ('omnivorous', 'Omnivorous'))])
@@ -148,7 +161,7 @@ class Mineral_species(models.Model):
     _name = 'manager.mineral_species'
     _inherit = 'manager.species'
 
-    name = fields.Char(string="Mineral species", required=True)
+    name = fields.Char(string="Name", required=True)
     category = fields.Selection([(('crystal', 'Cristal'), 
       ('stone', 'Stone'))])
     inventory = fields.Char(int=(10,3), required=True)
@@ -157,7 +170,7 @@ class Mineral_species(models.Model):
 class Staff(models.Model):
     _name = 'manager.staff'
 
-    name = fields.Char(string="Staff", required=True)
+    name = fields.Char(string="Name", required=True)
     DNI = fields.Char(string="DNI", required=True)
     social_security= fields.Char(string="Social security", required=True)
     adress= fields.Char(string="Adress", required=True)
@@ -173,14 +186,14 @@ class Staff_management(models.Model):
     _name = 'manager.staff_management'
     _inherit = 'manager.staff'
 
-    name = fields.Char(string="Management", required=True)
+    name = fields.Char(string="Name", required=True)
     entry= fields.Integer(int=(10), required=True)
 
 class Staff_survellance(models.Model):
     _name = 'manager.staff_survellance'
     _inherit = 'manager.staff'
 
-    name = fields.Char(string="Survellance", required=True)
+    name = fields.Char(string="Name", required=True)
     car_type= fields.Char(string="Car type", required=True)
     enrollment= fields.Integer(int="Enrollment", required=True)
     area_id = fields.Many2one('manager.area', string="Area")
@@ -189,7 +202,7 @@ class Staff_research(models.Model):
     _name = 'manager.staff_research'
     _inherit = 'manager.staff'
     
-    name = fields.Char(string="Research", required=True)
+    name = fields.Char(string="Name", required=True)
     title= fields.Char(string="Title", required=True)
     project_id = fields.Many2one('manager.project', string="Project")
 
@@ -197,7 +210,7 @@ class Staff_conservation(models.Model):
     _name = 'manager.staff_conservation'
     _inherit = 'manager.staff'
 
-    name = fields.Char(string="Conservation", required=True)
+    name = fields.Char(string="Name", required=True)
     specialization= fields.Char(string="Specialization", required=True)
 
 
@@ -205,40 +218,39 @@ class Project(models.Model):
     _name = 'manager.project'
    
 
-    name = fields.Char(string="Project", required=True)
+    name = fields.Char(string="Name", required=True)
     project_about = fields.Char(string="Project about", required=True)
     budget = fields.Float(float="Budget", required=True)
     staff_research_id = fields.One2many(
         'manager.staff_research', 'project_id', string="Project")
-    start_date = fields.Date(
+    starting_date = fields.Datetime(
         string="Start Date", store=True, default=fields.Date.today)
-    end_date = fields.Date(string="End Date", store=True)
+    ending_date = fields.Datetime(string="End Date", store=True)
 
     period = fields.Float(
         digits=(6, 2), help="Period in days", compute='_days_duration')
 
     
-
-    @api.one('period')
+    @api.multi('period')
     def _days_period(self):
-        if (self.end_date and self.start_date):
-            start = fields.Datetime.from_string(self.start_date)
-            end = fields.Datetime.from_string(self.end_date)
-            self.duration = (end - start).days + 1
+        if (self.ending_date and self.starting_date):
+            starting = fields.Datetime.from_string(self.starting_date)
+            ending = fields.Datetime.from_string(self.ending_date)
+            self.duration = (ending - starting).days + 1
 
-    @api.onchange('start_date', 'end_date')
+    @api.onchange('starting_date', 'ending_date')
     def _days_changed(self):
         for days in self:
-            if(days.start_date or days.end_date):
-                start = fields.Datetime.from_string(self.start_date)
-                end = fields.Datetime.from_string(self.end_date)
-                self.duration = (end - start).days + 1
+            if(days.staring_date or days.ending_date):
+                starting = fields.Datetime.from_string(self.starting_date)
+                ending = fields.Datetime.from_string(self.ending_date)
+                self.duration = (ending - starting).days + 1
                 return {
                     'warning': {
                         'title': "Period",
                         'message': "The period has been updated",
                      },
                 }
- 
 
+ 
  #© 2021 Manager Natural Parks, Inc 
